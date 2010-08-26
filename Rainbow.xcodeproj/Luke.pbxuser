@@ -1,0 +1,172 @@
+// !$*UTF8*$!
+{
+	256AC3D80F4B6AC300CF3369 /* RainbowAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {953, 460}}";
+			sepNavSelRange = "{374, 0}";
+			sepNavVisRange = "{0, 403}";
+		};
+	};
+	256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {953, 459}}";
+			sepNavSelRange = "{205, 0}";
+			sepNavVisRange = "{0, 575}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = A30A04A712255A830087B317 /* Rainbow */;
+		activeTarget = 8D1107260486CEB800E47090 /* Rainbow */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* Rainbow */,
+		);
+		codeSenseManager = A30A04AC12255AA20087B317 /* Code sense */;
+		executables = (
+			A30A04A712255A830087B317 /* Rainbow */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					775,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 304514267;
+			PBXWorkspaceStateSaveDate = 304514267;
+		};
+		perUserProjectItems = {
+			A30A059A12255DBA0087B317 /* PBXTextBookmark */ = A30A059A12255DBA0087B317 /* PBXTextBookmark */;
+			A347A343122684C2001BE360 /* PBXTextBookmark */ = A347A343122684C2001BE360 /* PBXTextBookmark */;
+			A347A34D122684D9001BE360 /* PBXTextBookmark */ = A347A34D122684D9001BE360 /* PBXTextBookmark */;
+			A347A364122684E0001BE360 /* PBXTextBookmark */ = A347A364122684E0001BE360 /* PBXTextBookmark */;
+		};
+		sourceControlManager = A30A04AB12255AA20087B317 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8D1107260486CEB800E47090 /* Rainbow */ = {
+		activeExec = 0;
+		executables = (
+			A30A04A712255A830087B317 /* Rainbow */,
+		);
+	};
+	A30A04A712255A830087B317 /* Rainbow */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Rainbow;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	A30A04AB12255AA20087B317 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	A30A04AC12255AA20087B317 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	A30A059A12255DBA0087B317 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* RainbowAppDelegate.h */;
+		name = "RainbowAppDelegate.h: 17";
+		rLen = 0;
+		rLoc = 374;
+		rType = 0;
+		vrLen = 403;
+		vrLoc = 0;
+	};
+	A347A343122684C2001BE360 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */;
+		name = "RainbowAppDelegate.m: 12";
+		rLen = 0;
+		rLoc = 205;
+		rType = 0;
+		vrLen = 575;
+		vrLoc = 0;
+	};
+	A347A34D122684D9001BE360 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A347A34E122684D9001BE360 /* RainbowAppDelegate.m */;
+		name = "RainbowAppDelegate.m: 12";
+		rLen = 0;
+		rLoc = 205;
+		rType = 0;
+		vrLen = 575;
+		vrLoc = 0;
+	};
+	A347A34E122684D9001BE360 /* RainbowAppDelegate.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = RainbowAppDelegate.m;
+		path = /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {953, 459}}";
+			sepNavSelRange = "{205, 0}";
+			sepNavVisRange = "{0, 575}";
+		};
+	};
+	A347A364122684E0001BE360 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = A347A365122684E0001BE360 /* RainbowAppDelegate.m */;
+		name = "RainbowAppDelegate.m: 12";
+		rLen = 0;
+		rLoc = 205;
+		rType = 0;
+		vrLen = 575;
+		vrLoc = 0;
+	};
+	A347A365122684E0001BE360 /* RainbowAppDelegate.m */ = {
+		isa = PBXFileReference;
+		name = RainbowAppDelegate.m;
+		path = /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m;
+		sourceTree = "<absolute>";
+	};
+}

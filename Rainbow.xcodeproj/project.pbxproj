@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		256AC3DA0F4B6AC300CF3369 /* RainbowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A30A04B412255C7D0087B317 /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A04B112255C7D0087B317 /* LoginWindowController.m */; };
+		A30A04B512255C7D0087B317 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A04B312255C7D0087B317 /* MainWindowController.m */; };
+		A30A04B912255C960087B317 /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A04B612255C960087B317 /* Compose.xib */; };
+		A30A04BA12255C960087B317 /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A04B712255C960087B317 /* LoginWindow.xib */; };
+		A30A04BB12255C960087B317 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A04B812255C960087B317 /* MainWindow.xib */; };
+		A30A04D012255CB30087B317 /* mac-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04BD12255CB30087B317 /* mac-clear.png */; };
+		A30A04D112255CB30087B317 /* mac-toolbar-compose.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04BE12255CB30087B317 /* mac-toolbar-compose.png */; };
+		A30A04D212255CB30087B317 /* mac-toolbar-direct-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04BF12255CB30087B317 /* mac-toolbar-direct-alt.png */; };
+		A30A04D312255CB30087B317 /* mac-toolbar-direct-badged.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C012255CB30087B317 /* mac-toolbar-direct-badged.png */; };
+		A30A04D412255CB30087B317 /* mac-toolbar-direct.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C112255CB30087B317 /* mac-toolbar-direct.png */; };
+		A30A04D512255CB30087B317 /* mac-toolbar-geotag-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C212255CB30087B317 /* mac-toolbar-geotag-alt.png */; };
+		A30A04D612255CB30087B317 /* mac-toolbar-geotag.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C312255CB30087B317 /* mac-toolbar-geotag.png */; };
+		A30A04D712255CB30087B317 /* mac-toolbar-home-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C412255CB30087B317 /* mac-toolbar-home-alt.png */; };
+		A30A04D812255CB30087B317 /* mac-toolbar-home-badged.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C512255CB30087B317 /* mac-toolbar-home-badged.png */; };
+		A30A04D912255CB30087B317 /* mac-toolbar-home.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C612255CB30087B317 /* mac-toolbar-home.png */; };
+		A30A04DA12255CB30087B317 /* mac-toolbar-lists.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C712255CB30087B317 /* mac-toolbar-lists.png */; };
+		A30A04DB12255CB30087B317 /* mac-toolbar-mentions-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C812255CB30087B317 /* mac-toolbar-mentions-alt.png */; };
+		A30A04DC12255CB30087B317 /* mac-toolbar-mentions-badged.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04C912255CB30087B317 /* mac-toolbar-mentions-badged.png */; };
+		A30A04DD12255CB30087B317 /* mac-toolbar-mentions.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CA12255CB30087B317 /* mac-toolbar-mentions.png */; };
+		A30A04DE12255CB30087B317 /* mac-toolbar-shrink.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CB12255CB30087B317 /* mac-toolbar-shrink.png */; };
+		A30A04DF12255CB30087B317 /* mac-toolbar-star-alt.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CC12255CB30087B317 /* mac-toolbar-star-alt.png */; };
+		A30A04E012255CB30087B317 /* mac-toolbar-star.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CD12255CB30087B317 /* mac-toolbar-star.png */; };
+		A30A04E112255CB30087B317 /* mac-toolbar-user.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CE12255CB30087B317 /* mac-toolbar-user.png */; };
+		A30A04E212255CB30087B317 /* sl-icon_library.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CF12255CB30087B317 /* sl-icon_library.tiff */; };
+		A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30A04F112255DAE0087B317 /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* RainbowAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RainbowAppDelegate.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RainbowAppDelegate.m; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* Rainbow_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* Rainbow-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Rainbow-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Rainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A30A04B012255C7D0087B317 /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
+		A30A04B112255C7D0087B317 /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
+		A30A04B212255C7D0087B317 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		A30A04B312255C7D0087B317 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		A30A04B612255C960087B317 /* Compose.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
+		A30A04B712255C960087B317 /* LoginWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
+		A30A04B812255C960087B317 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A30A04BD12255CB30087B317 /* mac-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-clear.png"; sourceTree = "<group>"; };
+		A30A04BE12255CB30087B317 /* mac-toolbar-compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-compose.png"; sourceTree = "<group>"; };
+		A30A04BF12255CB30087B317 /* mac-toolbar-direct-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-direct-alt.png"; sourceTree = "<group>"; };
+		A30A04C012255CB30087B317 /* mac-toolbar-direct-badged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-direct-badged.png"; sourceTree = "<group>"; };
+		A30A04C112255CB30087B317 /* mac-toolbar-direct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-direct.png"; sourceTree = "<group>"; };
+		A30A04C212255CB30087B317 /* mac-toolbar-geotag-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-geotag-alt.png"; sourceTree = "<group>"; };
+		A30A04C312255CB30087B317 /* mac-toolbar-geotag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-geotag.png"; sourceTree = "<group>"; };
+		A30A04C412255CB30087B317 /* mac-toolbar-home-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-home-alt.png"; sourceTree = "<group>"; };
+		A30A04C512255CB30087B317 /* mac-toolbar-home-badged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-home-badged.png"; sourceTree = "<group>"; };
+		A30A04C612255CB30087B317 /* mac-toolbar-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-home.png"; sourceTree = "<group>"; };
+		A30A04C712255CB30087B317 /* mac-toolbar-lists.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-lists.png"; sourceTree = "<group>"; };
+		A30A04C812255CB30087B317 /* mac-toolbar-mentions-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-mentions-alt.png"; sourceTree = "<group>"; };
+		A30A04C912255CB30087B317 /* mac-toolbar-mentions-badged.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-mentions-badged.png"; sourceTree = "<group>"; };
+		A30A04CA12255CB30087B317 /* mac-toolbar-mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-mentions.png"; sourceTree = "<group>"; };
+		A30A04CB12255CB30087B317 /* mac-toolbar-shrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-shrink.png"; sourceTree = "<group>"; };
+		A30A04CC12255CB30087B317 /* mac-toolbar-star-alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-star-alt.png"; sourceTree = "<group>"; };
+		A30A04CD12255CB30087B317 /* mac-toolbar-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-star.png"; sourceTree = "<group>"; };
+		A30A04CE12255CB30087B317 /* mac-toolbar-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-user.png"; sourceTree = "<group>"; };
+		A30A04CF12255CB30087B317 /* sl-icon_library.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "sl-icon_library.tiff"; sourceTree = "<group>"; };
+		A30A04F112255DAE0087B317 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A30A04AF12255C5A0087B317 /* Controllers */,
+				256AC3D80F4B6AC300CF3369 /* RainbowAppDelegate.h */,
+				256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A30A04F112255DAE0087B317 /* WebKit.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Rainbow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Rainbow */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = Rainbow;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256AC3F00F4B6AF500CF3369 /* Rainbow_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A30A04BC12255CA10087B317 /* images */,
+				A30A04B612255C960087B317 /* Compose.xib */,
+				A30A04B712255C960087B317 /* LoginWindow.xib */,
+				A30A04B812255C960087B317 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* Rainbow-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A30A04AF12255C5A0087B317 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A30A04B012255C7D0087B317 /* LoginWindowController.h */,
+				A30A04B112255C7D0087B317 /* LoginWindowController.m */,
+				A30A04B212255C7D0087B317 /* MainWindowController.h */,
+				A30A04B312255C7D0087B317 /* MainWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A30A04BC12255CA10087B317 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A30A04BD12255CB30087B317 /* mac-clear.png */,
+				A30A04BE12255CB30087B317 /* mac-toolbar-compose.png */,
+				A30A04BF12255CB30087B317 /* mac-toolbar-direct-alt.png */,
+				A30A04C012255CB30087B317 /* mac-toolbar-direct-badged.png */,
+				A30A04C112255CB30087B317 /* mac-toolbar-direct.png */,
+				A30A04C212255CB30087B317 /* mac-toolbar-geotag-alt.png */,
+				A30A04C312255CB30087B317 /* mac-toolbar-geotag.png */,
+				A30A04C412255CB30087B317 /* mac-toolbar-home-alt.png */,
+				A30A04C512255CB30087B317 /* mac-toolbar-home-badged.png */,
+				A30A04C612255CB30087B317 /* mac-toolbar-home.png */,
+				A30A04C712255CB30087B317 /* mac-toolbar-lists.png */,
+				A30A04C812255CB30087B317 /* mac-toolbar-mentions-alt.png */,
+				A30A04C912255CB30087B317 /* mac-toolbar-mentions-badged.png */,
+				A30A04CA12255CB30087B317 /* mac-toolbar-mentions.png */,
+				A30A04CB12255CB30087B317 /* mac-toolbar-shrink.png */,
+				A30A04CC12255CB30087B317 /* mac-toolbar-star-alt.png */,
+				A30A04CD12255CB30087B317 /* mac-toolbar-star.png */,
+				A30A04CE12255CB30087B317 /* mac-toolbar-user.png */,
+				A30A04CF12255CB30087B317 /* sl-icon_library.tiff */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Rainbow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Rainbow" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rainbow;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Rainbow;
+			productReference = 8D1107320486CEB800E47090 /* Rainbow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Rainbow" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Rainbow */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Rainbow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				A30A04B912255C960087B317 /* Compose.xib in Resources */,
+				A30A04BA12255C960087B317 /* LoginWindow.xib in Resources */,
+				A30A04BB12255C960087B317 /* MainWindow.xib in Resources */,
+				A30A04D012255CB30087B317 /* mac-clear.png in Resources */,
+				A30A04D112255CB30087B317 /* mac-toolbar-compose.png in Resources */,
+				A30A04D212255CB30087B317 /* mac-toolbar-direct-alt.png in Resources */,
+				A30A04D312255CB30087B317 /* mac-toolbar-direct-badged.png in Resources */,
+				A30A04D412255CB30087B317 /* mac-toolbar-direct.png in Resources */,
+				A30A04D512255CB30087B317 /* mac-toolbar-geotag-alt.png in Resources */,
+				A30A04D612255CB30087B317 /* mac-toolbar-geotag.png in Resources */,
+				A30A04D712255CB30087B317 /* mac-toolbar-home-alt.png in Resources */,
+				A30A04D812255CB30087B317 /* mac-toolbar-home-badged.png in Resources */,
+				A30A04D912255CB30087B317 /* mac-toolbar-home.png in Resources */,
+				A30A04DA12255CB30087B317 /* mac-toolbar-lists.png in Resources */,
+				A30A04DB12255CB30087B317 /* mac-toolbar-mentions-alt.png in Resources */,
+				A30A04DC12255CB30087B317 /* mac-toolbar-mentions-badged.png in Resources */,
+				A30A04DD12255CB30087B317 /* mac-toolbar-mentions.png in Resources */,
+				A30A04DE12255CB30087B317 /* mac-toolbar-shrink.png in Resources */,
+				A30A04DF12255CB30087B317 /* mac-toolbar-star-alt.png in Resources */,
+				A30A04E012255CB30087B317 /* mac-toolbar-star.png in Resources */,
+				A30A04E112255CB30087B317 /* mac-toolbar-user.png in Resources */,
+				A30A04E212255CB30087B317 /* sl-icon_library.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* RainbowAppDelegate.m in Sources */,
+				A30A04B412255C7D0087B317 /* LoginWindowController.m in Sources */,
+				A30A04B512255C7D0087B317 /* MainWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Rainbow_Prefix.pch;
+				INFOPLIST_FILE = "Rainbow-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Rainbow;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Rainbow_Prefix.pch;
+				INFOPLIST_FILE = "Rainbow-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Rainbow;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Rainbow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Rainbow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
