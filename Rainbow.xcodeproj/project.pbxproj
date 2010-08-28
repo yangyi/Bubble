@@ -37,7 +37,33 @@
 		A30A04E112255CB30087B317 /* mac-toolbar-user.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CE12255CB30087B317 /* mac-toolbar-user.png */; };
 		A30A04E212255CB30087B317 /* sl-icon_library.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CF12255CB30087B317 /* sl-icon_library.tiff */; };
 		A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30A04F112255DAE0087B317 /* WebKit.framework */; };
+		A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
+		A3F532E61226946500C5469D /* tpl.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F532E51226946500C5469D /* tpl.html */; };
+		A3F5340812269B4A00C5469D /* TKTemplateEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
+		A3F5343C1226A03F00C5469D /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F534321226A03F00C5469D /* avatar.png */; };
+		A3F5343D1226A03F00C5469D /* gear-old.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F534331226A03F00C5469D /* gear-old.png */; };
+		A3F5343E1226A03F00C5469D /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F534341226A03F00C5469D /* gear.png */; };
+		A3F5343F1226A03F00C5469D /* highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F534351226A03F00C5469D /* highlight.png */; };
+		A3F534401226A03F00C5469D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3F534361226A03F00C5469D /* Info.plist */; };
+		A3F534411226A03F00C5469D /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F534371226A03F00C5469D /* shadow.png */; };
+		A3F534421226A03F00C5469D /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = A3F534381226A03F00C5469D /* style.css */; };
+		A3F534431226A03F00C5469D /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F534391226A03F00C5469D /* template.html */; };
+		A3F534441226A03F00C5469D /* theme.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F5343A1226A03F00C5469D /* theme.html */; };
+		A3F534451226A03F00C5469D /* tweet.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F5343B1226A03F00C5469D /* tweet.html */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A3F5340D12269B4E00C5469D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A3F5340812269B4A00C5469D /* TKTemplateEngine.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -79,6 +105,18 @@
 		A30A04CE12255CB30087B317 /* mac-toolbar-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-user.png"; sourceTree = "<group>"; };
 		A30A04CF12255CB30087B317 /* sl-icon_library.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "sl-icon_library.tiff"; sourceTree = "<group>"; };
 		A30A04F112255DAE0087B317 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A3F5320612268CED00C5469D /* TKTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TKTemplateEngine.framework; path = /Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework; sourceTree = "<absolute>"; };
+		A3F532E51226946500C5469D /* tpl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tpl.html; sourceTree = "<group>"; };
+		A3F534321226A03F00C5469D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		A3F534331226A03F00C5469D /* gear-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-old.png"; sourceTree = "<group>"; };
+		A3F534341226A03F00C5469D /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
+		A3F534351226A03F00C5469D /* highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highlight.png; sourceTree = "<group>"; };
+		A3F534361226A03F00C5469D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3F534371226A03F00C5469D /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
+		A3F534381226A03F00C5469D /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		A3F534391226A03F00C5469D /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		A3F5343A1226A03F00C5469D /* theme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = theme.html; sourceTree = "<group>"; };
+		A3F5343B1226A03F00C5469D /* tweet.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tweet.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */,
 			);
@@ -107,6 +146,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3F5320612268CED00C5469D /* TKTemplateEngine.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -155,6 +195,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3F534311226A03F00C5469D /* theme */,
+				A3F532E51226946500C5469D /* tpl.html */,
 				A30A04BC12255CA10087B317 /* images */,
 				A30A04B612255C960087B317 /* Compose.xib */,
 				A30A04B712255C960087B317 /* LoginWindow.xib */,
@@ -212,6 +254,24 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		A3F534311226A03F00C5469D /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				A3F534321226A03F00C5469D /* avatar.png */,
+				A3F534331226A03F00C5469D /* gear-old.png */,
+				A3F534341226A03F00C5469D /* gear.png */,
+				A3F534351226A03F00C5469D /* highlight.png */,
+				A3F534361226A03F00C5469D /* Info.plist */,
+				A3F534371226A03F00C5469D /* shadow.png */,
+				A3F534381226A03F00C5469D /* style.css */,
+				A3F534391226A03F00C5469D /* template.html */,
+				A3F5343A1226A03F00C5469D /* theme.html */,
+				A3F5343B1226A03F00C5469D /* tweet.html */,
+			);
+			name = theme;
+			path = ../rainbow/theme;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,6 +282,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				A3F5340D12269B4E00C5469D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -279,6 +340,17 @@
 				A30A04E012255CB30087B317 /* mac-toolbar-star.png in Resources */,
 				A30A04E112255CB30087B317 /* mac-toolbar-user.png in Resources */,
 				A30A04E212255CB30087B317 /* sl-icon_library.tiff in Resources */,
+				A3F532E61226946500C5469D /* tpl.html in Resources */,
+				A3F5343C1226A03F00C5469D /* avatar.png in Resources */,
+				A3F5343D1226A03F00C5469D /* gear-old.png in Resources */,
+				A3F5343E1226A03F00C5469D /* gear.png in Resources */,
+				A3F5343F1226A03F00C5469D /* highlight.png in Resources */,
+				A3F534401226A03F00C5469D /* Info.plist in Resources */,
+				A3F534411226A03F00C5469D /* shadow.png in Resources */,
+				A3F534421226A03F00C5469D /* style.css in Resources */,
+				A3F534431226A03F00C5469D /* template.html in Resources */,
+				A3F534441226A03F00C5469D /* theme.html in Resources */,
+				A3F534451226A03F00C5469D /* tweet.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +395,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../templatekit/build/Release\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -340,6 +416,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../templatekit/build/Release\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Rainbow_Prefix.pch;
