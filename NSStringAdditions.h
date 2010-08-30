@@ -10,5 +10,6 @@
 
 
 @interface NSString(Additions)
+
 	+ (NSString*) stringWithUUID;
 @end
