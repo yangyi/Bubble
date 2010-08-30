@@ -1,1031 +1,0 @@
-TRainbow
-v7
-r0
-t304518765.127530
-cCheck dependencies
-cProcessInfoPlistFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Info.plist Rainbow-Info.plist
-cCopyStringsFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-cCompileXIB /Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib
-cCompileXIB /Users/Luke/Projects/Rainbow/Compose.xib
-cCompileXIB /Users/Luke/Projects/Rainbow/LoginWindow.xib
-cCompileXIB /Users/Luke/Projects/Rainbow/MainWindow.xib
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-clear.png mac-clear.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-compose.png mac-toolbar-compose.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-alt.png mac-toolbar-direct-alt.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-badged.png mac-toolbar-direct-badged.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct.png mac-toolbar-direct.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag-alt.png mac-toolbar-geotag-alt.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag.png mac-toolbar-geotag.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-alt.png mac-toolbar-home-alt.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-badged.png mac-toolbar-home-badged.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home.png mac-toolbar-home.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-lists.png mac-toolbar-lists.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-alt.png mac-toolbar-mentions-alt.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-badged.png mac-toolbar-mentions-badged.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions.png mac-toolbar-mentions.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-shrink.png mac-toolbar-shrink.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star-alt.png mac-toolbar-star-alt.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star.png mac-toolbar-star.png
-cCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-user.png mac-toolbar-user.png
-cCopyTiffFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/sl-icon_library.tiff sl-icon_library.tiff
-cCpResource build/Release/Rainbow.app/Contents/Resources/tpl.html tpl.html
-cProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-cProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-cProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/main.o /Users/Luke/Projects/Rainbow/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/main.o /Users/Luke/Projects/Rainbow/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow normal x86_64
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/main.o /Users/Luke/Projects/Rainbow/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
-cLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow normal i386
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal ppc objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal ppc objective-c com.apple.compilers.gcc.4_2
-cCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal ppc objective-c com.apple.compilers.gcc.4_2
-cLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow normal ppc
-cCreateUniversalBinary /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow normal "x86_64 i386 ppc"
-cGenerateDSYMFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app.dSYM /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow
-cTouch /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app
-
-N/Developer/SDKs/MacOSX10.6.sdk
-c000000004ABBF0FD00000000000000EE
-t1253830909
-s238
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
-c0000000040C4AA6800000000000001E5
-t1086630504
-s485
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004AB9AA2700000000000013E6
-t1253681703
-s5094
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/WebKit.framework/Headers/WebKit.h
-c000000004A6E9EEC0000000000000957
-t1248763628
-s2391
-
-N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/WebKit.framework/WebKit
-c000000004ABBF0EF00000000000789DC
-t1253830895
-s494044
-
-N/System/Library/Frameworks/Cocoa.framework/Cocoa
-c000000004A1F2D63000000000000A5E0
-t1243557219
-s42464
-
-N/Users/Luke/Projects/Rainbow/Compose.xib
-c000000004C711DBE0000000000012137
-t1282481598
-s74039
-
-N/Users/Luke/Projects/Rainbow/English.lproj/InfoPlist.strings
-c000000004C752303000000000000002D
-t1282745091
-s45
-
-N/Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib
-c000000004C75254F000000000002B212
-t1282745679
-s176658
-
-N/Users/Luke/Projects/Rainbow/LoginWindow.xib
-c000000004C728C3F0000000000009FBF
-t1282575423
-s40895
-
-N/Users/Luke/Projects/Rainbow/LoginWindowController.h
-c000000004C750659000000000000014C
-t1282737753
-s332
-i<Cocoa/Cocoa.h>
-
-N/Users/Luke/Projects/Rainbow/LoginWindowController.m
-c000000004C72896000000000000001B0
-t1282574688
-s432
-i"LoginWindowController.h"
-
-N/Users/Luke/Projects/Rainbow/MainWindow.xib
-c000000004C7506740000000000013563
-t1282737780
-s79203
-
-N/Users/Luke/Projects/Rainbow/MainWindowController.h
-c000000004C765C96000000000000016D
-t1282825366
-s365
-i<Cocoa/Cocoa.h>
-i<WebKit/WebKit.h>
-i<TKTemplateEngine/TKTemplateEngine.h>
-
-N/Users/Luke/Projects/Rainbow/MainWindowController.m
-c000000004C765E340000000000000290
-t1282825780
-s656
-i"MainWindowController.h"
-
-N/Users/Luke/Projects/Rainbow/RainbowAppDelegate.h
-c000000004C7525AE0000000000000193
-t1282745774
-s403
-i<Cocoa/Cocoa.h>
-i"MainWindowController.h"
-i"LoginWindowController.h"
-
-N/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m
-c000000004C75260F000000000000023F
-t1282745871
-s575
-i"RainbowAppDelegate.h"
-
-N/Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch
-c000000004C7523030000000000000091
-t1282745091
-s145
-i<Cocoa/Cocoa.h>
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/LoginWindowController.o
-t1282825964
-s15780
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/MainWindowController.o
-t1282825964
-s16500
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow
-t1282825964
-s19304
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow.LinkFileList
-c000000004C765EE000000000000001B7
-t1282825952
-s439
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/RainbowAppDelegate.o
-t1282825964
-s18216
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/main.o
-t1282825963
-s4832
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/LoginWindowController.o
-t1282825964
-s15984
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/MainWindowController.o
-t1282825964
-s16944
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow
-t1282825965
-s18940
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow.LinkFileList
-c000000004C765EE000000000000001B3
-t1282825952
-s435
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/RainbowAppDelegate.o
-t1282825964
-s18556
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/main.o
-t1282825964
-s4860
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/LoginWindowController.o
-t1282825963
-s17492
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/MainWindowController.o
-t1282825963
-s19024
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow
-t1282825963
-s16992
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow.LinkFileList
-c000000004C765EE000000000000001BF
-t1282825952
-s447
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/RainbowAppDelegate.o
-t1282825963
-s25240
-
-N/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/main.o
-t1282825963
-s5032
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app
-t1282825965
-s102
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app.dSYM
-t1282825965
-s102
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Info.plist
-t1282825952
-s886
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow
-t1282825965
-s63996
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/PkgInfo
-t1282825952
-s8
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/Compose.nib
-t1282825953
-s16313
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/InfoPlist.strings
-t1282825952
-s92
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/MainMenu.nib
-t1282825953
-s33534
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/LoginWindow.nib
-t1282825953
-s5781
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/MainWindow.nib
-t1282825954
-s16426
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-clear.png
-t1282825953
-s320
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-compose.png
-t1282825953
-s758
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-alt.png
-t1282825953
-s334
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-badged.png
-t1282825953
-s609
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct.png
-t1282825953
-s509
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag-alt.png
-t1282825953
-s538
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag.png
-t1282825953
-s617
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-alt.png
-t1282825953
-s303
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-badged.png
-t1282825953
-s661
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home.png
-t1282825953
-s589
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-lists.png
-t1282825953
-s295
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-alt.png
-t1282825953
-s871
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-badged.png
-t1282825953
-s893
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions.png
-t1282825953
-s825
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-shrink.png
-t1282825953
-s586
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star-alt.png
-t1282825953
-s585
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star.png
-t1282825953
-s690
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/mac-toolbar-user.png
-t1282825953
-s649
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/sl-icon_library.tiff
-t1282825953
-s2396
-
-N/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/tpl.html
-t1282825953
-s8
-
-N/Users/Luke/Projects/Rainbow/mac-clear.png
-c000000004C6F8BC90000000000000140
-t1282378697
-s320
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-compose.png
-c000000004C6F8BC900000000000002F6
-t1282378697
-s758
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-direct-alt.png
-c000000004C6F8BC9000000000000014E
-t1282378697
-s334
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-direct-badged.png
-c000000004C6F8BC90000000000000261
-t1282378697
-s609
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-direct.png
-c000000004C6F8BC900000000000001FD
-t1282378697
-s509
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-geotag-alt.png
-c000000004C6F8BC9000000000000021A
-t1282378697
-s538
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-geotag.png
-c000000004C6F8BC90000000000000269
-t1282378697
-s617
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-home-alt.png
-c000000004C6F8BC9000000000000012F
-t1282378697
-s303
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-home-badged.png
-c000000004C6F8BC90000000000000295
-t1282378697
-s661
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-home.png
-c000000004C6F8BC9000000000000024D
-t1282378697
-s589
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-lists.png
-c000000004C6F8BC90000000000000127
-t1282378697
-s295
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-mentions-alt.png
-c000000004C6F8BC90000000000000367
-t1282378697
-s871
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-mentions-badged.png
-c000000004C6F8BC9000000000000037D
-t1282378697
-s893
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-mentions.png
-c000000004C6F8BC90000000000000339
-t1282378697
-s825
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-shrink.png
-c000000004C6F8BC9000000000000024A
-t1282378697
-s586
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-star-alt.png
-c000000004C6F8BC90000000000000249
-t1282378697
-s585
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-star.png
-c000000004C6F8BC900000000000002B2
-t1282378697
-s690
-
-N/Users/Luke/Projects/Rainbow/mac-toolbar-user.png
-c000000004C6F8BC90000000000000289
-t1282378697
-s649
-
-N/Users/Luke/Projects/Rainbow/main.m
-c000000004C75230300000000000000F5
-t1282745091
-s245
-i<Cocoa/Cocoa.h>
-
-N/Users/Luke/Projects/Rainbow/sl-icon_library.tiff
-c00000000496D8E3D000000000000095C
-t1231916605
-s2396
-
-N/Users/Luke/Projects/Rainbow/tpl.html
-c000000004C765CEE0000000000000008
-t1282825454
-s8
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKContext.h
-c000000004C76544400000000000002C5
-t1282823236
-s709
-i<Foundation/Foundation.h>
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKFilter.h
-c000000004C765444000000000000012C
-t1282823236
-s300
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKTag.h
-c000000004C7654440000000000000184
-t1282823236
-s388
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKTemplate.h
-c000000004C76544400000000000004C3
-t1282823236
-s1219
-i<Foundation/Foundation.h>
-i"TKTemplateEngineSettings.h"
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKTemplateEngine.h
-c000000004C7654440000000000000114
-t1282823236
-s276
-i"TKTemplate.h"
-i"TKTemplateEngineSettings.h"
-i"TKTemplateEngineLibrary.h"
-i"TKContext.h"
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKTemplateEngineLibrary.h
-c000000004C7654440000000000000232
-t1282823236
-s562
-i<Foundation/Foundation.h>
-i"TKTag.h"
-i"TKFilter.h"
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/Headers/TKTemplateEngineSettings.h
-c000000004C76544400000000000004F7
-t1282823236
-s1271
-i<Foundation/Foundation.h>
-
-N/Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework/TKTemplateEngine
-c000000004C76545900000000000A4E00
-t1282823257
-s675328
-
-N/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch.gch
-t1282825959
-s55502640
-
-N/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch.gch
-t1282825959
-s52868880
-
-N/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch.gch
-t1282825962
-s52737616
-
-NRainbow-Info.plist
-c000000004C75230300000000000003EA
-t1282745091
-s1002
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies304518752#304518752#0(0"0(0#1#0"4300885448#0"0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s304518763.972014
-e304518764.142877
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/LoginWindowController.o
-x/Users/Luke/Projects/Rainbow/LoginWindowController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)
-lSLF07#2@60"Compile /Users/Luke/Projects/Rainbow/LoginWindowController.m304518763#304518764#0(507"/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)2(22@33"No '-openMainWindow' method found304518764#100#100#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#19"no '*' method found0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)304518764#200#112#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#0"0(0#0#52"/Users/Luke/Projects/Rainbow/LoginWindowController.m4300885448#1464"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/i386 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/LoginWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/LoginWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s304518764.023960
-e304518764.299305
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/MainWindowController.o
-x/Users/Luke/Projects/Rainbow/MainWindowController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Luke/Projects/Rainbow/MainWindowController.m304518764#304518764#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/MainWindowController.m4300885448#1462"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/i386 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/MainWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/MainWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s304518763.643901
-e304518764.023850
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/RainbowAppDelegate.o
-x/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m304518763#304518764#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m4300885448#1458"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/i386 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/RainbowAppDelegate.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/main.o /Users/Luke/Projects/Rainbow/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s304518763.430954
-e304518763.971902
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/main.o
-x/Users/Luke/Projects/Rainbow/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@43"Compile /Users/Luke/Projects/Rainbow/main.m304518763#304518763#0(0"0(0#0#35"/Users/Luke/Projects/Rainbow/main.m4300885448#1430"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/i386 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/main.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/main.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal ppc objective-c com.apple.compilers.gcc.4_2
-s304518764.501423
-e304518764.673249
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/LoginWindowController.o
-x/Users/Luke/Projects/Rainbow/LoginWindowController.m
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)
-lSLF07#2@60"Compile /Users/Luke/Projects/Rainbow/LoginWindowController.m304518764#304518764#0(507"/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)2(22@33"No '-openMainWindow' method found304518764#100#100#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#19"no '*' method found0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)304518764#200#112#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#0"0(0#0#52"/Users/Luke/Projects/Rainbow/LoginWindowController.m4300885448#1458"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/ppc -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/LoginWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/LoginWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal ppc objective-c com.apple.compilers.gcc.4_2
-s304518764.560179
-e304518764.784828
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/MainWindowController.o
-x/Users/Luke/Projects/Rainbow/MainWindowController.m
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Luke/Projects/Rainbow/MainWindowController.m304518764#304518764#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/MainWindowController.m4300885448#1456"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/ppc -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/MainWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/MainWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal ppc objective-c com.apple.compilers.gcc.4_2
-s304518764.300574
-e304518764.501132
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/RainbowAppDelegate.o
-x/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m304518764#304518764#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m4300885448#1452"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/ppc -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/RainbowAppDelegate.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/main.o /Users/Luke/Projects/Rainbow/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
-s304518764.142992
-e304518764.300492
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/main.o
-x/Users/Luke/Projects/Rainbow/main.m
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@43"Compile /Users/Luke/Projects/Rainbow/main.m304518764#304518764#0(0"0(0#0#35"/Users/Luke/Projects/Rainbow/main.m4300885448#1424"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/ppc -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/main.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/main.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/LoginWindowController.o /Users/Luke/Projects/Rainbow/LoginWindowController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s304518763.278352
-e304518763.430848
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/LoginWindowController.o
-x/Users/Luke/Projects/Rainbow/LoginWindowController.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept
-o/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)
-lSLF07#2@60"Compile /Users/Luke/Projects/Rainbow/LoginWindowController.m304518763#304518763#0(507"/Users/Luke/Projects/Rainbow/LoginWindowController.m: In function '-[LoginWindowController login]':/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: no '-openMainWindow' method found/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: (Messages without a matching method signature/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: will be assumed to return 'id' and accept/Users/Luke/Projects/Rainbow/LoginWindowController.m:20: warning: '...' as arguments.)2(22@33"No '-openMainWindow' method found304518763#100#100#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#19"no '*' method found0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)304518763#200#112#0(6@52"/Users/Luke/Projects/Rainbow/LoginWindowController.m304267488#20#0#20#0#0"0(0#0#52"/Users/Luke/Projects/Rainbow/LoginWindowController.m4300885448#1470"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/x86_64 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/LoginWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/LoginWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/MainWindowController.o /Users/Luke/Projects/Rainbow/MainWindowController.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s304518763.359086
-e304518763.576240
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/MainWindowController.o
-x/Users/Luke/Projects/Rainbow/MainWindowController.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@59"Compile /Users/Luke/Projects/Rainbow/MainWindowController.m304518763#304518763#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/MainWindowController.m4300885448#1468"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/x86_64 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/MainWindowController.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/MainWindowController.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/RainbowAppDelegate.o /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s304518762.894335
-e304518763.358973
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/RainbowAppDelegate.o
-x/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@57"Compile /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m304518762#304518763#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/RainbowAppDelegate.m4300885448#1464"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/x86_64 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/RainbowAppDelegate.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/RainbowAppDelegate.o0#
-
-CCompileC build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/main.o /Users/Luke/Projects/Rainbow/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s304518762.892915
-e304518763.278245
-r1
-xCompileC
-xbuild/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/main.o
-x/Users/Luke/Projects/Rainbow/main.m
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@43"Compile /Users/Luke/Projects/Rainbow/main.m304518762#304518763#0(0"0(0#0#35"/Users/Luke/Projects/Rainbow/main.m4300885448#1436"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/x86_64 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -include /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch -c /Users/Luke/Projects/Rainbow/main.m -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/main.o0#
-
-CCompileXIB /Users/Luke/Projects/Rainbow/Compose.xib
-s304518752.891864
-e304518753.584918
-r1
-xCompileXIB
-x/Users/Luke/Projects/Rainbow/Compose.xib
-o/* com.apple.ibtool.document.notices */
-o/Users/Luke/Projects/Rainbow/Compose.xib:15: note: This view is clipping its content.
-o/Users/Luke/Projects/Rainbow/Compose.xib:17: note: This view is clipping its content.
-o/Users/Luke/Projects/Rainbow/Compose.xib:19: note: This view is clipping its content.
-lSLF07#2@22"CompileXIB Compose.xib304518752#304518753#0(298"/* com.apple.ibtool.document.notices *//Users/Luke/Projects/Rainbow/Compose.xib:15: note: This view is clipping its content./Users/Luke/Projects/Rainbow/Compose.xib:17: note: This view is clipping its content./Users/Luke/Projects/Rainbow/Compose.xib:19: note: This view is clipping its content.3(13@34"This view is clipping its content.304518753#18446744073709551615#0#0(6@40"/Users/Luke/Projects/Rainbow/Compose.xib304174398#15#0#15#0#0"0(13@34"This view is clipping its content.304518753#18446744073709551615#0#0(6@40"/Users/Luke/Projects/Rainbow/Compose.xib304174398#17#0#17#0#0"0(13@34"This view is clipping its content.304518753#18446744073709551615#0#0(6@40"/Users/Luke/Projects/Rainbow/Compose.xib304174398#19#0#19#0#0"0(0#0#40"/Users/Luke/Projects/Rainbow/Compose.xib4300885448#269"    cd /Users/Luke/Projects/Rainbow    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/Compose.nib /Users/Luke/Projects/Rainbow/Compose.xib0#
-
-CCompileXIB /Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib
-s304518752.778239
-e304518753.523489
-r1
-xCompileXIB
-x/Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib
-lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib304518752#304518753#0(0"0(0#0#55"/Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib4300885448#299"    cd /Users/Luke/Projects/Rainbow    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/MainMenu.nib /Users/Luke/Projects/Rainbow/English.lproj/MainMenu.xib0#
-
-CCompileXIB /Users/Luke/Projects/Rainbow/LoginWindow.xib
-s304518753.523575
-e304518753.810312
-r1
-xCompileXIB
-x/Users/Luke/Projects/Rainbow/LoginWindow.xib
-lSLF07#2@26"CompileXIB LoginWindow.xib304518753#304518753#0(0"0(0#0#44"/Users/Luke/Projects/Rainbow/LoginWindow.xib4300885448#277"    cd /Users/Luke/Projects/Rainbow    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/LoginWindow.nib /Users/Luke/Projects/Rainbow/LoginWindow.xib0#
-
-CCompileXIB /Users/Luke/Projects/Rainbow/MainWindow.xib
-s304518753.585011
-e304518754.102834
-r1
-xCompileXIB
-x/Users/Luke/Projects/Rainbow/MainWindow.xib
-o/* com.apple.ibtool.document.notices */
-o/Users/Luke/Projects/Rainbow/MainWindow.xib:108: note: This view is clipping its content.
-o/Users/Luke/Projects/Rainbow/MainWindow.xib:81: note: This view is clipping its content.
-lSLF07#2@25"CompileXIB MainWindow.xib304518753#304518754#0(219"/* com.apple.ibtool.document.notices *//Users/Luke/Projects/Rainbow/MainWindow.xib:108: note: This view is clipping its content./Users/Luke/Projects/Rainbow/MainWindow.xib:81: note: This view is clipping its content.2(13@34"This view is clipping its content.304518754#18446744073709551615#0#0(6@43"/Users/Luke/Projects/Rainbow/MainWindow.xib304430580#108#0#108#0#0"0(13@34"This view is clipping its content.304518754#18446744073709551615#0#0(6@43"/Users/Luke/Projects/Rainbow/MainWindow.xib304430580#81#0#81#0#0"0(0#0#43"/Users/Luke/Projects/Rainbow/MainWindow.xib4300885448#275"    cd /Users/Luke/Projects/Rainbow    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/MainWindow.nib /Users/Luke/Projects/Rainbow/MainWindow.xib0#
-
-CCopyStringsFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
-s304518752.777344
-e304518752.891767
-r1
-xCopyStringsFile
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj/InfoPlist.strings
-xEnglish.lproj/InfoPlist.strings
-lSLF07#2@36"Copy English.lproj/InfoPlist.strings304518752#304518752#0(0"0(0#0#60"/Users/Luke/Projects/Rainbow/English.lproj/InfoPlist.strings4300885448#347"    cd /Users/Luke/Projects/Rainbow    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/English.lproj0#
-
-CCopyTiffFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/sl-icon_library.tiff sl-icon_library.tiff
-s304518753.859473
-e304518753.919763
-r1
-xCopyTiffFile
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources/sl-icon_library.tiff
-xsl-icon_library.tiff
-lSLF07#2@25"Copy sl-icon_library.tiff304518753#304518753#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/sl-icon_library.tiff4300885448#230"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copytiff sl-icon_library.tiff --outdir /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-clear.png mac-clear.png
-s304518753.810416
-e304518753.831436
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-clear.png
-xmac-clear.png
-lSLF07#2@18"Copy mac-clear.png304518753#304518753#0(0"0(0#0#42"/Users/Luke/Projects/Rainbow/mac-clear.png4300885448#322"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-clear.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-compose.png mac-toolbar-compose.png
-s304518753.811938
-e304518753.831688
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-compose.png
-xmac-toolbar-compose.png
-lSLF07#2@28"Copy mac-toolbar-compose.png304518753#304518753#0(0"0(0#0#52"/Users/Luke/Projects/Rainbow/mac-toolbar-compose.png4300885448#332"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-compose.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-alt.png mac-toolbar-direct-alt.png
-s304518753.816124
-e304518753.831811
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-alt.png
-xmac-toolbar-direct-alt.png
-lSLF07#2@31"Copy mac-toolbar-direct-alt.png304518753#304518753#0(0"0(0#0#55"/Users/Luke/Projects/Rainbow/mac-toolbar-direct-alt.png4300885448#335"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-direct-alt.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-badged.png mac-toolbar-direct-badged.png
-s304518753.817676
-e304518753.831930
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct-badged.png
-xmac-toolbar-direct-badged.png
-lSLF07#2@34"Copy mac-toolbar-direct-badged.png304518753#304518753#0(0"0(0#0#58"/Users/Luke/Projects/Rainbow/mac-toolbar-direct-badged.png4300885448#338"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-direct-badged.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct.png mac-toolbar-direct.png
-s304518753.818564
-e304518753.832047
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-direct.png
-xmac-toolbar-direct.png
-lSLF07#2@27"Copy mac-toolbar-direct.png304518753#304518753#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/mac-toolbar-direct.png4300885448#331"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-direct.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag-alt.png mac-toolbar-geotag-alt.png
-s304518753.821516
-e304518753.832161
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag-alt.png
-xmac-toolbar-geotag-alt.png
-lSLF07#2@31"Copy mac-toolbar-geotag-alt.png304518753#304518753#0(0"0(0#0#55"/Users/Luke/Projects/Rainbow/mac-toolbar-geotag-alt.png4300885448#335"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-geotag-alt.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag.png mac-toolbar-geotag.png
-s304518753.824885
-e304518753.832278
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-geotag.png
-xmac-toolbar-geotag.png
-lSLF07#2@27"Copy mac-toolbar-geotag.png304518753#304518753#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/mac-toolbar-geotag.png4300885448#331"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-geotag.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-alt.png mac-toolbar-home-alt.png
-s304518753.825715
-e304518753.851483
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-alt.png
-xmac-toolbar-home-alt.png
-lSLF07#2@29"Copy mac-toolbar-home-alt.png304518753#304518753#0(0"0(0#0#53"/Users/Luke/Projects/Rainbow/mac-toolbar-home-alt.png4300885448#333"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-home-alt.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-badged.png mac-toolbar-home-badged.png
-s304518753.827289
-e304518753.851596
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-home-badged.png
-xmac-toolbar-home-badged.png
-lSLF07#2@32"Copy mac-toolbar-home-badged.png304518753#304518753#0(0"0(0#0#56"/Users/Luke/Projects/Rainbow/mac-toolbar-home-badged.png4300885448#336"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-home-badged.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-home.png mac-toolbar-home.png
-s304518753.832356
-e304518753.850875
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-home.png
-xmac-toolbar-home.png
-lSLF07#2@25"Copy mac-toolbar-home.png304518753#304518753#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/mac-toolbar-home.png4300885448#329"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-home.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-lists.png mac-toolbar-lists.png
-s304518753.837078
-e304518753.851008
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-lists.png
-xmac-toolbar-lists.png
-lSLF07#2@26"Copy mac-toolbar-lists.png304518753#304518753#0(0"0(0#0#50"/Users/Luke/Projects/Rainbow/mac-toolbar-lists.png4300885448#330"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-lists.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-alt.png mac-toolbar-mentions-alt.png
-s304518753.838539
-e304518753.851127
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-alt.png
-xmac-toolbar-mentions-alt.png
-lSLF07#2@33"Copy mac-toolbar-mentions-alt.png304518753#304518753#0(0"0(0#0#57"/Users/Luke/Projects/Rainbow/mac-toolbar-mentions-alt.png4300885448#337"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-mentions-alt.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-badged.png mac-toolbar-mentions-badged.png
-s304518753.840190
-e304518753.851250
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions-badged.png
-xmac-toolbar-mentions-badged.png
-lSLF07#2@36"Copy mac-toolbar-mentions-badged.png304518753#304518753#0(0"0(0#0#60"/Users/Luke/Projects/Rainbow/mac-toolbar-mentions-badged.png4300885448#340"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-mentions-badged.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions.png mac-toolbar-mentions.png
-s304518753.842862
-e304518753.851366
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-mentions.png
-xmac-toolbar-mentions.png
-lSLF07#2@29"Copy mac-toolbar-mentions.png304518753#304518753#0(0"0(0#0#53"/Users/Luke/Projects/Rainbow/mac-toolbar-mentions.png4300885448#333"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-mentions.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-shrink.png mac-toolbar-shrink.png
-s304518753.845984
-e304518753.860751
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-shrink.png
-xmac-toolbar-shrink.png
-lSLF07#2@27"Copy mac-toolbar-shrink.png304518753#304518753#0(0"0(0#0#51"/Users/Luke/Projects/Rainbow/mac-toolbar-shrink.png4300885448#331"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-shrink.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star-alt.png mac-toolbar-star-alt.png
-s304518753.847676
-e304518753.860868
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-star-alt.png
-xmac-toolbar-star-alt.png
-lSLF07#2@29"Copy mac-toolbar-star-alt.png304518753#304518753#0(0"0(0#0#53"/Users/Luke/Projects/Rainbow/mac-toolbar-star-alt.png4300885448#333"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-star-alt.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-star.png mac-toolbar-star.png
-s304518753.851668
-e304518753.860617
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-star.png
-xmac-toolbar-star.png
-lSLF07#2@25"Copy mac-toolbar-star.png304518753#304518753#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/mac-toolbar-star.png4300885448#329"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-star.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/mac-toolbar-user.png mac-toolbar-user.png
-s304518753.852949
-e304518753.862188
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/mac-toolbar-user.png
-xmac-toolbar-user.png
-lSLF07#2@25"Copy mac-toolbar-user.png304518753#304518753#0(0"0(0#0#49"/Users/Luke/Projects/Rainbow/mac-toolbar-user.png4300885448#329"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/mac-toolbar-user.png /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCpResource build/Release/Rainbow.app/Contents/Resources/tpl.html tpl.html
-s304518753.919863
-e304518753.925007
-r1
-xCpResource
-xbuild/Release/Rainbow.app/Contents/Resources/tpl.html
-xtpl.html
-lSLF07#2@13"Copy tpl.html304518753#304518753#0(0"0(0#0#37"/Users/Luke/Projects/Rainbow/tpl.html4300885448#317"    cd /Users/Luke/Projects/Rainbow    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks /Users/Luke/Projects/Rainbow/tpl.html /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Resources0#
-
-CCreateUniversalBinary /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow normal "x86_64 i386 ppc"
-s304518765.080416
-e304518765.084625
-r1
-xCreateUniversalBinary
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow
-xnormal
-xx86_64 i386 ppc
-lSLF07#2@95"CreateUniversalBinary build/Release/Rainbow.app/Contents/MacOS/Rainbow normal "x86_64 i386 ppc"304518765#304518765#0(0"0(0#0#44"/Users/Luke/Projects/Rainbow/x86_64 i386 ppc4300885448#446"    cd /Users/Luke/Projects/Rainbow    /usr/bin/lipo -create /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow -output /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow0#
-
-CGenerateDSYMFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app.dSYM /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow
-s304518765.084718
-e304518765.104307
-r1
-xGenerateDSYMFile
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app.dSYM
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow
-lSLF07#2@96"GenerateDSYMFile build/Release/Rainbow.app.dSYM build/Release/Rainbow.app/Contents/MacOS/Rainbow304518765#304518765#0(0"0(0#0#77"/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow4300885448#209"    cd /Users/Luke/Projects/Rainbow    /Developer/usr/bin/dsymutil /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/MacOS/Rainbow -o /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app.dSYM0#
-
-CLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow normal i386
-s304518764.299435
-e304518764.560081
-r1
-xLd
-x/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow
-xnormal
-xi386
-lSLF07#2@103"Link /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow304518764#304518764#0(0"0(0#0#0"4300885448#623"    cd /Users/Luke/Projects/Rainbow    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -filelist /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework WebKit -framework TKTemplateEngine -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/i386/Rainbow0#
-
-CLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow normal ppc
-s304518764.784923
-e304518765.080307
-r1
-xLd
-x/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow
-xnormal
-xppc
-lSLF07#2@102"Link /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow304518764#304518765#0(0"0(0#0#0"4300885448#620"    cd /Users/Luke/Projects/Rainbow    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch ppc -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -filelist /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework WebKit -framework TKTemplateEngine -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/ppc/Rainbow0#
-
-CLd /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow normal x86_64
-s304518763.576339
-e304518763.643787
-r1
-xLd
-x/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow
-xnormal
-xx86_64
-lSLF07#2@105"Link /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow304518763#304518763#0(0"0(0#0#0"4300885448#629"    cd /Users/Luke/Projects/Rainbow    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -filelist /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -framework WebKit -framework TKTemplateEngine -o /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Objects-normal/x86_64/Rainbow0#
-
-CProcessInfoPlistFile /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Info.plist Rainbow-Info.plist
-s304518752.715281
-e304518752.777243
-r1
-xProcessInfoPlistFile
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Info.plist
-xRainbow-Info.plist
-lSLF07#2@26"Process Rainbow-Info.plist304518752#304518752#0(0"0(0#0#47"/Users/Luke/Projects/Rainbow/Rainbow-Info.plist4300885448#284"    cd /Users/Luke/Projects/Rainbow    builtin-infoPlistUtility Rainbow-Info.plist -genpkginfo /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app/Contents/Info.plist0#
-
-CProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
-s304518754.103994
-e304518759.795074
-r1
-xProcessPCH
-x/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch.gch
-xRainbow_Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@29"Precompile Rainbow_Prefix.pch304518754#304518759#0(0"0(0#0#47"/Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch4300885448#1346"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/i386 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -c /Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch -o /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-afierbcekmfggddscmrqtbwtwahr/Rainbow_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s304518754.102950
-e304518759.475780
-r1
-xProcessPCH
-x/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch.gch
-xRainbow_Prefix.pch
-xnormal
-xx86_64
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@29"Precompile Rainbow_Prefix.pch304518754#304518759#0(0"0(0#0#47"/Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch4300885448#1350"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/x86_64 -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -c /Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch -o /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-apjigolktptaaoevwesjxevpkelp/Rainbow_Prefix.pch.gch0#
-
-CProcessPCH /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch.gch Rainbow_Prefix.pch normal ppc objective-c com.apple.compilers.gcc.4_2
-s304518759.475984
-e304518762.892692
-r1
-xProcessPCH
-x/var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch.gch
-xRainbow_Prefix.pch
-xnormal
-xppc
-xobjective-c
-xcom.apple.compilers.gcc.4_2
-lSLF07#2@29"Precompile Rainbow_Prefix.pch304518759#304518762#0(0"0(0#0#47"/Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch4300885448#1341"    cd /Users/Luke/Projects/Rainbow    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch ppc -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-generated-files.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-own-target-headers.hmap -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-all-target-headers.hmap -iquote /Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/Rainbow-project-headers.hmap -F/Users/Luke/Projects/Rainbow/build/Release -F/Users/Luke/Projects/Rainbow/../templatekit/build/Release -I/Users/Luke/Projects/Rainbow/build/Release/include -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources/ppc -I/Users/Luke/Projects/Rainbow/build/Rainbow.build/Release/Rainbow.build/DerivedSources -c /Users/Luke/Projects/Rainbow/Rainbow_Prefix.pch -o /var/folders/vo/vow+SumoEeKwGPX40wwSQ++++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/Rainbow_Prefix-fauyzpsfuuiloggotyslyxwhwurw/Rainbow_Prefix.pch.gch0#
-
-CTouch /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app
-s304518765.104392
-e304518765.127479
-r1
-xTouch
-x/Users/Luke/Projects/Rainbow/build/Release/Rainbow.app
-lSLF07#2@60"Touch /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app304518765#304518765#0(0"0(0#0#0"4300885448#113"    cd /Users/Luke/Projects/Rainbow    /usr/bin/touch -c /Users/Luke/Projects/Rainbow/build/Release/Rainbow.app0#
-

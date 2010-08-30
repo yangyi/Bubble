@@ -14,6 +14,7 @@
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"html"];
 	//[[NSBundle mainBundle] pathForResource:@"tpl.htm" ofType:@"html" inDirectory:@"books/CD_en/icon"];
 	htmlTemplate = [[TKTemplate alloc] initWithTemplatePath:path];
+	weibo=[[Weibo alloc]init];
 	return self;
 }
 
@@ -23,5 +24,6 @@
 	NSString *basePath = [[NSBundle mainBundle] resourcePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:basePath];
 	[[webView mainFrame] loadHTMLString:html baseURL:baseURL];
+	[weibo makeRequrst:nil];
 }
 @end

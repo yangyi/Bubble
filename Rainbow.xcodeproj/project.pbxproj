@@ -37,6 +37,14 @@
 		A30A04E112255CB30087B317 /* mac-toolbar-user.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CE12255CB30087B317 /* mac-toolbar-user.png */; };
 		A30A04E212255CB30087B317 /* sl-icon_library.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A30A04CF12255CB30087B317 /* sl-icon_library.tiff */; };
 		A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30A04F112255DAE0087B317 /* WebKit.framework */; };
+		A339500612289C1D00CD0C44 /* Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = A339500512289C1D00CD0C44 /* Weibo.m */; };
+		A363252D122908E9001F5EC4 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632524122908E9001F5EC4 /* NSObject+SBJSON.m */; };
+		A363252E122908E9001F5EC4 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632526122908E9001F5EC4 /* NSString+SBJSON.m */; };
+		A363252F122908E9001F5EC4 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632528122908E9001F5EC4 /* SBJsonBase.m */; };
+		A3632530122908E9001F5EC4 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A363252A122908E9001F5EC4 /* SBJsonParser.m */; };
+		A3632531122908E9001F5EC4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A363252C122908E9001F5EC4 /* SBJsonWriter.m */; };
+		A3CDEF4F122C00BD00395582 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDEF4E122C00BD00395582 /* NSStringAdditions.m */; };
+		A3CDEF6F122C0C7F00395582 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDEF6E122C0C7F00395582 /* NSDataAdditions.m */; };
 		A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
 		A3F532E61226946500C5469D /* tpl.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F532E51226946500C5469D /* tpl.html */; };
 		A3F5340812269B4A00C5469D /* TKTemplateEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
@@ -50,6 +58,7 @@
 		A3F534431226A03F00C5469D /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F534391226A03F00C5469D /* template.html */; };
 		A3F534441226A03F00C5469D /* theme.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F5343A1226A03F00C5469D /* theme.html */; };
 		A3F534451226A03F00C5469D /* tweet.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F5343B1226A03F00C5469D /* tweet.html */; };
+		A3FEB3C8122AA54100D69BA2 /* WeiboURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FEB3C7122AA54100D69BA2 /* WeiboURLConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +114,23 @@
 		A30A04CE12255CB30087B317 /* mac-toolbar-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-toolbar-user.png"; sourceTree = "<group>"; };
 		A30A04CF12255CB30087B317 /* sl-icon_library.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "sl-icon_library.tiff"; sourceTree = "<group>"; };
 		A30A04F112255DAE0087B317 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A339500412289C1D00CD0C44 /* Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weibo.h; sourceTree = "<group>"; };
+		A339500512289C1D00CD0C44 /* Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weibo.m; sourceTree = "<group>"; };
+		A3632522122908E9001F5EC4 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		A3632523122908E9001F5EC4 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		A3632524122908E9001F5EC4 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		A3632525122908E9001F5EC4 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		A3632526122908E9001F5EC4 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		A3632527122908E9001F5EC4 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		A3632528122908E9001F5EC4 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		A3632529122908E9001F5EC4 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		A363252A122908E9001F5EC4 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		A363252B122908E9001F5EC4 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		A363252C122908E9001F5EC4 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A3CDEF4D122C00BD00395582 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		A3CDEF4E122C00BD00395582 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		A3CDEF6D122C0C7F00395582 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		A3CDEF6E122C0C7F00395582 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		A3F5320612268CED00C5469D /* TKTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TKTemplateEngine.framework; path = /Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework; sourceTree = "<absolute>"; };
 		A3F532E51226946500C5469D /* tpl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tpl.html; sourceTree = "<group>"; };
 		A3F534321226A03F00C5469D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
@@ -117,6 +143,8 @@
 		A3F534391226A03F00C5469D /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		A3F5343A1226A03F00C5469D /* theme.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = theme.html; sourceTree = "<group>"; };
 		A3F5343B1226A03F00C5469D /* tweet.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tweet.html; sourceTree = "<group>"; };
+		A3FEB3C6122AA54000D69BA2 /* WeiboURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboURLConnection.h; sourceTree = "<group>"; };
+		A3FEB3C7122AA54100D69BA2 /* WeiboURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboURLConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +164,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3CDEF4C122BFCE300395582 /* Additions */,
+				A3632521122908E9001F5EC4 /* JSON */,
+				A339500312289BEE00CD0C44 /* WeiboEngine */,
 				A30A04AF12255C5A0087B317 /* Controllers */,
 				256AC3D80F4B6AC300CF3369 /* RainbowAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* RainbowAppDelegate.m */,
@@ -254,6 +285,46 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		A339500312289BEE00CD0C44 /* WeiboEngine */ = {
+			isa = PBXGroup;
+			children = (
+				A339500412289C1D00CD0C44 /* Weibo.h */,
+				A339500512289C1D00CD0C44 /* Weibo.m */,
+				A3FEB3C6122AA54000D69BA2 /* WeiboURLConnection.h */,
+				A3FEB3C7122AA54100D69BA2 /* WeiboURLConnection.m */,
+			);
+			name = WeiboEngine;
+			sourceTree = "<group>";
+		};
+		A3632521122908E9001F5EC4 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A3632522122908E9001F5EC4 /* JSON.h */,
+				A3632523122908E9001F5EC4 /* NSObject+SBJSON.h */,
+				A3632524122908E9001F5EC4 /* NSObject+SBJSON.m */,
+				A3632525122908E9001F5EC4 /* NSString+SBJSON.h */,
+				A3632526122908E9001F5EC4 /* NSString+SBJSON.m */,
+				A3632527122908E9001F5EC4 /* SBJsonBase.h */,
+				A3632528122908E9001F5EC4 /* SBJsonBase.m */,
+				A3632529122908E9001F5EC4 /* SBJsonParser.h */,
+				A363252A122908E9001F5EC4 /* SBJsonParser.m */,
+				A363252B122908E9001F5EC4 /* SBJsonWriter.h */,
+				A363252C122908E9001F5EC4 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		A3CDEF4C122BFCE300395582 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				A3CDEF4D122C00BD00395582 /* NSStringAdditions.h */,
+				A3CDEF4E122C00BD00395582 /* NSStringAdditions.m */,
+				A3CDEF6D122C0C7F00395582 /* NSDataAdditions.h */,
+				A3CDEF6E122C0C7F00395582 /* NSDataAdditions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		A3F534311226A03F00C5469D /* theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +436,15 @@
 				256AC3DA0F4B6AC300CF3369 /* RainbowAppDelegate.m in Sources */,
 				A30A04B412255C7D0087B317 /* LoginWindowController.m in Sources */,
 				A30A04B512255C7D0087B317 /* MainWindowController.m in Sources */,
+				A339500612289C1D00CD0C44 /* Weibo.m in Sources */,
+				A363252D122908E9001F5EC4 /* NSObject+SBJSON.m in Sources */,
+				A363252E122908E9001F5EC4 /* NSString+SBJSON.m in Sources */,
+				A363252F122908E9001F5EC4 /* SBJsonBase.m in Sources */,
+				A3632530122908E9001F5EC4 /* SBJsonParser.m in Sources */,
+				A3632531122908E9001F5EC4 /* SBJsonWriter.m in Sources */,
+				A3FEB3C8122AA54100D69BA2 /* WeiboURLConnection.m in Sources */,
+				A3CDEF4F122C00BD00395582 /* NSStringAdditions.m in Sources */,
+				A3CDEF6F122C0C7F00395582 /* NSDataAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +528,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

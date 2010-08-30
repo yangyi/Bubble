@@ -9,10 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import <TKTemplateEngine/TKTemplateEngine.h>
-
+#import "Weibo.h"
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
 	TKTemplate *htmlTemplate;
+	Weibo *weibo;
 }
 -(id)init;
 @end
