@@ -10,7 +10,8 @@
 #import <WebKit/WebKit.h>
 #import <TKTemplateEngine/TKTemplateEngine.h>
 #import "Weibo.h"
-@interface MainWindowController : NSWindowController {
+#import "WeiboEngineGlobal.h"
+@interface MainWindowController : NSWindowController<WeiboDelegate> {
 	IBOutlet WebView *webView;
 	TKTemplate *htmlTemplate;
 	Weibo *weibo;

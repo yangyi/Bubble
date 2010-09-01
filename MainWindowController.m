@@ -14,7 +14,8 @@
 	NSString *path = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"html"];
 	//[[NSBundle mainBundle] pathForResource:@"tpl.htm" ofType:@"html" inDirectory:@"books/CD_en/icon"];
 	htmlTemplate = [[TKTemplate alloc] initWithTemplatePath:path];
-	weibo=[[Weibo alloc]init];
+	weibo=[[Weibo alloc]initWithDelegate:self];
+	[weibo getPublicTimeline];
 	return self;
 }
 
@@ -24,6 +25,11 @@
 	NSString *basePath = [[NSBundle mainBundle] resourcePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:basePath];
 	[[webView mainFrame] loadHTMLString:html baseURL:baseURL];
-	[weibo makeRequrst:nil];
+	//[weibo makeRequrst:nil];
+}
+
+-(void)statusesReceived:(NSArray *)statuses{
+	
+	NSLog(@"%@",[[statuses objectAtIndex:0] valueForKey:@"text"]);
 }
 @end

@@ -10,5 +10,30 @@
 
 
 @implementation WeiboURLConnection
-@synthesize data=_data;
+@synthesize data=_data,identifier=_identifier,dataType=_dataType;
+
+-(id)initWithRequest:(NSURLRequest*) request delegate:(id)delegate dataType:(WeiboDataType)dataType
+{
+	if ((self = [super initWithRequest:request delegate:delegate])) {
+		_dataType=dataType;
+		_data = [[NSMutableData alloc] initWithCapacity:0];
+        _identifier = [[NSString stringWithUUID] retain];
+	}
+	return self;
+}
+
+- (void)appendData:(NSData *)data
+{
+    [_data appendData:data];
+}
+- (void)resetDataLength
+{
+    [_data setLength:0];
+}
+
+-(void)dealloc
+{
+	[_data release];
+	[super dealloc];
+}
 @end
