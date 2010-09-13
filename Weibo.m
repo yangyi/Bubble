@@ -8,6 +8,23 @@
 
 #import "Weibo.h"
 
+#pragma mark Weibo Private Interface
+@interface Weibo(Private) 
+
+-(NSString*)_sendRequestWithMethod:(NSString*)method 
+						   baseurl:(NSString*) baseurl
+							  path:(NSString*) path
+				   queryParameters:(NSDictionary *) params
+							  body:(NSString*) body
+						  dataType:(WeiboDataType)dataType;
+-(NSString*) _sendRequest:(NSURLRequest*)request dataType:(WeiboDataType)dataType;
+-(void)_parseDataForConnection:(WeiboURLConnection*)connection;
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+@end
+
 
 @implementation Weibo
 @synthesize username=_username,password=_password,appKey=_appKey;
@@ -58,12 +75,66 @@
 */
 
 
-//api
+#pragma mark Sina Weibo API Interface Implementation
 - (NSString *)getPublicTimeline{
 	NSString *path=[NSString stringWithString:@"statuses/public_timeline.json?source=1444319711"];
-	return [self _sendRequestWithMethod:nil baseurl:@"http://api.t.sina.com.cn"
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+	[params setObject:@"1444319711" forKey:@"source"];
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
 								   path:path queryParameters:nil
 								   body:nil dataType:WeiboStatuses];
+}
+
+-(NSString *) getHomeTimelineWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
+{
+	NSString *path=[NSString stringWithString:@"statuses/home_timeline.json"];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+	[params setObject:[NSString stringWithFormat:@"%llu",@"1444319711"] forKey:@"source"];
+	if(sinceId>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",sinceId] forKey:@"sinceId"];
+	}
+	if(maxId>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",maxId] forKey:@"maxId"];
+	}
+	if(count>0){
+		[params setObject:[NSString stringWithFormat:@"%d",count] forKey:@"count"];
+	}
+	if(page>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",page] forKey:@"page"];
+	}
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil dataType:WeiboStatuses];
+}
+
+-(NSString *) getMentionsWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page
+{
+	NSString *path=[NSString stringWithString:@"statuses/mentions.json"];
+	NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:0];
+	[params setObject:[NSString stringWithFormat:@"%llu",@"1444319711"] forKey:@"source"];
+	if(sinceId>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",sinceId] forKey:@"sinceId"];
+	}
+	if(maxId>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",maxId] forKey:@"maxId"];
+	}
+	if(count>0){
+		[params setObject:[NSString stringWithFormat:@"%d",count] forKey:@"count"];
+	}
+	if(page>0){
+		[params setObject:[NSString stringWithFormat:@"%llu",page] forKey:@"page"];
+	}
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil dataType:WeiboStatuses];	
+}
+
+-(NSString *) updateWithStatus:(NSString*)status{
+	NSString *path=[NSString stringWithString:@"statuses/update.json"];
+	NSString *body=[NSString stringWithFormat:@"status=%@",status];
+	return [self _sendRequestWithMethod:@"POST" baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:nil
+								   body:body dataType:WeiboStatus];	
 }
 
 
@@ -101,8 +172,10 @@
 														(body) ? @"&" : @"" , 
 														_appKey]];
 		}
+		[theRequest setHTTPBody:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]]; 
 	}
 	
+
 	return [self _sendRequest:theRequest dataType:dataType];
 }
 
@@ -119,8 +192,8 @@
 	
 }
 
-#pragma mark NSURLConnection delegate methods
 
+#pragma mark NSURLConnection delegate methods
 - (void)connection:(WeiboURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
 	[connection resetDataLength];
@@ -148,6 +221,8 @@
     [_connections removeObjectForKey:connection.identifier];
 }
 
+
+
 #pragma mark Parse Data
 -(void)_parseDataForConnection:(WeiboURLConnection*)connection{
 	NSData *jsonData = [[connection.data copy] autorelease];
@@ -155,8 +230,13 @@
 	NSString *jsonString = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
 	switch (dataType) {
 		case WeiboStatuses:
-			if(_delegate!=nil&&[_delegate respondsToSelector:@selector(statusesReceived:)]){
-				[_delegate statusesReceived:[jsonString JSONValue]];
+			if(_delegate!=nil&&[_delegate respondsToSelector:@selector(statusesDidReceived:)]){
+				[_delegate statusesDidReceived:[jsonString JSONValue]];
+			}
+			break;
+		case WeiboStatus:
+			if(_delegate!=nil&&[_delegate respondsToSelector:@selector(statusDidReceived:)]){
+				[_delegate statusDidReceived:[jsonString JSONValue]];
 			}
 			break;
 		default:

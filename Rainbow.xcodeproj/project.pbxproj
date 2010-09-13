@@ -43,9 +43,17 @@
 		A363252F122908E9001F5EC4 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A3632528122908E9001F5EC4 /* SBJsonBase.m */; };
 		A3632530122908E9001F5EC4 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A363252A122908E9001F5EC4 /* SBJsonParser.m */; };
 		A3632531122908E9001F5EC4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A363252C122908E9001F5EC4 /* SBJsonWriter.m */; };
+		A380F1A4123BF42300A4E553 /* ComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = A380F1A3123BF42300A4E553 /* ComposeController.m */; };
+		A390773F123D14CC00F3020E /* WeiboAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = A390773E123D14CC00F3020E /* WeiboAccount.m */; };
 		A3C67C4F122E1A95001940BE /* NSURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C67C4E122E1A95001940BE /* NSURLAdditions.m */; };
+		A3C74F771235269F0055FC2B /* HTMLController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C74F761235269F0055FC2B /* HTMLController.m */; };
+		A3CD5319123B21AB005D87D1 /* friends.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A3CD5317123B21AB005D87D1 /* friends.tiff */; };
+		A3CD531A123B21AB005D87D1 /* replies.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A3CD5318123B21AB005D87D1 /* replies.tiff */; };
 		A3CDEF4F122C00BD00395582 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDEF4E122C00BD00395582 /* NSStringAdditions.m */; };
 		A3CDEF6F122C0C7F00395582 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CDEF6E122C0C7F00395582 /* NSDataAdditions.m */; };
+		A3CEC8CB1239109A00787F05 /* main.html in Resources */ = {isa = PBXBuildFile; fileRef = A3CEC8CA1239109A00787F05 /* main.html */; };
+		A3CEC8D11239147B00787F05 /* spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = A3CEC8D01239147B00787F05 /* spinner.gif */; };
+		A3D54F0E123E614C00BAF7EB /* WeiboTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D54F0D123E614C00BAF7EB /* WeiboTimeline.m */; };
 		A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
 		A3F532E61226946500C5469D /* tpl.html in Resources */ = {isa = PBXBuildFile; fileRef = A3F532E51226946500C5469D /* tpl.html */; };
 		A3F5340812269B4A00C5469D /* TKTemplateEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
@@ -128,13 +136,25 @@
 		A363252A122908E9001F5EC4 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		A363252B122908E9001F5EC4 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A363252C122908E9001F5EC4 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A380F1A2123BF42300A4E553 /* ComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeController.h; sourceTree = "<group>"; };
+		A380F1A3123BF42300A4E553 /* ComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeController.m; sourceTree = "<group>"; };
+		A390773D123D14CC00F3020E /* WeiboAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAccount.h; sourceTree = "<group>"; };
+		A390773E123D14CC00F3020E /* WeiboAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAccount.m; sourceTree = "<group>"; };
 		A3C67C4D122E1A95001940BE /* NSURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLAdditions.h; sourceTree = "<group>"; };
 		A3C67C4E122E1A95001940BE /* NSURLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLAdditions.m; sourceTree = "<group>"; };
+		A3C74F751235269F0055FC2B /* HTMLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLController.h; sourceTree = "<group>"; };
+		A3C74F761235269F0055FC2B /* HTMLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLController.m; sourceTree = "<group>"; };
+		A3CD5317123B21AB005D87D1 /* friends.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = friends.tiff; sourceTree = "<group>"; };
+		A3CD5318123B21AB005D87D1 /* replies.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = replies.tiff; sourceTree = "<group>"; };
 		A3CDEF4D122C00BD00395582 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
 		A3CDEF4E122C00BD00395582 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		A3CDEF6D122C0C7F00395582 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		A3CDEF6E122C0C7F00395582 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		A3CEC8CA1239109A00787F05 /* main.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = main.html; sourceTree = "<group>"; };
+		A3CEC8D01239147B00787F05 /* spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = spinner.gif; path = ../rainbow/spinner.gif; sourceTree = SOURCE_ROOT; };
 		A3D3694D122D61F900AA1597 /* WeiboEngineGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboEngineGlobal.h; sourceTree = "<group>"; };
+		A3D54F0C123E614C00BAF7EB /* WeiboTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTimeline.h; sourceTree = "<group>"; };
+		A3D54F0D123E614C00BAF7EB /* WeiboTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTimeline.m; sourceTree = "<group>"; };
 		A3F5320612268CED00C5469D /* TKTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TKTemplateEngine.framework; path = /Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework; sourceTree = "<absolute>"; };
 		A3F532E51226946500C5469D /* tpl.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = tpl.html; sourceTree = "<group>"; };
 		A3F534321226A03F00C5469D /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
@@ -168,6 +188,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A3D54D25123E5C0300BAF7EB /* Model */,
 				A3CDEF4C122BFCE300395582 /* Additions */,
 				A3632521122908E9001F5EC4 /* JSON */,
 				A339500312289BEE00CD0C44 /* WeiboEngine */,
@@ -239,6 +260,7 @@
 				8D1107310486CEB800E47090 /* Rainbow-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				A3CEC8CA1239109A00787F05 /* main.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -259,6 +281,10 @@
 				A30A04B112255C7D0087B317 /* LoginWindowController.m */,
 				A30A04B212255C7D0087B317 /* MainWindowController.h */,
 				A30A04B312255C7D0087B317 /* MainWindowController.m */,
+				A3C74F751235269F0055FC2B /* HTMLController.h */,
+				A3C74F761235269F0055FC2B /* HTMLController.m */,
+				A380F1A2123BF42300A4E553 /* ComposeController.h */,
+				A380F1A3123BF42300A4E553 /* ComposeController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +292,9 @@
 		A30A04BC12255CA10087B317 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3CD5317123B21AB005D87D1 /* friends.tiff */,
+				A3CD5318123B21AB005D87D1 /* replies.tiff */,
+				A3CEC8D01239147B00787F05 /* spinner.gif */,
 				A30A04BD12255CB30087B317 /* mac-clear.png */,
 				A30A04BE12255CB30087B317 /* mac-toolbar-compose.png */,
 				A30A04BF12255CB30087B317 /* mac-toolbar-direct-alt.png */,
@@ -297,6 +326,8 @@
 				A3FEB3C6122AA54000D69BA2 /* WeiboURLConnection.h */,
 				A3FEB3C7122AA54100D69BA2 /* WeiboURLConnection.m */,
 				A3D3694D122D61F900AA1597 /* WeiboEngineGlobal.h */,
+				A390773D123D14CC00F3020E /* WeiboAccount.h */,
+				A390773E123D14CC00F3020E /* WeiboAccount.m */,
 			);
 			name = WeiboEngine;
 			sourceTree = "<group>";
@@ -330,6 +361,15 @@
 				A3C67C4E122E1A95001940BE /* NSURLAdditions.m */,
 			);
 			name = Additions;
+			sourceTree = "<group>";
+		};
+		A3D54D25123E5C0300BAF7EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3D54F0C123E614C00BAF7EB /* WeiboTimeline.h */,
+				A3D54F0D123E614C00BAF7EB /* WeiboTimeline.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A3F534311226A03F00C5469D /* theme */ = {
@@ -429,6 +469,10 @@
 				A3F534431226A03F00C5469D /* template.html in Resources */,
 				A3F534441226A03F00C5469D /* theme.html in Resources */,
 				A3F534451226A03F00C5469D /* tweet.html in Resources */,
+				A3CEC8CB1239109A00787F05 /* main.html in Resources */,
+				A3CEC8D11239147B00787F05 /* spinner.gif in Resources */,
+				A3CD5319123B21AB005D87D1 /* friends.tiff in Resources */,
+				A3CD531A123B21AB005D87D1 /* replies.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +497,10 @@
 				A3CDEF4F122C00BD00395582 /* NSStringAdditions.m in Sources */,
 				A3CDEF6F122C0C7F00395582 /* NSDataAdditions.m in Sources */,
 				A3C67C4F122E1A95001940BE /* NSURLAdditions.m in Sources */,
+				A3C74F771235269F0055FC2B /* HTMLController.m in Sources */,
+				A380F1A4123BF42300A4E553 /* ComposeController.m in Sources */,
+				A390773F123D14CC00F3020E /* WeiboAccount.m in Sources */,
+				A3D54F0E123E614C00BAF7EB /* WeiboTimeline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

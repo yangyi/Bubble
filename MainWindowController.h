@@ -8,13 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
-#import <TKTemplateEngine/TKTemplateEngine.h>
+#import "HTMLController.h"
 #import "Weibo.h"
 #import "WeiboEngineGlobal.h"
-@interface MainWindowController : NSWindowController<WeiboDelegate> {
+#import "ComposeController.h"
+@interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
-	TKTemplate *htmlTemplate;
-	Weibo *weibo;
+	IBOutlet NSSegmentedControl *viewSegmentedControl;
+	HTMLController *htmlController;
+	ComposeController *composeController;
 }
 -(id)init;
+-(IBAction)selectViewWithSegmentControl:(id)sender;
+-(void)mentions;
+-(void)homeTimeLine;
+-(IBAction)compose:(id)sender;
 @end

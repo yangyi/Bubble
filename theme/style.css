@@ -1,13 +1,26 @@
 body {
 	margin: 0;
 	padding: 0;
-	color: #333;
-	font: 11px/16px "Lucida Grande", Sans-Serif;
+	color: #000;
+	font: 12px/16px "Lucida Grande", Sans-Serif;
 	line-height: 17px;
 	background-color: #fff;
 	/*text-shadow: 0px 1px 0px white;*/
 }
 
+.status {
+	text-align: center;
+	margin: 16px;
+	font-size: 16px; 
+	font-weight: bold;
+	color: #BBB;
+}
+.status_spinner_image {
+	margin: -5px 0px -5px 0px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+}
 hr {
 	border: none;
 	background: #aaa;
@@ -22,7 +35,7 @@ hr {
 
 .Tweet {
 	/*background-color: #e3f5a4;*/
-	margin: 6px 8px 6px 52px;
+	margin: 6px 8px 6px 62px;
 	padding: 4px 8px;
 	border: 1px solid #d6d6d6;
 	-webkit-border-radius: 6px;
@@ -130,19 +143,19 @@ hr {
 	}
 
 .avatar {
-	width: 32px;
-	height: 32px;
-	/*margin-right: 8px;*/
-	margin-left: -50px;
+	width: 50px;
+	height: 50px;
+	margin-right: 18px;
+	margin-left: -64px;
 	margin-top: -2px;
 	float: left;
 }
 
 .avatar img {
-	width: 32px;
+	width: 50px;
 	border-style: none;
 	-webkit-border-radius: 4px;
-	/*background: #f90;*/
+	background: #f90;
 }
 
 .BBSmiley {

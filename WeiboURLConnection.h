@@ -18,6 +18,7 @@
 -(id)initWithRequest:(NSURLRequest*) request delegate:(id)delegate dataType:(WeiboDataType)dataType;
 - (void)appendData:(NSData *)data;
 - (void)resetDataLength;
+
 @property(nonatomic,retain) NSMutableData *data;
 @property(nonatomic,retain) NSString *identifier;
 @property(nonatomic) WeiboDataType dataType;

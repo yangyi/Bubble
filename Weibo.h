@@ -21,10 +21,7 @@
     NSString *_password;
 	NSString *_appKey;
 }
--(void) makeRequrst:(NSString*)apiPath;
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+-(Weibo*)initWithDelegate:(id)delegate;
 
 #pragma mark properties
 @property(nonatomic,retain) NSString *username;
@@ -39,5 +36,7 @@
 
 //timeline
 -(NSString *) getPublicTimeline;
-//-(NSString *) getHomeTimelineWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
+-(NSString *) getHomeTimelineWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
+-(NSString *) getMentionsWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
+-(NSString *) updateWithStatus:(NSString*)status;
 @end

@@ -11,25 +11,42 @@
 @implementation MainWindowController
 - (id)init {
 	self = [super initWithWindowNibName:@"MainWindow"];
-	NSString *path = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"html"];
-	//[[NSBundle mainBundle] pathForResource:@"tpl.htm" ofType:@"html" inDirectory:@"books/CD_en/icon"];
-	htmlTemplate = [[TKTemplate alloc] initWithTemplatePath:path];
-	weibo=[[Weibo alloc]initWithDelegate:self];
-	[weibo getPublicTimeline];
 	return self;
 }
 
 -(void) awakeFromNib{
 	//NSString *result =[templateEngine processTemplate:templatePath withVariables:variables];
-	NSString *html = [htmlTemplate render:[NSDictionary dictionaryWithObject:@"Luke is a good boy!" forKey:@"luke"]];
-	NSString *basePath = [[NSBundle mainBundle] resourcePath];
-	NSURL *baseURL = [NSURL fileURLWithPath:basePath];
-	[[webView mainFrame] loadHTMLString:html baseURL:baseURL];
+	htmlController = [[HTMLController alloc] initWithWebView:webView];
 	//[weibo makeRequrst:nil];
 }
 
--(void)statusesReceived:(NSArray *)statuses{
+-(IBAction)selectViewWithSegmentControl:(id)sender{
 	
-	NSLog(@"%@",[[statuses objectAtIndex:0] valueForKey:@"text"]);
+	int index=[sender selectedSegment];
+	switch (index) {
+		case 0:
+			[self homeTimeLine];
+			break;
+		case 1:
+			[self mentions];
+		default:
+			break;
+	}
+}
+
+-(IBAction)compose:(id)sender{
+	
+	composeController=[[ComposeController alloc]init];
+	[composeController showWindow:nil];
+}
+
+-(void)mentions{
+	
+	[htmlController selectMentions];
+}
+
+-(void)homeTimeLine{
+	
+	[htmlController selectHomeTimeLine];
 }
 @end

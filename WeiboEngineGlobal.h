@@ -6,11 +6,18 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+//Notification constants
+#define StatusesReceivedNotification @"StatusesReceivedNotification" 
 
 typedef enum _weiboDataType {
-    WeiboStatuses           = 0,    // one or more statuses
+    WeiboStatuses           = 0,
+	WeiboStatus             = 1
 } WeiboDataType;
 
+
+
+
 @protocol WeiboDelegate
--(void)statusesReceived:(NSArray *)statuses;
+-(void)statusesDidReceived:(NSArray *)statuses;
+-(void)statusDidReceived:(NSDictionary*)status;
 @end

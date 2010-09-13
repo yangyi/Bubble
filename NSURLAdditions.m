@@ -27,8 +27,9 @@
                 [str appendString:@"&"];
             }
             NSString *name = [names objectAtIndex:i];
+			NSString *value =[params objectForKey:name];
             [str appendString:[NSString stringWithFormat:@"%@=%@", 
-							   name, [NSString encodeString:[params objectForKey:name]]]];
+							   name, [self encodeString:value]]];
         }
     }
     
