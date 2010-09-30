@@ -16,6 +16,7 @@
 	if (self=[super init]) {
 		weibo=[[Weibo alloc] initWithDelegate:self];
 	}
+	cache=[[WeiboCache alloc]init];
 	return self;
 }
 
@@ -46,7 +47,18 @@
 }
 
 #pragma mark WeiboDelegate Method
--(void)statusesDidReceived:(NSArray *)statuses{
+-(void)statusesDidReceived:(NSArray *)statuses withRequestPath:(NSString*) requestPath{
+	NSString *statusTimelineType;
+	if([requestPath hasPrefix:@"statuses/home_timeline"]){
+		statusTimelineType = @"home";
+	}
+	if([requestPath hasPrefix:@"statuses/mentions"]){
+		statusTimelineType = @"mention";
+	}
+	if ([requestPath hasPrefix:@"favorites"]) {
+		statusTimelineType = @"favorite";
+	}
+	
 	[[NSNotificationCenter defaultCenter] postNotificationName:StatusesReceivedNotification
 														object:statuses];
 }

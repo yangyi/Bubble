@@ -15,13 +15,12 @@
 }
 
 -(void) awakeFromNib{
-	//NSString *result =[templateEngine processTemplate:templatePath withVariables:variables];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
-	//[weibo makeRequrst:nil];
+	[self updateTimelineSegmentedControl];
 }
 
 -(IBAction)selectViewWithSegmentControl:(id)sender{
-	
+	[self updateTimelineSegmentedControl];
 	int index=[sender selectedSegment];
 	switch (index) {
 		case 0:
@@ -32,6 +31,23 @@
 		default:
 			break;
 	}
+}
+
+- (void)updateTimelineSegmentedControl{
+	if(timelineSegmentedControl==nil){
+		return;
+	}
+	NSArray *imageNames=[NSArray arrayWithObjects:@"home",@"mentions",@"comments",@"direct",@"star",@"user",nil];
+	NSString *imageName;
+	for(int index=0;index< imageNames.count;index++){
+		imageName =[imageNames objectAtIndex:index];
+		if([timelineSegmentedControl isSelectedForSegment:index]){
+			imageName = [imageName stringByAppendingString:@"_down"];
+		}
+		imageName = [imageName stringByAppendingString:@".png"];
+		[timelineSegmentedControl setImage:[NSImage imageNamed:imageName] forSegment:index];
+	}
+	
 }
 
 -(IBAction)compose:(id)sender{

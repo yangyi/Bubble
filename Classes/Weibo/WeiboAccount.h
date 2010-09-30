@@ -9,10 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import "Weibo.h"
 #import "WeiboGlobal.h"
+#import "WeiboStatusTimeline.h"
+#import "WeiboCache.h"
 @interface WeiboAccount : NSObject<WeiboDelegate> {
 	NSString *username;
 
 	Weibo *weibo;
+	WeiboCache *cache;
+	
+	WeiboStatusTimeline * homeTimeline;
 	
 }
 

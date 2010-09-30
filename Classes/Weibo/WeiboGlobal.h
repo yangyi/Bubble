@@ -18,6 +18,6 @@ typedef enum _weiboDataType {
 
 
 @protocol WeiboDelegate
--(void)statusesDidReceived:(NSArray *)statuses;
+-(void)statusesDidReceived:(NSArray *)statuses withRequestPath:(NSString*)requestPath;
 -(void)statusDidReceived:(NSDictionary*)status;
 @end

@@ -29,7 +29,6 @@
 		[nc addObserver:self selector:@selector(statusesReceived:) 
 				   name:StatusesReceivedNotification 
 				 object:nil];
-		cache=[[WeiboCache alloc]init];
 	}
 	return self;
 }
@@ -42,7 +41,9 @@
 	[self setDocumentElement:@"status" visibility:NO];
 	[self setDocumentElement:@"home_time_line" innerHTML:html];
 	NSLog(@"%d",[[statuses objectAtIndex:0] valueForKey:@"id"]);
-	[cache saveUserFromStatus:[statuses objectAtIndex:0]];
+	NSArray *stats= [[statuses objectAtIndex:0] allKeys];
+	NSArray *values=[[statuses objectAtIndex:0] allValues];
+	NSLog(@"");
 
 }
 

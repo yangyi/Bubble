@@ -7,11 +7,26 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "WeiboUser.h"
+
+
+
 @interface WeiboCache : NSObject {
     NSManagedObjectContext *managedObjectContext;
+
 }
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
--(void)saveUserFromStatus:(NSDictionary*) status;
+
+-(void)saveStatusTimeline:(NSArray*)statuses withType:(NSString*)type;
+
++(void) initialize;
+
+-(void)commitEditingAndSave;
+-(NSString*)entityNameWithRelationshipName:(NSString*)relationshipName;
+-(NSDictionary*)dictionaryFromManagedObject:(NSManagedObject*)managedObject;
+-(NSArray*)dataStructuresFromManagedObjects:(NSArray*)managedObjects;
+-(NSManagedObject*)managedObjectFromDictionary:(NSDictionary*)valueDictionary 
+								withEntityName:(NSString*)entityName
+					  withManagedObjectContext:(NSManagedObjectContext*)moc;
+
 @end

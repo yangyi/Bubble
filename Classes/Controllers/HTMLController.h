@@ -12,16 +12,12 @@
 #import "Weibo.h"
 #import "WeiboAccount.h"
 #import "WeiboGlobal.h"
-#import "WeiboStatus.h"
-#import "WeiboCache.h"
-
 @interface HTMLController : NSObject {
 	NSString *theme;
 	WebView *webView;
 	TKTemplate *mainTemplate;
 	TKTemplate *timeLineTemplate;
 	WeiboAccount *weiboAccount;
-	WeiboCache *cache;
 }
 -(id) initWithWebView:(WebView*) webView;
 -(void)statusesReceived:(NSNotification *)notification;

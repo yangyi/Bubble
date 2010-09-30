@@ -10,7 +10,7 @@
 
 
 @implementation WeiboURLConnection
-@synthesize data=_data,identifier=_identifier,dataType=_dataType;
+@synthesize data=_data,identifier=_identifier,dataType=_dataType,requestPath=_requestPath;
 
 -(id)initWithRequest:(NSURLRequest*) request delegate:(id)delegate dataType:(WeiboDataType)dataType
 {
@@ -34,6 +34,8 @@
 -(void)dealloc
 {
 	[_data release];
+	[_identifier release];
+	[_requestPath release];
 	[super dealloc];
 }
 @end

@@ -14,7 +14,7 @@
 #import "ComposeController.h"
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
-	IBOutlet NSSegmentedControl *viewSegmentedControl;
+	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	HTMLController *htmlController;
 	ComposeController *composeController;
 }
@@ -23,4 +23,8 @@
 -(void)mentions;
 -(void)homeTimeLine;
 -(IBAction)compose:(id)sender;
+
+
+//主要是更新图标的
+- (void)updateTimelineSegmentedControl;
 @end
