@@ -8,7 +8,7 @@ body {
 	/*text-shadow: 0px 1px 0px white;*/
 }
 
-.status {
+.statuses {
 	text-align: center;
 	margin: 16px;
 	font-size: 16px; 
@@ -31,9 +31,9 @@ hr {
 }
 
 
-/* @group Tweet */
+/* @group Status */
 
-.Tweet {
+.status {
 	/*background-color: #e3f5a4;*/
 	margin: 6px 8px 6px 62px;
 	padding: 4px 8px;
@@ -44,7 +44,7 @@ hr {
 	text-shadow: 0px 1px 0px #fff;
 	background: #ebebeb;
 }
-	.Tweet hr {
+	.status hr {
 		background: #c0c0c0;
 		-webkit-box-shadow: 0px 1px 0px #fff;
 	}

@@ -10,7 +10,7 @@
 #import "MainWindowController.h"
 #import "LoginWindowController.h"
 
-@interface RainbowAppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
 	LoginWindowController *loginWindow;
     MainWindowController *mainWindow;
 	

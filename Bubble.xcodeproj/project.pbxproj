@@ -19,13 +19,16 @@
 		A3005F17124A2B75001CE9AC /* home_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F04124A2B75001CE9AC /* home_down.png */; };
 		A3005F18124A2B75001CE9AC /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F05124A2B75001CE9AC /* home.png */; };
 		A3005F19124A2B75001CE9AC /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F06124A2B75001CE9AC /* img.png */; };
-		A3005F1A124A2B75001CE9AC /* mac-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F07124A2B75001CE9AC /* mac-clear.png */; };
 		A3005F1E124A2B75001CE9AC /* shrink.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F0B124A2B75001CE9AC /* shrink.png */; };
 		A3005F1F124A2B75001CE9AC /* star_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F0C124A2B75001CE9AC /* star_down.png */; };
 		A3005F20124A2B75001CE9AC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F0D124A2B75001CE9AC /* star.png */; };
 		A3005F23124A2D0F001CE9AC /* mentions_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F21124A2D0F001CE9AC /* mentions_down.png */; };
 		A3005F24124A2D0F001CE9AC /* mentions.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F22124A2D0F001CE9AC /* mentions.png */; };
 		A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30A04F112255DAE0087B317 /* WebKit.framework */; };
+		A3541E6E12562D8C002B6C43 /* comments_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = A3541E6A12562D8C002B6C43 /* comments_dot.png */; };
+		A3541E6F12562D8C002B6C43 /* direct_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = A3541E6B12562D8C002B6C43 /* direct_dot.png */; };
+		A3541E7012562D8C002B6C43 /* home_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = A3541E6C12562D8C002B6C43 /* home_dot.png */; };
+		A3541E7112562D8C002B6C43 /* mentions_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = A3541E6D12562D8C002B6C43 /* mentions_dot.png */; };
 		A354C0171249CC810055FB8F /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A354BFF21249CC810055FB8F /* NSDataAdditions.m */; };
 		A354C0181249CC810055FB8F /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A354BFF41249CC810055FB8F /* NSStringAdditions.m */; };
 		A354C0191249CC810055FB8F /* NSURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A354BFF61249CC810055FB8F /* NSURLAdditions.m */; };
@@ -38,23 +41,26 @@
 		A354C0201249CC810055FB8F /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0071249CC810055FB8F /* SBJsonBase.m */; };
 		A354C0211249CC810055FB8F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0091249CC810055FB8F /* SBJsonParser.m */; };
 		A354C0221249CC810055FB8F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C00B1249CC810055FB8F /* SBJsonWriter.m */; };
-		A354C0231249CC810055FB8F /* Weibo.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C00F1249CC810055FB8F /* Weibo.m */; };
+		A354C0231249CC810055FB8F /* WeiboConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C00F1249CC810055FB8F /* WeiboConnector.m */; };
 		A354C0241249CC810055FB8F /* WeiboAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0111249CC810055FB8F /* WeiboAccount.m */; };
 		A354C0261249CC810055FB8F /* WeiboURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0161249CC810055FB8F /* WeiboURLConnection.m */; };
-		A354C0851249D1840055FB8F /* RainbowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0841249D1840055FB8F /* RainbowAppDelegate.m */; };
-		A354C2731249D1FD0055FB8F /* Rainbow-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A354C2721249D1FD0055FB8F /* Rainbow-Info.plist */; };
+		A354C0851249D1840055FB8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A354C0841249D1840055FB8F /* AppDelegate.m */; };
+		A354C2731249D1FD0055FB8F /* Bubble-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A354C2721249D1FD0055FB8F /* Bubble-Info.plist */; };
 		A354C30A1249D86C0055FB8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A354C2DA1249D86C0055FB8F /* InfoPlist.strings */; };
 		A354C30B1249D86C0055FB8F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A354C2DC1249D86C0055FB8F /* MainMenu.xib */; };
 		A3592138124A00F400DC2622 /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592135124A00F400DC2622 /* Compose.xib */; };
 		A3592139124A00F400DC2622 /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592136124A00F400DC2622 /* LoginWindow.xib */; };
 		A359213A124A00F400DC2622 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592137124A00F400DC2622 /* MainWindow.xib */; };
-		A3C603A312543B5F00049FC9 /* WeiboStatusTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C603A212543B5F00049FC9 /* WeiboStatusTimeline.m */; };
+		A3C603A312543B5F00049FC9 /* WeiboHomeTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C603A212543B5F00049FC9 /* WeiboHomeTimeline.m */; };
+		A3C686A5125500AA00CABC1A /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C686A4125500AA00CABC1A /* NSDateAdditions.m */; };
 		A3C8F2F0124C33A200BA074C /* WeiboCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8F2EF124C33A200BA074C /* WeiboCache.m */; };
+		A3C954E7125AE8EC005261B2 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3C954E6125AE8EC005261B2 /* UserDefaults.plist */; };
+		A3C958D0125AF9FE005261B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C958CF125AF9FD005261B2 /* Security.framework */; };
+		A3CAD21D12598AD9004D6ED0 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = A3CAD20D12598AD9004D6ED0 /* themes */; };
 		A3CF45D11252F44B0074E6E3 /* friends_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CF45CF1252F44B0074E6E3 /* friends_down.png */; };
 		A3CF45D21252F44B0074E6E3 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CF45D01252F44B0074E6E3 /* friends.png */; };
 		A3CF460E1252F96B0074E6E3 /* user_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CF460C1252F96B0074E6E3 /* user_down.png */; };
 		A3CF460F1252F96B0074E6E3 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CF460D1252F96B0074E6E3 /* user.png */; };
-		A3D147441249EB5200C764E1 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = A3D147431249EB5200C764E1 /* themes */; };
 		A3E55C18124A044500338F7F /* weibo.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = A3E55C17124A044500338F7F /* weibo.xcdatamodel */; };
 		A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
 		A3F5340812269B4A00C5469D /* TKTemplateEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3F5320612268CED00C5469D /* TKTemplateEngine.framework */; };
@@ -76,11 +82,11 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		256AC3F00F4B6AF500CF3369 /* Rainbow_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow_Prefix.pch; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* Bubble_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bubble_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* Rainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3005EFB124A2B75001CE9AC /* comments_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments_down.png; sourceTree = "<group>"; };
 		A3005EFC124A2B75001CE9AC /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
 		A3005EFD124A2B75001CE9AC /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose.png; sourceTree = "<group>"; };
@@ -91,13 +97,16 @@
 		A3005F04124A2B75001CE9AC /* home_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_down.png; sourceTree = "<group>"; };
 		A3005F05124A2B75001CE9AC /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		A3005F06124A2B75001CE9AC /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
-		A3005F07124A2B75001CE9AC /* mac-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-clear.png"; sourceTree = "<group>"; };
 		A3005F0B124A2B75001CE9AC /* shrink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrink.png; sourceTree = "<group>"; };
 		A3005F0C124A2B75001CE9AC /* star_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_down.png; sourceTree = "<group>"; };
 		A3005F0D124A2B75001CE9AC /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A3005F21124A2D0F001CE9AC /* mentions_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions_down.png; sourceTree = "<group>"; };
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
 		A30A04F112255DAE0087B317 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A3541E6A12562D8C002B6C43 /* comments_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments_dot.png; sourceTree = "<group>"; };
+		A3541E6B12562D8C002B6C43 /* direct_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = direct_dot.png; sourceTree = "<group>"; };
+		A3541E6C12562D8C002B6C43 /* home_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_dot.png; sourceTree = "<group>"; };
+		A3541E6D12562D8C002B6C43 /* mentions_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions_dot.png; sourceTree = "<group>"; };
 		A354BFF11249CC810055FB8F /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		A354BFF21249CC810055FB8F /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		A354BFF31249CC810055FB8F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
@@ -123,30 +132,34 @@
 		A354C0091249CC810055FB8F /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		A354C00A1249CC810055FB8F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A354C00B1249CC810055FB8F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		A354C00E1249CC810055FB8F /* Weibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weibo.h; sourceTree = "<group>"; };
-		A354C00F1249CC810055FB8F /* Weibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weibo.m; sourceTree = "<group>"; };
+		A354C00E1249CC810055FB8F /* WeiboConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboConnector.h; sourceTree = "<group>"; };
+		A354C00F1249CC810055FB8F /* WeiboConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboConnector.m; sourceTree = "<group>"; };
 		A354C0101249CC810055FB8F /* WeiboAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboAccount.h; sourceTree = "<group>"; };
 		A354C0111249CC810055FB8F /* WeiboAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboAccount.m; sourceTree = "<group>"; };
 		A354C0121249CC810055FB8F /* WeiboGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboGlobal.h; sourceTree = "<group>"; };
 		A354C0151249CC810055FB8F /* WeiboURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboURLConnection.h; sourceTree = "<group>"; };
 		A354C0161249CC810055FB8F /* WeiboURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboURLConnection.m; sourceTree = "<group>"; };
-		A354C0831249D1840055FB8F /* RainbowAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RainbowAppDelegate.h; sourceTree = "<group>"; };
-		A354C0841249D1840055FB8F /* RainbowAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RainbowAppDelegate.m; sourceTree = "<group>"; };
-		A354C2721249D1FD0055FB8F /* Rainbow-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Rainbow-Info.plist"; path = "../rainbow/Rainbow-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A354C0831249D1840055FB8F /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A354C0841249D1840055FB8F /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A354C2721249D1FD0055FB8F /* Bubble-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Bubble-Info.plist"; path = "../Bubble/Bubble-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A354C2DB1249D86C0055FB8F /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A354C2DD1249D86C0055FB8F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A3592135124A00F400DC2622 /* Compose.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
 		A3592136124A00F400DC2622 /* LoginWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
 		A3592137124A00F400DC2622 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		A3C603A112543B5F00049FC9 /* WeiboStatusTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboStatusTimeline.h; sourceTree = "<group>"; };
-		A3C603A212543B5F00049FC9 /* WeiboStatusTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboStatusTimeline.m; sourceTree = "<group>"; };
+		A3C603A112543B5F00049FC9 /* WeiboHomeTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboHomeTimeline.h; sourceTree = "<group>"; };
+		A3C603A212543B5F00049FC9 /* WeiboHomeTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboHomeTimeline.m; sourceTree = "<group>"; };
+		A3C686A3125500AA00CABC1A /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
+		A3C686A4125500AA00CABC1A /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
 		A3C8F2EE124C33A200BA074C /* WeiboCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiboCache.h; path = ../App/WeiboCache.h; sourceTree = "<group>"; };
 		A3C8F2EF124C33A200BA074C /* WeiboCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeiboCache.m; path = ../App/WeiboCache.m; sourceTree = "<group>"; };
+		A3C954E6125AE8EC005261B2 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		A3C958CF125AF9FD005261B2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A3CAD20D12598AD9004D6ED0 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		A3CF45CF1252F44B0074E6E3 /* friends_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends_down.png; sourceTree = "<group>"; };
 		A3CF45D01252F44B0074E6E3 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
 		A3CF460C1252F96B0074E6E3 /* user_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_down.png; sourceTree = "<group>"; };
 		A3CF460D1252F96B0074E6E3 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		A3D147431249EB5200C764E1 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		A3E55C17124A044500338F7F /* weibo.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = weibo.xcdatamodel; sourceTree = "<group>"; };
 		A3F5320612268CED00C5469D /* TKTemplateEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TKTemplateEngine.framework; path = /Users/Luke/Projects/templatekit/build/Release/TKTemplateEngine.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -159,6 +172,7 @@
 				A3F5320712268CED00C5469D /* TKTemplateEngine.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				A30A04F212255DAE0087B317 /* WebKit.framework in Frameworks */,
+				A3C958D0125AF9FE005261B2 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,12 +202,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Rainbow.app */,
+				8D1107320486CEB800E47090 /* Bubble.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* Rainbow */ = {
+		29B97314FDCFA39411CA2CEA /* Bubble */ = {
 			isa = PBXGroup;
 			children = (
 				A354C2D91249D86C0055FB8F /* Resources */,
@@ -201,15 +215,16 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				A3C958CF125AF9FD005261B2 /* Security.framework */,
 			);
-			name = Rainbow;
+			name = Bubble;
 			sourceTree = "<group>";
 		};
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A354C2721249D1FD0055FB8F /* Rainbow-Info.plist */,
-				256AC3F00F4B6AF500CF3369 /* Rainbow_Prefix.pch */,
+				A354C2721249D1FD0055FB8F /* Bubble-Info.plist */,
+				256AC3F00F4B6AF500CF3369 /* Bubble_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -235,7 +250,7 @@
 				A354C00D1249CC810055FB8F /* Weibo */,
 			);
 			name = Classes;
-			path = ../rainbow/Classes;
+			path = ../Bubble/Classes;
 			sourceTree = SOURCE_ROOT;
 		};
 		A354BFF01249CC810055FB8F /* Additions */ = {
@@ -247,6 +262,8 @@
 				A354BFF41249CC810055FB8F /* NSStringAdditions.m */,
 				A354BFF51249CC810055FB8F /* NSURLAdditions.h */,
 				A354BFF61249CC810055FB8F /* NSURLAdditions.m */,
+				A3C686A3125500AA00CABC1A /* NSDateAdditions.h */,
+				A3C686A4125500AA00CABC1A /* NSDateAdditions.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -297,15 +314,15 @@
 			children = (
 				A3C8F2EE124C33A200BA074C /* WeiboCache.h */,
 				A3C8F2EF124C33A200BA074C /* WeiboCache.m */,
-				A354C00E1249CC810055FB8F /* Weibo.h */,
-				A354C00F1249CC810055FB8F /* Weibo.m */,
+				A354C00E1249CC810055FB8F /* WeiboConnector.h */,
+				A354C00F1249CC810055FB8F /* WeiboConnector.m */,
 				A354C0101249CC810055FB8F /* WeiboAccount.h */,
 				A354C0111249CC810055FB8F /* WeiboAccount.m */,
 				A354C0121249CC810055FB8F /* WeiboGlobal.h */,
 				A354C0151249CC810055FB8F /* WeiboURLConnection.h */,
 				A354C0161249CC810055FB8F /* WeiboURLConnection.m */,
-				A3C603A112543B5F00049FC9 /* WeiboStatusTimeline.h */,
-				A3C603A212543B5F00049FC9 /* WeiboStatusTimeline.m */,
+				A3C603A112543B5F00049FC9 /* WeiboHomeTimeline.h */,
+				A3C603A212543B5F00049FC9 /* WeiboHomeTimeline.m */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -313,8 +330,8 @@
 		A354C0821249D1840055FB8F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				A354C0831249D1840055FB8F /* RainbowAppDelegate.h */,
-				A354C0841249D1840055FB8F /* RainbowAppDelegate.m */,
+				A354C0831249D1840055FB8F /* AppDelegate.h */,
+				A354C0841249D1840055FB8F /* AppDelegate.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -322,14 +339,15 @@
 		A354C2D91249D86C0055FB8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A3CAD20D12598AD9004D6ED0 /* themes */,
 				A3D147D21249F25000C764E1 /* images */,
-				A3D147431249EB5200C764E1 /* themes */,
 				A354C2DA1249D86C0055FB8F /* InfoPlist.strings */,
 				A354C2DC1249D86C0055FB8F /* MainMenu.xib */,
 				A354C3061249D86C0055FB8F /* UI */,
+				A3C954E6125AE8EC005261B2 /* UserDefaults.plist */,
 			);
 			name = Resources;
-			path = ../rainbow/Resources;
+			path = ../Bubble/Resources;
 			sourceTree = SOURCE_ROOT;
 		};
 		A354C3061249D86C0055FB8F /* UI */ = {
@@ -345,6 +363,10 @@
 		A3D147D21249F25000C764E1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3541E6A12562D8C002B6C43 /* comments_dot.png */,
+				A3541E6B12562D8C002B6C43 /* direct_dot.png */,
+				A3541E6C12562D8C002B6C43 /* home_dot.png */,
+				A3541E6D12562D8C002B6C43 /* mentions_dot.png */,
 				A3CF460C1252F96B0074E6E3 /* user_down.png */,
 				A3CF460D1252F96B0074E6E3 /* user.png */,
 				A3CF45CF1252F44B0074E6E3 /* friends_down.png */,
@@ -361,7 +383,6 @@
 				A3005F04124A2B75001CE9AC /* home_down.png */,
 				A3005F05124A2B75001CE9AC /* home.png */,
 				A3005F06124A2B75001CE9AC /* img.png */,
-				A3005F07124A2B75001CE9AC /* mac-clear.png */,
 				A3005F0B124A2B75001CE9AC /* shrink.png */,
 				A3005F0C124A2B75001CE9AC /* star_down.png */,
 				A3005F0D124A2B75001CE9AC /* star.png */,
@@ -372,9 +393,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Rainbow */ = {
+		8D1107260486CEB800E47090 /* Bubble */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Rainbow" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Bubble" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -385,10 +406,10 @@
 			);
 			dependencies = (
 			);
-			name = Rainbow;
+			name = Bubble;
 			productInstallPath = "$(HOME)/Applications";
-			productName = Rainbow;
-			productReference = 8D1107320486CEB800E47090 /* Rainbow.app */;
+			productName = Bubble;
+			productReference = 8D1107320486CEB800E47090 /* Bubble.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -396,14 +417,14 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Rainbow" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Bubble" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 29B97314FDCFA39411CA2CEA /* Rainbow */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Bubble */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* Rainbow */,
+				8D1107260486CEB800E47090 /* Bubble */,
 			);
 		};
 /* End PBXProject section */
@@ -413,10 +434,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A354C2731249D1FD0055FB8F /* Rainbow-Info.plist in Resources */,
+				A354C2731249D1FD0055FB8F /* Bubble-Info.plist in Resources */,
 				A354C30A1249D86C0055FB8F /* InfoPlist.strings in Resources */,
 				A354C30B1249D86C0055FB8F /* MainMenu.xib in Resources */,
-				A3D147441249EB5200C764E1 /* themes in Resources */,
 				A3592138124A00F400DC2622 /* Compose.xib in Resources */,
 				A3592139124A00F400DC2622 /* LoginWindow.xib in Resources */,
 				A359213A124A00F400DC2622 /* MainWindow.xib in Resources */,
@@ -430,7 +450,6 @@
 				A3005F17124A2B75001CE9AC /* home_down.png in Resources */,
 				A3005F18124A2B75001CE9AC /* home.png in Resources */,
 				A3005F19124A2B75001CE9AC /* img.png in Resources */,
-				A3005F1A124A2B75001CE9AC /* mac-clear.png in Resources */,
 				A3005F1E124A2B75001CE9AC /* shrink.png in Resources */,
 				A3005F1F124A2B75001CE9AC /* star_down.png in Resources */,
 				A3005F20124A2B75001CE9AC /* star.png in Resources */,
@@ -440,6 +459,12 @@
 				A3CF45D21252F44B0074E6E3 /* friends.png in Resources */,
 				A3CF460E1252F96B0074E6E3 /* user_down.png in Resources */,
 				A3CF460F1252F96B0074E6E3 /* user.png in Resources */,
+				A3541E6E12562D8C002B6C43 /* comments_dot.png in Resources */,
+				A3541E6F12562D8C002B6C43 /* direct_dot.png in Resources */,
+				A3541E7012562D8C002B6C43 /* home_dot.png in Resources */,
+				A3541E7112562D8C002B6C43 /* mentions_dot.png in Resources */,
+				A3CAD21D12598AD9004D6ED0 /* themes in Resources */,
+				A3C954E7125AE8EC005261B2 /* UserDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,13 +488,14 @@
 				A354C0201249CC810055FB8F /* SBJsonBase.m in Sources */,
 				A354C0211249CC810055FB8F /* SBJsonParser.m in Sources */,
 				A354C0221249CC810055FB8F /* SBJsonWriter.m in Sources */,
-				A354C0231249CC810055FB8F /* Weibo.m in Sources */,
+				A354C0231249CC810055FB8F /* WeiboConnector.m in Sources */,
 				A354C0241249CC810055FB8F /* WeiboAccount.m in Sources */,
 				A354C0261249CC810055FB8F /* WeiboURLConnection.m in Sources */,
-				A354C0851249D1840055FB8F /* RainbowAppDelegate.m in Sources */,
+				A354C0851249D1840055FB8F /* AppDelegate.m in Sources */,
 				A3E55C18124A044500338F7F /* weibo.xcdatamodel in Sources */,
 				A3C8F2F0124C33A200BA074C /* WeiboCache.m in Sources */,
-				A3C603A312543B5F00049FC9 /* WeiboStatusTimeline.m in Sources */,
+				A3C603A312543B5F00049FC9 /* WeiboHomeTimeline.m in Sources */,
+				A3C686A5125500AA00CABC1A /* NSDateAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,10 +535,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Rainbow_Prefix.pch;
-				INFOPLIST_FILE = "Rainbow-Info.plist";
+				GCC_PREFIX_HEADER = Bubble_Prefix.pch;
+				INFOPLIST_FILE = "Bubble-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Rainbow;
+				PRODUCT_NAME = Bubble;
 			};
 			name = Debug;
 		};
@@ -527,10 +553,10 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Rainbow_Prefix.pch;
-				INFOPLIST_FILE = "Rainbow-Info.plist";
+				GCC_PREFIX_HEADER = Bubble_Prefix.pch;
+				INFOPLIST_FILE = "Bubble-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Rainbow;
+				PRODUCT_NAME = Bubble;
 			};
 			name = Release;
 		};
@@ -564,7 +590,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Rainbow" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Bubble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -573,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Rainbow" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Bubble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

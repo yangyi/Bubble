@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import <TKTemplateEngine/TKTemplateEngine.h>
-#import "Weibo.h"
 #import "WeiboAccount.h"
 #import "WeiboGlobal.h"
 @interface HTMLController : NSObject {
@@ -18,8 +17,12 @@
 	TKTemplate *mainTemplate;
 	TKTemplate *timeLineTemplate;
 	WeiboAccount *weiboAccount;
+	NSURL *baseURL;
+
 }
 -(id) initWithWebView:(WebView*) webView;
+-(void)dealloc;
+
 -(void)statusesReceived:(NSNotification *)notification;
 -(void)statusReceived:(NSArray *)status;
 -(void)selectHomeTimeLine;
@@ -31,4 +34,5 @@
 - (void)scrollToTop;
 
 @property(nonatomic,retain) WebView *webView;
+@property(nonatomic,retain) NSURL *baseURL;
 @end

@@ -1,5 +1,9 @@
-{% foreach tweet in tweets %}
-<div class='Tweet'>
+{% if newer %}
+<div id="newer"/>
+{% endif %}
+
+{% foreach status in statuses %}
+<div class='status'>
 	<div class='avatar'><img src='{{tweet.user.profile_image_url}}' /></div>
 	<div class='content'>
 		<div class="options">
@@ -13,3 +17,7 @@
 
 <div class='clear'></div>
 {% endforeach %}
+
+{% if older %}
+<div id="older"/>
+{% endif %}

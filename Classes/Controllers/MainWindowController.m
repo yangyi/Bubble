@@ -10,7 +10,12 @@
 
 @implementation MainWindowController
 - (id)init {
-	self = [super initWithWindowNibName:@"MainWindow"];
+	if(self = [super initWithWindowNibName:@"MainWindow"]){
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(didShowErrorInfo:) 
+				   name:HTTPConnectionErrorNotifaction 
+				 object:nil];
+	}
 	return self;
 }
 
@@ -37,7 +42,7 @@
 	if(timelineSegmentedControl==nil){
 		return;
 	}
-	NSArray *imageNames=[NSArray arrayWithObjects:@"home",@"mentions",@"comments",@"direct",@"star",@"user",nil];
+	NSArray *imageNames=[NSArray arrayWithObjects:@"home",@"mentions_dot",@"comments_dot",@"direct_dot",@"star",@"user",nil];
 	NSString *imageName;
 	for(int index=0;index< imageNames.count;index++){
 		imageName =[imageNames objectAtIndex:index];
@@ -64,5 +69,10 @@
 -(void)homeTimeLine{
 	
 	[htmlController selectHomeTimeLine];
+}
+
+-(void)didShowErrorInfo:(NSNotification*)notification{
+	NSError* error = [notification object];
+	[messageText setStringValue:[error localizedDescription]];
 }
 @end

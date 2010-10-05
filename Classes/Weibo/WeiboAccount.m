@@ -11,55 +11,112 @@
 
 @implementation WeiboAccount
 
+static const char *serviceName = "Bubble";
+static WeiboAccount *instance;
+
+@synthesize homeTimeline;
+
++(id)instance{
+	if (!instance) {
+		return [WeiboAccount newInstance];
+	}
+	return instance;
+}
+
++(id)newInstance{
+	if (instance) {
+		[instance release];
+		instance=nil;
+	}
+	instance=[[WeiboAccount alloc]init];
+	return instance;
+}
 #pragma mark Initializers
 -(id)init{
 	if (self=[super init]) {
-		weibo=[[Weibo alloc] initWithDelegate:self];
+		weiboConnector=[[WeiboConnector alloc] initWithDelegate:self];
+		cache=[[WeiboCache alloc]init];
+		homeTimeline =[[WeiboHomeTimeline alloc] initWithWeiboConnector:weiboConnector];
 	}
-	cache=[[WeiboCache alloc]init];
 	return self;
 }
 
-#pragma mark Request Method
--(NSString *) getHomeTimelineWithSinceId:(NSUInteger)sinceId 
-								   maxId:(NSUInteger)maxId 
-								   count:(NSUInteger)count 
-									page:(NSUInteger)page;
-{
-	return [weibo getHomeTimelineWithSinceId:sinceId
-								maxId:maxId
-								count:count 
-								 page:page];
+-(void)dealloc{
+	[weiboConnector release];
+	[cache release];
+	[homeTimeline release];
+	[super dealloc];
 }
 
--(NSString *) getMentionsWithSinceId:(NSUInteger)sinceId 
-							   maxId:(NSUInteger)maxId 
-							   count:(NSUInteger)count 
-								page:(NSUInteger)page{
-	return [weibo getMentionsWithSinceId:sinceId 
-							maxId:maxId 
-							count:count
-							 page:page];
+
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
+	[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionErrorNotifaction
+														object:error];
 }
 
--(NSString *) updateWeiboWithStatus:(NSString*)status{
-	[weibo updateWithStatus:status];
-}
-
-#pragma mark WeiboDelegate Method
--(void)statusesDidReceived:(NSArray *)statuses withRequestPath:(NSString*) requestPath{
-	NSString *statusTimelineType;
-	if([requestPath hasPrefix:@"statuses/home_timeline"]){
-		statusTimelineType = @"home";
+#pragma mark Account
+-(NSString*)username{
+	if (!username) {
+		username = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentAccount"];
 	}
-	if([requestPath hasPrefix:@"statuses/mentions"]){
-		statusTimelineType = @"mention";
-	}
-	if ([requestPath hasPrefix:@"favorites"]) {
-		statusTimelineType = @"favorite";
+	return username;
+}
+
+#pragma mark Password
+-(NSString*)password{
+	char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
+	char* cPassword;
+	UInt32 length=0;
+	OSStatus error=SecKeychainFindGenericPassword(NULL,
+												  strlen(serviceName), 
+												  serviceName, 
+												  strlen(cUsername), 
+												  cUsername,
+												  &length, 
+												  &cPassword, 
+												  NULL);
+	if (error!=noErr) {
+		NSLog (@"SecKeychainFindGenericPassword () For User:%@ error: %d",username, error);
 	}
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:StatusesReceivedNotification
-														object:statuses];
+	NSString *string = [[[NSString alloc] initWithBytes:cPassword 
+												 length:length 
+											   encoding:NSUTF8StringEncoding] autorelease];
+	return string;
+
+}
+
+-(void)setPassword:(NSString *)password{
+	[self removePassword];
+	const char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
+	const char* cPassword=[password cStringUsingEncoding:NSUTF8StringEncoding];
+	OSStatus error=SecKeychainAddGenericPassword(nil,
+													strlen(serviceName),
+													serviceName, 
+													strlen(cUsername),
+													cUsername,
+													strlen(cPassword), 
+													cPassword,
+													nil);
+	if (error!=noErr) {
+		NSLog(@"SecKeychainAddGenericPassword() error:%d",error);
+	}
+}
+
+-(void)removePassword{
+	const char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
+	SecKeychainItemRef keychainItemRef;
+	OSStatus *error=SecKeychainFindGenericPassword(nil,
+													  strlen(serviceName),
+													  serviceName, 
+													  strlen(cUsername),
+													  cUsername, 
+													  nil, nil, keychainItemRef);
+	if (error==noErr) {
+		error=SecKeychainItemDelete(keychainItemRef);
+		if (error!=noErr) {
+			NSLog(@"SecKeychainItemDelete() Error:%d",error);
+		}
+	}
 }
 @end

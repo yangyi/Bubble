@@ -6,15 +6,37 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "RainbowAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation RainbowAppDelegate
+@implementation AppDelegate
 
++setupUserDefaults{
+	NSString *userDefaultsValuesPath = [[NSBundle mainBundle] pathForResource:@"UserDefaults" 
+                                                                       ofType:@"plist"]; 
+    NSDictionary *userDefaultsValuesDict = [NSDictionary dictionaryWithContentsOfFile:userDefaultsValuesPath]; 
+    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsValuesDict];
+}
+
++ (void)initialize{
+	[AppDelegate setupUserDefaults];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application 
-	loginWindow = [[LoginWindowController alloc ]init];
-	[loginWindow showWindow:nil];
+	//custom url schema
+	[[NSAppleEventManager sharedAppleEventManager]  
+	 setEventHandler:self  
+	 andSelector:@selector(handleURLEvent:withReplyEvent:)  
+	 forEventClass:kInternetEventClass  
+	 andEventID:kAEGetURL]; 
+	
+	if ([[WeiboAccount instance] username]) {
+		mainWindow=[[MainWindowController alloc]init];
+		[mainWindow showWindow:nil];
+	}else {
+		loginWindow = [[LoginWindowController alloc ]init];
+		[loginWindow showWindow:nil];
+	}
 }
 -(void)openMainWindow{
 	[loginWindow close];
@@ -31,7 +53,7 @@
 	
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
-    return [basePath stringByAppendingPathComponent:@"Rainbow"];
+    return [basePath stringByAppendingPathComponent:@"Bubble"];
 }
 
 - (NSManagedObjectModel *)managedObjectModel {
@@ -99,4 +121,8 @@
     return managedObjectContext;
 }
 
+
+- (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
+{	
+}
 @end

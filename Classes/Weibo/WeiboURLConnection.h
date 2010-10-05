@@ -11,17 +11,19 @@
 #import "NSStringAdditions.h"
 @interface WeiboURLConnection : NSURLConnection {
 	NSMutableData *_data;
-	WeiboDataType _dataType;
 	NSString *_identifier;
-	NSString *_requestPath;
+
+	
+	id completionTarget;
+	SEL completionAction;
 	
 }
--(id)initWithRequest:(NSURLRequest*) request delegate:(id)delegate dataType:(WeiboDataType)dataType;
+-(id)initWithRequest:(NSURLRequest*) request delegate:(id)delegate;
 - (void)appendData:(NSData *)data;
 - (void)resetDataLength;
 
 @property(nonatomic,retain) NSMutableData *data;
 @property(nonatomic,retain) NSString *identifier;
-@property(nonatomic) WeiboDataType dataType;
-@property(nonatomic,retain) NSString *requestPath;
+@property(assign) id completionTarget;
+@property(assign) SEL completionAction;
 @end

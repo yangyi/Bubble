@@ -24,7 +24,7 @@
 -(void)commitEditingAndSave;
 -(NSString*)entityNameWithRelationshipName:(NSString*)relationshipName;
 -(NSDictionary*)dictionaryFromManagedObject:(NSManagedObject*)managedObject;
--(NSArray*)dataStructuresFromManagedObjects:(NSArray*)managedObjects;
+-(NSArray*)dataArrayFromManagedObjects:(NSArray*)managedObjects;
 -(NSManagedObject*)managedObjectFromDictionary:(NSDictionary*)valueDictionary 
 								withEntityName:(NSString*)entityName
 					  withManagedObjectContext:(NSManagedObjectContext*)moc;

@@ -82,7 +82,7 @@ static NSMutableDictionary *relationshipNameEntityName;
 	return [valuesDictionary autorelease];
 }
 
--(NSArray*)dataStructuresFromManagedObjects:(NSArray*)managedObjects
+-(NSArray*)dataArrayFromManagedObjects:(NSArray*)managedObjects
 {
 	NSMutableArray *dataArray = [[NSMutableArray alloc] init];
 	for (NSManagedObject *managedObject in managedObjects) {
@@ -105,7 +105,7 @@ static NSMutableDictionary *relationshipNameEntityName;
 		if (![description isToMany]) {
 			NSDictionary *childStructureDictionary = [valueDictionary objectForKey:relationshipName];
 			NSManagedObject *childObject = [self managedObjectFromDictionary:childStructureDictionary 
-																  withEntity:[self entityNameWithRelationshipName:relationshipName]
+																  withEntityName:[self entityNameWithRelationshipName:relationshipName]
 													withManagedObjectContext:moc];
 			[managedObject setValue:childObject forKey:relationshipName];
 			continue;
@@ -114,7 +114,7 @@ static NSMutableDictionary *relationshipNameEntityName;
 		NSArray *relationshipArray = [valueDictionary objectForKey:relationshipName];
 		for (NSDictionary *childStructureDictionary in relationshipArray) {
 			NSManagedObject *childObject = [self managedObjectFromDictionary:childStructureDictionary 
-																  withEntity:[self entityNameWithRelationshipName:relationshipName]
+																  withEntityName:[self entityNameWithRelationshipName:relationshipName]
 													withManagedObjectContext:moc];
 			[relationshipSet addObject:childObject];
 		}

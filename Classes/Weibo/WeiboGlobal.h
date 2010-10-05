@@ -6,18 +6,16 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-//Notification constants
-#define StatusesReceivedNotification @"StatusesReceivedNotification" 
 
-typedef enum _weiboDataType {
-    DataTypeWeiboStatuses           = 0,
-	DataTypeWeiboStatus             = 1
-} WeiboDataType;
+//Status Finished Notifaction,Tell webview and mainWindow to update
+#define FinishedLoadRecentHomeTimelineNotifaction @"FinishedLoadRecentHomeTimelineNotifaction"
+#define FinishedLoadNewerHomeTimelineNotifaction @"FinishedLoadNewerHomeTimelineNotifaction"
+#define FinishedLoadOlderHomeTimelineNotifaction @"FinishedLoadOlderHomeTimelineNotifaction"
 
 
+#define HTTPConnectionErrorNotifaction @"HTTPConnectionErrorNotifaction"
 
 
-@protocol WeiboDelegate
--(void)statusesDidReceived:(NSArray *)statuses withRequestPath:(NSString*)requestPath;
--(void)statusDidReceived:(NSDictionary*)status;
+@protocol WeiboConnectorDelegate
+- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error;
 @end

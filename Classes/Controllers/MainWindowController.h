@@ -9,14 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import "HTMLController.h"
-#import "Weibo.h"
 #import "WeiboGlobal.h"
 #import "ComposeController.h"
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
+	IBOutlet NSTextField *messageText;
 	HTMLController *htmlController;
 	ComposeController *composeController;
+	
 }
 -(id)init;
 -(IBAction)selectViewWithSegmentControl:(id)sender;

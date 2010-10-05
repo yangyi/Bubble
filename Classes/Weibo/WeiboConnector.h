@@ -1,5 +1,5 @@
 //
-//  Weibo.h
+//  WeiboConnector.h
 //  Rainbow
 //
 //  Created by Luke on 8/28/10.
@@ -14,14 +14,14 @@
 #import "WeiboURLConnection.h"
 #define WEIBO_BASE_URL @"http://api.t.sina.com.cn"
 
-@interface Weibo : NSObject {
-	__weak NSObject <WeiboDelegate> *_delegate;
+@interface WeiboConnector : NSObject {
+	__weak NSObject <WeiboConnectorDelegate> *_delegate;
 	NSMutableDictionary *_connections;
 	NSString *_username;
     NSString *_password;
 	NSString *_appKey;
 }
--(Weibo*)initWithDelegate:(id)delegate;
+-(WeiboConnector*)initWithDelegate:(id)delegate;
 
 #pragma mark properties
 @property(nonatomic,retain) NSString *username;
@@ -35,8 +35,16 @@
 //---------------------------------------------------
 
 //timeline
--(NSString *) getPublicTimeline;
--(NSString *) getHomeTimelineWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
--(NSString *) getMentionsWithSinceId:(NSUInteger)sinceId maxId:(NSUInteger)maxId count:(NSUInteger)count page:(NSUInteger)page;
--(NSString *) updateWithStatus:(NSString*)status;
+
+-(NSString *) getHomeTimelineWithParameters:(NSMutableDictionary*)params 
+						   completionTarget:(id)target
+						completionAction:(SEL)action;
+
+-(NSString *) getMentionsWithParameters:(NSMutableDictionary*)params
+					   completionTarget:(id)target
+					   completionAction:(SEL)action;
+
+-(NSString *) updateWithStatus:(NSString*)status					   
+			  completionTarget:(id)target
+			  completionAction:(SEL)action;
 @end

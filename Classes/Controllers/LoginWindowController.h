@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class RainbowAppDelegate;
+@class AppDelegate;
 @interface LoginWindowController : NSWindowController {
-	RainbowAppDelegate* appDelegate;
+	AppDelegate* appDelegate;
 
 }
 -(id)init;
