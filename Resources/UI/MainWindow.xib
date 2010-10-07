@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
+			<integer value="110"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -667,6 +667,14 @@
 					</object>
 					<int key="connectionID">154</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">connectionProgressIndicator</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="88896712"/>
+					</object>
+					<int key="connectionID">155</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -920,9 +928,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{542, 122}, {392, 585}}</string>
+					<string>{{242, 78}, {392, 585}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{542, 122}, {392, 585}}</string>
+					<string>{{242, 78}, {392, 585}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -972,7 +980,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">154</int>
+			<int key="maxID">155</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -997,12 +1005,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>connectionProgressIndicator</string>
 							<string>messageText</string>
 							<string>timelineSegmentedControl</string>
 							<string>webView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSProgressIndicator</string>
 							<string>NSTextField</string>
 							<string>NSSegmentedControl</string>
 							<string>WebView</string>

@@ -38,7 +38,7 @@
 {
 	if ((self = [super init])) {
 		_delegate=delegate;
-		_username=@"kejinlu@gmail.com";
+		_username=@"kejin.lu@qq.com";
 		_password=@"lukejin1986";
 		_appKey=@"1444319711";
 	}
@@ -144,6 +144,9 @@
 	if (!connection) {
         return nil;
     } else {
+		[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionStartNotification 
+															object:nil];
+		
 		connection.completionTarget=target;
 		connection.completionAction=action;
         [_connections setObject:connection forKey:[connection identifier]];
@@ -165,9 +168,8 @@
 	if (statusCode>=400) {
 		[_connections removeObjectForKey:connection.identifier];
 		NSError *error=[NSError errorWithDomain:@"HTTP" code:statusCode userInfo:nil];
-		if (_delegate!=nil&&[_delegate respondsToSelector:@selector(requestFailed:withError:)]) {
-			[_delegate requestFailed:connection.identifier withError:error];
-		}
+		[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionErrorNotification
+															object:error];
 	}
 }
 
@@ -180,6 +182,8 @@
 
 - (void)connectionDidFinishLoading:(WeiboURLConnection *)connection
 {
+	[[NSNotificationCenter defaultCenter]postNotificationName:HTTPConnectionFinishedNotification object:nil];
+	
 	NSData *receivedData = connection.data;
 	if(receivedData){
 		[self _parseDataForConnection:connection];
@@ -190,9 +194,8 @@
 
 -(void)connection:(WeiboURLConnection *)connection didFailWithError:(NSError*)error{
 	[_connections removeObjectForKey:connection.identifier];
-	if (_delegate!=nil&&[_delegate respondsToSelector:@selector(requestFailed:withError:)]) {
-		[_delegate requestFailed:connection.identifier withError:error];
-	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionErrorNotification
+														object:error];
 }
 
 #pragma mark Parse Data and perform target-action

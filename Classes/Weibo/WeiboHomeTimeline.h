@@ -11,11 +11,13 @@
 
 @interface WeiboHomeTimeline : NSObject {
 	WeiboConnector *weiboConnector;
-	NSArray *statusArray;
+	NSMutableArray *statusArray;
 	
-	NSNumber *lastStatusId;
+	NSNumber *lastReadStatusId;
+	NSNumber *lastReceivedStatusId;
 	//标记当前的tab是否处于激活状态。
-	BOOL isActive;
+	BOOL selected;
+	BOOL unread;
 }
 -(id)initWithWeiboConnector:(WeiboConnector*)connector;
 
@@ -23,5 +25,7 @@
 -(void)didLoadRecentHomeTimeline:(NSArray*)statuses;
 -(void)loadNewerHomeTimeline;
 -(void)didLoadNewerHomeTimeline:(NSArray*)statuses;
-@property(nonatomic,assign) NSArray *statusArray;
+@property(nonatomic,assign) NSMutableArray *statusArray;
+@property(nonatomic)BOOL selected;
+@property(nonatomic)BOOL unread;
 @end

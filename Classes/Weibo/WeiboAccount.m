@@ -49,10 +49,6 @@ static WeiboAccount *instance;
 }
 
 
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error{
-	[[NSNotificationCenter defaultCenter] postNotificationName:HTTPConnectionErrorNotifaction
-														object:error];
-}
 
 #pragma mark Account
 -(NSString*)username{
@@ -62,10 +58,15 @@ static WeiboAccount *instance;
 	return username;
 }
 
+-(void)setUsername:(NSString *)newUsername{
+	username=newUsername;
+	[[NSUserDefaults standardUserDefaults]setValue:newUsername forKey:@"currentAccount"];
+}
+
 #pragma mark Password
 -(NSString*)password{
-	char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
-	char* cPassword;
+	const char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
+	const char* cPassword;
 	UInt32 length=0;
 	OSStatus error=SecKeychainFindGenericPassword(NULL,
 												  strlen(serviceName), 
@@ -73,7 +74,7 @@ static WeiboAccount *instance;
 												  strlen(cUsername), 
 												  cUsername,
 												  &length, 
-												  &cPassword, 
+												  (void**)&cPassword, 
 												  NULL);
 	if (error!=noErr) {
 		NSLog (@"SecKeychainFindGenericPassword () For User:%@ error: %d",username, error);
@@ -86,10 +87,10 @@ static WeiboAccount *instance;
 
 }
 
--(void)setPassword:(NSString *)password{
+-(void)setPassword:(NSString *)newPassword{
 	[self removePassword];
 	const char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
-	const char* cPassword=[password cStringUsingEncoding:NSUTF8StringEncoding];
+	const char* cPassword=[newPassword cStringUsingEncoding:NSUTF8StringEncoding];
 	OSStatus error=SecKeychainAddGenericPassword(nil,
 													strlen(serviceName),
 													serviceName, 
@@ -106,12 +107,12 @@ static WeiboAccount *instance;
 -(void)removePassword{
 	const char* cUsername=[username cStringUsingEncoding:NSUTF8StringEncoding];
 	SecKeychainItemRef keychainItemRef;
-	OSStatus *error=SecKeychainFindGenericPassword(nil,
+	OSStatus error=SecKeychainFindGenericPassword(nil,
 													  strlen(serviceName),
 													  serviceName, 
 													  strlen(cUsername),
 													  cUsername, 
-													  nil, nil, keychainItemRef);
+													  nil, nil, &keychainItemRef);
 	if (error==noErr) {
 		error=SecKeychainItemDelete(keychainItemRef);
 		if (error!=noErr) {

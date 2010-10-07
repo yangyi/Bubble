@@ -10,25 +10,33 @@
 
 
 @implementation HTMLController
-@synthesize webView,baseURL;
+@synthesize webView,baseURL,weiboAccount;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
+		//data received notification
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(didStartHTTPConnection:) 
+				   name:HTTPConnectionStartNotification
+				 object:nil];
+		[nc addObserver:self selector:@selector(didFinishedHTTPConnection:) 
+				   name:HTTPConnectionFinishedNotification
+				 object:nil];
+		[nc addObserver:self selector:@selector(didAddRecentHomeTimeline:) 
+				   name:FinishedLoadRecentHomeTimelineNotification 
+				 object:nil];
+		
+		
 		self.webView=webview;
 		NSString *pathMain = [[NSBundle mainBundle] pathForResource:@"statuses_page" ofType:@"html" inDirectory:@"themes/default"];
 		mainTemplate = [[TKTemplate alloc] initWithTemplatePath:pathMain];
-		NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statues" ofType:@"html" inDirectory:@"themes/default"];
+		NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statuses" ofType:@"html" inDirectory:@"themes/default"];
 		timeLineTemplate = [[TKTemplate alloc] initWithTemplatePath:pathTheme];
 		weiboAccount=[WeiboAccount instance];
-		[weiboAccount.homeTimeline loadRecentHomeTimeline];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
 		self.baseURL = [NSURL fileURLWithPath:basePath];
 		[[webView mainFrame] loadHTMLString:[mainTemplate render:nil] baseURL:baseURL];
-		
-		//data received notification
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		[nc addObserver:self selector:@selector(didAddRecentHomeTimeline:) 
-				   name:FinishedLoadRecentHomeTimelineNotifaction 
-				 object:nil];
+		[weiboAccount.homeTimeline loadRecentHomeTimeline];
+		weiboAccount.homeTimeline.unread=NO;
 	}
 	return self;
 }
@@ -36,29 +44,30 @@
 
 -(void)didAddRecentHomeTimeline:(NSNotification *)notification{
 	WeiboHomeTimeline *homeTimeline =[notification object];
-	NSString *html = [timeLineTemplate render:[NSDictionary dictionaryWithObject:homeTimeline.statusArray 
-																		  forKey:@"tweets"]];
-
-	[self setDocumentElement:@"status" visibility:NO];
-	[self setDocumentElement:@"home_time_line" innerHTML:html];
-
-}
-
--(void)statusReceived:(NSArray *)status{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:homeTimeline.statusArray forKey:@"statuses"];
+	NSString *html = [timeLineTemplate render:data];
+	[self setDocumentElement:@"status_older" innerHTML:html];
 	
-	NSLog(@"status received");
 }
+
+
 #pragma mark Select View
 -(void) selectHomeTimeLine{
 
-	[[webView mainFrame] loadHTMLString:[mainTemplate render:nil] baseURL:self.baseURL];
-	[weiboAccount.homeTimeline loadRecentHomeTimeline];
+	//[[webView mainFrame] loadHTMLString:[mainTemplate render:nil] baseURL:self.baseURL];
+	//[weiboAccount.homeTimeline loadRecentHomeTimeline];
+	weiboAccount.homeTimeline.unread=NO;
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:weiboAccount.homeTimeline.statusArray forKey:@"statuses"];
+	NSString *html = [timeLineTemplate render:data];
+	[self setDocumentElement:@"status_older" innerHTML:html];
 }
 
 -(void)selectMentions{
-
-	[[webView mainFrame] loadHTMLString:[mainTemplate render:nil] baseURL:self.baseURL];
-	[weiboAccount.homeTimeline loadRecentHomeTimeline];
+    weiboAccount.homeTimeline.selected=NO;
+	//[[webView mainFrame] loadHTMLString:[mainTemplate render:nil] baseURL:self.baseURL];
+	//[weiboAccount.homeTimeline loadRecentHomeTimeline];
 }
 
 -(void)postWithStatus:(NSString*)status{
@@ -123,5 +132,12 @@
 	[webView release];
 	[baseURL release];
 	[super dealloc];
+}
+
+-(void)didStartHTTPConnection:(NSNotification*)notification{
+}
+
+-(void)didFinishedHTTPConnection:(NSNotification*)notification{
+	[self setDocumentElement:@"spinner" visibility:NO];
 }
 @end

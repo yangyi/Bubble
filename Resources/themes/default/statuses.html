@@ -1,17 +1,17 @@
 {% if newer %}
-<div id="newer"/>
+<div id="status_newer"/>
 {% endif %}
 
 {% foreach status in statuses %}
 <div class='status'>
-	<div class='avatar'><img src='{{tweet.user.profile_image_url}}' /></div>
+	<div class='avatar'><img src='{{status.user.profile_image_url}}' /></div>
 	<div class='content'>
 		<div class="options">
 
 		</div>
-		<div class="informations">  from {{tweet.source}}</div>
+		<div class="informations">  from {{status.source}}</div>
 		<hr class="topSeparator" />
-		{{tweet.text}}
+		{{status.text}}
 	</div>
  </div>
 
@@ -19,5 +19,5 @@
 {% endforeach %}
 
 {% if older %}
-<div id="older"/>
+<div id="status_older"/>
 {% endif %}

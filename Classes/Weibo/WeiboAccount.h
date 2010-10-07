@@ -26,6 +26,7 @@
 +(id)newInstance;
 -(id)init;
 -(void)dealloc;
+-(void)removePassword;
 @property(nonatomic,retain) WeiboHomeTimeline * homeTimeline;
 @property(nonatomic,retain)NSString* username;
 @property(nonatomic,retain)NSString* password;

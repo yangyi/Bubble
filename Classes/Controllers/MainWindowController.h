@@ -15,6 +15,7 @@
 	IBOutlet WebView *webView;
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	IBOutlet NSTextField *messageText;
+	IBOutlet NSProgressIndicator * connectionProgressIndicator;
 	HTMLController *htmlController;
 	ComposeController *composeController;
 	
@@ -28,4 +29,8 @@
 
 //主要是更新图标的
 - (void)updateTimelineSegmentedControl;
+
+-(void)didStartHTTPConnection:(NSNotification*)notification;
+-(void)didFinishedHTTPConnection:(NSNotification*)notification;
+
 @end

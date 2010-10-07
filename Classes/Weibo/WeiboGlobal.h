@@ -7,15 +7,16 @@
 //
 
 
-//Status Finished Notifaction,Tell webview and mainWindow to update
-#define FinishedLoadRecentHomeTimelineNotifaction @"FinishedLoadRecentHomeTimelineNotifaction"
-#define FinishedLoadNewerHomeTimelineNotifaction @"FinishedLoadNewerHomeTimelineNotifaction"
-#define FinishedLoadOlderHomeTimelineNotifaction @"FinishedLoadOlderHomeTimelineNotifaction"
+//Status Finished Notification,Tell webview and mainWindow to update
+#define FinishedLoadRecentHomeTimelineNotification @"FinishedLoadRecentHomeTimelineNotification"
+#define FinishedLoadNewerHomeTimelineNotification @"FinishedLoadNewerHomeTimelineNotification"
+#define FinishedLoadOlderHomeTimelineNotification @"FinishedLoadOlderHomeTimelineNotification"
 
-
-#define HTTPConnectionErrorNotifaction @"HTTPConnectionErrorNotifaction"
-
+//HTTP Connection Notification
+#define HTTPConnectionErrorNotification @"HTTPConnectionErrorNotification"
+#define HTTPConnectionStartNotification @"HTTPConnectionStartNotification"
+#define HTTPConnectionFinishedNotification @"HTTPConnectionFinishedNotification"
 
 @protocol WeiboConnectorDelegate
-- (void)requestFailed:(NSString *)connectionIdentifier withError:(NSError *)error;
+
 @end

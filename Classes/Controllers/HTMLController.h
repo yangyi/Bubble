@@ -16,6 +16,9 @@
 	WebView *webView;
 	TKTemplate *mainTemplate;
 	TKTemplate *timeLineTemplate;
+	
+	NSString* loadingHTML;
+	
 	WeiboAccount *weiboAccount;
 	NSURL *baseURL;
 
@@ -23,8 +26,6 @@
 -(id) initWithWebView:(WebView*) webView;
 -(void)dealloc;
 
--(void)statusesReceived:(NSNotification *)notification;
--(void)statusReceived:(NSArray *)status;
 -(void)selectHomeTimeLine;
 -(void)selectMentions;
 -(void)postWithStatus:(NSString*)status;
@@ -33,6 +34,9 @@
 - (NSString*)setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
 - (void)scrollToTop;
 
+-(void)didStartHTTPConnection:(NSNotification*)notification;
+
 @property(nonatomic,retain) WebView *webView;
 @property(nonatomic,retain) NSURL *baseURL;
+@property(nonatomic,retain) WeiboAccount *weiboAccount;
 @end
