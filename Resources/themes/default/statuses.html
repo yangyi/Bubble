@@ -1,23 +1,20 @@
-{% if newer %}
-<div id="status_newer"/>
-{% endif %}
-
-{% foreach status in statuses %}
-<div class='status'>
+{% for status in statuses %}
+<div class='status' onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'>
 	<div class='avatar'><img src='{{status.user.profile_image_url}}' /></div>
 	<div class='content'>
 		<div class="options">
 
 		</div>
-		<div class="informations">  from {{status.source}}</div>
+		<div class="informations">  from {{ status.source }} {{ status.source }} <a href="http://www.baidu.com" target="_blank">link</a></div>
 		<hr class="topSeparator" />
-		{{status.text}}
+		<div id="text" >
+		{{ status.text }}
+		</div>
 	</div>
  </div>
 
 <div class='clear'></div>
-{% endforeach %}
-
-{% if older %}
-<div id="status_older"/>
-{% endif %}
+{% if status.gap %}
+<div  class="gap"><img  src="gapdot.png"/></div>
+{% /if %}
+{% /for %}

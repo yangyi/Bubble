@@ -7,11 +7,16 @@
 <body>
 
 	<div id="statuses" class='statuses'>
-	<div id="status_newer"/>
-	<div id="status_older"/>
+	<div id="status_new">
+	{{new_statuses}}
+	</div>
+	<div id="status_old">
+	{{old_statuses}}
+	</div>
 	<div id="spinner" class='spinner'>
-	     <img class='status_spinner_image' src='spinner.gif'> Loading...</div>
+	     {{spinner}}{{load_more}}
 	</div>
 	</div>
+	<button onclick="window.open('weibo://click')"/>
 </body>
 </html>

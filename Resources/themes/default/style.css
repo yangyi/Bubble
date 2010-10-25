@@ -30,10 +30,14 @@ hr {
 	-webkit-box-shadow: 0px 1px 0px #eee;
 }
 
+.gap{
+	margin:auto;
+	width:5px;
+}
 
 /* @group Status */
 
-.status {
+#status_old > .status {
 	/*background-color: #e3f5a4;*/
 	margin: 6px 8px 6px 62px;
 	padding: 4px 8px;
@@ -44,6 +48,20 @@ hr {
 	text-shadow: 0px 1px 0px #fff;
 	background: #ebebeb;
 }
+
+#status_new > .status {
+	/*background-color: #e3f5a4;*/
+	margin: 6px 8px 6px 62px;
+	padding: 4px 8px;
+	border: 1px solid #d6d6d6;
+	-webkit-border-radius: 6px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 32px;
+	text-shadow: 0px 1px 0px #fff;
+	background: #e3f5a4;
+}
+
+
 	.status hr {
 		background: #c0c0c0;
 		-webkit-box-shadow: 0px 1px 0px #fff;

@@ -33,7 +33,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bubble</string>
+				<string>weibo</string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string>BubbleURLHandler</string>

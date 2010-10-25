@@ -30,6 +30,8 @@
 	 forEventClass:kInternetEventClass  
 	 andEventID:kAEGetURL]; 
 	
+	urlHandler=[[AppURLHandler alloc] init];
+	
 	if ([[WeiboAccount instance] username]) {
 		mainWindow=[[MainWindowController alloc]init];
 		[mainWindow showWindow:nil];
@@ -124,5 +126,7 @@
 
 - (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
 {	
+	NSString *urlString=[[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+	[urlHandler handleURL:urlString];
 }
 @end

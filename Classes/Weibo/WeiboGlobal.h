@@ -8,14 +8,21 @@
 
 
 //Status Finished Notification,Tell webview and mainWindow to update
-#define FinishedLoadRecentHomeTimelineNotification @"FinishedLoadRecentHomeTimelineNotification"
-#define FinishedLoadNewerHomeTimelineNotification @"FinishedLoadNewerHomeTimelineNotification"
-#define FinishedLoadOlderHomeTimelineNotification @"FinishedLoadOlderHomeTimelineNotification"
+#define ReloadHomeTimelineNotification @"ReloadHomeTimelineNotification"
 
 //HTTP Connection Notification
 #define HTTPConnectionErrorNotification @"HTTPConnectionErrorNotification"
 #define HTTPConnectionStartNotification @"HTTPConnectionStartNotification"
 #define HTTPConnectionFinishedNotification @"HTTPConnectionFinishedNotification"
+
+
+//URL Handler Notification
+#define StartLoadOlderHomeTimelineNotification @"StartLoadOlderHomeTimelineNotification"
+#define HomeTimelineStatusClickNotification @"HomeTimelineStatusClickNotification"
+#define DidLoadOlderHomeTimelineNotification @"DidLoadOlderHomeTimelineNotification"
+#define DidLoadNewerHomeTimelineNotification @"DidLoadNewerHomeTimelineNotification"
+//Other Notification
+#define UnreadNotification @"UnreadNotification"
 
 @protocol WeiboConnectorDelegate
 

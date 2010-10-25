@@ -8,30 +8,35 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
-#import <TKTemplateEngine/TKTemplateEngine.h>
+#import <WebKit/WebPolicyDelegate.h>
+//#import <TKTemplateEngine/TKTemplateEngine.h>
 #import "WeiboAccount.h"
 #import "WeiboGlobal.h"
-@interface HTMLController : NSObject {
+#import "MGTemplateEngine.h"
+#import "ICUTemplateMatcher.h"
+@interface HTMLController : NSObject<MGTemplateEngineDelegate> {
 	NSString *theme;
 	WebView *webView;
-	TKTemplate *mainTemplate;
-	TKTemplate *timeLineTemplate;
-	
+
+	//TKTemplate *homeTemplate;
+	//TKTemplate *statusesTemplate;
+	MGTemplateEngine *engine;
 	NSString* loadingHTML;
 	
 	WeiboAccount *weiboAccount;
 	NSURL *baseURL;
-
+	NSString *spinner;
+	NSString *loadMore;
 }
 -(id) initWithWebView:(WebView*) webView;
 -(void)dealloc;
 
--(void)selectHomeTimeLine;
+-(void)reloadHomeTimeLine;
 -(void)selectMentions;
 -(void)postWithStatus:(NSString*)status;
 #pragma mark WebView JS 
 - (NSString*)setDocumentElement:(NSString*)element visibility:(BOOL)visibility;
-- (NSString*)setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
+- (NSString*) setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
 - (void)scrollToTop;
 
 -(void)didStartHTTPConnection:(NSNotification*)notification;

@@ -9,11 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "MainWindowController.h"
 #import "LoginWindowController.h"
-
+#import "AppURLHandler.h"
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
 	LoginWindowController *loginWindow;
     MainWindowController *mainWindow;
-	
+	AppURLHandler *urlHandler;
 	NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;

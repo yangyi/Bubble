@@ -21,12 +21,15 @@
 		[nc addObserver:self selector:@selector(didFinishedHTTPConnection:) 
 				   name:HTTPConnectionFinishedNotification 
 				 object:nil];
-
+		[nc addObserver:self selector:@selector(didUnread:) 
+				   name:UnreadNotification 
+				 object:nil];
 	}
 	return self;
 }
 
 -(void) awakeFromNib{
+	[webView setUIDelegate:self];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
 	[self updateTimelineSegmentedControl];
 }
@@ -85,7 +88,7 @@
 
 -(void)homeTimeLine{
 	
-	[htmlController selectHomeTimeLine];
+	[htmlController reloadHomeTimeLine];
 }
 
 -(void)didShowErrorInfo:(NSNotification*)notification{
@@ -103,7 +106,24 @@
 -(void)didFinishedHTTPConnection:(NSNotification*)notification{
 	[connectionProgressIndicator setHidden:YES];
 	[connectionProgressIndicator stopAnimation:nil];
+}
+
+-(void)didUnread:(NSNotification*)notification{
 	[self updateTimelineSegmentedControl];
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+
+	WebView *_hiddenWebView=[[WebView alloc] init];
+	[_hiddenWebView setPolicyDelegate:self];
+	return _hiddenWebView;
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+    NSLog(@"%@",[[actionInformation objectForKey:WebActionOriginalURLKey] absoluteString]);
+	[[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+	[sender release];
 }
 
 @end
