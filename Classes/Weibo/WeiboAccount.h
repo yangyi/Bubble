@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "WeiboConnector.h"
 #import "WeiboGlobal.h"
-#import "WeiboHomeTimeline.h"
+#import "WeiboTimeline.h"
 #import "WeiboCache.h"
 
 @interface WeiboAccount : NSObject<WeiboConnectorDelegate> {
@@ -19,7 +19,8 @@
 	WeiboConnector *weiboConnector;
 	WeiboCache *cache;
 	
-	WeiboHomeTimeline * homeTimeline;
+	WeiboTimeline * homeTimeline;
+	WeiboTimeline * mentions;
 	
 }
 +(id)instance;
@@ -27,7 +28,8 @@
 -(id)init;
 -(void)dealloc;
 -(void)removePassword;
-@property(nonatomic,retain) WeiboHomeTimeline * homeTimeline;
+@property(nonatomic,retain) WeiboTimeline * homeTimeline;
+@property(nonatomic,retain) WeiboTimeline * mentions;
 @property(nonatomic,retain)NSString* username;
 @property(nonatomic,retain)NSString* password;
 @end

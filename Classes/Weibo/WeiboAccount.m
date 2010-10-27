@@ -14,7 +14,7 @@
 static const char *serviceName = "Bubble";
 static WeiboAccount *instance;
 
-@synthesize homeTimeline;
+@synthesize homeTimeline,mentions;
 
 +(id)instance{
 	if (!instance) {
@@ -36,7 +36,10 @@ static WeiboAccount *instance;
 	if (self=[super init]) {
 		weiboConnector=[[WeiboConnector alloc] initWithDelegate:self];
 		cache=[[WeiboCache alloc]init];
-		homeTimeline =[[WeiboHomeTimeline alloc] initWithWeiboConnector:weiboConnector];
+		homeTimeline =[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector 
+															 timelineType:Home];
+		mentions=[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector
+														timelineType:Mentions];
 	}
 	return self;
 }

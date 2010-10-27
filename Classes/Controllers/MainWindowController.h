@@ -16,14 +16,14 @@
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	IBOutlet NSTextField *messageText;
 	IBOutlet NSProgressIndicator * connectionProgressIndicator;
+	IBOutlet NSDrawer *drawer;
 	HTMLController *htmlController;
 	ComposeController *composeController;
 	
 }
 -(id)init;
 -(IBAction)selectViewWithSegmentControl:(id)sender;
--(void)mentions;
--(void)homeTimeLine;
+
 -(IBAction)compose:(id)sender;
 
 

@@ -23,106 +23,120 @@
 				   name:HTTPConnectionFinishedNotification
 				 object:nil];
 		
-		[nc addObserver:self selector:@selector(didReloadHomeTimeline:) 
-				   name:ReloadHomeTimelineNotification 
+		[nc addObserver:self selector:@selector(didReloadTimeline:) 
+				   name:ReloadTimelineNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(startLoadOlderHomeTimeline:) 
-				   name:StartLoadOlderHomeTimelineNotification 
+		[nc addObserver:self selector:@selector(startLoadOlderTimeline:) 
+				   name:StartLoadOlderTimelineNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didLoadOlderHomeTimeline:) 
-				   name:DidLoadOlderHomeTimelineNotification 
+		[nc addObserver:self selector:@selector(didLoadOlderTimeline:) 
+				   name:DidLoadOlderTimelineNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didLoadNewerHomeTimeline:) 
-				   name:DidLoadNewerHomeTimelineNotification 
+		[nc addObserver:self selector:@selector(didLoadNewerTimeline:) 
+				   name:DidLoadNewerTimelineNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didClickHomeTimeline:)
-				   name:HomeTimelineStatusClickNotification 
+		[nc addObserver:self selector:@selector(didClickTimeline:)
+				   name:DidClickTimelineNotification 
 				 object:nil];
+
 		
 		
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
 		[webView setPolicyDelegate:self];
-		engine = [[MGTemplateEngine templateEngine] retain];
-		[engine setDelegate:self];
-		[engine setMatcher:[ICUTemplateMatcher matcherWithTemplateEngine:engine]];
-		//[engine setObject:@"luke" forKey:@"test"];
-		NSString *testPath = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"html" inDirectory:@"themes/default"];
 
-		NSLog(@"%@",[engine processTemplate:@"{{ test }}" withVariables:[NSMutableDictionary dictionaryWithObject:@"Luke hello" forKey:@"test"]]);
+		templateEngine=[[TemplateEngine alloc] init];
 		
-		NSString *pathMain = [[NSBundle mainBundle] pathForResource:@"statuses_page" ofType:@"html" inDirectory:@"themes/default"];
-		//homeTemplate = [[TKTemplate alloc] initWithTemplatePath:pathMain];
-		NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statuses" ofType:@"html" inDirectory:@"themes/default"];
-		//statusesTemplate = [[TKTemplate alloc] initWithTemplatePath:pathTheme];
+		
+		statusesPageTemplatePath = [[[NSBundle mainBundle] pathForResource:@"statuses_page" 
+																   ofType:@"html" 
+															  inDirectory:@"themes/default"] retain];
+		statusesTemplatePath = [[[NSBundle mainBundle] pathForResource:@"statuses" 
+															   ofType:@"html" 
+														  inDirectory:@"themes/default"] retain];
+
 		weiboAccount=[WeiboAccount instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
-		self.baseURL = [NSURL fileURLWithPath:basePath];
-		NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
-		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-		NSLog(@"%@",[engine processTemplateInFileAtPath:pathMain withVariables:data]);
-		[[webView mainFrame] loadHTMLString:[engine processTemplateInFileAtPath:pathMain withVariables:data] baseURL:baseURL];
+		baseURL = [[NSURL fileURLWithPath:basePath] retain];
 
 		//下面不起作用的原因是，需要在webview的delegate中的webViewDidFinishLoad方法中写这个才有作用，因为执行到这里的时候webview还没加载好
 		//[self setDocumentElement:@"html" innerHTML:spinner];
 		//loadRecentHometimeline
-		[weiboAccount.homeTimeline loadRecentHomeTimeline];
+		currentTimeline=weiboAccount.homeTimeline;
 	
 	}
 	return self;
 }
 
+//当页面点击加载更多的时候接受到这个通知，进行加载历史信息
+-(void)startLoadOlderTimeline:(NSNotification*)notification{
+	//开始加载历史信息的时候显示等待的图标
+	[self setDocumentElement:@"spinner" innerHTML:spinner];
+	[currentTimeline loadOlderTimeline];
+}
 
--(void)didReloadHomeTimeline:(NSNotification *)notification{
+-(void)loadRecentTimeline{
+	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+								baseURL:baseURL];
+	[currentTimeline loadRecentTimeline];
+}
+
+-(void)didReloadTimeline:(NSNotification *)notification{
 	/*WeiboHomeTimeline *homeTimeline =[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	[data setObject:homeTimeline.statusArray forKey:@"statuses"];
 	[data setObject:[statusesTemplate render:data] forKey:@"old_statuses"];
 	[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
 	 */
-	[self reloadHomeTimeLine];
+	[self reloadTimeline];
 }
 
 
 #pragma mark Select View
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
--(void) reloadHomeTimeLine{
-	weiboAccount.homeTimeline.unread=NO;
-	NSMutableArray *homeStatuses=weiboAccount.homeTimeline.statusArray;
+-(void) reloadTimeline{
+	if (currentTimeline.data==nil) {
+		[self loadRecentTimeline];
+		return;
+	}
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	//NSNumber *lastReadStatusId=weiboAccount.homeTimeline.lastReadStatusId;
 	//NSLog(@"%@",lastReadStatusId);
-
-	NSArray *oldStatuses=[homeStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id<=%@",weiboAccount.homeTimeline.lastReadStatusId]];
-	NSArray *newStatuses=[homeStatuses filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id>%@",weiboAccount.homeTimeline.lastReadStatusId]];
-	NSString *pathMain = [[NSBundle mainBundle] pathForResource:@"statuses_page" ofType:@"html" inDirectory:@"themes/default"];
-	NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statuses" ofType:@"html" inDirectory:@"themes/default"];
+	NSArray *oldStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id<=%@",weiboAccount.homeTimeline.lastReadId]];
+	NSArray *newStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id>%@",weiboAccount.homeTimeline.lastReadId]];
 	if ([oldStatuses count]>0) {
 		[data setObject:oldStatuses forKey:@"statuses"];
 		//[data setObject:[statusesTemplate render:data] forKey:@"old_statuses"];
-		NSString *result=[engine processTemplateInFileAtPath:pathTheme withVariables:data];
-		[data setObject:[engine processTemplateInFileAtPath:pathTheme withVariables:data] forKey:@"old_statuses"];
+		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data]
+				 forKey:@"old_statuses"];
 	}
 	if ([newStatuses count]>0) {
 		[data setObject:newStatuses forKey:@"statuses"];
 		//[data setObject:[statusesTemplate render:data] forKey:@"new_statuses"];
-		[data setObject:[engine processTemplateInFileAtPath:pathTheme withVariables:data] forKey:@"new_statuses"];
+		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data] 
+				 forKey:@"new_statuses"];
 	}
 	[data setObject:loadMore forKey:@"load_more"];
 	
 	//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-	[[webView mainFrame] loadHTMLString:[engine processTemplateInFileAtPath:pathMain withVariables:data] baseURL:baseURL];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+								baseURL:baseURL];
 
 }
 
 -(void)selectMentions{
-    weiboAccount.homeTimeline.selected=NO;
+    currentTimeline = weiboAccount.mentions;
+	[self reloadTimeline];
 
 }
 
--(void)postWithStatus:(NSString*)status{
-	[weiboAccount updateWeiboWithStatus:status];
+-(void)selectHome{
+	currentTimeline = weiboAccount.homeTimeline;
+	[self reloadTimeline];
 }
+
+
 #pragma mark WebView JS 
 - (NSString*) setDocumentElement:(NSString*)element visibility:(BOOL)visibility {
 	NSString *value = visibility ? @"visible" : @"none";
@@ -196,13 +210,11 @@
 {
     if([webFrame isEqual:[webView mainFrame]])
     {
-		if (weiboAccount.homeTimeline.selected) {
-			//[webView stringByEvaluatingJavaScriptFromString:
-			 //[NSString stringWithFormat:@"scroll(0,%d);",weiboAccount.homeTimeline.scrollPosition]];
-			 NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
-			 [[scrollView documentView] scrollPoint:weiboAccount.homeTimeline.scrollPosition];
-		}
+		NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
+		[[scrollView documentView] scrollPoint:currentTimeline.scrollPosition];
+
     }
+	 
 }
 
  
@@ -214,78 +226,44 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[[NSWorkspace sharedWorkspace] openURL:[request URL]]; 
 }
 
--(void)startLoadOlderHomeTimeline:(NSNotification*)notification{
-	//weiboAccount.homeTimeline.scrollPosition=[[webView stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
-	
+
+-(void)didLoadOlderTimeline:(NSNotification*)notification{
+	WeiboTimeline *sender=(WeiboTimeline *)[notification object];
+	if (currentTimeline==sender) {
+		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+		NSArray *statuses=sender.newData;
+		[data setObject:statuses forKey:@"statuses"];
+		NSString *olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
+		DOMDocument *dom=[[webView mainFrame] DOMDocument];
+		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_old"];
+		[oldStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatusElement innerHTML],olderStatuses]];		
+	}
+}
+
+-(void)didLoadNewerTimeline:(NSNotification*)notification{
+	WeiboTimeline *sender=(WeiboTimeline*)[notification object];
+	if (currentTimeline==sender) {
+		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+		NSArray *statuses=sender.newData;
+		[data setObject:statuses forKey:@"statuses"];
+		NSString *newStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
+		DOMDocument *dom=[[webView mainFrame] DOMDocument];
+		DOMHTMLElement *newStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_new"];
+		[newStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",newStatuses,[newStatusElement innerHTML]]];
+	}else {
+		[[NSNotificationCenter defaultCenter] postNotificationName:UnreadNotification object:nil];
+	}
+
+}
+
+-(void)didClickTimeline:(NSNotification*)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	// get the current scroll position of the document view
 	NSRect scrollViewBounds = [[scrollView contentView] bounds];
-	weiboAccount.homeTimeline.scrollPosition=scrollViewBounds.origin; // keep track of position to restore
+	currentTimeline.scrollPosition=scrollViewBounds.origin; // keep track of position to restore
 	
-	[self setDocumentElement:@"spinner" innerHTML:spinner];
-}
-
--(void)didLoadOlderHomeTimeline:(NSNotification*)notification{
-	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	NSArray *statuses=[notification object];
-	[data setObject:statuses forKey:@"statuses"];
-	//NSString *older=[statusesTemplate render:data];
-	NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statuses" ofType:@"html" inDirectory:@"themes/default"];
-	NSString *older=[engine processTemplateInFileAtPath:pathTheme withVariables:data];
-	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *oldStatus=(DOMHTMLElement *)[dom getElementById:@"status_old"];
-	[oldStatus setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatus innerHTML],older]];
-}
-
--(void)didLoadNewerHomeTimeline:(NSNotification*)notification{
-	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	NSArray *statuses=[notification object];
-	[data setObject:statuses forKey:@"statuses"];
-	//NSString *newStatuses=[statusesTemplate render:data];
-	NSString *pathTheme = [[NSBundle mainBundle] pathForResource:@"statuses" ofType:@"html" inDirectory:@"themes/default"];
-	NSString *newStatuses=[engine processTemplateInFileAtPath:pathTheme withVariables:data];
-	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *newStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_new"];
-	[newStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",newStatuses,[newStatusElement innerHTML]]];
-}
-
--(void)didClickHomeTimeline:(NSNotification*)notification{
 	NSString *statusId=[notification object];
-	weiboAccount.homeTimeline.lastReadStatusId=[NSNumber numberWithLongLong:[statusId longLongValue]];
-	[self reloadHomeTimeLine];
+	currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
+	[self reloadTimeline];
 }
-
-
-
-// ****************************************************************
-// 
-// Methods below are all optional MGTemplateEngineDelegate methods.
-// 
-// ****************************************************************
-
-
-- (void)templateEngine:(MGTemplateEngine *)engine blockStarted:(NSDictionary *)blockInfo
-{
-	//NSLog(@"Started block %@", [blockInfo objectForKey:BLOCK_NAME_KEY]);
-}
-
-
-- (void)templateEngine:(MGTemplateEngine *)engine blockEnded:(NSDictionary *)blockInfo
-{
-	//NSLog(@"Ended block %@", [blockInfo objectForKey:BLOCK_NAME_KEY]);
-}
-
-
-- (void)templateEngineFinishedProcessingTemplate:(MGTemplateEngine *)engine
-{
-	//NSLog(@"Finished processing template.");
-}
-
-
-- (void)templateEngine:(MGTemplateEngine *)engine encounteredError:(NSError *)error isContinuing:(BOOL)continuing;
-{
-	NSLog(@"Template error: %@", error);
-}
-
-
 @end

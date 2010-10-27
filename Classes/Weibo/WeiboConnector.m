@@ -38,7 +38,7 @@
 {
 	if ((self = [super init])) {
 		_delegate=delegate;
-		_username=@"kejin.lu@qq.com";
+		_username=@"kejinlu@gmail.com";
 		_password=@"lukejin1986";
 		_appKey=@"1444319711";
 	}

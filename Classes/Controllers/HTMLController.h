@@ -9,37 +9,53 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import <WebKit/WebPolicyDelegate.h>
-//#import <TKTemplateEngine/TKTemplateEngine.h>
 #import "WeiboAccount.h"
 #import "WeiboGlobal.h"
-#import "MGTemplateEngine.h"
-#import "ICUTemplateMatcher.h"
-@interface HTMLController : NSObject<MGTemplateEngineDelegate> {
+#import "TemplateEngine.h"
+@interface HTMLController : NSObject {
 	NSString *theme;
 	WebView *webView;
-
-	//TKTemplate *homeTemplate;
-	//TKTemplate *statusesTemplate;
-	MGTemplateEngine *engine;
+	//web page template engine
+	TemplateEngine *templateEngine;
+	
+	NSString *statusesPageTemplatePath;
+	NSString *statusesTemplatePath;
+	
+	
 	NSString* loadingHTML;
 	
 	WeiboAccount *weiboAccount;
+	
+	//currentView 用来标记当前选择的View是什么
+	__weak WeiboTimeline *currentTimeline;
+	
 	NSURL *baseURL;
 	NSString *spinner;
 	NSString *loadMore;
 }
 -(id) initWithWebView:(WebView*) webView;
 -(void)dealloc;
-
--(void)reloadHomeTimeLine;
+-(void)loadRecentTimeline;
+-(void)reloadTimeline;
 -(void)selectMentions;
+-(void)selectHome;
 -(void)postWithStatus:(NSString*)status;
+
+#pragma mark 接受通知的方法
+-(void)didReloadTimeline:(NSNotification *)notification;
+-(void)didLoadNewerTimeline:(NSNotification*)notification;
+-(void)startLoadOlderTimeline:(NSNotification*)notification;
+-(void)didLoadNewerTimeline:(NSNotification*)notification;
+-(void)didClickTimeline:(NSNotification*)notification;
+-(void)didStartHTTPConnection:(NSNotification*)notification;
+
+
 #pragma mark WebView JS 
 - (NSString*)setDocumentElement:(NSString*)element visibility:(BOOL)visibility;
 - (NSString*) setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
 - (void)scrollToTop;
 
--(void)didStartHTTPConnection:(NSNotification*)notification;
+
 
 @property(nonatomic,retain) WebView *webView;
 @property(nonatomic,retain) NSURL *baseURL;

@@ -24,12 +24,12 @@
 	NSString *host = [url host];
 	if ([schema isEqualToString:@"weibo"]) {
 		if ([host isEqualToString:@"load_older_home_timeline"]) {
-			[[NSNotificationCenter defaultCenter] postNotificationName:StartLoadOlderHomeTimelineNotification object:nil];
+			[[NSNotificationCenter defaultCenter] postNotificationName:StartLoadOlderTimelineNotification object:nil];
 		}
 		if ([host isEqualToString:@"home_timeline_status_click"]) {
 			NSString *statusId = [[url queryArgumentForKey:@"id"] 
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-			[[NSNotificationCenter defaultCenter] postNotificationName:HomeTimelineStatusClickNotification object:statusId];
+			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickTimelineNotification object:statusId];
 		}
 	}
 	

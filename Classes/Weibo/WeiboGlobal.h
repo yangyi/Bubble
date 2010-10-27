@@ -6,9 +6,16 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+typedef enum {
+	Home,
+	Mentions,
+	Comments,
+	DirectMessages,
+	Favorites
+}TimelineType;
 
 //Status Finished Notification,Tell webview and mainWindow to update
-#define ReloadHomeTimelineNotification @"ReloadHomeTimelineNotification"
+#define ReloadTimelineNotification @"ReloadTimelineNotification"
 
 //HTTP Connection Notification
 #define HTTPConnectionErrorNotification @"HTTPConnectionErrorNotification"
@@ -17,12 +24,13 @@
 
 
 //URL Handler Notification
-#define StartLoadOlderHomeTimelineNotification @"StartLoadOlderHomeTimelineNotification"
-#define HomeTimelineStatusClickNotification @"HomeTimelineStatusClickNotification"
-#define DidLoadOlderHomeTimelineNotification @"DidLoadOlderHomeTimelineNotification"
-#define DidLoadNewerHomeTimelineNotification @"DidLoadNewerHomeTimelineNotification"
+#define StartLoadOlderTimelineNotification @"StartLoadOlderTimelineNotification"
+#define DidClickTimelineNotification @"DidClickTimelineNotification"
+#define DidLoadOlderTimelineNotification @"DidLoadOlderTimelineNotification"
+#define DidLoadNewerTimelineNotification @"DidLoadNewerTimelineNotification"
 //Other Notification
 #define UnreadNotification @"UnreadNotification"
+
 
 @protocol WeiboConnectorDelegate
 

@@ -31,6 +31,7 @@
 -(void) awakeFromNib{
 	[webView setUIDelegate:self];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
+	[htmlController loadRecentTimeline];
 	[self updateTimelineSegmentedControl];
 }
 
@@ -39,10 +40,10 @@
 	int index=[sender selectedSegment];
 	switch (index) {
 		case 0:
-			[self homeTimeLine];
+			[htmlController selectHome];
 			break;
 		case 1:
-			[self mentions];
+			[htmlController selectMentions];
 		default:
 			break;
 	}
@@ -81,15 +82,6 @@
 	[composeController showWindow:nil];
 }
 
--(void)mentions{
-	
-	[htmlController selectMentions];
-}
-
--(void)homeTimeLine{
-	
-	[htmlController reloadHomeTimeLine];
-}
 
 -(void)didShowErrorInfo:(NSNotification*)notification{
 	NSError* error = [notification object];

@@ -17,7 +17,7 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 
--(void)saveStatusTimeline:(NSArray*)statuses withType:(NSString*)type;
+-(void)saveTimeline:(NSArray*)statuses withType:(NSString*)type;
 
 +(void) initialize;
 

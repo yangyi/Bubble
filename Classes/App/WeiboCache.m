@@ -46,14 +46,14 @@ static NSMutableDictionary *relationshipNameEntityName;
     }
 }
 
--(void)saveStatusTimeline:(NSArray*)statuses withType:(NSString*)type{
+-(void)saveTimeline:(NSArray*)statuses withType:(NSString*)type{
 	for(NSDictionary *status in statuses){
 		NSMutableDictionary * statusTimeline = [[[NSMutableDictionary alloc] init] autorelease];
 		[statusTimeline setValue:[status valueForKey:@"id"] forKey:@"id"];
 		[statusTimeline setValue:type forKey:@"type"];
 		[statusTimeline setValue:status forKey:@"status"];
 		[self managedObjectFromDictionary:statusTimeline 
-						   withEntityName:@"WeiboStatusTimeline" 
+						   withEntityName:@"WeiboTimeline" 
 				 withManagedObjectContext:[self managedObjectContext]];
 	}
 	[self commitEditingAndSave];
