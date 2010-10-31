@@ -123,4 +123,16 @@ static WeiboAccount *instance;
 		}
 	}
 }
+
+#pragma mark 操作
+-(void)postWithStatus:(NSString*)status{
+	[weiboConnector updateWithStatus:status 
+					completionTarget:self 
+					completionAction:@selector(didPostWithStatus:)];
+}
+
+-(void)didPostWithStatus:(id)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidPostStatusNotification
+														object:nil];
+}
 @end

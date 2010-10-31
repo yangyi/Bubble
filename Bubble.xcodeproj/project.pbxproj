@@ -24,6 +24,8 @@
 		A3005F20124A2B75001CE9AC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F0D124A2B75001CE9AC /* star.png */; };
 		A3005F23124A2D0F001CE9AC /* mentions_down.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F21124A2D0F001CE9AC /* mentions_down.png */; };
 		A3005F24124A2D0F001CE9AC /* mentions.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F22124A2D0F001CE9AC /* mentions.png */; };
+		A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A316D5B212786E3600A3D987 /* NSWindowAdditions.h */; };
+		A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A316D5B312786E3600A3D987 /* NSWindowAdditions.m */; };
 		A34D033D1275BC7300CA1996 /* TemplateEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A34D033B1275BC7300CA1996 /* TemplateEngine.h */; };
 		A34D033E1275BC7300CA1996 /* TemplateEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A34D033C1275BC7300CA1996 /* TemplateEngine.m */; };
 		A34E48501271D2B9000B2B5D /* AIURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A34E484F1271D2B9000B2B5D /* AIURLAdditions.m */; };
@@ -53,6 +55,8 @@
 		A3592138124A00F400DC2622 /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592135124A00F400DC2622 /* Compose.xib */; };
 		A3592139124A00F400DC2622 /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592136124A00F400DC2622 /* LoginWindow.xib */; };
 		A359213A124A00F400DC2622 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592137124A00F400DC2622 /* MainWindow.xib */; };
+		A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C24B7F127DA8A600D9E39D /* WeiboFilters.h */; };
+		A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C24B80127DA8A600D9E39D /* WeiboFilters.m */; };
 		A3C603A312543B5F00049FC9 /* WeiboTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C603A212543B5F00049FC9 /* WeiboTimeline.m */; };
 		A3C686A5125500AA00CABC1A /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C686A4125500AA00CABC1A /* NSDateAdditions.m */; };
 		A3C8F2F0124C33A200BA074C /* WeiboCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C8F2EF124C33A200BA074C /* WeiboCache.m */; };
@@ -137,6 +141,8 @@
 		A3005F0D124A2B75001CE9AC /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A3005F21124A2D0F001CE9AC /* mentions_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions_down.png; sourceTree = "<group>"; };
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
+		A316D5B212786E3600A3D987 /* NSWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowAdditions.h; sourceTree = "<group>"; };
+		A316D5B312786E3600A3D987 /* NSWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindowAdditions.m; sourceTree = "<group>"; };
 		A34D033B1275BC7300CA1996 /* TemplateEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEngine.h; sourceTree = "<group>"; };
 		A34D033C1275BC7300CA1996 /* TemplateEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEngine.m; sourceTree = "<group>"; };
 		A34E484E1271D2B9000B2B5D /* AIURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIURLAdditions.h; sourceTree = "<group>"; };
@@ -185,6 +191,8 @@
 		A3592135124A00F400DC2622 /* Compose.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
 		A3592136124A00F400DC2622 /* LoginWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
 		A3592137124A00F400DC2622 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A3C24B7F127DA8A600D9E39D /* WeiboFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboFilters.h; sourceTree = "<group>"; };
+		A3C24B80127DA8A600D9E39D /* WeiboFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboFilters.m; sourceTree = "<group>"; };
 		A3C603A112543B5F00049FC9 /* WeiboTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTimeline.h; sourceTree = "<group>"; };
 		A3C603A212543B5F00049FC9 /* WeiboTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTimeline.m; sourceTree = "<group>"; };
 		A3C686A3125500AA00CABC1A /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
@@ -341,6 +349,8 @@
 				A354BFF61249CC810055FB8F /* NSURLAdditions.m */,
 				A3C686A3125500AA00CABC1A /* NSDateAdditions.h */,
 				A3C686A4125500AA00CABC1A /* NSDateAdditions.m */,
+				A316D5B212786E3600A3D987 /* NSWindowAdditions.h */,
+				A316D5B312786E3600A3D987 /* NSWindowAdditions.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -503,6 +513,8 @@
 				A3D89AF412745A6E00B78216 /* Writing Matchers.txt */,
 				A34D033B1275BC7300CA1996 /* TemplateEngine.h */,
 				A34D033C1275BC7300CA1996 /* TemplateEngine.m */,
+				A3C24B7F127DA8A600D9E39D /* WeiboFilters.h */,
+				A3C24B80127DA8A600D9E39D /* WeiboFilters.m */,
 			);
 			path = MGTemplateEngine;
 			sourceTree = "<group>";
@@ -528,6 +540,8 @@
 				A3D89B0812745A6E00B78216 /* RegexKitLite.h in Headers */,
 				A3D89B0A12745A6E00B78216 /* RegexKitTemplateMatcher.h in Headers */,
 				A34D033D1275BC7300CA1996 /* TemplateEngine.h in Headers */,
+				A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */,
+				A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +671,8 @@
 				A3D89B0912745A6E00B78216 /* RegexKitLite.m in Sources */,
 				A3D89B0B12745A6E00B78216 /* RegexKitTemplateMatcher.m in Sources */,
 				A34D033E1275BC7300CA1996 /* TemplateEngine.m in Sources */,
+				A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */,
+				A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

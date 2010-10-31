@@ -31,6 +31,8 @@ typedef enum {
 //Other Notification
 #define UnreadNotification @"UnreadNotification"
 
+#define DidPostStatusNotification @"DidPostStatusNotification"
+
 
 @protocol WeiboConnectorDelegate
 

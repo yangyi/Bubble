@@ -15,6 +15,7 @@
 		engine=[[MGTemplateEngine templateEngine] retain];
 		[engine setDelegate:self];
 		[engine setMatcher:[ICUTemplateMatcher matcherWithTemplateEngine:engine]];
+		[engine loadFilter:[[[WeiboFilters alloc] init] autorelease] ];
 	}
 	return self;
 }

@@ -1,20 +1,35 @@
 {% for status in statuses %}
-<div class='status' onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'>
+<div class='status'
+{% if new %}
+ onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'
+{% /if %}
+ >
 	<div class='avatar'><img src='{{status.user.profile_image_url}}' /></div>
 	<div class='content'>
 		<div class="options">
 
 		</div>
-		<div class="informations">  from {{ status.source }} {{ status.source }} <a href="http://www.baidu.com" target="_blank">link</a></div>
+		<div class="informations">{{ status.user.screen_name }} from {{ status.source }}  {{ status.created_at|weibo_date_format }}</div>
 		<hr class="topSeparator" />
-		<div id="text" >
+		<div id="text">
+		
 		{{ status.text }}
+		{% if status.retweeted_status %}
+		<div class="bubble">
+		<cite><img src="tip.gif"/> </cite>
+		<blockquote>
+		<p>
+		{{status.retweeted_status.user.screen_name}} {{status.retweeted_status.text}}
+		</p>
+		</blockquote>
+		</div>
+		{% /if %}
 		</div>
 	</div>
  </div>
 
 <div class='clear'></div>
 {% if status.gap %}
-<div  class="gap"><img  src="gapdot.png"/></div>
+<div  class="gap"><img src="gapdot.png"/></div>
 {% /if %}
 {% /for %}

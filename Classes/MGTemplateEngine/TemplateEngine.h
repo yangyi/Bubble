@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MGTemplateEngine.h"
 #import "ICUTemplateMatcher.h"
-
+#import "WeiboFilters.h"
 @interface TemplateEngine : NSObject<MGTemplateEngineDelegate> {
 	MGTemplateEngine *engine;
 }

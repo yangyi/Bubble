@@ -39,7 +39,6 @@
 -(void)reloadTimeline;
 -(void)selectMentions;
 -(void)selectHome;
--(void)postWithStatus:(NSString*)status;
 
 #pragma mark 接受通知的方法
 -(void)didReloadTimeline:(NSNotification *)notification;
@@ -60,4 +59,6 @@
 @property(nonatomic,retain) WebView *webView;
 @property(nonatomic,retain) NSURL *baseURL;
 @property(nonatomic,retain) WeiboAccount *weiboAccount;
+@property(nonatomic,retain) NSString *statusesPageTemplatePath;
+@property(nonatomic,retain) NSString *statusesTemplatePath;
 @end

@@ -15,7 +15,7 @@
 
 
 -(BOOL) unread{
-	return lastReadId<lastReceivedId;
+	return [lastReadId longValue]<[lastReceivedId longValue];
 }
 
 #pragma mark  初始化
@@ -27,7 +27,7 @@
 		data=nil;
 		newData=nil;
 		scrollPosition=NSMakePoint(-1, -1);
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	   //NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 
 		[NSTimer scheduledTimerWithTimeInterval:60 
 										 target:self 
@@ -70,7 +70,7 @@
 	if (statuses!=nil&&[statuses count]>0) {		
 		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
         self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
-		oldestReceivedId =[[[statuses lastObject] objectForKey:@"id"] retain];
+		self.oldestReceivedId =[[statuses lastObject] objectForKey:@"id"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:ReloadTimelineNotification
 																			object:self];
 	}
@@ -106,7 +106,7 @@
 			[indexes addIndex:i];
 		}
 		[data insertObjects:statuses atIndexes:indexes];
-		lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
+		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadNewerTimelineNotification
 															object:self];
 		/*
@@ -127,9 +127,12 @@
 
 -(void)loadOlderTimeline{
 	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
-	[params setObject:[NSString stringWithFormat:@"%@",oldestReceivedId]
+	//由于max_id是指获取不大于max_id的，所以有重复，需要减去1
+	long maxId=[oldestReceivedId longValue]-1;
+	[params setObject:[NSString stringWithFormat:@"%ld",maxId]
 			   forKey:@"max_id"];
 	NSLog(@"%@",oldestReceivedId);
+	NSLog(@"%ld",maxId);
 	switch (timelineType) {
 		case Home:
 			[weiboConnector getHomeTimelineWithParameters:params
@@ -148,7 +151,7 @@
 -(void)didLoadOlderTimeline:(NSArray*)statuses{
 	if (statuses!=nil&&[statuses count]>0) {
 		self.newData=statuses;
-		oldestReceivedId=[[statuses lastObject] objectForKey:@"id"];
+		self.oldestReceivedId=[[statuses lastObject] objectForKey:@"id"];
 		[data addObjectsFromArray:statuses];
 		[[data lastObject] setObject:[NSNumber numberWithInt:1] forKey:@"gap"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadOlderTimelineNotification

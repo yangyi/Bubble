@@ -7,7 +7,6 @@
 //
 
 #import "MainWindowController.h"
-
 @implementation MainWindowController
 - (id)init {
 	if(self = [super initWithWindowNibName:@"MainWindow"]){
@@ -25,6 +24,7 @@
 				   name:UnreadNotification 
 				 object:nil];
 	}
+	composeController=[[ComposeController alloc]init];
 	return self;
 }
 
@@ -53,7 +53,7 @@
 	if(timelineSegmentedControl==nil){
 		return;
 	}
-	NSArray *imageNames=[NSArray arrayWithObjects:@"home",@"mentions",@"comments",@"direct",@"star",@"user",nil];
+	NSArray *imageNames=[NSArray arrayWithObjects:@"home",@"mentions",@"comments",@"direct",@"star",nil];
 	NSString *imageName;
 	BOOL unread[4];
 	unread[0]=htmlController.weiboAccount.homeTimeline.unread;
@@ -78,8 +78,20 @@
 
 -(IBAction)compose:(id)sender{
 	
-	composeController=[[ComposeController alloc]init];
-	[composeController showWindow:nil];
+	//composeController=[[ComposeController alloc]init];
+	//[composeController showWindow:nil];
+	
+	NSRect	rect;
+    rect = [sender convertRect:[sender bounds] toView:nil];
+    rect.origin = [[sender window] convertBaseToScreen:rect.origin];
+	if ([[composeController window] isVisible]) {
+		[[composeController window] zoomOffToRect:rect];
+	}else {
+		NSWindow * window=[composeController window];
+		[window zoomOnFromRect:rect];
+	}
+
+	
 }
 
 
@@ -118,4 +130,8 @@
 	[sender release];
 }
 
+
+-(IBAction)toggleUserDrawer:(id)sender{
+	[drawer toggle:self];
+}
 @end

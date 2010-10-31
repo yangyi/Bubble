@@ -8,6 +8,27 @@ body {
 	/*text-shadow: 0px 1px 0px white;*/
 }
 
+div.bubble blockquote {
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #c9c2c1;
+	background-color: #fff;
+	-webkit-border-radius: 6px;
+}
+
+div.bubble blockquote p {
+	margin: 10px;
+	padding: 0px;
+}
+
+
+div.bubble cite {
+	position: relative;
+	padding-left:20px;
+    top:5px;
+}
+
+
 .spinner{
 	text-align: center;
 	margin: 16px;
@@ -99,13 +120,13 @@ hr {
 }
 
 .informations {
-	font-size: 9px;
-	color: #888;
+	font-size: 11px;
+	/*color: #888;*/
 }
 
 .informations a:link, .informations a:hover, .informations a:visited {
 	color: #666;
-	font-size: 9px;
+	font-size: 11px;
 	font-weight: bold;
 	text-shadow: 0px 1px 0px white;
 }

@@ -7,13 +7,23 @@
 //
 
 #import "ComposeController.h"
-
+#import "NSWindowAdditions.h"
 
 @implementation ComposeController
 - (id)init {
 	self = [super initWithWindowNibName:@"Compose"];
-	htmlController = [[HTMLController alloc]initWithWebView:nil];
+	weiboAccount=[WeiboAccount instance];
+	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self selector:@selector(didPost:) 
+			   name:DidPostStatusNotification
+			 object:nil];
+	
 	return self;
+}
+
+-(void)awakeFromNib{
+	[[self window] isVisible];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification {
@@ -24,6 +34,15 @@
 
 -(IBAction)post:(id)sender{
 	NSString * string=[textView string];
-	[htmlController postWithStatus:string];
+	[weiboAccount postWithStatus:string];
+	[postProgressIndicator setHidden:NO];
+	[postProgressIndicator startAnimation:self];
+	
+}
+-(void)didPost:(NSNotification*)notification{
+	[postProgressIndicator setHidden:YES];
+	[postProgressIndicator stopAnimation:self];
+	[self close];
+	[textView setValue:@""];
 }
 @end

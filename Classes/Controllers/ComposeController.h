@@ -7,13 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "HTMLController.h"
+#import "WeiboAccount.h"
 
 @interface ComposeController : NSWindowController {
 	IBOutlet NSTextView *textView;
 	IBOutlet NSTextField *charactersRemaining;
-
-	HTMLController *htmlController;
+	IBOutlet NSProgressIndicator * postProgressIndicator;
+	__weak   WeiboAccount *weiboAccount;
 }
 	-(IBAction)post:(id)sender;
+-(void)didPost:(NSNotification*)notification;
 @end

@@ -28,6 +28,10 @@
 -(id)init;
 -(void)dealloc;
 -(void)removePassword;
+
+//weibo api related
+-(void)postWithStatus:(NSString*)status;
+-(void)didPostWithStatus:(id)result;
 @property(nonatomic,retain) WeiboTimeline * homeTimeline;
 @property(nonatomic,retain) WeiboTimeline * mentions;
 @property(nonatomic,retain)NSString* username;

@@ -9,7 +9,7 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount;
+@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -48,16 +48,16 @@
 		templateEngine=[[TemplateEngine alloc] init];
 		
 		
-		statusesPageTemplatePath = [[[NSBundle mainBundle] pathForResource:@"statuses_page" 
+		self.statusesPageTemplatePath = [[NSBundle mainBundle] pathForResource:@"statuses_page" 
 																   ofType:@"html" 
-															  inDirectory:@"themes/default"] retain];
-		statusesTemplatePath = [[[NSBundle mainBundle] pathForResource:@"statuses" 
+															  inDirectory:@"themes/default"];
+		self.statusesTemplatePath = [[NSBundle mainBundle] pathForResource:@"statuses" 
 															   ofType:@"html" 
-														  inDirectory:@"themes/default"] retain];
+														  inDirectory:@"themes/default"];
 
 		weiboAccount=[WeiboAccount instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
-		baseURL = [[NSURL fileURLWithPath:basePath] retain];
+		self.baseURL = [NSURL fileURLWithPath:basePath];
 
 		//下面不起作用的原因是，需要在webview的delegate中的webViewDidFinishLoad方法中写这个才有作用，因为执行到这里的时候webview还没加载好
 		//[self setDocumentElement:@"html" innerHTML:spinner];
@@ -113,6 +113,7 @@
 	}
 	if ([newStatuses count]>0) {
 		[data setObject:newStatuses forKey:@"statuses"];
+		[data setObject:@"new" forKey:@"new"];
 		//[data setObject:[statusesTemplate render:data] forKey:@"new_statuses"];
 		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data] 
 				 forKey:@"new_statuses"];
@@ -246,6 +247,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
 		[data setObject:statuses forKey:@"statuses"];
+		[data setObject:@"new" forKey:@"new"];
 		NSString *newStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
 		DOMDocument *dom=[[webView mainFrame] DOMDocument];
 		DOMHTMLElement *newStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_new"];
