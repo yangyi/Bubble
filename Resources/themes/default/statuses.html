@@ -9,17 +9,17 @@
 		<div class="options">
 
 		</div>
-		<div class="informations">{{ status.user.screen_name }} from {{ status.source }}  {{ status.created_at|weibo_date_format }}</div>
+		<div class="informations">{{ status.user.screen_name }} from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
 		<hr class="topSeparator" />
 		<div id="text">
 		
-		{{ status.text }}
+		{{ status.text|weibo_content_format }}
 		{% if status.retweeted_status %}
 		<div class="bubble">
 		<cite><img src="tip.gif"/> </cite>
 		<blockquote>
 		<p>
-		{{status.retweeted_status.user.screen_name}} {{status.retweeted_status.text}}
+		{{status.retweeted_status.user.screen_name}} {{status.retweeted_status.text|weibo_content_format}}
 		</p>
 		</blockquote>
 		</div>

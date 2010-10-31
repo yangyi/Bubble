@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MGTemplateFilter.h"
-#import "NSDateAdditions.h"
+#import "RegexKitLite.h"
+
 @interface WeiboFilters : NSObject<MGTemplateFilter> {
 
 }
