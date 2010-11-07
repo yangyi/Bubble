@@ -55,6 +55,11 @@
 		A3592138124A00F400DC2622 /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592135124A00F400DC2622 /* Compose.xib */; };
 		A3592139124A00F400DC2622 /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592136124A00F400DC2622 /* LoginWindow.xib */; };
 		A359213A124A00F400DC2622 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592137124A00F400DC2622 /* MainWindow.xib */; };
+		A3B608141286F0AD0085ECB1 /* Status_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608121286F0AD0085ECB1 /* Status_OFF.png */; };
+		A3B608151286F0AD0085ECB1 /* Status_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608131286F0AD0085ECB1 /* Status_ON.png */; };
+		A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B6087C128700970085ECB1 /* AppGrowl.h */; };
+		A3B6087F128700970085ECB1 /* AppGrowl.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6087D128700970085ECB1 /* AppGrowl.m */; };
+		A3B608AF1287061A0085ECB1 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B608AE1287061A0085ECB1 /* Growl.framework */; };
 		A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C24B7F127DA8A600D9E39D /* WeiboFilters.h */; };
 		A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C24B80127DA8A600D9E39D /* WeiboFilters.m */; };
 		A3C603A312543B5F00049FC9 /* WeiboTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C603A212543B5F00049FC9 /* WeiboTimeline.m */; };
@@ -102,6 +107,8 @@
 		A3DEF69412744CDE00A4A922 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
 		A3DEF85912744ED900A4A922 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DEF85812744ED900A4A922 /* WebKit.framework */; };
 		A3DEF91112744FC400A4A922 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DEF91012744FC400A4A922 /* RegexKit.framework */; };
+		A3E382F21287187E00B4C695 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3B608AE1287061A0085ECB1 /* Growl.framework */; };
+		A3E38322128719AE00B4C695 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */; };
 		A3E55C18124A044500338F7F /* weibo.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = A3E55C17124A044500338F7F /* weibo.xcdatamodel */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +119,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A3E382F21287187E00B4C695 /* Growl.framework in CopyFiles */,
 				A3D89B2E12745AE900B78216 /* RegexKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +199,11 @@
 		A3592135124A00F400DC2622 /* Compose.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
 		A3592136124A00F400DC2622 /* LoginWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
 		A3592137124A00F400DC2622 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A3B608121286F0AD0085ECB1 /* Status_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_OFF.png; sourceTree = "<group>"; };
+		A3B608131286F0AD0085ECB1 /* Status_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_ON.png; sourceTree = "<group>"; };
+		A3B6087C128700970085ECB1 /* AppGrowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGrowl.h; sourceTree = "<group>"; };
+		A3B6087D128700970085ECB1 /* AppGrowl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGrowl.m; sourceTree = "<group>"; };
+		A3B608AE1287061A0085ECB1 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Local/Frameworks/Growl/Frameworks/Growl.framework; sourceTree = DEVELOPER_DIR; };
 		A3C24B7F127DA8A600D9E39D /* WeiboFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboFilters.h; sourceTree = "<group>"; };
 		A3C24B80127DA8A600D9E39D /* WeiboFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboFilters.m; sourceTree = "<group>"; };
 		A3C603A112543B5F00049FC9 /* WeiboTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTimeline.h; sourceTree = "<group>"; };
@@ -240,6 +253,7 @@
 		A3DC6F1D126F48EC00C9FBF7 /* AppURLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppURLHandler.m; sourceTree = "<group>"; };
 		A3DEF85812744ED900A4A922 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A3DEF91012744FC400A4A922 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
+		A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		A3E55C17124A044500338F7F /* weibo.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = weibo.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +268,7 @@
 				A3C958D0125AF9FE005261B2 /* Security.framework in Frameworks */,
 				A3DEF85912744ED900A4A922 /* WebKit.framework in Frameworks */,
 				A3D899B6127457CE00B78216 /* libicucore.dylib in Frameworks */,
+				A3B608AF1287061A0085ECB1 /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +282,7 @@
 				A3DEF91012744FC400A4A922 /* RegexKit.framework */,
 				A3DEF85812744ED900A4A922 /* WebKit.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				A3B608AE1287061A0085ECB1 /* Growl.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -421,6 +437,8 @@
 				A354C0841249D1840055FB8F /* AppDelegate.m */,
 				A3DC6F1C126F48EC00C9FBF7 /* AppURLHandler.h */,
 				A3DC6F1D126F48EC00C9FBF7 /* AppURLHandler.m */,
+				A3B6087C128700970085ECB1 /* AppGrowl.h */,
+				A3B6087D128700970085ECB1 /* AppGrowl.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -434,6 +452,7 @@
 				A354C2DC1249D86C0055FB8F /* MainMenu.xib */,
 				A354C3061249D86C0055FB8F /* UI */,
 				A3C954E6125AE8EC005261B2 /* UserDefaults.plist */,
+				A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = Resources;
 			path = ../Bubble/Resources;
@@ -452,6 +471,8 @@
 		A3D147D21249F25000C764E1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3B608121286F0AD0085ECB1 /* Status_OFF.png */,
+				A3B608131286F0AD0085ECB1 /* Status_ON.png */,
 				A3541E6A12562D8C002B6C43 /* comments_dot.png */,
 				A3541E6B12562D8C002B6C43 /* direct_dot.png */,
 				A3541E6C12562D8C002B6C43 /* home_dot.png */,
@@ -542,6 +563,7 @@
 				A34D033D1275BC7300CA1996 /* TemplateEngine.h in Headers */,
 				A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */,
 				A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */,
+				A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +612,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E38322128719AE00B4C695 /* Growl Registration Ticket.growlRegDict in Resources */,
 				A354C2731249D1FD0055FB8F /* Bubble-Info.plist in Resources */,
 				A354C30A1249D86C0055FB8F /* InfoPlist.strings in Resources */,
 				A354C30B1249D86C0055FB8F /* MainMenu.xib in Resources */,
@@ -628,6 +651,8 @@
 				A3D89B0F12745A6E00B78216 /* Writing Filters.txt in Resources */,
 				A3D89B1012745A6E00B78216 /* Writing Markers.txt in Resources */,
 				A3D89B1112745A6E00B78216 /* Writing Matchers.txt in Resources */,
+				A3B608141286F0AD0085ECB1 /* Status_OFF.png in Resources */,
+				A3B608151286F0AD0085ECB1 /* Status_ON.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +698,7 @@
 				A34D033E1275BC7300CA1996 /* TemplateEngine.m in Sources */,
 				A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */,
 				A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */,
+				A3B6087F128700970085ECB1 /* AppGrowl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +734,7 @@
 					"\"$(SRCROOT)/../templatekit/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)/../MGTemplateEngine/build/Release\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks/Growl/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -731,6 +758,7 @@
 					"\"$(SRCROOT)/../templatekit/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)/../MGTemplateEngine/build/Release\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks/Growl/Frameworks\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -10,10 +10,13 @@
 #import "MainWindowController.h"
 #import "LoginWindowController.h"
 #import "AppURLHandler.h"
+#import "AppGrowl.h"
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
+	NSStatusItem *statusItem;
 	LoginWindowController *loginWindow;
     MainWindowController *mainWindow;
 	AppURLHandler *urlHandler;
+	AppGrowl *growl;
 	NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;

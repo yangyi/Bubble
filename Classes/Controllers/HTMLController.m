@@ -255,6 +255,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	}else {
 		[[NSNotificationCenter defaultCenter] postNotificationName:UnreadNotification object:nil];
 	}
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"GrowlNotification" object:nil];
 
 }
 

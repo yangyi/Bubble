@@ -10,7 +10,7 @@
 
 @implementation AppDelegate
 
-+setupUserDefaults{
++ (void)setupUserDefaults{
 	NSString *userDefaultsValuesPath = [[NSBundle mainBundle] pathForResource:@"UserDefaults" 
                                                                        ofType:@"plist"]; 
     NSDictionary *userDefaultsValuesDict = [NSDictionary dictionaryWithContentsOfFile:userDefaultsValuesPath]; 
@@ -29,9 +29,12 @@
 	 andSelector:@selector(handleURLEvent:withReplyEvent:)  
 	 forEventClass:kInternetEventClass  
 	 andEventID:kAEGetURL]; 
-	
+	statusItem = [[[NSStatusBar systemStatusBar]
+				   statusItemWithLength:NSSquareStatusItemLength] retain];
+	[statusItem setImage:[NSImage imageNamed:@"Status_OFF.png"]];
+	[statusItem setAction:@selector(didStatusItemClick)];
 	urlHandler=[[AppURLHandler alloc] init];
-	
+	growl =[[AppGrowl alloc] init];
 	if ([[WeiboAccount instance] username]) {
 		mainWindow=[[MainWindowController alloc]init];
 		[mainWindow showWindow:nil];
@@ -128,5 +131,12 @@
 {	
 	NSString *urlString=[[event paramDescriptorForKeyword:keyDirectObject] stringValue];
 	[urlHandler handleURL:urlString];
+}
+
+-(void)didStatusItemClick{
+	[NSApp activateIgnoringOtherApps: YES];
+	if ([[mainWindow window] isMiniaturized]) {
+		[[mainWindow window] deminiaturize:nil];
+	}
 }
 @end

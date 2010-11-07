@@ -67,7 +67,7 @@ hr {
 	-webkit-box-shadow: 0px 2px 2px #999;
 	min-height: 32px;
 	text-shadow: 0px 1px 0px #fff;
-	background: #ebebeb;
+	background: #f4f4f4;
 }
 
 #status_new > .status {
@@ -79,7 +79,7 @@ hr {
 	-webkit-box-shadow: 0px 2px 2px #999;
 	min-height: 32px;
 	text-shadow: 0px 1px 0px #fff;
-	background: #e3f5a4;
+	background: #cfeaff;
 }
 
 
@@ -123,7 +123,7 @@ hr {
 	font-size: 11px;
 	/*color: #888;*/
 }
-
+/*
 .informations a:link, .informations a:hover, .informations a:visited {
 	color: #666;
 	font-size: 11px;
@@ -135,12 +135,13 @@ hr {
 	text-decoration: none;
 	color: #555;
 }
-
+*/
 .functions {
 	margin-top: 6px;
 	padding: 0px;
 	font-size: 9px;
 }
+/*
 	.functions a:link, .functions a:hover, .functions a:visited {
 		font-size: 9px;
 		background: #fff;
@@ -149,6 +150,7 @@ hr {
 		margin-right: 4px;
 		-webkit-border-radius: 6px;
 	}
+	*/
 
 /* @group Specifics */
 
@@ -213,6 +215,11 @@ hr {
 	font-weight: bold;
 }
 
+a:link {
+color: #0b5dcc;
+text-decoration: none;
+}
+
 /* @group DM */
 
 .DM {
@@ -255,6 +262,7 @@ hr {
 	background: transparent url(shadow_.png) top center repeat-x;
 }
 
+/*
 a:link, a:visited, a:hover {
 	color: #666;
 	font: 11px/16px "Lucida Grande", Sans-Serif;
@@ -269,5 +277,5 @@ a:hover {
 	font-weight: bold;
 	text-decoration: underline;
 }
-
+*/
 /* @end */
