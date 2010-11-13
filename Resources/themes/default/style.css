@@ -60,50 +60,62 @@ hr {
 
 #status_old > .status {
 	/*background-color: #e3f5a4;*/
-	margin: 6px 8px 6px 62px;
+	margin: 6px 4px 6px 4px;
 	padding: 4px 8px;
 	border: 1px solid #d6d6d6;
-	-webkit-border-radius: 6px;
+	-webkit-border-radius: 4px;
 	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 32px;
+	min-height: 60px;
 	text-shadow: 0px 1px 0px #fff;
 	background: #f4f4f4;
 }
 
 #status_new > .status {
 	/*background-color: #e3f5a4;*/
-	margin: 6px 8px 6px 62px;
+	margin: 6px 4px 6px 4px;
 	padding: 4px 8px;
 	border: 1px solid #d6d6d6;
-	-webkit-border-radius: 6px;
+	-webkit-border-radius: 4px;
 	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 32px;
+	min-height: 60px;
 	text-shadow: 0px 1px 0px #fff;
 	background: #cfeaff;
 }
 
+#status_old > .status:hover {
+background:#e6efff;
+}
 
-	.status hr {
+.status hr .topSeparator{
 		background: #c0c0c0;
 		-webkit-box-shadow: 0px 1px 0px #fff;
+		clear:both;
 	}
+.footerSeparator { 
+min-height:10px;
+border-left-width: 0px;
+
+}
+
+.status .footer{
+float:right;
+}
+
+
 
 	/*.Tweet:hover {
 	border: 1px solid #666;
 	}*/
 
 .options {
+	margin-top:2px;
+	margin-left:4px;
 	float: right;
 	display: inline;
 	width: 15px;
 	height: 15px;
-	background: transparent url(gear.png) no-repeat;
-	opacity: 0.5;
+	background: transparent url(gear-old.png) no-repeat;
 }
-	.option:hover {
-		opacity: 1;
-	}
-
 .gearMenu {
 	width: 15px;
 	height: 15px;
@@ -123,6 +135,12 @@ hr {
 	font-size: 11px;
 	/*color: #888;*/
 }
+
+.status .actions{
+display: inline;
+float:right;
+}
+
 /*
 .informations a:link, .informations a:hover, .informations a:visited {
 	color: #666;
@@ -186,9 +204,9 @@ hr {
 .avatar {
 	width: 50px;
 	height: 50px;
-	margin-right: 18px;
-	margin-left: -64px;
-	margin-top: -2px;
+	margin-right: 8px;
+	margin-left: 1px;
+	margin-top: 1px;
 	float: left;
 }
 

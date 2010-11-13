@@ -31,6 +31,10 @@
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickTimelineNotification object:statusId];
 		}
+		if ([host isEqualToString:@"user"]) {
+			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickUserNotification object:nil];
+			
+		}
 	}
 	
 }

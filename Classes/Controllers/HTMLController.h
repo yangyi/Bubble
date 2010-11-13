@@ -20,7 +20,7 @@
 	
 	NSString *statusesPageTemplatePath;
 	NSString *statusesTemplatePath;
-	
+	NSString *userTemplatePath;
 	
 	NSString* loadingHTML;
 	
@@ -61,4 +61,5 @@
 @property(nonatomic,retain) WeiboAccount *weiboAccount;
 @property(nonatomic,retain) NSString *statusesPageTemplatePath;
 @property(nonatomic,retain) NSString *statusesTemplatePath;
+@property(nonatomic,retain) NSString *userTemplatePath;
 @end

@@ -130,8 +130,4 @@
 	[sender release];
 }
 
-
--(IBAction)toggleUserDrawer:(id)sender{
-	[drawer toggle:self];
-}
 @end

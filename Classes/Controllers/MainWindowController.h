@@ -18,7 +18,6 @@
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	IBOutlet NSTextField *messageText;
 	IBOutlet NSProgressIndicator * connectionProgressIndicator;
-	IBOutlet NSDrawer *drawer;
 	IBOutlet NSWindow *composeWindow;
 	HTMLController *htmlController;
 	ComposeController *composeController;
@@ -29,7 +28,6 @@
 
 -(IBAction)compose:(id)sender;
 
--(IBAction)toggleUserDrawer:(id)sender;
 //主要是更新图标的
 - (void)updateTimelineSegmentedControl;
 

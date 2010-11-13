@@ -105,7 +105,7 @@
 	
 	[zoomWindow orderFront:self];
 	
-    [zoomWindow animateToFrame:frame duration:[zoomWindow animationResizeTime:frame] * 0.2];
+    [zoomWindow animateToFrame:frame duration:[zoomWindow animationResizeTime:frame] * 0.4];
     
 	[self makeKeyAndOrderFront:self];	
 	[zoomWindow close];
@@ -128,7 +128,7 @@
 	[zoomWindow orderFront:self];
     [self orderOut:self];
     
-    [zoomWindow animateToFrame:endRect duration:[zoomWindow animationResizeTime:endRect] * 0.2];
+    [zoomWindow animateToFrame:endRect duration:[zoomWindow animationResizeTime:endRect] * 0.4];
     
 	[zoomWindow close];    
 }

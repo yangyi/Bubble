@@ -28,6 +28,7 @@ typedef enum {
 #define DidClickTimelineNotification @"DidClickTimelineNotification"
 #define DidLoadOlderTimelineNotification @"DidLoadOlderTimelineNotification"
 #define DidLoadNewerTimelineNotification @"DidLoadNewerTimelineNotification"
+#define DidClickUserNotification @"DidClickUserNotification"
 //Other Notification
 #define UnreadNotification @"UnreadNotification"
 

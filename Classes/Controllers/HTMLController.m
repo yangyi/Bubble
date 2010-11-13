@@ -9,7 +9,7 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath;
+@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -38,8 +38,9 @@
 		[nc addObserver:self selector:@selector(didClickTimeline:)
 				   name:DidClickTimelineNotification 
 				 object:nil];
-
-		
+		[nc addObserver:self selector:@selector(didClickUser:)
+				   name:DidClickUserNotification 
+				 object:nil];
 		
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
@@ -54,6 +55,10 @@
 		self.statusesTemplatePath = [[NSBundle mainBundle] pathForResource:@"statuses" 
 															   ofType:@"html" 
 														  inDirectory:@"themes/default"];
+		self.userTemplatePath=[[NSBundle mainBundle] pathForResource:@"user" 
+															  ofType:@"html" 
+														 inDirectory:@"themes/default"];
+		
 
 		weiboAccount=[WeiboAccount instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
@@ -268,5 +273,11 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	NSString *statusId=[notification object];
 	currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
 	[self reloadTimeline];
+}
+
+-(void)didClickUser:(NSNotification*)notification{
+
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userTemplatePath withContext:nil] 
+								baseURL:baseURL];
 }
 @end

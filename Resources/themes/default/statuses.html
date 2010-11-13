@@ -4,12 +4,38 @@
  onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'
 {% /if %}
  >
-	<div class='avatar'><img src='{{status.user.profile_image_url}}' /></div>
+	<div class='avatar'><a href="weibo://user"><img src='{{status.user.profile_image_url}}' /></a></div>
 	<div class='content'>
 		<div class="options">
-
+				<form>
+				<select
+				class="gearMenu"
+				onChange="if(this.selectedIndex!=0)
+					window.open(this.options[this.selectedIndex].value)">
+					<!--<optgroup label="{{tweet.author.fullName}}">
+					</optgroup>-->
+					<option value="" selected disabled>{{tweet.author.fullName}} at {{tweet.date | date_format: "h:mm a" }}
+					<optgroup label="Tweet Options">
+						<option value="{{tweet.replyURL}}">Reply
+						<option value="{{tweet.retweetURL}}">Retweet
+						<option value="#" disabled>Favorite
+						<option value="http://www.baidu.com">Permalink
+					</optgroup>
+					<optgroup label="{{tweet.author.username}}">
+						<option value="bluebird://direct/{{tweet.author.username}}">Direct message
+						<option value="{{tweet.author.website}}">Open website
+						<option value="http://twitter.com/{{tweet.author.username}}">Open twitter page
+					</optgroup>
+				</select>
+				</form>
+		
+		</div>
+		<div class="actions">
+		<a href=""><img src="SaveSearchesStarGray.png"/></a>
+		<a href=""><img src="reply.png"/></a>
 		</div>
 		<div class="informations">{{ status.user.screen_name }} from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
+
 		<hr class="topSeparator" />
 		<div id="text">
 		
@@ -24,6 +50,11 @@
 		</blockquote>
 		</div>
 		{% /if %}
+		<div class="footerSeparator"></div>
+		<div class="footer">
+		转发(1)|收藏(3)
+		
+		</div>
 		</div>
 	</div>
  </div>
