@@ -90,7 +90,18 @@
 					   completionAction:(SEL)action];	
 }
 
-
+-(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
+				  completionTarget:(id)target
+				  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"users/show.json"];
+	
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
+}
 #pragma mark Request Send Method
 -(NSString*)_sendRequestWithMethod:(NSString*)method 
 						   baseurl:(NSString*) baseurl

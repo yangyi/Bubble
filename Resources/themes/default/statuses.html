@@ -4,7 +4,7 @@
  onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'
 {% /if %}
  >
-	<div class='avatar'><a href="weibo://user"><img src='{{status.user.profile_image_url}}' /></a></div>
+	<div class='avatar'><a href="weibo://user?fetch_with=user_id&value={{status.user.id}}"><img src='{{status.user.profile_image_url}}' /></a></div>
 	<div class='content'>
 		<div class="options">
 				<form>
@@ -34,7 +34,7 @@
 		<a href=""><img src="SaveSearchesStarGray.png"/></a>
 		<a href=""><img src="reply.png"/></a>
 		</div>
-		<div class="informations">{{ status.user.screen_name }} from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
+		<div class="informations"><a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">{{ status.user.screen_name }}</a> from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
 
 		<hr class="topSeparator" />
 		<div id="text">
@@ -45,7 +45,7 @@
 		<cite><img src="tip.gif"/> </cite>
 		<blockquote>
 		<p>
-		{{status.retweeted_status.user.screen_name}} {{status.retweeted_status.text|weibo_content_format}}
+		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.retweeted_status.user.screen_name}}</a> {{status.retweeted_status.text|weibo_content_format}}
 		</p>
 		</blockquote>
 		</div>

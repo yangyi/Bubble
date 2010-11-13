@@ -47,4 +47,8 @@
 -(NSString *) updateWithStatus:(NSString*)status					   
 			  completionTarget:(id)target
 			  completionAction:(SEL)action;
+
+-(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
+				  completionTarget:(id)target
+				  completionAction:(SEL)action;
 @end

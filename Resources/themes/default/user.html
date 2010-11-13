@@ -11,20 +11,34 @@
 
 <div class="nav_info_panel has_stats buzz">
 
-<div class="profile_pic_wrapper size60"><img class="profile_pic buzz_profile_pic_117933990506048170180" src="" title="kejin lu"></div>
-<div class="name">kejin lu</div>
+<div class="profile_pic_wrapper size60"><img class="profile_pic" src="{{user.profile_image_url}}" title="kejin lu"></div>
+<div class="name">{{user.screen_name}}</div>
 <div class="seperator"></div>
 
 
 <div class="stats">
+
 <div class="stat">
-<div class="value buzz_user_subscribers_117933990506048170180">20</div>
+<div class="value">{{user.statuses_count}}</div>
+<div class="type">Updates</div>
+</div>
+
+<div class="stat">
+<div class="value">{{user.followers_count}}</div>
 <div class="type">Followers</div>
 </div>
 <div class="stat">
-<div class="value buzz_user_subscriptions_117933990506048170180">11</div>
+<div class="value">{{user.friends_count}}</div>
 <div class="type">Following</div>
 </div>
+
+
+<div class="stat">
+<div class="value">{{user.favourites_count}}</div>
+<div class="type">Favorites</div>
+</div>
+
+
 </div>
 
 </div>

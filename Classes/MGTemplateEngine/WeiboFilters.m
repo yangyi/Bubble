@@ -38,7 +38,7 @@
 	if ([filter isEqualToString:WEIBO_CONTENT_FORMAT]) {
 		NSMutableString *mutableContent=[NSMutableString stringWithFormat:@"%@",value];
 		NSString        *regexString       = @"(@)(\\w+)\\W";
-		NSString        *replaceWithString = @"<a href='http://t.sina.com.cn/n/$2' target='_blank'>$1$2</a>";
+		NSString        *replaceWithString = @"<a href='weibo://user?fetch_with=screen_name&value=$2' target='_blank'>$1$2</a>";
 		[mutableContent replaceOccurrencesOfRegex:regexString withString:replaceWithString];
 		return mutableContent;
 	}

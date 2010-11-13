@@ -28,11 +28,12 @@ typedef enum {
 #define DidClickTimelineNotification @"DidClickTimelineNotification"
 #define DidLoadOlderTimelineNotification @"DidLoadOlderTimelineNotification"
 #define DidLoadNewerTimelineNotification @"DidLoadNewerTimelineNotification"
-#define DidClickUserNotification @"DidClickUserNotification"
+#define GetUserNotification @"GetUserNotification"
 //Other Notification
 #define UnreadNotification @"UnreadNotification"
 
 #define DidPostStatusNotification @"DidPostStatusNotification"
+#define DidGetUserNotification @"DidGetUserNotification"
 
 
 @protocol WeiboConnectorDelegate

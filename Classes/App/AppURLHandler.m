@@ -32,7 +32,10 @@
 			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickTimelineNotification object:statusId];
 		}
 		if ([host isEqualToString:@"user"]) {
-			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickUserNotification object:nil];
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:[url queryArgumentForKey:@"fetch_with"] forKey:@"fetch_with"];
+			[data setObject:[[url queryArgumentForKey:@"value"] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:@"value"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GetUserNotification object:data];
 			
 		}
 	}

@@ -38,8 +38,8 @@
 		[nc addObserver:self selector:@selector(didClickTimeline:)
 				   name:DidClickTimelineNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didClickUser:)
-				   name:DidClickUserNotification 
+		[nc addObserver:self selector:@selector(didGetUser:)
+				   name:DidGetUserNotification 
 				 object:nil];
 		
 		self.webView=webview;
@@ -275,9 +275,10 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[self reloadTimeline];
 }
 
--(void)didClickUser:(NSNotification*)notification{
-
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userTemplatePath withContext:nil] 
+-(void)didGetUser:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[notification object] forKey:@"user"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userTemplatePath withContext:data] 
 								baseURL:baseURL];
 }
 @end

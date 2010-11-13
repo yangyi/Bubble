@@ -40,6 +40,11 @@ static WeiboAccount *instance;
 															 timelineType:Home];
 		mentions=[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector
 														timelineType:Mentions];
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+
+		[nc addObserver:self selector:@selector(getUser:)
+				   name:GetUserNotification 
+				 object:nil];
 	}
 	return self;
 }
@@ -134,5 +139,21 @@ static WeiboAccount *instance;
 -(void)didPostWithStatus:(id)result{
 	[[NSNotificationCenter defaultCenter] postNotificationName:DidPostStatusNotification
 														object:nil];
+}
+
+-(void)getUser:(NSNotification*)notification{
+	NSDictionary *data=[notification object];
+	NSString *fetchWith=[data valueForKey:@"fetch_with"];
+	NSString *value=[data valueForKey:@"value"];
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[params setObject:value forKey:fetchWith];
+	[weiboConnector getUserWithParamters:params
+						completionTarget:self
+						completionAction:@selector(didGetUser:)];
+}
+
+-(void)didGetUser:(NSDictionary*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetUserNotification
+														object:result];
 }
 @end

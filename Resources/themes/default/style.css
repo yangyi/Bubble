@@ -115,6 +115,11 @@ float:right;
 	width: 15px;
 	height: 15px;
 	background: transparent url(gear-old.png) no-repeat;
+	opacity:0.3;
+}
+.options:hover{
+	opacity:1;
+
 }
 .gearMenu {
 	width: 15px;
@@ -139,6 +144,14 @@ float:right;
 .status .actions{
 display: inline;
 float:right;
+
+}
+
+.status .actions img{
+opacity:0.3;
+}
+.status .actions img:hover{
+	opacity:1;
 }
 
 /*
