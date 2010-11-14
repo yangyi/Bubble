@@ -5,14 +5,20 @@
 </head>
 <body>
 
-
-
 <div class="menu_content">
 
-<div class="nav_info_panel has_stats buzz">
+<div class="nav_info_panel has_stats">
 
 <div class="profile_pic_wrapper size60"><img class="profile_pic" src="{{user.profile_image_url}}" title="kejin lu"></div>
-<div class="name">{{user.screen_name}}</div>
+<div class="info">
+{{user.screen_name}}
+<div class="item"><img src="blog.png"/><a href="{{user.url}}" target="_blank">{{user.url}}</a></div>
+<div class="item">
+<img src="star.png"/>{{user.description}}
+</div>
+
+</div>
+
 <div class="seperator"></div>
 
 
