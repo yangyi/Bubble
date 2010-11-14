@@ -7,14 +7,29 @@
 
 <div class="menu_content">
 
+<div class="list_section ">
+
+<div class="path_heading open is_collapsible">
+Home<img src="sep.png"/>User
+<div class="action_20 collapsed"><div class="bg"></div></div>
+</div>
+
 <div class="nav_info_panel has_stats">
 
 <div class="profile_pic_wrapper size60"><img class="profile_pic" src="{{user.profile_image_url}}" title="kejin lu"></div>
 <div class="info">
+{% if user.verified %}
+<img src="v.png"/>
+{% /if %}
 {{user.screen_name}}
-<div class="item"><img src="blog.png"/><a href="{{user.url}}" target="_blank">{{user.url}}</a></div>
+{% if user.url notequalsstring "http://1" %}
+<div class="item"><div class="icon"><img src="blog.png"/></div>
+<a href="{{user.url}}" target="_blank">{{user.url}}</a>
+</div>
+{% /if %}
 <div class="item">
-<img src="star.png"/>{{user.description}}
+<div class="icon"><img src="star.png"/></div>
+{{user.description}}
 </div>
 
 </div>

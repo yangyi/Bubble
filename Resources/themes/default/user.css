@@ -9,6 +9,26 @@ padding: 0px;
 width: 100%;
 }
 
+.macLeftNavButton {
+  padding: 4px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: xx-small;
+  text-decoration: none;
+  border-left: 12px;
+  border-right: 3px;
+width:40px;
+  color: white;
+-webkit-border-image: url("black-button-left.png") 0 3 0 12;
+
+ }
+
+
+.macLeftNavButton:hover:active {
+  padding: 5px 3px 3px 5px;
+}
+
+
 .menu_content {
 width: 100%;
 }
@@ -46,6 +66,15 @@ line-height: 20px;
 text-overflow: ellipsis;
 text-shadow: rgba(255, 255, 255, 0.699219) 0px 1px 1px;
 top: 10px;
+width:80%
+}
+
+.nav_info_panel .info a:link, a:visited, a:active {
+color: #636A86;
+text-decoration: none;
+}
+.nav_info_panel .info a:hover{
+text-decoration:underline
 }
 
 .nav_info_panel .info .item{
@@ -54,6 +83,12 @@ top: 10px;
 	font-weight:normal;
 	font-size:12px;	
 }
+.nav_info_panel .info .icon{
+float:left;
+padding-right:6px;
+padding-top:2px;
+}
+
 .nav_info_panel .seperator {
 -webkit-box-shadow: rgba(255, 255, 255, 0.699219) 0px 1px 1px;
 background: #B7BECD;
@@ -121,9 +156,18 @@ display: none;
 }
 .list_heading {
 -webkit-user-select: none;
-background-image: url(nav_bg.12430.png);
+background-image: url(nav_bg.png);
 border-bottom: 1px solid #858FA1;
-background-position: 0px -34px;
+/*background-position: 0px -34px;*/
+height: 28px;
+position: relative;
+width: 100%;
+}
+.path_heading {
+-webkit-user-select: none;
+background-image: url(path_bg.png);
+border-bottom: 1px solid #858FA1;
+/*background-position: 0px -34px;*/
 height: 28px;
 position: relative;
 width: 100%;
