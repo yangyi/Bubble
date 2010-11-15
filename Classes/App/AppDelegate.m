@@ -31,7 +31,7 @@
 	 andEventID:kAEGetURL]; 
 	statusItem = [[[NSStatusBar systemStatusBar]
 				   statusItemWithLength:NSSquareStatusItemLength] retain];
-	[statusItem setImage:[NSImage imageNamed:@"Status_OFF.png"]];
+	[statusItem setImage:[NSImage imageNamed:@"status_icon.png"]];
 	[statusItem setAction:@selector(didStatusItemClick)];
 	urlHandler=[[AppURLHandler alloc] init];
 	growl =[[AppGrowl alloc] init];

@@ -111,6 +111,8 @@
 		A3E382F21287187E00B4C695 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3B608AE1287061A0085ECB1 /* Growl.framework */; };
 		A3E38322128719AE00B4C695 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */; };
 		A3E55C18124A044500338F7F /* weibo.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = A3E55C17124A044500338F7F /* weibo.xcdatamodel */; };
+		A3E98B251291600800D01F98 /* status_alert_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E98B231291600800D01F98 /* status_alert_icon.png */; };
+		A3E98B261291600800D01F98 /* status_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E98B241291600800D01F98 /* status_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -257,6 +259,8 @@
 		A3DEF91012744FC400A4A922 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		A3E55C17124A044500338F7F /* weibo.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = weibo.xcdatamodel; sourceTree = "<group>"; };
+		A3E98B231291600800D01F98 /* status_alert_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_alert_icon.png; sourceTree = "<group>"; };
+		A3E98B241291600800D01F98 /* status_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +478,8 @@
 		A3D147D21249F25000C764E1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3E98B231291600800D01F98 /* status_alert_icon.png */,
+				A3E98B241291600800D01F98 /* status_icon.png */,
 				A3B608121286F0AD0085ECB1 /* Status_OFF.png */,
 				A3B608131286F0AD0085ECB1 /* Status_ON.png */,
 				A3541E6A12562D8C002B6C43 /* comments_dot.png */,
@@ -657,6 +663,8 @@
 				A3B608141286F0AD0085ECB1 /* Status_OFF.png in Resources */,
 				A3B608151286F0AD0085ECB1 /* Status_ON.png in Resources */,
 				A3DA423E128EE0B400F3497F /* bubble.icns in Resources */,
+				A3E98B251291600800D01F98 /* status_alert_icon.png in Resources */,
+				A3E98B261291600800D01F98 /* status_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
