@@ -15,7 +15,7 @@
 						   baseurl:(NSString*) baseurl
 							  path:(NSString*) path
 				   queryParameters:(NSDictionary *) params
-							  body:(NSString*) body
+							  body:(NSMutableData*) body
 				  completionTarget:(id)target
 				  completionAction:(SEL)action;
 
@@ -41,6 +41,8 @@
 		_username=@"kejinlu@gmail.com";
 		_password=@"lukejin1986";
 		_appKey=@"1444319711";
+		
+		multipartBoundary=@"--12345";
 	}
 	return self;
 }
@@ -80,14 +82,47 @@
 			  completionTarget:(id)target
 			  completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"statuses/update.json"];
-	NSString *body=[NSString stringWithFormat:@"status=%@",status];
+	NSMutableData *postBody = [NSMutableData data];
+	[postBody appendData:[[NSString stringWithFormat:@"status=%@&source=%@",status,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
 	return [self _sendRequestWithMethod:@"POST" 
 								baseurl:WEIBO_BASE_URL
 								   path:path 
 						queryParameters:nil
-								   body:body 
+								   body:postBody
 					   completionTarget:(id)target
 					   completionAction:(SEL)action];	
+}
+
+-(NSString*) updateWithStatus:(NSString *)status 
+						image:(NSData*)imageData
+					imageName:(NSString*)imageName
+			 completionTarget:(id)target 
+			 completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/upload.json"];
+	NSString *imgExt=(NSString*)[[imageName componentsSeparatedByString:@"."] lastObject];
+	if ([imgExt isEqualToString:@"jpg"]) {
+		imgExt=@"jpeg";
+	}
+	//fill the post body data
+	NSMutableData *postBody = [NSMutableData data];
+	[postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", multipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[@"Content-Disposition: form-data; name= \"status\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[status dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", multipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"pic\"; filename=\"%@\"\r\n", imageName] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"Content-Type: image/%@\r\n\r\n",imgExt] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:imageData];
+	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", multipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[@"Content-Disposition: form-data; name= \"source\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[_appKey dataUsingEncoding:NSUTF8StringEncoding]];
+	[postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",multipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+	
+	return [self _sendRequestWithMethod:@"MULTIPART_POST" baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
 }
 
 -(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
@@ -107,7 +142,7 @@
 						   baseurl:(NSString*) baseurl
 							  path:(NSString*) path
 				   queryParameters:(NSMutableDictionary *) params
-							  body:(NSString*) body
+							  body:(NSMutableData*) body
 				  completionTarget:(id)target
 				  completionAction:(SEL)action{
 	
@@ -129,19 +164,18 @@
 	
 	if(method&&[method isEqualToString:@"POST"]){
 		[theRequest setHTTPMethod:method];
-		NSString* bodyStr = @"";
 		if(body){
-			bodyStr = [bodyStr stringByAppendingString:body];
+			[theRequest setHTTPBody:body]; 
 		}
-		if (_appKey) {
-			bodyStr = [bodyStr stringByAppendingString:[NSString stringWithFormat:@"%@source=%@", 
-														(body) ? @"&" : @"" , 
-														_appKey]];
-		}
-		[theRequest setHTTPBody:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]]; 
 	}
-	
-
+	if (method&&[method isEqualToString:@"MULTIPART_POST"]) {
+		[theRequest setHTTPMethod:@"POST"];
+		NSString *contentType = [NSString stringWithFormat:@"multipart/form-data, boundary=%@", multipartBoundary];
+		[theRequest setValue:contentType forHTTPHeaderField:@"Content-Type"];
+		if (body) {
+			[theRequest setHTTPBody:body];
+		}
+	}
 	return [self _sendRequest:theRequest 				  
 			 completionTarget:(id)target
 			 completionAction:(SEL)action];

@@ -20,6 +20,7 @@
 	NSString *_username;
     NSString *_password;
 	NSString *_appKey;
+	NSString *multipartBoundary;
 }
 -(WeiboConnector*)initWithDelegate:(id)delegate;
 
@@ -47,7 +48,11 @@
 -(NSString *) updateWithStatus:(NSString*)status					   
 			  completionTarget:(id)target
 			  completionAction:(SEL)action;
-
+-(NSString*) updateWithStatus:(NSString *)status 
+						image:(NSData*)imageData
+					imageName:(NSString*)imageName
+			 completionTarget:(id)target 
+			 completionAction:(SEL)action;
 -(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
 				  completionTarget:(id)target
 				  completionAction:(SEL)action;

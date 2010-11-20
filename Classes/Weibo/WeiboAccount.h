@@ -31,6 +31,7 @@
 
 //weibo api related
 -(void)postWithStatus:(NSString*)status;
+-(void)postWithStatus:(NSString*)status image:(NSData*)data imageName:(NSString*)imageName;
 -(void)didPostWithStatus:(id)result;
 @property(nonatomic,retain) WeiboTimeline * homeTimeline;
 @property(nonatomic,retain) WeiboTimeline * mentions;

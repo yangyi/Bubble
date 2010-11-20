@@ -40,12 +40,32 @@
 		<div id="text">
 		
 		{{ status.text|weibo_content_format }}
+		{% if status.thumbnail_pic %}
+		<div class="attachments">
+		<div class="image">
+		<image src="{{status.thumbnail_pic}}"/>
+		<div class="action"></div>
+		</div>
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
 		{% if status.retweeted_status %}
 		<div class="bubble">
 		<cite><img src="tip.gif"/> </cite>
 		<blockquote>
 		<p>
 		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.retweeted_status.user.screen_name}}</a> {{status.retweeted_status.text|weibo_content_format}}
+		{% if status.retweeted_status.thumbnail_pic %}
+		<div class="attachments">
+		<div class="image">
+		<image src="{{status.retweeted_status.thumbnail_pic}}"/>
+		<div class="action"></div>
+		</div>
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
 		</p>
 		</blockquote>
 		</div>

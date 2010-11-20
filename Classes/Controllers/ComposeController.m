@@ -24,6 +24,7 @@
 
 -(void)awakeFromNib{
 	[[self window] isVisible];
+	[textView setImportsGraphics:TRUE];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification {
@@ -33,8 +34,29 @@
 }
 
 -(IBAction)post:(id)sender{
-	NSString * string=[textView string];
-	[weiboAccount postWithStatus:string];
+	NSAttributedString *attributedString=[textView attributedString];
+	NSUInteger length= attributedString.length;
+	NSData *imageData=nil;
+	BOOL upload=NO;
+	if (length) {
+		NSRange searchRange = NSMakeRange(0,0);
+		while (searchRange.location<length) {
+			NSTextAttachment *textAttachment=[attributedString attribute:NSAttachmentAttributeName
+																		atIndex:searchRange.location
+																 effectiveRange:&searchRange];
+			if (textAttachment) {
+				NSFileWrapper *image=[textAttachment fileWrapper];
+				imageData=[image regularFileContents];
+				//[weiboAccount postWithStatus:[textView string] image:imageData imageName:[image preferredFilename]];
+				upload=YES;
+				//break;
+			}
+			searchRange.location+=searchRange.length;
+		}
+	}
+	if (!upload) {
+		[weiboAccount postWithStatus:[textView string]];
+	}
 	[postProgressIndicator setHidden:NO];
 	[postProgressIndicator startAnimation:self];
 	
@@ -43,6 +65,5 @@
 	[postProgressIndicator setHidden:YES];
 	[postProgressIndicator stopAnimation:self];
 	[self close];
-	[textView setValue:@""];
 }
 @end

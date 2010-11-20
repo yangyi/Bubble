@@ -135,6 +135,13 @@ static WeiboAccount *instance;
 					completionTarget:self 
 					completionAction:@selector(didPostWithStatus:)];
 }
+-(void)postWithStatus:(NSString*)status image:(NSData*)data imageName:(NSString*)imageName{
+	[weiboConnector updateWithStatus:status 
+						   image:data
+						   imageName:imageName
+					completionTarget:self 
+					completionAction:@selector(didPostWithStatus:)];
+}
 
 -(void)didPostWithStatus:(id)result{
 	[[NSNotificationCenter defaultCenter] postNotificationName:DidPostStatusNotification
