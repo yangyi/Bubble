@@ -23,8 +23,11 @@
 		[nc addObserver:self selector:@selector(didUnread:) 
 				   name:UnreadNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didDisplayImage:) 
+				   name:DisplayImageNotification object:nil];
 	}
 	composeController=[[ComposeController alloc]init];
+	imagePanelController =[[ImagePanelController alloc] init];
 	return self;
 }
 
@@ -114,6 +117,12 @@
 
 -(void)didUnread:(NSNotification*)notification{
 	[self updateTimelineSegmentedControl];
+}
+
+-(void)didDisplayImage:(NSNotification*)notification{
+	NSString *url =[notification object];
+	[imagePanelController showWindow:self];
+	[imagePanelController loadImagefromURL:url];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request

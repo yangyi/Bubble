@@ -12,6 +12,7 @@
 #import "WeiboGlobal.h"
 #import "ComposeController.h"
 #import "NSWindowAdditions.h"
+#import "ImagePanelController.h"
 
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
@@ -21,6 +22,7 @@
 	IBOutlet NSWindow *composeWindow;
 	HTMLController *htmlController;
 	ComposeController *composeController;
+	ImagePanelController *imagePanelController;
 	
 }
 -(id)init;

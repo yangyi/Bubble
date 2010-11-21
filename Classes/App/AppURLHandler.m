@@ -38,6 +38,11 @@
 			[[NSNotificationCenter defaultCenter] postNotificationName:GetUserNotification object:data];
 			
 		}
+		if ([host isEqualToString:@"image"]) {
+			NSString *imageUrl=[[url queryArgumentForKey:@"url"] 
+								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[[NSNotificationCenter defaultCenter]postNotificationName:DisplayImageNotification object:imageUrl];
+		}
 	}
 	
 }

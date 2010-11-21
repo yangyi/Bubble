@@ -26,6 +26,9 @@
 		A3005F24124A2D0F001CE9AC /* mentions.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F22124A2D0F001CE9AC /* mentions.png */; };
 		A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A316D5B212786E3600A3D987 /* NSWindowAdditions.h */; };
 		A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A316D5B312786E3600A3D987 /* NSWindowAdditions.m */; };
+		A33380481298E1E00033FCCF /* ImagePanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A33380461298E1E00033FCCF /* ImagePanelController.h */; };
+		A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33380471298E1E00033FCCF /* ImagePanelController.m */; };
+		A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A333804B1298E2780033FCCF /* ImagePanel.xib */; };
 		A34D033D1275BC7300CA1996 /* TemplateEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A34D033B1275BC7300CA1996 /* TemplateEngine.h */; };
 		A34D033E1275BC7300CA1996 /* TemplateEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A34D033C1275BC7300CA1996 /* TemplateEngine.m */; };
 		A34E48501271D2B9000B2B5D /* AIURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A34E484F1271D2B9000B2B5D /* AIURLAdditions.m */; };
@@ -154,6 +157,9 @@
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
 		A316D5B212786E3600A3D987 /* NSWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowAdditions.h; sourceTree = "<group>"; };
 		A316D5B312786E3600A3D987 /* NSWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindowAdditions.m; sourceTree = "<group>"; };
+		A33380461298E1E00033FCCF /* ImagePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePanelController.h; sourceTree = "<group>"; };
+		A33380471298E1E00033FCCF /* ImagePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePanelController.m; sourceTree = "<group>"; };
+		A333804B1298E2780033FCCF /* ImagePanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePanel.xib; sourceTree = "<group>"; };
 		A34D033B1275BC7300CA1996 /* TemplateEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateEngine.h; sourceTree = "<group>"; };
 		A34D033C1275BC7300CA1996 /* TemplateEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateEngine.m; sourceTree = "<group>"; };
 		A34E484E1271D2B9000B2B5D /* AIURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIURLAdditions.h; sourceTree = "<group>"; };
@@ -388,6 +394,8 @@
 				A354BFFD1249CC810055FB8F /* LoginWindowController.m */,
 				A354BFFE1249CC810055FB8F /* MainWindowController.h */,
 				A354BFFF1249CC810055FB8F /* MainWindowController.m */,
+				A33380461298E1E00033FCCF /* ImagePanelController.h */,
+				A33380471298E1E00033FCCF /* ImagePanelController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -471,6 +479,7 @@
 				A3592135124A00F400DC2622 /* Compose.xib */,
 				A3592136124A00F400DC2622 /* LoginWindow.xib */,
 				A3592137124A00F400DC2622 /* MainWindow.xib */,
+				A333804B1298E2780033FCCF /* ImagePanel.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -573,6 +582,7 @@
 				A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */,
 				A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */,
 				A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */,
+				A33380481298E1E00033FCCF /* ImagePanelController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +682,7 @@
 				A3DA423E128EE0B400F3497F /* bubble.icns in Resources */,
 				A3E98B251291600800D01F98 /* status_alert_icon.png in Resources */,
 				A3E98B261291600800D01F98 /* status_icon.png in Resources */,
+				A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +729,7 @@
 				A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */,
 				A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */,
 				A3B6087F128700970085ECB1 /* AppGrowl.m in Sources */,
+				A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

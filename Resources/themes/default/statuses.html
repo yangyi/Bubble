@@ -43,7 +43,7 @@
 		{% if status.thumbnail_pic %}
 		<div class="attachments">
 		<div class="image">
-		<image src="{{status.thumbnail_pic}}"/>
+		<a href="weibo://image?url={{status.original_pic}}" target="_blank"><image src="{{status.thumbnail_pic}}"/></a>
 		<div class="action"></div>
 		</div>
 		</div>
