@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "NSWindowAdditions.h"
 
 @interface ImagePanelController : NSWindowController {
 	IBOutlet NSPanel *imagePanel;

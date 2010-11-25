@@ -39,8 +39,10 @@
 }
 
 - (BOOL)windowShouldClose:(id)sender{
+
 	[[self window] setFrame:defaultFrameSize display:YES];
 	[imageView setImage:nil];
 	return YES;
 }
+
 @end

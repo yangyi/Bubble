@@ -26,6 +26,22 @@
 		A3005F24124A2D0F001CE9AC /* mentions.png in Resources */ = {isa = PBXBuildFile; fileRef = A3005F22124A2D0F001CE9AC /* mentions.png */; };
 		A316D5B412786E3600A3D987 /* NSWindowAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A316D5B212786E3600A3D987 /* NSWindowAdditions.h */; };
 		A316D5B512786E3600A3D987 /* NSWindowAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A316D5B312786E3600A3D987 /* NSWindowAdditions.m */; };
+		A31D7117129EBA0100385EEC /* GeneralPrefsPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A31D7115129EBA0100385EEC /* GeneralPrefsPanel.h */; };
+		A31D711B129EBB3000385EEC /* Accounts.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A31D7119129EBB3000385EEC /* Accounts.tiff */; };
+		A31D711C129EBB3000385EEC /* generalPrefs.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A31D711A129EBB3000385EEC /* generalPrefs.tiff */; };
+		A31D711F129EBB5400385EEC /* AccountPrefsPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */; };
+		A31D7137129EBF8900385EEC /* MenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = A31D7135129EBF8900385EEC /* MenuController.h */; };
+		A31D7138129EBF8900385EEC /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D7136129EBF8900385EEC /* MenuController.m */; };
+		A31D7218129EC73B00385EEC /* generalPrefs.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A31D711A129EBB3000385EEC /* generalPrefs.tiff */; };
+		A31D7219129EC75300385EEC /* GeneralPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */; };
+		A31D721A129EC76300385EEC /* GeneralPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */; };
+		A31D721B129EC77100385EEC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A31D7253129EC91900385EEC /* General.preferencePane in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31D7213129EC67E00385EEC /* General.preferencePane */; };
+		A31D7351129ED50800385EEC /* AccountPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */; };
+		A31D7352129ED51D00385EEC /* AccountPrefsPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */; };
+		A31D7353129ED52F00385EEC /* Accounts.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A31D7119129EBB3000385EEC /* Accounts.tiff */; };
+		A31D7354129ED53900385EEC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A31D736B129ED5B600385EEC /* Account.preferencePane in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31D733F129ED47A00385EEC /* Account.preferencePane */; };
 		A33380481298E1E00033FCCF /* ImagePanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A33380461298E1E00033FCCF /* ImagePanelController.h */; };
 		A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33380471298E1E00033FCCF /* ImagePanelController.m */; };
 		A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A333804B1298E2780033FCCF /* ImagePanel.xib */; };
@@ -58,6 +74,9 @@
 		A3592138124A00F400DC2622 /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592135124A00F400DC2622 /* Compose.xib */; };
 		A3592139124A00F400DC2622 /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592136124A00F400DC2622 /* LoginWindow.xib */; };
 		A359213A124A00F400DC2622 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3592137124A00F400DC2622 /* MainWindow.xib */; };
+		A35FAB38129EA4E400225E3B /* SS_PreferencePaneProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */; };
+		A35FAB39129EA4E400225E3B /* SS_PrefsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A35FAB36129EA4E400225E3B /* SS_PrefsController.h */; };
+		A35FAB3A129EA4E400225E3B /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FAB37129EA4E400225E3B /* SS_PrefsController.m */; };
 		A3B608141286F0AD0085ECB1 /* Status_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608121286F0AD0085ECB1 /* Status_OFF.png */; };
 		A3B608151286F0AD0085ECB1 /* Status_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608131286F0AD0085ECB1 /* Status_ON.png */; };
 		A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B6087C128700970085ECB1 /* AppGrowl.h */; };
@@ -118,7 +137,35 @@
 		A3E98B261291600800D01F98 /* status_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E98B241291600800D01F98 /* status_icon.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A31D7247129EC8B200385EEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A31D7212129EC67E00385EEC /* General */;
+			remoteInfo = General;
+		};
+		A31D7368129ED5A800385EEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A31D733E129ED47A00385EEC /* Account */;
+			remoteInfo = Account;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		A31D7252129EC8EC00385EEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "../Preference Panes";
+			dstSubfolderSpec = 7;
+			files = (
+				A31D736B129ED5B600385EEC /* Account.preferencePane in CopyFiles */,
+				A31D7253129EC91900385EEC /* General.preferencePane in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3D89B3912745AF000B78216 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,6 +204,20 @@
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
 		A316D5B212786E3600A3D987 /* NSWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowAdditions.h; sourceTree = "<group>"; };
 		A316D5B312786E3600A3D987 /* NSWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindowAdditions.m; sourceTree = "<group>"; };
+		A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPrefsView.xib; sourceTree = "<group>"; };
+		A31D7115129EBA0100385EEC /* GeneralPrefsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPrefsPanel.h; sourceTree = "<group>"; };
+		A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPrefsPanel.m; sourceTree = "<group>"; };
+		A31D7119129EBB3000385EEC /* Accounts.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Accounts.tiff; sourceTree = "<group>"; };
+		A31D711A129EBB3000385EEC /* generalPrefs.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = generalPrefs.tiff; sourceTree = "<group>"; };
+		A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefsPanel.h; sourceTree = "<group>"; };
+		A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefsPanel.m; sourceTree = "<group>"; };
+		A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountPrefsPanel.xib; sourceTree = "<group>"; };
+		A31D7135129EBF8900385EEC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
+		A31D7136129EBF8900385EEC /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		A31D7213129EC67E00385EEC /* General.preferencePane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = General.preferencePane; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D7214129EC67E00385EEC /* General-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "General-Info.plist"; sourceTree = "<group>"; };
+		A31D733F129ED47A00385EEC /* Account.preferencePane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Account.preferencePane; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31D7340129ED47A00385EEC /* Account-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Account-Info.plist"; sourceTree = "<group>"; };
 		A33380461298E1E00033FCCF /* ImagePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePanelController.h; sourceTree = "<group>"; };
 		A33380471298E1E00033FCCF /* ImagePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePanelController.m; sourceTree = "<group>"; };
 		A333804B1298E2780033FCCF /* ImagePanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePanel.xib; sourceTree = "<group>"; };
@@ -208,6 +269,9 @@
 		A3592135124A00F400DC2622 /* Compose.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
 		A3592136124A00F400DC2622 /* LoginWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
 		A3592137124A00F400DC2622 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PreferencePaneProtocol.h; sourceTree = "<group>"; };
+		A35FAB36129EA4E400225E3B /* SS_PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PrefsController.h; sourceTree = "<group>"; };
+		A35FAB37129EA4E400225E3B /* SS_PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_PrefsController.m; sourceTree = "<group>"; };
 		A3B608121286F0AD0085ECB1 /* Status_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_OFF.png; sourceTree = "<group>"; };
 		A3B608131286F0AD0085ECB1 /* Status_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_ON.png; sourceTree = "<group>"; };
 		A3B6087C128700970085ECB1 /* AppGrowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGrowl.h; sourceTree = "<group>"; };
@@ -284,6 +348,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A31D7211129EC67E00385EEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D721B129EC77100385EEC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31D733D129ED47A00385EEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D7354129ED53900385EEC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -314,6 +394,8 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Bubble.app */,
+				A31D7213129EC67E00385EEC /* General.preferencePane */,
+				A31D733F129ED47A00385EEC /* Account.preferencePane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,6 +408,8 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				A31D7214129EC67E00385EEC /* General-Info.plist */,
+				A31D7340129ED47A00385EEC /* Account-Info.plist */,
 			);
 			name = Bubble;
 			sourceTree = "<group>";
@@ -352,6 +436,7 @@
 		A354BFEF1249CC810055FB8F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A35FAB34129EA4E400225E3B /* Preferences */,
 				A3D89AD712745A6E00B78216 /* MGTemplateEngine */,
 				A354C0821249D1840055FB8F /* App */,
 				A354BFF01249CC810055FB8F /* Additions */,
@@ -396,6 +481,8 @@
 				A354BFFF1249CC810055FB8F /* MainWindowController.m */,
 				A33380461298E1E00033FCCF /* ImagePanelController.h */,
 				A33380471298E1E00033FCCF /* ImagePanelController.m */,
+				A31D7135129EBF8900385EEC /* MenuController.h */,
+				A31D7136129EBF8900385EEC /* MenuController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -480,13 +567,31 @@
 				A3592136124A00F400DC2622 /* LoginWindow.xib */,
 				A3592137124A00F400DC2622 /* MainWindow.xib */,
 				A333804B1298E2780033FCCF /* ImagePanel.xib */,
+				A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */,
+				A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		A35FAB34129EA4E400225E3B /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */,
+				A35FAB36129EA4E400225E3B /* SS_PrefsController.h */,
+				A35FAB37129EA4E400225E3B /* SS_PrefsController.m */,
+				A31D7115129EBA0100385EEC /* GeneralPrefsPanel.h */,
+				A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */,
+				A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */,
+				A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		A3D147D21249F25000C764E1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A31D7119129EBB3000385EEC /* Accounts.tiff */,
+				A31D711A129EBB3000385EEC /* generalPrefs.tiff */,
 				A3E98B231291600800D01F98 /* status_alert_icon.png */,
 				A3E98B241291600800D01F98 /* status_icon.png */,
 				A3B608121286F0AD0085ECB1 /* Status_OFF.png */,
@@ -583,6 +688,11 @@
 				A3C24B81127DA8A600D9E39D /* WeiboFilters.h in Headers */,
 				A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */,
 				A33380481298E1E00033FCCF /* ImagePanelController.h in Headers */,
+				A35FAB38129EA4E400225E3B /* SS_PreferencePaneProtocol.h in Headers */,
+				A35FAB39129EA4E400225E3B /* SS_PrefsController.h in Headers */,
+				A31D7117129EBA0100385EEC /* GeneralPrefsPanel.h in Headers */,
+				A31D711F129EBB5400385EEC /* AccountPrefsPanel.h in Headers */,
+				A31D7137129EBF8900385EEC /* MenuController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,16 +708,53 @@
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				A3DEF79612744D1D00A4A922 /* Headers */,
 				A3D89B3912745AF000B78216 /* CopyFiles */,
+				A31D7252129EC8EC00385EEC /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A31D7369129ED5A800385EEC /* PBXTargetDependency */,
+				A31D7248129EC8B200385EEC /* PBXTargetDependency */,
 			);
 			name = Bubble;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Bubble;
 			productReference = 8D1107320486CEB800E47090 /* Bubble.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A31D7212129EC67E00385EEC /* General */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A31D7217129EC67F00385EEC /* Build configuration list for PBXNativeTarget "General" */;
+			buildPhases = (
+				A31D720F129EC67E00385EEC /* Resources */,
+				A31D7210129EC67E00385EEC /* Sources */,
+				A31D7211129EC67E00385EEC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = General;
+			productName = General;
+			productReference = A31D7213129EC67E00385EEC /* General.preferencePane */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A31D733E129ED47A00385EEC /* Account */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A31D7343129ED47A00385EEC /* Build configuration list for PBXNativeTarget "Account" */;
+			buildPhases = (
+				A31D733B129ED47A00385EEC /* Resources */,
+				A31D733C129ED47A00385EEC /* Sources */,
+				A31D733D129ED47A00385EEC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Account;
+			productName = Account;
+			productReference = A31D733F129ED47A00385EEC /* Account.preferencePane */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -629,6 +776,8 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Bubble */,
+				A31D7212129EC67E00385EEC /* General */,
+				A31D733E129ED47A00385EEC /* Account */,
 			);
 		};
 /* End PBXProject section */
@@ -683,6 +832,26 @@
 				A3E98B251291600800D01F98 /* status_alert_icon.png in Resources */,
 				A3E98B261291600800D01F98 /* status_icon.png in Resources */,
 				A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */,
+				A31D711B129EBB3000385EEC /* Accounts.tiff in Resources */,
+				A31D711C129EBB3000385EEC /* generalPrefs.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31D720F129EC67E00385EEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D7219129EC75300385EEC /* GeneralPrefsView.xib in Resources */,
+				A31D7218129EC73B00385EEC /* generalPrefs.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31D733B129ED47A00385EEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D7353129ED52F00385EEC /* Accounts.tiff in Resources */,
+				A31D7352129ED51D00385EEC /* AccountPrefsPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,10 +899,41 @@
 				A3C24B82127DA8A600D9E39D /* WeiboFilters.m in Sources */,
 				A3B6087F128700970085ECB1 /* AppGrowl.m in Sources */,
 				A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */,
+				A35FAB3A129EA4E400225E3B /* SS_PrefsController.m in Sources */,
+				A31D7138129EBF8900385EEC /* MenuController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31D7210129EC67E00385EEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D721A129EC76300385EEC /* GeneralPrefsPanel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A31D733C129ED47A00385EEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A31D7351129ED50800385EEC /* AccountPrefsPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A31D7248129EC8B200385EEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A31D7212129EC67E00385EEC /* General */;
+			targetProxy = A31D7247129EC8B200385EEC /* PBXContainerItemProxy */;
+		};
+		A31D7369129ED5A800385EEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A31D733E129ED47A00385EEC /* Account */;
+			targetProxy = A31D7368129ED5A800385EEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A354C2DA1249D86C0055FB8F /* InfoPlist.strings */ = {
@@ -755,6 +955,106 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A31D7215129EC67F00385EEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "General-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = General;
+				WRAPPER_EXTENSION = preferencePane;
+			};
+			name = Debug;
+		};
+		A31D7216129EC67F00385EEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "General-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = General;
+				WRAPPER_EXTENSION = preferencePane;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		A31D7341129ED47A00385EEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Account-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Account;
+				WRAPPER_EXTENSION = preferencePane;
+			};
+			name = Debug;
+		};
+		A31D7342129ED47A00385EEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Account-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Account;
+				WRAPPER_EXTENSION = preferencePane;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -832,6 +1132,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A31D7217129EC67F00385EEC /* Build configuration list for PBXNativeTarget "General" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A31D7215129EC67F00385EEC /* Debug */,
+				A31D7216129EC67F00385EEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A31D7343129ED47A00385EEC /* Build configuration list for PBXNativeTarget "Account" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A31D7341129ED47A00385EEC /* Debug */,
+				A31D7342129ED47A00385EEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Bubble" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
