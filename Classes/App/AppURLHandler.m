@@ -10,7 +10,7 @@
 
 
 @implementation AppURLHandler
--(void)handleURL:(NSString*)urlString{
+-(void)handleURL:(NSString*)urlString{	
 	NSURL *url=[NSURL URLWithString:urlString];
 	if (!url) {
 		return;

@@ -120,8 +120,23 @@
 }
 
 -(void)didDisplayImage:(NSNotification*)notification{
+	//CGEventRef ourEvent = CGEventCreate(NULL);
+	//CGPoint point = CGEventGetLocation(ourEvent);
+	
 	NSString *url =[notification object];
-	[imagePanelController showWindow:self];
+	NSRect	rect;
+	NSPoint mouseLoc;
+	mouseLoc = [NSEvent mouseLocation];
+	
+	//rect.origin=*(NSPoint *)&point;
+	rect.origin=mouseLoc;
+	rect.size.width=1;
+	rect.size.height=1;
+	NSLog(@"Location? x= %f, y = %f", (float)rect.origin.x, (float)rect.origin.y);
+	NSWindow * window=[imagePanelController window];
+	[window zoomOnFromRect:rect];
+	
+	//[imagePanelController showWindow:self];
 	[imagePanelController loadImagefromURL:url];
 }
 

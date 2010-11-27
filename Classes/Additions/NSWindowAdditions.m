@@ -128,7 +128,7 @@
 	[zoomWindow orderFront:self];
     [self orderOut:self];
     
-    [zoomWindow animateToFrame:endRect duration:[zoomWindow animationResizeTime:endRect] * 0.4];
+    [zoomWindow animateToFrame:endRect duration:[zoomWindow animationResizeTime:endRect] * 0.3];
     
 	[zoomWindow close];    
 }

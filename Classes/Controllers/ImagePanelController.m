@@ -12,10 +12,6 @@
 @implementation ImagePanelController
 - (id)init {
 	self = [super initWithWindowNibName:@"ImagePanel"];	
-	if (self) {
-		defaultFrameSize=[[self window] frame];
-		[[self window] close];
-	}
 	return self;
 }
 
@@ -39,8 +35,6 @@
 }
 
 - (BOOL)windowShouldClose:(id)sender{
-
-	[[self window] setFrame:defaultFrameSize display:YES];
 	[imageView setImage:nil];
 	return YES;
 }
