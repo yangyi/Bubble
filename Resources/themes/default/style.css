@@ -293,34 +293,19 @@ text-decoration: none;
 	background: transparent url(shadow_.png) top center repeat-x;
 }
 
-.attachments  .image{
--webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 3px;
+.attachments img{
+-webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px;
 background: white;
 border: 1px solid #BBB;
-border-bottom-left-radius: 3px 3px;
-border-bottom-right-radius: 3px 3px;
-border-top-left-radius: 3px 3px;
-border-top-right-radius: 3px 3px;
-margin: 2px 8px 6px 6px;
+-webkit-border-radius:2px;
+margin: 4px  10px  10px 10px;
 overflow: hidden;
-padding: 5px;
+padding: 2px;
 position: relative;
 float:left;
 }
 
-.attachments .image > .action {
-background-image: url(media_actions.12434.png);
-height: 40px;
-left: 50%;
-margin-left: -20px;
-margin-top: -20px;
-opacity: 0.6;
-padding: 0px !important;
-position: absolute;
-top: 50%;
-width: 40px;
-z-index: 9;
-}
+
 /*
 a:link, a:visited, a:hover {
 	color: #666;

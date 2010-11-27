@@ -42,10 +42,9 @@
 		{{ status.text|weibo_content_format }}
 		{% if status.thumbnail_pic %}
 		<div class="attachments">
-		<div class="image">
-		<a href="weibo://image?url={{status.original_pic}}" target="_blank"><image src="{{status.thumbnail_pic}}"/></a>
-		<div class="action"></div>
-		</div>
+		<a href="weibo://image?url={{status.original_pic}}" target="_blank">
+		<img src="{{status.thumbnail_pic}}"/>
+		</a>
 		</div>
 		<div class="clear"></div>
 		{% /if %}
@@ -58,10 +57,10 @@
 		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.retweeted_status.user.screen_name}}</a> {{status.retweeted_status.text|weibo_content_format}}
 		{% if status.retweeted_status.thumbnail_pic %}
 		<div class="attachments">
-		<div class="image">
-		<image src="{{status.retweeted_status.thumbnail_pic}}"/>
-		<div class="action"></div>
-		</div>
+		<a href="weibo://image?url={{status.retweeted_status.original_pic}}" target="_blank">
+		<img src="{{status.retweeted_status.thumbnail_pic}}"/>
+		</a>
+
 		</div>
 		<div class="clear"></div>
 		{% /if %}

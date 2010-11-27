@@ -185,3 +185,15 @@ right: 10px;
 .list_section > .list_items_wrapper {
 overflow: hidden;
 }
+
+.sep{
+float:left;
+}
+.path_text{
+cursor:pointer;
+float:left;
+padding-top:8px;
+}
+.path_text:hover:active{
+  padding: 10px 0px 1px 0px;
+}
