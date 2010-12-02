@@ -139,4 +139,14 @@
 		[[mainWindow window] deminiaturize:nil];
 	}
 }
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication
+					hasVisibleWindows:(BOOL)flag{
+	if (flag) {
+		return NO;
+	} else {
+		[[mainWindow window] orderFront:self];
+		return YES;
+	}
+}
 @end
