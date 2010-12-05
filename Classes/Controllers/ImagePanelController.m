@@ -42,10 +42,24 @@
 	NSURL *imageURL = [NSURL URLWithString:url];
 	NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
 	if (imageData != nil) {
+		//这里需要恰当的处理图片显示的位置
+		//get the full screen frame
+ 		NSScreen *screen=[window screen];
+		NSRect screenFrame=[screen frame];
+		//get the image size
 		newImage = [[NSImage alloc] initWithData:imageData];
-		[progressIndicator stopAnimation:self];
+		NSSize imageSize=[newImage size];
 		NSRect frame = [window frame];
-		frame.size=[newImage size];
+		if (frame.origin.x+imageSize.width>screenFrame.size.width) {
+			frame.size.width=screenFrame.size.width-frame.origin.x-10;
+			frame.size.height=imageSize.height*(frame.size.width/imageSize.width);
+		}else {
+			frame.size=[newImage size];
+		}
+
+		[progressIndicator stopAnimation:self];
+
+
 		[window setFrame:frame display:YES animate:YES];
 		[imageView setImage:newImage];
 		[newImage release];

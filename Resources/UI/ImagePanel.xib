@@ -41,7 +41,7 @@
 			<object class="NSWindowTemplate" id="160737220">
 				<int key="NSWindowStyleMask">8215</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{747, 480}, {174, 103}}</string>
+				<string key="NSWindowRect">{{767, 489}, {174, 103}}</string>
 				<int key="NSWTFlags">611845120</int>
 				<string key="NSWindowTitle"/>
 				<string key="NSWindowClass">NSPanel</string>
@@ -222,9 +222,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{747, 480}, {174, 103}}</string>
+					<string>{{767, 489}, {174, 103}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{747, 480}, {174, 103}}</string>
+					<string>{{767, 489}, {174, 103}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
