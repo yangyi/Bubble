@@ -105,7 +105,7 @@
 	
 	[zoomWindow orderFront:self];
 	
-    [zoomWindow animateToFrame:frame duration:[zoomWindow animationResizeTime:frame] * 0.4];
+    [zoomWindow animateToFrame:frame duration:[zoomWindow animationResizeTime:frame] * 0.3];
     
 	[self makeKeyAndOrderFront:self];	
 	[zoomWindow close];

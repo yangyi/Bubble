@@ -45,6 +45,14 @@
 					   completionTarget:(id)target
 					   completionAction:(SEL)action;
 
+-(NSString *) getCommentsWithParameters:(NSMutableDictionary*)params
+					   completionTarget:(id)target
+					   completionAction:(SEL)action;
+
+-(NSString *) getFavoritesWithParameters:(NSMutableDictionary*)params
+					   completionTarget:(id)target
+					   completionAction:(SEL)action;
+
 -(NSString *) updateWithStatus:(NSString*)status					   
 			  completionTarget:(id)target
 			  completionAction:(SEL)action;

@@ -14,7 +14,9 @@
 	IBOutlet NSTextField *charactersRemaining;
 	IBOutlet NSProgressIndicator * postProgressIndicator;
 	__weak   WeiboAccount *weiboAccount;
+	NSRect fromRect;
 }
-	-(IBAction)post:(id)sender;
+-(IBAction)post:(id)sender;
 -(void)didPost:(NSNotification*)notification;
+-(void)popUp;
 @end

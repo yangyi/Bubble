@@ -35,6 +35,10 @@
 		[nc addObserver:self selector:@selector(didLoadNewerTimeline:) 
 				   name:DidLoadNewerTimelineNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didLoadTimelineWithPage:) 
+				   name:DidLoadTimelineWithPageNotification 
+				 object:nil];
+		
 		[nc addObserver:self selector:@selector(didClickTimeline:)
 				   name:DidClickTimelineNotification 
 				 object:nil];
@@ -87,6 +91,13 @@
 	[currentTimeline loadRecentTimeline];
 }
 
+-(void)loadTimelineWithPage{
+	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+								baseURL:baseURL];
+	[currentTimeline loadTimelineWithPage:@"1"];
+}
+
 -(void)didReloadTimeline:(NSNotification *)notification{
 	/*WeiboHomeTimeline *homeTimeline =[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
@@ -102,14 +113,25 @@
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
 -(void) reloadTimeline{
 	if (currentTimeline.data==nil) {
-		[self loadRecentTimeline];
+		switch (currentTimeline.timelineType) {
+			case Home:
+			case Comments:
+			case Mentions:
+				[self loadRecentTimeline];
+				break;
+			case Favorites:
+				[self loadTimelineWithPage];
+				break;
+			default:
+				break;
+		}
 		return;
 	}
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	//NSNumber *lastReadStatusId=weiboAccount.homeTimeline.lastReadStatusId;
 	//NSLog(@"%@",lastReadStatusId);
-	NSArray *oldStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id<=%@",weiboAccount.homeTimeline.lastReadId]];
-	NSArray *newStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id>%@",weiboAccount.homeTimeline.lastReadId]];
+	NSArray *oldStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id<=%@",currentTimeline.lastReadId]];
+	NSArray *newStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id>%@",currentTimeline.lastReadId]];
 	if ([oldStatuses count]>0) {
 		[data setObject:oldStatuses forKey:@"statuses"];
 		//[data setObject:[statusesTemplate render:data] forKey:@"old_statuses"];
@@ -137,8 +159,17 @@
 
 }
 
+-(void)selectComments{
+	currentTimeline=weiboAccount.comments;
+	[self reloadTimeline];
+}
 -(void)selectHome{
 	currentTimeline = weiboAccount.homeTimeline;
+	[self reloadTimeline];
+}
+
+-(void)selectFavorites{
+	currentTimeline = weiboAccount.favorites;
 	[self reloadTimeline];
 }
 
@@ -262,6 +293,20 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	}
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"GrowlNotification" object:nil];
 
+}
+
+-(void)didLoadTimelineWithPage:(NSNotification*)notification{
+	WeiboTimeline *sender=(WeiboTimeline*)[notification object];
+	if (currentTimeline==sender) {
+		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+		NSArray *statuses=sender.newData;
+		[data setObject:statuses forKey:@"statuses"];
+		NSString *olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
+		DOMDocument *dom=[[webView mainFrame] DOMDocument];
+		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_old"];
+		[oldStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatusElement innerHTML],olderStatuses]];		
+		
+	}
 }
 
 -(void)didClickTimeline:(NSNotification*)notification{

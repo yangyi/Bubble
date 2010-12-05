@@ -21,7 +21,7 @@
     BOOL loaded = YES;
     
     if (!prefsView) {
-        loaded = [NSBundle loadNibNamed:@"AccountPrefsPanel" owner:self];
+        loaded = [NSBundle loadNibNamed:@"AccountPrefsView" owner:self];
     }
     
     if (loaded) {

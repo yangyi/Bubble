@@ -23,8 +23,12 @@
 }
 
 -(void)awakeFromNib{
-	[[self window] isVisible];
 	[textView setImportsGraphics:TRUE];
+	[textView setFont:[NSFont fontWithName:@"Menlo" size:14]];
+	CGFloat linespace=3.0f;
+	NSMutableParagraphStyle *paragraphStyle=[[[NSMutableParagraphStyle alloc] init] autorelease];
+	[paragraphStyle setLineSpacing:linespace];
+	[textView setDefaultParagraphStyle:paragraphStyle];
 }
 
 - (void)textDidChange:(NSNotification *)aNotification {
@@ -65,5 +69,26 @@
 	[postProgressIndicator setHidden:YES];
 	[postProgressIndicator stopAnimation:self];
 	[self close];
+}
+
+-(void)popUp{
+	NSWindow *window=[self window];
+	NSPoint mouseLoc = [NSEvent mouseLocation];
+	fromRect.origin=mouseLoc;
+	fromRect.size.width=1;
+	fromRect.size.height=1;
+	if (![window isVisible]) {
+		[window zoomOnFromRect:fromRect];
+	}
+	[window display];
+	[window orderFront:self];
+	[window makeKeyWindow];
+}
+
+- (BOOL)windowShouldClose:(id)sender{
+	[[self window] zoomOffToRect:fromRect];
+	[textView setString:@""];
+	[charactersRemaining setStringValue:[NSString stringWithFormat:@"%d",140]];
+	return YES;
 }
 @end

@@ -10,12 +10,12 @@
 
 
 @implementation WeiboTimeline
-@synthesize data,newData,lastReadId,lastReceivedId,oldestReceivedId,scrollPosition;
+@synthesize data,newData,lastReadId,lastReceivedId,oldestReceivedId,scrollPosition,timelineType;
 @dynamic unread;
 
 
 -(BOOL) unread{
-	return [lastReadId longValue]<[lastReceivedId longValue];
+	return [lastReadId longLongValue]<[lastReceivedId longLongValue];
 }
 
 #pragma mark  初始化
@@ -55,6 +55,12 @@
 									completionTarget:self
 									 completionAction:@selector(didLoadRecentTimeline:)];
 			break;
+		case Comments:
+			[weiboConnector getCommentsWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadRecentTimeline:)];
+			break;
+
 		default:
 			break;
 	}
@@ -128,11 +134,11 @@
 -(void)loadOlderTimeline{
 	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
 	//由于max_id是指获取不大于max_id的，所以有重复，需要减去1
-	long maxId=[oldestReceivedId longValue]-1;
-	[params setObject:[NSString stringWithFormat:@"%ld",maxId]
+	long long maxId=[oldestReceivedId longLongValue]-1;
+	[params setObject:[NSString stringWithFormat:@"%llu",maxId]
 			   forKey:@"max_id"];
 	NSLog(@"%@",oldestReceivedId);
-	NSLog(@"%ld",maxId);
+	NSLog(@"%llu",maxId);
 	switch (timelineType) {
 		case Home:
 			[weiboConnector getHomeTimelineWithParameters:params
@@ -155,6 +161,33 @@
 		[data addObjectsFromArray:statuses];
 		[[data lastObject] setObject:[NSNumber numberWithInt:1] forKey:@"gap"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadOlderTimelineNotification
+															object:self];
+	}
+}
+
+
+-(void)loadTimelineWithPage:(NSString*)pageNumber{
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[params setObject:@"20" forKey:@"count"];
+	[params setObject:pageNumber forKey:@"page"];
+	switch (timelineType) {
+		case Favorites:
+			[weiboConnector getFavoritesWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadTimelineWithPage:)];
+			break;
+		default:
+			break;
+	}
+
+}
+-(void)didLoadTimelineWithPage:(NSArray*)statuses{
+	self.data=[[statuses mutableCopy] autorelease];
+	if (statuses!=nil&&[statuses count]>0) {
+		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
+        self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
+		self.oldestReceivedId =[[statuses lastObject] objectForKey:@"id"];
+		[[NSNotificationCenter defaultCenter] postNotificationName:ReloadTimelineNotification
 															object:self];
 	}
 }

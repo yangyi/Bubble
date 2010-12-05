@@ -8,12 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NSWindowAdditions.h"
-#import "ImageView.h"
 @interface ImagePanelController : NSWindowController {
-	IBOutlet ImageView *imagePanel;
 	IBOutlet NSImageView *imageView;
 	IBOutlet NSProgressIndicator *progressIndicator;
-
+	NSRect fromRect;
+	NSRect initPanelRect;
 }
+
 - (void)loadImagefromURL:(NSString *)url;
+@property(nonatomic)NSRect fromRect;
 @end

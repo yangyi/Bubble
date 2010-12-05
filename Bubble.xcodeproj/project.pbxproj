@@ -38,7 +38,7 @@
 		A31D721B129EC77100385EEC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A31D7253129EC91900385EEC /* General.preferencePane in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31D7213129EC67E00385EEC /* General.preferencePane */; };
 		A31D7351129ED50800385EEC /* AccountPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */; };
-		A31D7352129ED51D00385EEC /* AccountPrefsPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */; };
+		A31D7352129ED51D00385EEC /* AccountPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7130129EBDAA00385EEC /* AccountPrefsView.xib */; };
 		A31D7353129ED52F00385EEC /* Accounts.tiff in Resources */ = {isa = PBXBuildFile; fileRef = A31D7119129EBB3000385EEC /* Accounts.tiff */; };
 		A31D7354129ED53900385EEC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A31D736B129ED5B600385EEC /* Account.preferencePane in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31D733F129ED47A00385EEC /* Account.preferencePane */; };
@@ -127,8 +127,6 @@
 		A3D89B2E12745AE900B78216 /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3DEF91012744FC400A4A922 /* RegexKit.framework */; };
 		A3DA423E128EE0B400F3497F /* bubble.icns in Resources */ = {isa = PBXBuildFile; fileRef = A3DA423D128EE0B400F3497F /* bubble.icns */; };
 		A3DC6F1E126F48EC00C9FBF7 /* AppURLHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DC6F1D126F48EC00C9FBF7 /* AppURLHandler.m */; };
-		A3DE875412A139D600537823 /* ImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3DE875212A139D600537823 /* ImageView.h */; };
-		A3DE875512A139D600537823 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DE875312A139D600537823 /* ImageView.m */; };
 		A3DEF69412744CDE00A4A922 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
 		A3DEF85912744ED900A4A922 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DEF85812744ED900A4A922 /* WebKit.framework */; };
 		A3DEF91112744FC400A4A922 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3DEF91012744FC400A4A922 /* RegexKit.framework */; };
@@ -206,14 +204,14 @@
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
 		A316D5B212786E3600A3D987 /* NSWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowAdditions.h; sourceTree = "<group>"; };
 		A316D5B312786E3600A3D987 /* NSWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindowAdditions.m; sourceTree = "<group>"; };
-		A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPrefsView.xib; sourceTree = "<group>"; };
+		A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GeneralPrefsView.xib; path = ../../Resources/UI/GeneralPrefsView.xib; sourceTree = "<group>"; };
 		A31D7115129EBA0100385EEC /* GeneralPrefsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPrefsPanel.h; sourceTree = "<group>"; };
 		A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPrefsPanel.m; sourceTree = "<group>"; };
 		A31D7119129EBB3000385EEC /* Accounts.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Accounts.tiff; sourceTree = "<group>"; };
 		A31D711A129EBB3000385EEC /* generalPrefs.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = generalPrefs.tiff; sourceTree = "<group>"; };
 		A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefsPanel.h; sourceTree = "<group>"; };
 		A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefsPanel.m; sourceTree = "<group>"; };
-		A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountPrefsPanel.xib; sourceTree = "<group>"; };
+		A31D7130129EBDAA00385EEC /* AccountPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountPrefsView.xib; path = ../../Resources/UI/AccountPrefsView.xib; sourceTree = "<group>"; };
 		A31D7135129EBF8900385EEC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		A31D7136129EBF8900385EEC /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		A31D7213129EC67E00385EEC /* General.preferencePane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = General.preferencePane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -327,8 +325,6 @@
 		A3DA423D128EE0B400F3497F /* bubble.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bubble.icns; sourceTree = "<group>"; };
 		A3DC6F1C126F48EC00C9FBF7 /* AppURLHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppURLHandler.h; sourceTree = "<group>"; };
 		A3DC6F1D126F48EC00C9FBF7 /* AppURLHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppURLHandler.m; sourceTree = "<group>"; };
-		A3DE875212A139D600537823 /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
-		A3DE875312A139D600537823 /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		A3DEF85812744ED900A4A922 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A3DEF91012744FC400A4A922 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
 		A3E382D5128710C100B4C695 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
@@ -440,7 +436,6 @@
 		A354BFEF1249CC810055FB8F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A3DE875112A1352300537823 /* View */,
 				A35FAB34129EA4E400225E3B /* Preferences */,
 				A3D89AD712745A6E00B78216 /* MGTemplateEngine */,
 				A354C0821249D1840055FB8F /* App */,
@@ -572,8 +567,6 @@
 				A3592136124A00F400DC2622 /* LoginWindow.xib */,
 				A3592137124A00F400DC2622 /* MainWindow.xib */,
 				A333804B1298E2780033FCCF /* ImagePanel.xib */,
-				A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */,
-				A31D7130129EBDAA00385EEC /* AccountPrefsPanel.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -581,6 +574,8 @@
 		A35FAB34129EA4E400225E3B /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */,
+				A31D7130129EBDAA00385EEC /* AccountPrefsView.xib */,
 				A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */,
 				A35FAB36129EA4E400225E3B /* SS_PrefsController.h */,
 				A35FAB37129EA4E400225E3B /* SS_PrefsController.m */,
@@ -668,15 +663,6 @@
 			path = MGTemplateEngine;
 			sourceTree = "<group>";
 		};
-		A3DE875112A1352300537823 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A3DE875212A139D600537823 /* ImageView.h */,
-				A3DE875312A139D600537823 /* ImageView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -707,7 +693,6 @@
 				A31D7117129EBA0100385EEC /* GeneralPrefsPanel.h in Headers */,
 				A31D711F129EBB5400385EEC /* AccountPrefsPanel.h in Headers */,
 				A31D7137129EBF8900385EEC /* MenuController.h in Headers */,
-				A3DE875412A139D600537823 /* ImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -866,7 +851,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A31D7353129ED52F00385EEC /* Accounts.tiff in Resources */,
-				A31D7352129ED51D00385EEC /* AccountPrefsPanel.xib in Resources */,
+				A31D7352129ED51D00385EEC /* AccountPrefsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,7 +901,6 @@
 				A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */,
 				A35FAB3A129EA4E400225E3B /* SS_PrefsController.m in Sources */,
 				A31D7138129EBF8900385EEC /* MenuController.m in Sources */,
-				A3DE875512A139D600537823 /* ImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

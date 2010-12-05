@@ -7,18 +7,36 @@
 //
 
 #import "ImagePanelController.h"
+#import "NSWindowAdditions.h"
 
 
 @implementation ImagePanelController
+@synthesize fromRect;
 - (id)init {
-	self = [super initWithWindowNibName:@"ImagePanel"];	
+	self = [super initWithWindowNibName:@"ImagePanel"];
+	if (self) {
+		NSWindow *window=[self window];
+		initPanelRect =[window frame];
+	}
 	return self;
 }
 
-- (void)loadImagefromURL:(NSString *)url
+
+- (void)loadImagefromURL:(NSString *)url 
 {
+	
 	NSWindow *window=[self window];
-	//[[self window] orderOut:self];
+	NSPoint mouseLoc = [NSEvent mouseLocation];
+	fromRect.origin=mouseLoc;
+	fromRect.size.width=1;
+	fromRect.size.height=1;
+	
+	if (![window isVisible]) {
+		[[self window] setFrame:initPanelRect display:NO];
+		[imageView setImage:nil];
+		[[self window] zoomOnFromRect:fromRect];
+	}
+	
 	[progressIndicator startAnimation:self];
 	NSImage *newImage;
 	NSURL *imageURL = [NSURL URLWithString:url];
@@ -35,7 +53,7 @@
 }
 
 - (BOOL)windowShouldClose:(id)sender{
-	[imageView setImage:nil];
+	[[self window] zoomOffToRect:fromRect];
 	return YES;
 }
 

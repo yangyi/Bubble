@@ -31,9 +31,14 @@
 		
 		</div>
 		<div class="actions">
+		{% if status.favorited %}
+		<img style="opacity:1" src="SaveSearchesStarBlue.png"/>
+		{% else %}
 		<a href=""><img src="SaveSearchesStarGray.png"/></a>
+		{% /if %}
 		<a href=""><img src="reply.png"/></a>
 		</div>
+
 		<div class="informations"><a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">{{ status.user.screen_name }}</a> from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
 
 		<hr class="topSeparator" />
@@ -69,6 +74,28 @@
 		</blockquote>
 		</div>
 		{% /if %}
+		
+		{% if status.status %}
+		<div class="bubble">
+		<cite><img src="tip.gif"/> </cite>
+		<blockquote>
+		<p>
+		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.status.user.screen_name}}</a> {{status.status.text|weibo_content_format}}
+		{% if status.status.thumbnail_pic %}
+		<div class="attachments">
+		<a href="weibo://image?url={{status.status.original_pic}}" target="_blank">
+		<img src="{{status.status.thumbnail_pic}}"/>
+		</a>
+
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
+		</p>
+		</blockquote>
+		</div>
+		{% /if %}
+		
 		<div class="footerSeparator"></div>
 		<div class="footer">
 

@@ -38,10 +38,13 @@
 -(void)loadOlderTimeline;
 -(void)didLoadOlderTimeline:(NSArray*)statuses;
 
+-(void)loadTimelineWithPage:(NSString*)pageNumber;
+-(void)didLoadTimelineWithPage:(NSArray*)statuses;
 
 @property(nonatomic,retain) NSMutableArray *data;
 @property(nonatomic,retain) NSArray *newData;
 @property(nonatomic)BOOL unread;
+@property(nonatomic)TimelineType timelineType;
 @property(nonatomic,retain) NSNumber *lastReadId;
 @property(nonatomic,retain) NSNumber *lastReceivedId;
 @property(nonatomic,retain) NSNumber *oldestReceivedId;

@@ -143,6 +143,9 @@
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication
 					hasVisibleWindows:(BOOL)flag{
 	if (flag) {
+		if ([[mainWindow window] isMiniaturized]) {
+			[[mainWindow window] deminiaturize:self];
+		}
 		return NO;
 	} else {
 		[[mainWindow window] orderFront:self];

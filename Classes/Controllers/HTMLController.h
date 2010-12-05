@@ -36,10 +36,12 @@
 -(id) initWithWebView:(WebView*) webView;
 -(void)dealloc;
 -(void)loadRecentTimeline;
+-(void)loadTimelineWithPage;
 -(void)reloadTimeline;
 -(void)selectMentions;
+-(void)selectComments;
 -(void)selectHome;
-
+-(void)selectFavorites;
 #pragma mark 接受通知的方法
 -(void)didReloadTimeline:(NSNotification *)notification;
 -(void)didLoadNewerTimeline:(NSNotification*)notification;

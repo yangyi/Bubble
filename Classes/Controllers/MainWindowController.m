@@ -47,6 +47,15 @@
 			break;
 		case 1:
 			[htmlController selectMentions];
+			break;
+		case 2:
+			[htmlController selectComments];
+			break;
+
+		case 4:
+			[htmlController selectFavorites];
+			break;
+
 		default:
 			break;
 	}
@@ -80,21 +89,7 @@
 }
 
 -(IBAction)compose:(id)sender{
-	
-	//composeController=[[ComposeController alloc]init];
-	//[composeController showWindow:nil];
-	
-	NSRect	rect;
-    rect = [sender convertRect:[sender bounds] toView:nil];
-    rect.origin = [[sender window] convertBaseToScreen:rect.origin];
-	if ([[composeController window] isVisible]) {
-		[[composeController window] zoomOffToRect:rect];
-	}else {
-		NSWindow * window=[composeController window];
-		[window zoomOnFromRect:rect];
-	}
-
-	
+	[composeController popUp];
 }
 
 
@@ -120,23 +115,7 @@
 }
 
 -(void)didDisplayImage:(NSNotification*)notification{
-	//CGEventRef ourEvent = CGEventCreate(NULL);
-	//CGPoint point = CGEventGetLocation(ourEvent);
-	
 	NSString *url =[notification object];
-	NSRect	rect;
-	NSPoint mouseLoc;
-	mouseLoc = [NSEvent mouseLocation];
-	
-	//rect.origin=*(NSPoint *)&point;
-	rect.origin=mouseLoc;
-	rect.size.width=1;
-	rect.size.height=1;
-	NSLog(@"Location? x= %f, y = %f", (float)rect.origin.x, (float)rect.origin.y);
-	NSWindow * window=[imagePanelController window];
-	[window zoomOnFromRect:rect];
-	
-	//[imagePanelController showWindow:self];
 	[imagePanelController loadImagefromURL:url];
 }
 

@@ -14,7 +14,7 @@
 static const char *serviceName = "Bubble";
 static WeiboAccount *instance;
 
-@synthesize homeTimeline,mentions;
+@synthesize homeTimeline,mentions,comments,favorites;
 
 +(id)instance{
 	if (!instance) {
@@ -40,6 +40,10 @@ static WeiboAccount *instance;
 															 timelineType:Home];
 		mentions=[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector
 														timelineType:Mentions];
+		comments=[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector
+												  timelineType:Comments];
+		favorites=[[WeiboTimeline alloc] initWithWeiboConnector:weiboConnector
+												   timelineType:Favorites];
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 
 		[nc addObserver:self selector:@selector(getUser:)

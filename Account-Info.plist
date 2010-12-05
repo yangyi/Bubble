@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSMainNibFile</key>
-	<string>AccountPrefsPanel</string>
+	<string>AccountPrefsView</string>
 	<key>NSPrincipalClass</key>
 	<string>AccountPrefsPanel</string>
 </dict>
