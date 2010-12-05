@@ -36,7 +36,7 @@
 		[imageView setImage:nil];
 		[[self window] zoomOnFromRect:fromRect];
 	}
-	
+	[progressIndicator display];
 	[progressIndicator startAnimation:self];
 	NSImage *newImage;
 	NSURL *imageURL = [NSURL URLWithString:url];
