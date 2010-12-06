@@ -102,6 +102,21 @@
 }
 
 
+
+- (id)initWithPanes:(NSArray *)inArray
+{
+	if ((self = [self init])) {
+		id <SS_PreferencePaneProtocol> aPane;
+		
+		for (aPane in inArray) {
+			[panesOrder addObject:[aPane paneName]];
+			[preferencePanes setObject:aPane forKey:[aPane paneName]];
+		}
+	}
+	
+	return self;
+}
+
 - (void)dealloc
 {
     if (prefsWindow) {

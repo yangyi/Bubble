@@ -12,5 +12,5 @@
 @interface AccountPrefsPanel : NSObject<SS_PreferencePaneProtocol> {
 	IBOutlet NSView *prefsView;
 }
-
+-(IBAction)addAccount:(id)sender;
 @end

@@ -36,7 +36,7 @@
 
 - (id)initWithBundleExtension:(NSString *)ext;
 - (id)initWithPanesSearchPath:(NSString*)path;
-
+- (id)initWithPanes:(NSArray *)inArray;
 - (void)showPreferencesWindow;
 - (void)createPreferencesWindowAndDisplay:(BOOL)shouldDisplay;
 - (void)createPreferencesWindow;

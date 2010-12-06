@@ -7,7 +7,7 @@
 //
 
 #import "AccountPrefsPanel.h"
-
+#import "EditAccountController.h"
 
 @implementation AccountPrefsPanel
 + (NSArray *)preferencePanes
@@ -59,5 +59,9 @@
 - (BOOL)allowsVerticalResizing
 {
     return NO;
+}
+
+-(IBAction)addAccount:(id)sender{
+	[[[EditAccountController alloc] init] show:[prefsView window]];
 }
 @end

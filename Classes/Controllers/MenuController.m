@@ -7,7 +7,8 @@
 //
 
 #import "MenuController.h"
-
+#import "GeneralPrefsPanel.h"
+#import "AccountPrefsPanel.h"
 
 @implementation MenuController
 - (IBAction)preferences:(id)sender
@@ -15,16 +16,18 @@
 	if (!prefs)
 	{
 		// Determine path to the sample preference panes
-		NSString *pathToPanes = [NSString stringWithFormat:@"%@/../Preference Panes", [[NSBundle mainBundle] resourcePath]];
-		
-		prefs = [[SS_PrefsController alloc] initWithPanesSearchPath:pathToPanes];
-		
+		//NSString *pathToPanes = [NSString stringWithFormat:@"%@/../Preference Panes", [[NSBundle mainBundle] resourcePath]];
+		//prefs = [[SS_PrefsController alloc] initWithPanesSearchPath:pathToPanes];
+		NSMutableArray *panesArray=[NSMutableArray array];
+		[panesArray addObject:[[GeneralPrefsPanel alloc] init]];
+		[panesArray addObject:[[AccountPrefsPanel alloc] init]];
+		prefs=[[SS_PrefsController alloc]initWithPanes:panesArray];
 		[prefs setAlwaysShowsToolbar:YES];
 		[prefs setDebug:YES];
 		
 		[prefs setAlwaysOpensCentered:YES];
 		
-		[prefs setPanesOrder:[NSArray arrayWithObjects:@"General",@"Account", nil]];
+		//[prefs setPanesOrder:[NSArray arrayWithObjects:@"General",@"Account", nil]];
 	}
     
 	// Show the preferences window.
