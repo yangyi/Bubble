@@ -67,9 +67,9 @@
 		A35FAB38129EA4E400225E3B /* SS_PreferencePaneProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */; };
 		A35FAB39129EA4E400225E3B /* SS_PrefsController.h in Headers */ = {isa = PBXBuildFile; fileRef = A35FAB36129EA4E400225E3B /* SS_PrefsController.h */; };
 		A35FAB3A129EA4E400225E3B /* SS_PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35FAB37129EA4E400225E3B /* SS_PrefsController.m */; };
-		A3922BFF12AD55BD000F4480 /* EditAccountController.h in Headers */ = {isa = PBXBuildFile; fileRef = A3922B2712AD4E5F000F4480 /* EditAccountController.h */; };
-		A3922C0012AD55BD000F4480 /* EditAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3922B2812AD4E5F000F4480 /* EditAccountController.m */; };
-		A3922C0212AD55CB000F4480 /* EditAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = A392292912AD2EF2000F4480 /* EditAccount.xib */; };
+		A3922BFF12AD55BD000F4480 /* AccountEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = A3922B2712AD4E5F000F4480 /* AccountEditorController.h */; };
+		A3922C0012AD55BD000F4480 /* AccountEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3922B2812AD4E5F000F4480 /* AccountEditorController.m */; };
+		A3922C0212AD55CB000F4480 /* AccountEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = A392292912AD2EF2000F4480 /* AccountEditor.xib */; };
 		A3922C4212AD594F000F4480 /* AccountPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7130129EBDAA00385EEC /* AccountPrefsView.xib */; };
 		A3922C4312AD595A000F4480 /* GeneralPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */; };
 		A3922C4412AD5968000F4480 /* GeneralPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */; };
@@ -248,9 +248,9 @@
 		A35FAB35129EA4E400225E3B /* SS_PreferencePaneProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PreferencePaneProtocol.h; sourceTree = "<group>"; };
 		A35FAB36129EA4E400225E3B /* SS_PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SS_PrefsController.h; sourceTree = "<group>"; };
 		A35FAB37129EA4E400225E3B /* SS_PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SS_PrefsController.m; sourceTree = "<group>"; };
-		A392292912AD2EF2000F4480 /* EditAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAccount.xib; sourceTree = "<group>"; };
-		A3922B2712AD4E5F000F4480 /* EditAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAccountController.h; sourceTree = "<group>"; };
-		A3922B2812AD4E5F000F4480 /* EditAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAccountController.m; sourceTree = "<group>"; };
+		A392292912AD2EF2000F4480 /* AccountEditor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountEditor.xib; sourceTree = "<group>"; };
+		A3922B2712AD4E5F000F4480 /* AccountEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorController.h; sourceTree = "<group>"; };
+		A3922B2812AD4E5F000F4480 /* AccountEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorController.m; sourceTree = "<group>"; };
 		A3B608121286F0AD0085ECB1 /* Status_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_OFF.png; sourceTree = "<group>"; };
 		A3B608131286F0AD0085ECB1 /* Status_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_ON.png; sourceTree = "<group>"; };
 		A3B6087C128700970085ECB1 /* AppGrowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGrowl.h; sourceTree = "<group>"; };
@@ -544,9 +544,9 @@
 				A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */,
 				A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */,
 				A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */,
-				A392292912AD2EF2000F4480 /* EditAccount.xib */,
-				A3922B2712AD4E5F000F4480 /* EditAccountController.h */,
-				A3922B2812AD4E5F000F4480 /* EditAccountController.m */,
+				A392292912AD2EF2000F4480 /* AccountEditor.xib */,
+				A3922B2712AD4E5F000F4480 /* AccountEditorController.h */,
+				A3922B2812AD4E5F000F4480 /* AccountEditorController.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -657,7 +657,7 @@
 				A31D7117129EBA0100385EEC /* GeneralPrefsPanel.h in Headers */,
 				A31D711F129EBB5400385EEC /* AccountPrefsPanel.h in Headers */,
 				A31D7137129EBF8900385EEC /* MenuController.h in Headers */,
-				A3922BFF12AD55BD000F4480 /* EditAccountController.h in Headers */,
+				A3922BFF12AD55BD000F4480 /* AccountEditorController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,7 +761,7 @@
 				A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */,
 				A31D711B129EBB3000385EEC /* Accounts.tiff in Resources */,
 				A31D711C129EBB3000385EEC /* generalPrefs.tiff in Resources */,
-				A3922C0212AD55CB000F4480 /* EditAccount.xib in Resources */,
+				A3922C0212AD55CB000F4480 /* AccountEditor.xib in Resources */,
 				A3922C4212AD594F000F4480 /* AccountPrefsView.xib in Resources */,
 				A3922C4312AD595A000F4480 /* GeneralPrefsView.xib in Resources */,
 			);
@@ -813,7 +813,7 @@
 				A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */,
 				A35FAB3A129EA4E400225E3B /* SS_PrefsController.m in Sources */,
 				A31D7138129EBF8900385EEC /* MenuController.m in Sources */,
-				A3922C0012AD55BD000F4480 /* EditAccountController.m in Sources */,
+				A3922C0012AD55BD000F4480 /* AccountEditorController.m in Sources */,
 				A3922C4412AD5968000F4480 /* GeneralPrefsPanel.m in Sources */,
 				A3922C4512AD5973000F4480 /* AccountPrefsPanel.m in Sources */,
 			);

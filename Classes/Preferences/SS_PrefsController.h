@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SS_PrefsController : NSObject
+@interface SS_PrefsController : NSObject<NSToolbarDelegate>
 {
     NSWindow *prefsWindow;
     NSMutableDictionary *preferencePanes;
@@ -25,6 +25,7 @@
     BOOL debug;
 }
 
++ (int)version;
 // Convenience constructors
 + (id)preferencesWithPanesSearchPath:(NSString*)path bundleExtension:(NSString *)ext;
 + (id)preferencesWithBundleExtension:(NSString *)ext;

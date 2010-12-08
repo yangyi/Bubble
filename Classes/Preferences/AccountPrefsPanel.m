@@ -7,7 +7,6 @@
 //
 
 #import "AccountPrefsPanel.h"
-#import "EditAccountController.h"
 
 @implementation AccountPrefsPanel
 + (NSArray *)preferencePanes
@@ -22,6 +21,7 @@
     
     if (!prefsView) {
         loaded = [NSBundle loadNibNamed:@"AccountPrefsView" owner:self];
+		editAccountController=[[AccountEditorController alloc] initWithDelegate:self];
     }
     
     if (loaded) {
@@ -62,6 +62,15 @@
 }
 
 -(IBAction)addAccount:(id)sender{
-	[[[EditAccountController alloc] init] show:[prefsView window]];
+	[editAccountController show:[prefsView window]];
+}
+
+-(void)saveAccount:(NSString*)username withPassword:(NSString*)password{
+	NSLog(@"%@%@",username,password);
+	[accountsController addObject:username];
+	[editAccountController close:self];
+}
+-(void)removeAccount:(NSString*)username{
+	
 }
 @end

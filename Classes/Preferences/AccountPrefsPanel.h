@@ -8,9 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SS_PreferencePaneProtocol.h"
-
-@interface AccountPrefsPanel : NSObject<SS_PreferencePaneProtocol> {
+#import "AccountEditorController.h"
+@interface AccountPrefsPanel : NSObject<SS_PreferencePaneProtocol,AccountEditorControllerProtocol> {
 	IBOutlet NSView *prefsView;
+	IBOutlet NSArrayController *accountsController;
+	AccountEditorController *editAccountController;
 }
 -(IBAction)addAccount:(id)sender;
 @end
