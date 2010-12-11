@@ -88,8 +88,8 @@
 								<object class="NSMutableString" key="NSToolbarItemIdentifier">
 									<characters key="NS.bytes">3EF9A715-3627-44E7-B62A-3790AEF48F69</characters>
 								</object>
-								<string key="NSToolbarItemLabel">Users</string>
-								<string key="NSToolbarItemPaletteLabel">Users</string>
+								<string key="NSToolbarItemLabel">User</string>
+								<string key="NSToolbarItemPaletteLabel">User</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSPopUpButton" key="NSToolbarItemView" id="954126933">
 									<reference key="NSNextResponder"/>
@@ -107,9 +107,9 @@
 											<int key="NSfFlags">1044</int>
 										</object>
 										<reference key="NSControlView" ref="954126933"/>
-										<int key="NSButtonFlags">-2034220801</int>
+										<int key="NSButtonFlags">-2033696513</int>
 										<int key="NSButtonFlags2">163</int>
-										<object class="NSCustomResource" key="NSNormalImage" id="512864610">
+										<object class="NSCustomResource" key="NSNormalImage" id="527397726">
 											<string key="NSClassName">NSImage</string>
 											<string key="NSResourceName">user</string>
 										</object>
@@ -125,7 +125,7 @@
 											<int key="NSKeyEquivModMask">1048576</int>
 											<int key="NSMnemonicLoc">2147483647</int>
 											<int key="NSState">1</int>
-											<reference key="NSImage" ref="512864610"/>
+											<reference key="NSImage" ref="527397726"/>
 											<object class="NSCustomResource" key="NSOnImage" id="843465691">
 												<string key="NSClassName">NSImage</string>
 												<string key="NSResourceName">NSMenuCheckmark</string>
@@ -213,9 +213,9 @@
 												</object>
 												<object class="NSMenuItem" id="67776365">
 													<reference key="NSMenu" ref="1028148510"/>
+													<bool key="NSIsDisabled">YES</bool>
 													<string key="NSTitle">Accounts</string>
 													<string key="NSKeyEquiv"/>
-													<int key="NSKeyEquivModMask">1048576</int>
 													<int key="NSMnemonicLoc">2147483647</int>
 													<reference key="NSOnImage" ref="843465691"/>
 													<reference key="NSMixedImage" ref="496764787"/>
@@ -232,7 +232,7 @@
 										<int key="NSArrowPosition">2</int>
 									</object>
 								</object>
-								<reference key="NSToolbarItemImage" ref="512864610"/>
+								<reference key="NSToolbarItemImage" ref="527397726"/>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
 								<string key="NSToolbarItemMinSize">{40, 25}</string>
@@ -296,12 +296,12 @@
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="74986585">
 									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{0, 14}, {59, 25}}</string>
+									<string key="NSFrame">{{0, 14}, {58, 25}}</string>
 									<reference key="NSSuperview"/>
 									<reference key="NSWindow"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="681490337">
-										<int key="NSCellFlags">67239424</int>
+										<int key="NSCellFlags">-2080244224</int>
 										<int key="NSCellFlags2">0</int>
 										<object class="NSFont" key="NSSupport" id="138046104">
 											<string key="NSName">LucidaGrande</string>
@@ -312,7 +312,6 @@
 										<object class="NSMutableArray" key="NSSegmentImages">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSSegmentItem">
-												<double key="NSSegmentItemWidth">26</double>
 												<object class="NSCustomResource" key="NSSegmentItemImage">
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">NSGoLeftTemplate</string>
@@ -331,7 +330,6 @@
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 										</object>
-										<int key="NSSelectedSegment">1</int>
 										<int key="NSTrackingMode">2</int>
 										<int key="NSSegmentStyle">2</int>
 									</object>
@@ -340,7 +338,7 @@
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
 								<string key="NSToolbarItemMinSize">{9, 25}</string>
-								<string key="NSToolbarItemMaxSize">{60, 25}</string>
+								<string key="NSToolbarItemMaxSize">{83, 25}</string>
 								<bool key="NSToolbarItemEnabled">YES</bool>
 								<bool key="NSToolbarItemAutovalidates">YES</bool>
 								<int key="NSToolbarItemTag">0</int>
@@ -831,6 +829,22 @@
 					</object>
 					<int key="connectionID">178</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">userButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="954126933"/>
+					</object>
+					<int key="connectionID">231</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">disabledMenuItem:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="67776365"/>
+					</object>
+					<int key="connectionID">232</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1180,9 +1194,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{413, 25}, {472, 595}}</string>
+					<string>{{455, 15}, {472, 595}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{413, 25}, {472, 595}}</string>
+					<string>{{455, 15}, {472, 595}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -1200,7 +1214,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{710, 361}, {221, 143}}</string>
+					<string>{{751, 351}, {221, 143}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1210,7 +1224,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{341, 620}, {616, 0}}</string>
+					<string>{{383, 610}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1244,7 +1258,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">230</int>
+			<int key="maxID">232</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1257,10 +1271,12 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>compose:</string>
+							<string>disabledMenuItem:</string>
 							<string>selectViewWithSegmentControl:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -1270,12 +1286,17 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>compose:</string>
+							<string>disabledMenuItem:</string>
 							<string>selectViewWithSegmentControl:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">compose:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">disabledMenuItem:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1292,6 +1313,7 @@
 							<string>connectionProgressIndicator</string>
 							<string>messageText</string>
 							<string>timelineSegmentedControl</string>
+							<string>userButton</string>
 							<string>webView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1300,6 +1322,7 @@
 							<string>NSProgressIndicator</string>
 							<string>NSTextField</string>
 							<string>NSSegmentedControl</string>
+							<string>NSPopUpButton</string>
 							<string>WebView</string>
 						</object>
 					</object>
@@ -1311,6 +1334,7 @@
 							<string>connectionProgressIndicator</string>
 							<string>messageText</string>
 							<string>timelineSegmentedControl</string>
+							<string>userButton</string>
 							<string>webView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1330,6 +1354,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">timelineSegmentedControl</string>
 								<string key="candidateClassName">NSSegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">userButton</string>
+								<string key="candidateClassName">NSPopUpButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">webView</string>

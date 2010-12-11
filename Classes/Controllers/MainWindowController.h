@@ -20,6 +20,7 @@
 	IBOutlet NSTextField *messageText;
 	IBOutlet NSProgressIndicator * connectionProgressIndicator;
 	IBOutlet NSWindow *composeWindow;
+	IBOutlet NSPopUpButton *userButton;
 	HTMLController *htmlController;
 	ComposeController *composeController;
 	ImagePanelController *imagePanelController;
@@ -29,7 +30,9 @@
 -(IBAction)selectViewWithSegmentControl:(id)sender;
 
 -(IBAction)compose:(id)sender;
-
+- (IBAction)disabledMenuItem:(id)sender;
+-(void)reloadUsersMenu;
+- (NSMenuItem*)menuItemWithTitle:(NSString *)title action:(SEL)action representedObject:(id)representedObject indentationLevel:(int)indentationLevel;
 //主要是更新图标的
 - (void)updateTimelineSegmentedControl;
 

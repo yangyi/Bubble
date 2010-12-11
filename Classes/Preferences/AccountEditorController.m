@@ -36,7 +36,14 @@
 
 -(IBAction)save:(id)sender{
 	if (delegate) {
-		[delegate saveAccount:[username stringValue] withPassword:[password stringValue]];
+		[delegate saveAccount:[usernameField stringValue] withPassword:[passwordField stringValue]];
 	}
+}
+
+-(void)setUsername:(NSString*)username{
+	[usernameField setStringValue:username];
+}
+-(void)setPassword:(NSString*)password{
+	[passwordField setStringValue:password];
 }
 @end

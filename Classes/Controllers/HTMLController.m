@@ -13,7 +13,7 @@
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
-		loadMore=@"<a href='weibo://load_older_home_timeline' target='_blank'>加载更多</a>";
+		loadMore=@"<a href='weibo://load_older_home_timeline' target='_blank'>Load More</a>";
 		//data received notification
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc addObserver:self selector:@selector(didStartHTTPConnection:) 
@@ -45,6 +45,9 @@
 		[nc addObserver:self selector:@selector(didGetUser:)
 				   name:DidGetUserNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didSelectAccount:) 
+				   name:DidSelectAccountNotification 
+				 object:nil];
 		
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
@@ -64,7 +67,7 @@
 														 inDirectory:@"themes/default"];
 		
 
-		weiboAccount=[WeiboAccount instance];
+		weiboAccount=[AccountController instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
 		self.baseURL = [NSURL fileURLWithPath:basePath];
 
@@ -155,22 +158,22 @@
 
 -(void)selectMentions{
     currentTimeline = weiboAccount.mentions;
-	[self reloadTimeline];
+	[self loadRecentTimeline];
 
 }
 
 -(void)selectComments{
 	currentTimeline=weiboAccount.comments;
-	[self reloadTimeline];
+	[self loadRecentTimeline];
 }
 -(void)selectHome{
 	currentTimeline = weiboAccount.homeTimeline;
-	[self reloadTimeline];
+	[self loadRecentTimeline];
 }
 
 -(void)selectFavorites{
 	currentTimeline = weiboAccount.favorites;
-	[self reloadTimeline];
+	[self loadTimelineWithPage];
 }
 
 
@@ -325,5 +328,9 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[notification object] forKey:@"user"];
 	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userTemplatePath withContext:data] 
 								baseURL:baseURL];
+}
+
+-(void)didSelectAccount:(NSNotification*)notification{
+	[self loadRecentTimeline];
 }
 @end

@@ -12,7 +12,7 @@
 @implementation ComposeController
 - (id)init {
 	self = [super initWithWindowNibName:@"Compose"];
-	weiboAccount=[WeiboAccount instance];
+	weiboAccount=[AccountController instance];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self selector:@selector(didPost:) 
@@ -91,4 +91,23 @@
 	[charactersRemaining setStringValue:[NSString stringWithFormat:@"%d",140]];
 	return YES;
 }
+- (NSArray *)supportedImageTypes {
+	return [NSArray arrayWithObjects:@"jpg", @"jpeg", @"png", @"gif", @"tif", nil];
+}
+- (IBAction)addPicture:(id)sender {
+	NSOpenPanel *panel = [NSOpenPanel openPanel];
+	[panel beginSheetForDirectory:nil file:nil types:[self supportedImageTypes] modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo {
+	if (returnCode == NSOKButton) {
+		NSArray *files = [panel URLs];
+		if ([files count] > 0) {
+			NSLog(@"%@",files);
+			// Only open first file selected.
+			//[self uploadPictureFile:[files objectAtIndex:0]];
+		}
+	}
+}
+
 @end

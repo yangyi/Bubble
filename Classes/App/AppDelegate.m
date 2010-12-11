@@ -35,7 +35,7 @@
 	[statusItem setAction:@selector(didStatusItemClick)];
 	urlHandler=[[AppURLHandler alloc] init];
 	growl =[[AppGrowl alloc] init];
-	if ([[WeiboAccount instance] username]) {
+	if ([[AccountController instance] currentAccount]) {
 		mainWindow=[[MainWindowController alloc]init];
 		[mainWindow showWindow:nil];
 	}else {

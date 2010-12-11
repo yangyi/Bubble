@@ -35,9 +35,5 @@ typedef enum {
 
 #define DidPostStatusNotification @"DidPostStatusNotification"
 #define DidGetUserNotification @"DidGetUserNotification"
-
+#define DidSelectAccountNotification @"DidSelectAccountNotification"
 #define DisplayImageNotification @"DisplayImageNotification"
-
-@protocol WeiboConnectorDelegate
-
-@end

@@ -15,12 +15,14 @@
 
 @interface AccountEditorController : NSObject {
 	IBOutlet NSPanel *accountEditSheet;
-	IBOutlet NSTextField *username;
-	IBOutlet NSSecureTextField *password;
+	IBOutlet NSTextField *usernameField;
+	IBOutlet NSSecureTextField *passwordField;
 	id<AccountEditorControllerProtocol> delegate;
 }
 -(id)initWithDelegate:(id<AccountEditorControllerProtocol>)accountEditorControllerDelegate;
 -(void)show:(NSWindow*)window;
+-(void)setUsername:(NSString*)username;
+-(void)setPassword:(NSString*)password;
 -(IBAction)close:(id)sender;
 -(IBAction)save:(id)sender;
 @end

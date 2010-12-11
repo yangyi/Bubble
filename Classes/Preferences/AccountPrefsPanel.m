@@ -7,7 +7,7 @@
 //
 
 #import "AccountPrefsPanel.h"
-
+#import "AccountController.h"
 @implementation AccountPrefsPanel
 + (NSArray *)preferencePanes
 {
@@ -22,6 +22,9 @@
     if (!prefsView) {
         loaded = [NSBundle loadNibNamed:@"AccountPrefsView" owner:self];
 		editAccountController=[[AccountEditorController alloc] initWithDelegate:self];
+		[accountTable setIntercellSpacing:NSMakeSize(0,0)];
+		[accountTable setDoubleAction:@selector(doubleClickAction:)];
+		[accountTable setTarget:self];
     }
     
     if (loaded) {
@@ -62,15 +65,34 @@
 }
 
 -(IBAction)addAccount:(id)sender{
+	[editAccountController setUsername:@""];
+	[editAccountController setPassword:@""];
 	[editAccountController show:[prefsView window]];
 }
 
 -(void)saveAccount:(NSString*)username withPassword:(NSString*)password{
 	NSLog(@"%@%@",username,password);
 	[accountsController addObject:username];
+	[[AccountController instance] setPasswordForUser:username withPassword:password];
 	[editAccountController close:self];
 }
 -(void)removeAccount:(NSString*)username{
 	
+}
+
+- (void)tableView:(NSTableView *)aTableView willDisplayCell:(id)aCell forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+	[aCell setDrawsBackground: ((rowIndex % 2) == 0)];
+}
+
+- (IBAction)doubleClickAction:(id)sender {
+    NSInteger rowIndex=[sender clickedRow];
+	if (rowIndex!=-1) {
+		NSArray* selected=[accountsController selectedObjects];
+		NSString *username=[selected objectAtIndex:0];
+		[editAccountController setUsername:username];
+		[editAccountController setPassword:[[AccountController instance]getPasswordForUser:username]];
+		[editAccountController show:[prefsView window]];
+		//NSLog(@"%@",username);
+	}
 }
 @end

@@ -32,16 +32,13 @@
 
 
 @implementation WeiboConnector
-@synthesize username=_username,password=_password,appKey=_appKey;
+@synthesize appKey=_appKey;
 
 -(WeiboConnector*)initWithDelegate:(id)delegate
 {
 	if ((self = [super init])) {
 		_delegate=delegate;
-		_username=@"kejinlu@gmail.com";
-		_password=@"lukejin1986";
 		_appKey=@"1444319711";
-		
 		multipartBoundary=@"--12345";
 	}
 	return self;
@@ -50,7 +47,17 @@
 
 
 #pragma mark Sina Weibo API Interface Implementation
-
+-(NSString *) verifyAccountWithParameters:(NSMutableDictionary*)params 
+						 completionTarget:(id)target  
+						 completionAction:(SEL)action{
+	NSString *path=@"account/verify_credentials.json";
+	return [self _sendRequestWithMethod:nil
+								baseurl:WEIBO_BASE_URL 
+								   path:path
+						queryParameters:params
+								   body:nil completionTarget:target
+					   completionAction:action];
+}
 
 -(NSString *) getHomeTimelineWithParameters:(NSMutableDictionary*)params
 						   completionTarget:(id)target
@@ -174,10 +181,10 @@
 	NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
 	[theRequest setCachePolicy:NSURLRequestReloadIgnoringCacheData];
 	[theRequest setTimeoutInterval:60.0];
-
-	
-	if (_username&&_password) {
-		NSString *authStr = [NSString stringWithFormat:@"%@:%@", _username, _password];
+	NSString *username=[[_delegate currentAccount] username];
+	NSString *password=[[_delegate currentAccount] password];
+	if (username&&password) {
+		NSString *authStr = [NSString stringWithFormat:@"%@:%@", username, password];
 		NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
 		NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodingWithLineLength:80]];
 		[theRequest setValue:authValue forHTTPHeaderField:@"Authorization"];

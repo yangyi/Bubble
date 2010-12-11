@@ -36,6 +36,67 @@
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
 	[htmlController loadRecentTimeline];
 	[self updateTimelineSegmentedControl];
+	[self reloadUsersMenu];
+}
+
+-(void)reloadUsersMenu{
+	const int kUsersMenuPresetItems = 8;
+	if (userButton==nil) {
+		return;
+	}
+	while ([[userButton menu] numberOfItems]>kUsersMenuPresetItems) {
+		[[userButton menu] removeItemAtIndex:kUsersMenuPresetItems];
+	}
+	NSArray *accounts=[[NSUserDefaults standardUserDefaults] arrayForKey:@"accounts"];
+	for(NSString *account in accounts){
+		NSMenuItem *item = [self menuItemWithTitle:account action:@selector(selectAccount:) representedObject:account indentationLevel:1];
+		if ([account isEqualToString:[[AccountController instance] currentAccount].username]) {
+			[item setState:NSOnState];
+		}else {
+			NSTextAttachment* attachment = [[[NSTextAttachment alloc] init] autorelease];
+			NSTextAttachmentCell *cell=[[[NSTextAttachmentCell alloc] init] autorelease];
+			NSImage *image=[NSImage imageNamed:@"SmallBlueDot"];
+			[cell setImage:image];
+			[attachment setAttachmentCell:cell];
+			NSAttributedString* imageAttributedString = [NSAttributedString attributedStringWithAttachment:attachment];
+
+			NSFont *font=[NSFont menuFontOfSize:[NSFont systemFontSize]];			
+			NSMutableAttributedString *attributedTitle =
+			[[NSMutableAttributedString alloc] initWithString: account
+												   attributes:[NSDictionary dictionaryWithObjectsAndKeys:
+															   font,NSFontAttributeName,nil]];
+			
+			[attributedTitle appendAttributedString:imageAttributedString];
+			[item setAttributedTitle:attributedTitle];
+		}
+
+		[[userButton menu] addItem:item];
+	}
+}
+
+- (NSMenuItem*)menuItemWithTitle:(NSString *)title action:(SEL)action representedObject:(id)representedObject indentationLevel:(int)indentationLevel {
+	NSMenuItem *menuItem = [[[NSMenuItem alloc] init] autorelease];
+	menuItem.title = title;
+	menuItem.target = self;
+	menuItem.action = action;
+	menuItem.representedObject = representedObject;
+	menuItem.indentationLevel = indentationLevel;
+	return menuItem;
+}	
+- (IBAction)disabledMenuItem:(id)sender {
+	// Do nothing
+}
+
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
+	return (menuItem.action != @selector(disabledMenuItem:));
+}
+
+- (IBAction)selectAccount:(id)sender{
+	NSString *username=[sender representedObject];
+	[[AccountController instance] selectAccount:username];
+	[[self window] setTitle:username];
+	[self reloadUsersMenu];
 }
 
 -(IBAction)selectViewWithSegmentControl:(id)sender{
