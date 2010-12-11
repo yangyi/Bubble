@@ -76,6 +76,9 @@
 		A3922C4312AD595A000F4480 /* GeneralPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */; };
 		A3922C4412AD5968000F4480 /* GeneralPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D7116129EBA0100385EEC /* GeneralPrefsPanel.m */; };
 		A3922C4512AD5973000F4480 /* AccountPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D711E129EBB5400385EEC /* AccountPrefsPanel.m */; };
+		A3A5ECF212B3A1F300024C50 /* AdvancedPrefsPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A3A5ECF012B3A1F300024C50 /* AdvancedPrefsPanel.h */; };
+		A3A5ECF312B3A1F300024C50 /* AdvancedPrefsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A5ECF112B3A1F300024C50 /* AdvancedPrefsPanel.m */; };
+		A3A5ECF712B3A4CC00024C50 /* AdvancedPrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A5ECF612B3A4CC00024C50 /* AdvancedPrefsView.xib */; };
 		A3B608141286F0AD0085ECB1 /* Status_OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608121286F0AD0085ECB1 /* Status_OFF.png */; };
 		A3B608151286F0AD0085ECB1 /* Status_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B608131286F0AD0085ECB1 /* Status_ON.png */; };
 		A3B6087E128700970085ECB1 /* AppGrowl.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B6087C128700970085ECB1 /* AppGrowl.h */; };
@@ -256,6 +259,9 @@
 		A392292912AD2EF2000F4480 /* AccountEditor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountEditor.xib; sourceTree = "<group>"; };
 		A3922B2712AD4E5F000F4480 /* AccountEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEditorController.h; sourceTree = "<group>"; };
 		A3922B2812AD4E5F000F4480 /* AccountEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEditorController.m; sourceTree = "<group>"; };
+		A3A5ECF012B3A1F300024C50 /* AdvancedPrefsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedPrefsPanel.h; sourceTree = "<group>"; };
+		A3A5ECF112B3A1F300024C50 /* AdvancedPrefsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedPrefsPanel.m; sourceTree = "<group>"; };
+		A3A5ECF612B3A4CC00024C50 /* AdvancedPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvancedPrefsView.xib; sourceTree = "<group>"; };
 		A3B608121286F0AD0085ECB1 /* Status_OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_OFF.png; sourceTree = "<group>"; };
 		A3B608131286F0AD0085ECB1 /* Status_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status_ON.png; sourceTree = "<group>"; };
 		A3B6087C128700970085ECB1 /* AppGrowl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGrowl.h; sourceTree = "<group>"; };
@@ -555,6 +561,9 @@
 				A392292912AD2EF2000F4480 /* AccountEditor.xib */,
 				A3922B2712AD4E5F000F4480 /* AccountEditorController.h */,
 				A3922B2812AD4E5F000F4480 /* AccountEditorController.m */,
+				A3A5ECF012B3A1F300024C50 /* AdvancedPrefsPanel.h */,
+				A3A5ECF112B3A1F300024C50 /* AdvancedPrefsPanel.m */,
+				A3A5ECF612B3A4CC00024C50 /* AdvancedPrefsView.xib */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -668,6 +677,7 @@
 				A31D7137129EBF8900385EEC /* MenuController.h in Headers */,
 				A3922BFF12AD55BD000F4480 /* AccountEditorController.h in Headers */,
 				A35983FC12B0F598008E1C43 /* WeiboAccount.h in Headers */,
+				A3A5ECF212B3A1F300024C50 /* AdvancedPrefsPanel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +785,7 @@
 				A3922C4212AD594F000F4480 /* AccountPrefsView.xib in Resources */,
 				A3922C4312AD595A000F4480 /* GeneralPrefsView.xib in Resources */,
 				A3D97F4912B3513C0059C0D2 /* SmallBlueDot.psd in Resources */,
+				A3A5ECF712B3A4CC00024C50 /* AdvancedPrefsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +839,7 @@
 				A3922C4412AD5968000F4480 /* GeneralPrefsPanel.m in Sources */,
 				A3922C4512AD5973000F4480 /* AccountPrefsPanel.m in Sources */,
 				A35983FD12B0F598008E1C43 /* WeiboAccount.m in Sources */,
+				A3A5ECF312B3A1F300024C50 /* AdvancedPrefsPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

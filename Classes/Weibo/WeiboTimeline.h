@@ -41,6 +41,8 @@
 -(void)loadTimelineWithPage:(NSString*)pageNumber;
 -(void)didLoadTimelineWithPage:(NSArray*)statuses;
 
+//重置
+-(void)reset;
 @property(nonatomic,retain) NSMutableArray *data;
 @property(nonatomic,retain) NSArray *newData;
 @property(nonatomic)BOOL unread;

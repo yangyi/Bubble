@@ -372,7 +372,6 @@
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">home</string>
 												</object>
-												<string key="NSSegmentItemLabel"/>
 												<bool key="NSSegmentItemSelected">YES</bool>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
@@ -382,7 +381,6 @@
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">mentions</string>
 												</object>
-												<string key="NSSegmentItemLabel"/>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 											<object class="NSSegmentItem">
@@ -391,7 +389,6 @@
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">comments</string>
 												</object>
-												<string key="NSSegmentItemLabel"/>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 											<object class="NSSegmentItem">
@@ -400,7 +397,6 @@
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">direct</string>
 												</object>
-												<string key="NSSegmentItemLabel"/>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 											<object class="NSSegmentItem">
@@ -409,7 +405,6 @@
 													<string key="NSClassName">NSImage</string>
 													<string key="NSResourceName">star</string>
 												</object>
-												<string key="NSSegmentItemLabel"/>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 										</object>
@@ -1194,9 +1189,9 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{455, 15}, {472, 595}}</string>
+					<string>{{457, -66}, {472, 595}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{455, 15}, {472, 595}}</string>
+					<string>{{457, -66}, {472, 595}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -1224,7 +1219,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{383, 610}, {616, 0}}</string>
+					<string>{{385, 529}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

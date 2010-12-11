@@ -158,17 +158,17 @@
 
 -(void)selectMentions{
     currentTimeline = weiboAccount.mentions;
-	[self loadRecentTimeline];
+	[self reloadTimeline];
 
 }
 
 -(void)selectComments{
 	currentTimeline=weiboAccount.comments;
-	[self loadRecentTimeline];
+	[self reloadTimeline];
 }
 -(void)selectHome{
 	currentTimeline = weiboAccount.homeTimeline;
-	[self loadRecentTimeline];
+	[self reloadTimeline];
 }
 
 -(void)selectFavorites{
@@ -331,6 +331,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)didSelectAccount:(NSNotification*)notification{
+	//切换用户，所有的timeline都进行初始化
 	[self loadRecentTimeline];
 }
 @end

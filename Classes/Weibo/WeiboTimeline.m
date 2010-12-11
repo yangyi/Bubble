@@ -191,4 +191,12 @@
 															object:self];
 	}
 }
+
+-(void)reset{
+	self.data=nil;
+	self.newData=nil;
+	self.lastReadId=nil;
+	self.oldestReceivedId=nil;
+	self.lastReceivedId=nil;
+}
 @end

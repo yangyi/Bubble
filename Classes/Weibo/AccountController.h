@@ -32,8 +32,11 @@
 -(void)verifyCurrentAccount;
 -(void)didVerifyCurrentAccount:(id)result;
 
--(void)selectAccount:(NSString*)username;
+-(void)checkStatusUnread;
+-(void)didCheckStatusUnread:(id)result;
 
+-(void)selectAccount:(NSString*)username;
+-(void)resetTimeline;
 -(NSString*)getPasswordForUser:(NSString*)username;
 -(void)setPasswordForUser:(NSString*)username withPassword:(NSString *)newPassword;
 -(void)removePasswordForUser:(NSString*)username;

@@ -94,6 +94,13 @@ static AccountController *instance;
 	
 }
 
+-(void)checkStatusUnread{
+	
+}
+-(void)didCheckStatusUnread:(id)result{
+	
+}
+
 -(void)selectAccount:(NSString*)username{
 	if (username) {
 		if (currentAccount) {
@@ -103,10 +110,19 @@ static AccountController *instance;
 		currentAccount.username=username;
 		currentAccount.password=[self getPasswordForUser:username];
 		[[NSUserDefaults standardUserDefaults]setValue:currentAccount.username forKey:@"currentAccount"];
-		
+		[self resetTimeline];
+		[[NSNotificationCenter defaultCenter] postNotificationName:DidSelectAccountNotification
+															object:nil];
 	}
-	[[NSNotificationCenter defaultCenter] postNotificationName:DidSelectAccountNotification
-														object:nil];
+}
+
+
+//reset all the timeline
+-(void)resetTimeline{
+	[homeTimeline reset];
+	[mentions reset];
+	[comments reset];
+	[favorites reset];
 }
 #pragma mark Password
 -(NSString*)getPasswordForUser:(NSString*)username{

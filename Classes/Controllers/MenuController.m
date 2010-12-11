@@ -9,6 +9,7 @@
 #import "MenuController.h"
 #import "GeneralPrefsPanel.h"
 #import "AccountPrefsPanel.h"
+#import "AdvancedPrefsPanel.h"
 
 @implementation MenuController
 - (IBAction)preferences:(id)sender
@@ -21,6 +22,7 @@
 		NSMutableArray *panesArray=[NSMutableArray array];
 		[panesArray addObject:[[GeneralPrefsPanel alloc] init]];
 		[panesArray addObject:[[AccountPrefsPanel alloc] init]];
+		[panesArray addObject:[[AdvancedPrefsPanel alloc]init]];
 		prefs=[[SS_PrefsController alloc]initWithPanes:panesArray];
 		[prefs setAlwaysShowsToolbar:YES];
 		[prefs setDebug:YES];
