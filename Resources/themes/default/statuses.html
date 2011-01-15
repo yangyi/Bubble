@@ -1,5 +1,5 @@
 {% for status in statuses %}
-<div class='status'
+<div class='status' id='{{status.id}}'
 {% if new %}
  onclick='window.open("weibo://home_timeline_status_click?id={{status.id}}")'
 {% /if %}
@@ -39,7 +39,7 @@
 		<a href=""><img src="reply.png"/></a>
 		</div>
 
-		<div class="informations"><a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">{{ status.user.screen_name }}</a> from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
+		<div class="informations"><a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">{{status.id}} {{ status.user.screen_name }}</a> from {{ status.source|weibo_link_target_blank }}  {{ status.created_at|weibo_date_format }}</div>
 
 		<hr class="topSeparator" />
 		<div id="text">

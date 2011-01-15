@@ -75,15 +75,32 @@
 		//[self setDocumentElement:@"html" innerHTML:spinner];
 		//loadRecentHometimeline
 		currentTimeline=weiboAccount.homeTimeline;
+		
+		//scroll 事件
+		NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+		[[scrollView contentView] setPostsBoundsChangedNotifications:YES];
+		[nc addObserver:self
+			   selector:@selector(webviewContentBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[scrollView contentView]];
 	
 	}
 	return self;
 }
 
+
+-(void)webviewContentBoundsDidChange:(NSNotification *)notification{
+	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+	if ([[scrollView contentView] bounds].origin.y==0) {
+		currentTimeline.unread=NO;
+		[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
+	}
+}
 //当页面点击加载更多的时候接受到这个通知，进行加载历史信息
 -(void)startLoadOlderTimeline:(NSNotification*)notification{
 	//开始加载历史信息的时候显示等待的图标
-	[self setDocumentElement:@"spinner" innerHTML:spinner];
+	//[self setDocumentElement:@"spinner" innerHTML:spinner];
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *spinnerEle=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+	[spinnerEle setInnerHTML:spinner];
 	[currentTimeline loadOlderTimeline];
 }
 
@@ -111,6 +128,33 @@
 	[self reloadTimeline];
 }
 
+-(void)saveScrollPosition{
+	//记录当前的scroll的位置
+	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+	// get the current scroll position of the document view
+	NSRect scrollViewBounds = [[scrollView contentView] bounds];
+	//currentTimeline.scrollPosition=scrollViewBounds.origin; // keep track of position to restore
+	DOMElement *element=[[[webView mainFrame] DOMDocument] elementFromPoint:4 y:0];
+	if ([[element getAttribute:@"class"] isNotEqualTo:@"status"]) {
+		element=[[[webView mainFrame] DOMDocument] elementFromPoint:4 y:8];
+	}
+	NSString *itemId=[element getAttribute:@"id"];
+	NSInteger relativeOffset=scrollViewBounds.origin.y-[element offsetTop];
+	NSDictionary *scrollPosition=[NSDictionary dictionaryWithObjectsAndKeys:itemId,@"itemId",
+								  [NSNumber numberWithInt:relativeOffset],@"relativeOffset",nil];
+	[[NSUserDefaults standardUserDefaults] setValue:scrollPosition forKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,currentTimeline.typeName]];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)resumeScrollPosition{
+	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
+	NSDictionary *scrollPosiotion=[[NSUserDefaults standardUserDefaults] valueForKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,currentTimeline.typeName]];
+	NSString *itemId=[scrollPosiotion valueForKey:@"itemId"];
+	NSNumber *relativeOffset=[scrollPosiotion valueForKey:@"relativeOffset"];
+	DOMElement* element=[[[webView mainFrame] DOMDocument] getElementById:itemId];
+	int y=[element offsetTop]+[relativeOffset intValue];
+	[[scrollView documentView] scrollPoint:NSMakePoint(0, y)];
+}
 
 #pragma mark Select View
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
@@ -130,24 +174,18 @@
 		}
 		return;
 	}
+	if (!currentTimeline.firstReload) {
+		[self saveScrollPosition];
+	}else {
+		currentTimeline.firstReload=NO;
+	}
+
+	
+	//////////////
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	//NSNumber *lastReadStatusId=weiboAccount.homeTimeline.lastReadStatusId;
-	//NSLog(@"%@",lastReadStatusId);
-	NSArray *oldStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id<=%@",currentTimeline.lastReadId]];
-	NSArray *newStatuses=[currentTimeline.data filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.id>%@",currentTimeline.lastReadId]];
-	if ([oldStatuses count]>0) {
-		[data setObject:oldStatuses forKey:@"statuses"];
-		//[data setObject:[statusesTemplate render:data] forKey:@"old_statuses"];
-		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data]
-				 forKey:@"old_statuses"];
-	}
-	if ([newStatuses count]>0) {
-		[data setObject:newStatuses forKey:@"statuses"];
-		[data setObject:@"new" forKey:@"new"];
-		//[data setObject:[statusesTemplate render:data] forKey:@"new_statuses"];
-		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data] 
-				 forKey:@"new_statuses"];
-	}
+
+	[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:currentTimeline.data forKey:@"statuses"]] 
+				 forKey:@"statuses"];
 	[data setObject:loadMore forKey:@"load_more"];
 	
 	//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
@@ -242,7 +280,8 @@
 }
 
 -(void)didFinishedHTTPConnection:(NSNotification*)notification{
-	[self setDocumentElement:@"spinner" visibility:NO];
+	//[self setDocumentElement:@"spinner" visibility:NO];
+
 }
 
 //called when the frame finishes loading
@@ -250,9 +289,7 @@
 {
     if([webFrame isEqual:[webView mainFrame]])
     {
-		NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
-		[[scrollView documentView] scrollPoint:currentTimeline.scrollPosition];
-
+		[self resumeScrollPosition];
     }
 	 
 }
@@ -275,25 +312,30 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 		[data setObject:statuses forKey:@"statuses"];
 		NSString *olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
 		DOMDocument *dom=[[webView mainFrame] DOMDocument];
-		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_old"];
+		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:@"statuses"];
 		[oldStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatusElement innerHTML],olderStatuses]];		
 	}
+	
+	
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *spinnerEle=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+	[spinnerEle setInnerHTML:loadMore];
 }
 
 -(void)didLoadNewerTimeline:(NSNotification*)notification{
 	WeiboTimeline *sender=(WeiboTimeline*)[notification object];
 	if (currentTimeline==sender) {
+		[self saveScrollPosition];
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
 		[data setObject:statuses forKey:@"statuses"];
-		[data setObject:@"new" forKey:@"new"];
 		NSString *newStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
 		DOMDocument *dom=[[webView mainFrame] DOMDocument];
-		DOMHTMLElement *newStatusElement=(DOMHTMLElement *)[dom getElementById:@"status_new"];
-		[newStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",newStatuses,[newStatusElement innerHTML]]];
-	}else {
-		[[NSNotificationCenter defaultCenter] postNotificationName:UnreadNotification object:nil];
+		DOMHTMLElement *statusElement=(DOMHTMLElement *)[dom getElementById:@"statuses"];
+		[statusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",newStatuses,[statusElement innerHTML]]];
+		[self resumeScrollPosition];
 	}
+	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"GrowlNotification" object:nil];
 
 }
@@ -313,13 +355,8 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)didClickTimeline:(NSNotification*)notification{
-	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	// get the current scroll position of the document view
-	NSRect scrollViewBounds = [[scrollView contentView] bounds];
-	currentTimeline.scrollPosition=scrollViewBounds.origin; // keep track of position to restore
-	
 	NSString *statusId=[notification object];
-	currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
+	//currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
 	[self reloadTimeline];
 }
 

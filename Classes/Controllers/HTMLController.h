@@ -56,7 +56,8 @@
 - (NSString*) setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
 - (void)scrollToTop;
 
-
+-(void)saveScrollPosition;
+-(void)resumeScrollPosition;
 
 @property(nonatomic,retain) WebView *webView;
 @property(nonatomic,retain) NSURL *baseURL;

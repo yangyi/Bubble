@@ -43,6 +43,11 @@
 						 completionTarget:(id)target  
 						 completionAction:(SEL)action;
 
+
+//check unread
+-(NSString *)checkUnreadWithParameters:(NSMutableDictionary*)params 
+					  completionTarget:(id)target  
+					  completionAction:(SEL)action;
 //timeline
 
 -(NSString *) getHomeTimelineWithParameters:(NSMutableDictionary*)params 

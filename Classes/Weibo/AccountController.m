@@ -49,6 +49,11 @@ static AccountController *instance;
 		[nc addObserver:self selector:@selector(getUser:)
 				   name:GetUserNotification 
 				 object:nil];
+		[NSTimer scheduledTimerWithTimeInterval:60
+										 target:self 
+									   selector:@selector(checkUnread) 
+									   userInfo:nil 
+										repeats:YES];
 	}
 	return self;
 }
@@ -62,6 +67,34 @@ static AccountController *instance;
 
 
 
+-(void)checkUnread{
+	if (currentAccount) {
+		//定期刷新页面，使得显示的时间定期更新
+		[[NSNotificationCenter defaultCenter] postNotificationName:ReloadTimelineNotification
+															object:self];
+		
+		NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+		[params setObject:@"1" forKey:@"with_new_status"];
+		[params setObject:[NSString stringWithFormat:@"%@",homeTimeline.lastReceivedId] forKey:@"since_id"];
+		[weiboConnector checkUnreadWithParameters:params
+								 completionTarget:self
+								 completionAction:@selector(didCheckUnread:)];
+	}
+}
+
+-(void)didCheckUnread:(NSDictionary*)result{
+	NSNumber *unreadStatusCount=[result objectForKey:@"new_status"];
+	NSNumber *unreadCommentsCount=[result objectForKey:@"comments"];
+	NSNumber *unreadFollowersCount=[result objectForKey:@"followers"];
+	NSNumber *unreadDMCount=[result objectForKey:@"dm"];
+	NSNumber *unreadMentionsCount=[result objectForKey:@"mentions"];
+	if ([unreadStatusCount intValue]>0) {
+		[homeTimeline loadNewerTimeline];
+	}
+	if ([unreadMentionsCount intValue]>0) {
+		[mentions loadNewerTimeline];
+	}
+}
 #pragma mark Account
 -(WeiboAccount*)currentAccount{
 	if (!currentAccount) {
@@ -94,12 +127,6 @@ static AccountController *instance;
 	
 }
 
--(void)checkStatusUnread{
-	
-}
--(void)didCheckStatusUnread:(id)result{
-	
-}
 
 -(void)selectAccount:(NSString*)username{
 	if (username) {

@@ -58,7 +58,7 @@ hr {
 
 /* @group Status */
 
-#status_old > .status {
+.status {
 	/*background-color: #e3f5a4;*/
 	margin: 6px 4px 6px 4px;
 	padding: 4px 8px;
@@ -82,7 +82,7 @@ hr {
 	background: #cfeaff;
 }
 
-#status_old > .status:hover {
+.status:hover {
 background:#e6efff;
 }
 

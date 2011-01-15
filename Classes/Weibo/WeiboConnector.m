@@ -59,6 +59,19 @@
 					   completionAction:action];
 }
 
+-(NSString *)checkUnreadWithParameters:(NSMutableDictionary*)params 
+					  completionTarget:(id)target  
+					  completionAction:(SEL)action{
+	NSString *path=@"statuses/unread.json";
+	return [self _sendRequestWithMethod:nil
+								baseurl:WEIBO_BASE_URL 
+								   path:path
+						queryParameters:params
+								   body:nil completionTarget:target
+					   completionAction:action];
+}
+
+
 -(NSString *) getHomeTimelineWithParameters:(NSMutableDictionary*)params
 						   completionTarget:(id)target
 						   completionAction:(SEL)action

@@ -31,9 +31,9 @@
 -(void)dealloc;
 -(void)verifyCurrentAccount;
 -(void)didVerifyCurrentAccount:(id)result;
+-(void)checkUnread;
+-(void)didCheckUnread:(NSDictionary*)result;
 
--(void)checkStatusUnread;
--(void)didCheckStatusUnread:(id)result;
 
 -(void)selectAccount:(NSString*)username;
 -(void)resetTimeline;

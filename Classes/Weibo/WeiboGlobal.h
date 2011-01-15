@@ -7,7 +7,7 @@
 //
 
 typedef enum {
-	Home,
+	Home=0,
 	Mentions,
 	Comments,
 	DirectMessages,
@@ -31,7 +31,7 @@ typedef enum {
 #define DidLoadTimelineWithPageNotification @"DidLoadTimelineWithPageNotification"
 #define GetUserNotification @"GetUserNotification"
 //Other Notification
-#define UnreadNotification @"UnreadNotification"
+#define UpdateTimelineSegmentedControlNotification @"UpdateTimelineSegmentedControlNotification"
 
 #define DidPostStatusNotification @"DidPostStatusNotification"
 #define DidGetUserNotification @"DidGetUserNotification"

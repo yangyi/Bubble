@@ -20,8 +20,8 @@
 		[nc addObserver:self selector:@selector(didFinishedHTTPConnection:) 
 				   name:HTTPConnectionFinishedNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didUnread:) 
-				   name:UnreadNotification 
+		[nc addObserver:self selector:@selector(didUpdateTimelineSegmentedControl:) 
+				   name:UpdateTimelineSegmentedControlNotification 
 				 object:nil];
 		[nc addObserver:self selector:@selector(didDisplayImage:) 
 				   name:DisplayImageNotification object:nil];
@@ -55,7 +55,7 @@
 		}else {
 			NSTextAttachment* attachment = [[[NSTextAttachment alloc] init] autorelease];
 			NSTextAttachmentCell *cell=[[[NSTextAttachmentCell alloc] init] autorelease];
-			NSImage *image=[NSImage imageNamed:@"SmallBlueDot"];
+			NSImage *image=[NSImage imageNamed:@"dot"];
 			[cell setImage:image];
 			[attachment setAttachmentCell:cell];
 			NSAttributedString* imageAttributedString = [NSAttributedString attributedStringWithAttachment:attachment];
@@ -130,21 +130,26 @@
 	NSString *imageName;
 	BOOL unread[4];
 	unread[0]=htmlController.weiboAccount.homeTimeline.unread;
-	unread[1]=NO;
-	unread[2]=NO;
+	unread[1]=htmlController.weiboAccount.mentions.unread;
+	unread[2]=htmlController.weiboAccount.comments.unread;
 	unread[3]=NO;
 	for(int index=0;index< imageNames.count;index++){
 		imageName =[imageNames objectAtIndex:index];
 		if([timelineSegmentedControl isSelectedForSegment:index]){
 			imageName = [imageName stringByAppendingString:@"_down"];
-		}else {
-			if (index<4&&unread[index]) {
-				imageName=[imageName stringByAppendingString:@"_dot"];
-			}
 		}
-
 		imageName = [imageName stringByAppendingString:@".png"];
-		[timelineSegmentedControl setImage:[NSImage imageNamed:imageName] forSegment:index];
+		NSImage *image=[NSImage imageNamed:imageName];
+		if (index<4&&unread[index]) {
+			NSImage *dot=[NSImage imageNamed:@"dot.png"];
+			[image lockFocus];
+			[dot drawInRect:NSMakeRect([image size].width-[dot size].width, [image size].height-[dot size].height, [dot size].width, [dot size].height) fromRect:NSMakeRect(0, 0, [dot size].width, [dot size].height) operation:NSCompositeSourceOver fraction:1.0];
+			[image unlockFocus];
+			//clean the image cache
+			[image setName:nil];
+		}
+		[timelineSegmentedControl setImage:nil forSegment:index];
+		[timelineSegmentedControl setImage:image forSegment:index];
 	}
 	
 }
@@ -171,7 +176,7 @@
 	[connectionProgressIndicator stopAnimation:nil];
 }
 
--(void)didUnread:(NSNotification*)notification{
+-(void)didUpdateTimelineSegmentedControl:(NSNotification*)notification{
 	[self updateTimelineSegmentedControl];
 }
 

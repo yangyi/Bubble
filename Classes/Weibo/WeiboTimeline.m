@@ -10,13 +10,8 @@
 
 
 @implementation WeiboTimeline
-@synthesize data,newData,lastReadId,lastReceivedId,oldestReceivedId,scrollPosition,timelineType;
-@dynamic unread;
+@synthesize data,newData,lastReceivedId,oldestReceivedId,timelineType,typeName,unread,firstReload;
 
-
--(BOOL) unread{
-	return [lastReadId longLongValue]<[lastReceivedId longLongValue];
-}
 
 #pragma mark  初始化
 -(id)initWithWeiboConnector:(WeiboConnector*)connector timelineType:(TimelineType)type{
@@ -26,14 +21,26 @@
 		//数据初始化为nil
 		data=nil;
 		newData=nil;
-		scrollPosition=NSMakePoint(-1, -1);
-	   //NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-
-		[NSTimer scheduledTimerWithTimeInterval:60 
-										 target:self 
-									   selector:@selector(loadNewerTimeline) 
-									   userInfo:nil 
-										repeats:YES];
+		firstReload=YES;
+		switch (timelineType) {
+			case Home:
+				self.typeName=@"home";
+				break;
+			case Mentions:
+				self.typeName=@"mentions";
+				break;
+			case Comments:
+				self.typeName=@"comments";
+				break;
+			case DirectMessages:
+				self.typeName=@"directMessages";
+				break;
+			case Favorites:
+				self.typeName=@"favorites";
+				break;
+			default:
+				break;
+		}
 	}
 	return self;
 }
@@ -75,7 +82,7 @@
 	//NSLog(@"%@",[[statusArray lastObject] objectForKey:"gap"]);
 	if (statuses!=nil&&[statuses count]>0) {		
 		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
-        self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
+        //self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
 		self.oldestReceivedId =[[statuses lastObject] objectForKey:@"id"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:ReloadTimelineNotification
 																			object:self];
@@ -113,18 +120,10 @@
 		}
 		[data insertObjects:statuses atIndexes:indexes];
 		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
+		self.unread=YES;
+		[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
 		[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadNewerTimelineNotification
 															object:self];
-		/*
-		if (selected) {
-			self.lastReadStatusId = [[statuses objectAtIndex:0] objectForKey:@"id"];
-			[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadNewerTimelineNotification
-																object:statuses];
-		}else {
-			unread=YES;
-			[[NSNotificationCenter defaultCenter] postNotificationName:UnreadNotification object:nil];
-		}
-		 */
 	}
 }
 
@@ -185,7 +184,7 @@
 	self.data=[[statuses mutableCopy] autorelease];
 	if (statuses!=nil&&[statuses count]>0) {
 		self.lastReceivedId=[[statuses objectAtIndex:0] objectForKey:@"id"];
-        self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
+        //self.lastReadId = [[statuses objectAtIndex:0] objectForKey:@"id"];
 		self.oldestReceivedId =[[statuses lastObject] objectForKey:@"id"];
 		[[NSNotificationCenter defaultCenter] postNotificationName:ReloadTimelineNotification
 															object:self];
@@ -195,7 +194,7 @@
 -(void)reset{
 	self.data=nil;
 	self.newData=nil;
-	self.lastReadId=nil;
+	//self.lastReadId=nil;
 	self.oldestReceivedId=nil;
 	self.lastReceivedId=nil;
 }
