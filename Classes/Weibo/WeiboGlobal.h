@@ -33,6 +33,8 @@ typedef enum {
 //Other Notification
 #define UpdateTimelineSegmentedControlNotification @"UpdateTimelineSegmentedControlNotification"
 
+#define SaveScrollPositionNotification @"SaveScrollPositionNotification"
+
 #define DidPostStatusNotification @"DidPostStatusNotification"
 #define DidGetUserNotification @"DidGetUserNotification"
 #define DidSelectAccountNotification @"DidSelectAccountNotification"

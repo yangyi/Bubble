@@ -48,6 +48,9 @@
 		[nc addObserver:self selector:@selector(didSelectAccount:) 
 				   name:DidSelectAccountNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didSaveScrollPosition:) 
+				   name:SaveScrollPositionNotification 
+				 object:nil];
 		
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
@@ -119,13 +122,11 @@
 }
 
 -(void)didReloadTimeline:(NSNotification *)notification{
-	/*WeiboHomeTimeline *homeTimeline =[notification object];
-	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	[data setObject:homeTimeline.statusArray forKey:@"statuses"];
-	[data setObject:[statusesTemplate render:data] forKey:@"old_statuses"];
-	[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-	 */
 	[self reloadTimeline];
+}
+
+-(void)didSaveScrollPosition:(NSNotification *)notification{
+	[self saveScrollPosition];
 }
 
 -(void)saveScrollPosition{
@@ -195,21 +196,28 @@
 }
 
 -(void)selectMentions{
+	[self saveScrollPosition];
     currentTimeline = weiboAccount.mentions;
 	[self reloadTimeline];
 
 }
 
 -(void)selectComments{
+	currentTimeline.firstReload=YES;
+	[self saveScrollPosition];
 	currentTimeline=weiboAccount.comments;
 	[self reloadTimeline];
 }
 -(void)selectHome{
+	currentTimeline.firstReload=YES;
+	[self saveScrollPosition];
 	currentTimeline = weiboAccount.homeTimeline;
 	[self reloadTimeline];
 }
 
 -(void)selectFavorites{
+	currentTimeline.firstReload=YES;
+	[self saveScrollPosition];
 	currentTimeline = weiboAccount.favorites;
 	[self loadTimelineWithPage];
 }
@@ -355,7 +363,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)didClickTimeline:(NSNotification*)notification{
-	NSString *statusId=[notification object];
+	//NSString *statusId=[notification object];
 	//currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
 	[self reloadTimeline];
 }

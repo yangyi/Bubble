@@ -152,4 +152,8 @@
 		return YES;
 	}
 }
+- (void)applicationWillTerminate:(NSNotification *)notification{
+	[[NSNotificationCenter defaultCenter]postNotificationName:SaveScrollPositionNotification object:nil];
+
+}
 @end
