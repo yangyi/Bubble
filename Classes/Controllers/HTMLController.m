@@ -93,6 +93,7 @@
 -(void)webviewContentBoundsDidChange:(NSNotification *)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	if ([[scrollView contentView] bounds].origin.y==0) {
+		//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
 		currentTimeline.unread=NO;
 		[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
 	}
@@ -160,6 +161,7 @@
 #pragma mark Select View
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
 -(void) reloadTimeline{
+	[webView setHidden:YES];
 	if (currentTimeline.data==nil) {
 		switch (currentTimeline.timelineType) {
 			case Home:
@@ -196,6 +198,7 @@
 }
 
 -(void)selectMentions{
+	currentTimeline.firstReload=YES;
 	[self saveScrollPosition];
     currentTimeline = weiboAccount.mentions;
 	[self reloadTimeline];
@@ -298,6 +301,7 @@
     if([webFrame isEqual:[webView mainFrame]])
     {
 		[self resumeScrollPosition];
+		[webView setHidden:NO];
     }
 	 
 }

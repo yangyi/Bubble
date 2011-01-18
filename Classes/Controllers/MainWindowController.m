@@ -7,6 +7,7 @@
 //
 
 #import "MainWindowController.h"
+#import "MyScroller.h"
 @implementation MainWindowController
 - (id)init {
 	if(self = [super initWithWindowNibName:@"MainWindow"]){
@@ -33,6 +34,10 @@
 
 -(void) awakeFromNib{
 	[webView setUIDelegate:self];
+    NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+	[scrollView setVerticalScroller:[[MyScroller alloc] init]];
+	[scrollView setHasVerticalScroller:YES];
+	
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
 	[htmlController loadRecentTimeline];
 	[self updateTimelineSegmentedControl];
