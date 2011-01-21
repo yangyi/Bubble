@@ -15,6 +15,7 @@
 @interface HTMLController : NSObject {
 	NSString *theme;
 	WebView *webView;
+	NSImageView *imageView;
 	//web page template engine
 	TemplateEngine *templateEngine;
 	
@@ -65,4 +66,5 @@
 @property(nonatomic,retain) NSString *statusesPageTemplatePath;
 @property(nonatomic,retain) NSString *statusesTemplatePath;
 @property(nonatomic,retain) NSString *userTemplatePath;
+@property(nonatomic,assign) NSImageView *imageView;
 @end

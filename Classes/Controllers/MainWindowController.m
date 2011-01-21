@@ -39,6 +39,7 @@
 	[scrollView setHasVerticalScroller:YES];
 	
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
+	htmlController.imageView=imageView;
 	[htmlController loadRecentTimeline];
 	[self updateTimelineSegmentedControl];
 	[self reloadUsersMenu];

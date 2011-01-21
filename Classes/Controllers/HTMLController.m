@@ -9,7 +9,7 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath;
+@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,imageView;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -161,6 +161,18 @@
 #pragma mark Select View
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
 -(void) reloadTimeline{
+	
+	NSImage* image;
+	NSBitmapImageRep* rep;
+	[webView lockFocus];
+	rep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:[webView bounds]];
+	[webView unlockFocus];
+	image = [[[NSImage alloc] initWithSize:NSZeroSize] autorelease];
+	[image addRepresentation:rep];
+	[rep release];
+	
+	[imageView setImage: image];
+	
 	[webView setHidden:YES];
 	if (currentTimeline.data==nil) {
 		switch (currentTimeline.timelineType) {
@@ -301,7 +313,12 @@
     if([webFrame isEqual:[webView mainFrame]])
     {
 		[self resumeScrollPosition];
+		NSRect oriRect=[webView frame];
+		NSRect initFrame=NSMakeRect(oriRect.origin.x+oriRect.size.width, oriRect.origin.y, oriRect.size.width, oriRect.size.height);
+		[webView setFrame:initFrame];
 		[webView setHidden:NO];
+		[[webView animator] setFrame:oriRect];
+		
     }
 	 
 }

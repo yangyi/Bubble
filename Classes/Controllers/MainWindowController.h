@@ -16,6 +16,7 @@
 
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
+	IBOutlet NSImageView *imageView;
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	IBOutlet NSTextField *messageText;
 	IBOutlet NSProgressIndicator * connectionProgressIndicator;
