@@ -43,6 +43,29 @@
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 			[[NSNotificationCenter defaultCenter]postNotificationName:DisplayImageNotification object:imageUrl];
 		}
+		if ([host isEqualToString:@"friends"]) {
+			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
+						  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[[NSNotificationCenter defaultCenter]postNotificationName:GetFriendsNotification object:screenName];
+		}
+		if ([host isEqualToString:@"status_comments"]) {
+			NSString *statusId=[[url queryArgumentForKey:@"sid"] 
+								  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[[NSNotificationCenter defaultCenter]postNotificationName:ShowStatusCommentsNotification object:statusId];
+		}
+		if ([host isEqualToString:@"reply"]) {
+			NSString *sid=[[url queryArgumentForKey:@"id"] 
+						  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSString *cid=[[url queryArgumentForKey:@"cid"] 
+						  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			if (cid!=nil) {
+				[data setObject:cid forKey:@"cid"];
+			}else if (sid!=nil) {
+				[data setObject:sid forKey:@"id"];
+			}
+			[[NSNotificationCenter defaultCenter]postNotificationName:ReplyNotification object:data];
+		}
 	}
 	
 }

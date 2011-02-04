@@ -34,7 +34,7 @@ NSColor *KScrollerKnobSlotColorHover;
 
 - (void)drawKnob {
 	NSRect rect = [self rectForPart:NSScrollerKnob];
-	rect.size.width = 9.0;
+	rect.size.width = 8.0;
 	rect.origin.x = 3.0;
 	[(hover_ ? KScrollerKnobColorHover : KScrollerKnobColorNormal) set];
 	NSBezierPath *bp = [NSBezierPath bezierPathWithRoundedRect:rect
@@ -64,7 +64,6 @@ NSColor *KScrollerKnobSlotColorHover;
 
 
 - (void)drawKnobSlotInRect:(NSRect)slotRect highlight:(BOOL)highlight {
-	vertical_=YES;
 	NSRect knobRect = [self rectForPart:NSScrollerKnob];
 	if (knobRect.size.width != 0.0) {
 		// enable mouse tracking
@@ -80,13 +79,10 @@ NSColor *KScrollerKnobSlotColorHover;
 		}
 		
 		// bubble
-		if (vertical_) {
-			slotRect.size.width = 9.0;
-			slotRect.origin.x = 3.0;
-		} else {
-			slotRect.size.height = 9.0;
-			slotRect.origin.y = 3.0;
-		}
+	
+		slotRect.size.width = 9.0;
+		slotRect.origin.x = 3.0;
+	
 		NSBezierPath *bp =
         [NSBezierPath bezierPathWithRoundedRect:slotRect xRadius:4.5 yRadius:4.5];
 		[KScrollerKnobSlotColorNormal set];

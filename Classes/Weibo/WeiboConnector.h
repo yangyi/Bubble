@@ -77,4 +77,17 @@
 -(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
 				  completionTarget:(id)target
 				  completionAction:(SEL)action;
+-(NSString *) getFriendsWithParamters:(NSMutableDictionary*)params 
+					 completionTarget:(id)target
+					 completionAction:(SEL)action;
+-(NSString *) getStatusCommentsWithParamters:(NSMutableDictionary*)params 
+							completionTarget:(id)target
+							completionAction:(SEL)action;
+-(NSString *) getDirectMessageWithParamters:(NSMutableDictionary*)params 
+						   completionTarget:(id)target
+						   completionAction:(SEL)action;
+
+-(NSString *) replyWithParamters:(NSMutableDictionary*)params
+				completionTarget:(id)target
+				completionAction:(SEL)action;
 @end

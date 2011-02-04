@@ -34,9 +34,9 @@
 
 -(void) awakeFromNib{
 	[webView setUIDelegate:self];
-    NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	[scrollView setVerticalScroller:[[MyScroller alloc] init]];
-	[scrollView setHasVerticalScroller:YES];
+    //NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
+	//[scrollView setVerticalScroller:[[MyScroller alloc] init]];
+	//[scrollView setHasVerticalScroller:YES];
 	
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
 	htmlController.imageView=imageView;
@@ -118,6 +118,9 @@
 		case 2:
 			[htmlController selectComments];
 			break;
+		case 3:
+			[htmlController selectDirectMessage];
+			break;
 
 		case 4:
 			[htmlController selectFavorites];
@@ -161,6 +164,7 @@
 }
 
 -(IBAction)compose:(id)sender{
+	composeController.currentAction=PostAction;
 	[composeController popUp];
 }
 

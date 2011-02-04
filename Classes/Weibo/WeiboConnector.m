@@ -119,6 +119,28 @@
 					   completionAction:action];
 }
 
+-(NSString *) replyWithParamters:(NSMutableDictionary*)params
+				completionTarget:(id)target
+				completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/comment.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	NSString *comment=[params objectForKey:@"comment"];
+	NSString *sid=[params objectForKey:@"id"];
+	NSString *cid=[params objectForKey:@"cid"];
+	if (cid) {
+		[postBody appendData:[[NSString stringWithFormat:@"comment=%@&cid=%@&source=%@",comment,cid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	}else {
+		[postBody appendData:[[NSString stringWithFormat:@"comment=%@&id=%@&source=%@",comment,sid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	}
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
+
+}
 -(NSString *) updateWithStatus:(NSString*)status				  
 			  completionTarget:(id)target
 			  completionAction:(SEL)action{
@@ -178,6 +200,44 @@
 					   completionAction:(SEL)action];
 	
 }
+
+
+-(NSString *) getFriendsWithParamters:(NSMutableDictionary*)params 
+				  completionTarget:(id)target
+				  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/friends.json"];
+	
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
+}
+-(NSString *) getStatusCommentsWithParamters:(NSMutableDictionary*)params 
+					 completionTarget:(id)target
+					 completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/comments.json"];
+	
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
+}
+
+-(NSString *) getDirectMessageWithParamters:(NSMutableDictionary*)params 
+						   completionTarget:(id)target
+						   completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"direct_messages.json"];
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+}
+
 #pragma mark Request Send Method
 -(NSString*)_sendRequestWithMethod:(NSString*)method 
 						   baseurl:(NSString*) baseurl

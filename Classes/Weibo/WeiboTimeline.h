@@ -11,6 +11,12 @@
 #import "WeiboGlobal.h"
 #import "ScrollOffset.h"
 
+typedef enum {
+	None=0,
+	Reload,
+	Switch
+}OperationType;
+
 @interface WeiboTimeline : NSObject{
 	//类型 
 	TimelineType timelineType;
@@ -26,6 +32,7 @@
 	NSNumber *oldestReceivedId;
 	BOOL unread;
 	BOOL firstReload;
+	OperationType operation;
 }
 -(id)initWithWeiboConnector:(WeiboConnector*)connector 
 			   timelineType:(TimelineType)type;
@@ -53,4 +60,5 @@
 @property(nonatomic,retain) NSString *typeName;
 @property(nonatomic,retain) NSNumber *lastReceivedId;
 @property(nonatomic,retain) NSNumber *oldestReceivedId;
+@property(nonatomic) OperationType operation;
 @end

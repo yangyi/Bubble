@@ -1,0 +1,103 @@
+{% for status in statuses %}
+<div class="stream-item" id="{{status.id}}" ondblclick='window.open("weibo://status_comments?sid={{status.id}}")'>
+<div class="stream-item-content status">
+  {% if status.favorited %}
+    <div class="status-dogear  status-dogear-fav"></div>
+  {% else %}
+    <div class="status-dogear"></div>
+  {% /if %}
+  
+  <div class="avatar">
+      <a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">
+		<img height="50" width="50" src="{{status.user.profile_image_url}}" class="user-profile-link"/>
+	  </a>
+  </div>
+  
+  
+  <div class="status-content">
+  
+    <div class="status-row">
+      <span class="user-name">
+        <a class="screen-name user-profile-link" href="weibo://user?fetch_with=user_id&value={{status.user.id}}">{{ status.user.screen_name }}</a>
+		{% if status.user.verified %}
+		<span class="verified-icon-small"></span>
+		{% /if %}
+        <span class="full-name">from {{ status.source|weibo_link_target_blank }}  </span>
+      </span>
+    </div>
+    
+    <div class="status-row">
+      <div class="status-text">
+	  {{ status.text|weibo_content_format }}
+		
+		{% if status.thumbnail_pic %}
+		<div class="attachments">
+		<a href="weibo://image?url={{status.original_pic}}" target="_blank">
+		<img src="{{status.thumbnail_pic}}"/>
+		</a>
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
+		{% if status.retweeted_status %}
+		<div class="bubble">
+		<blockquote>
+		<p>
+		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.retweeted_status.user.screen_name}}</a> {{status.retweeted_status.text|weibo_content_format}}
+		{% if status.retweeted_status.thumbnail_pic %}
+		<div class="attachments">
+		<a href="weibo://image?url={{status.retweeted_status.original_pic}}" target="_blank">
+		<img src="{{status.retweeted_status.thumbnail_pic}}"/>
+		</a>
+
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
+		</p>
+		</blockquote>
+		</div>
+		{% /if %}
+		
+		{% if status.status %}
+		<div class="bubble">
+		<blockquote>
+		<p>
+		<a href="weibo://user?fetch_with=user_id&value={{status.retweeted_status.user.id}}">{{status.status.user.screen_name}}</a> {{status.status.text|weibo_content_format}}
+		{% if status.status.thumbnail_pic %}
+		<div class="attachments">
+		<a href="weibo://image?url={{status.status.original_pic}}" target="_blank">
+		<img src="{{status.status.thumbnail_pic}}"/>
+		</a>
+
+		</div>
+		<div class="clear"></div>
+		{% /if %}
+		
+		</p>
+		</blockquote>
+		</div>
+		{% /if %}
+
+	  
+	  </div>
+    </div>
+    
+    <div class="status-row">
+      <a href="" class="status-timestamp">
+      	<span>{{ status.created_at|weibo_date_format }}</span>
+      </a>
+      
+      <span class="status-actions">
+            <a href="#" class="favorite-action"  title="Favorite"><span><i></i><b>Favorite</b></span></a>
+            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            <a href="weibo://reply?id={{status.id}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+      </span>
+    </div>
+    
+  </div>
+  
+</div>
+</div>
+
+{% /for %}

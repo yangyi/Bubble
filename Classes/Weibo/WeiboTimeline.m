@@ -10,7 +10,7 @@
 
 
 @implementation WeiboTimeline
-@synthesize data,newData,lastReceivedId,oldestReceivedId,timelineType,typeName,unread,firstReload;
+@synthesize data,newData,lastReceivedId,oldestReceivedId,timelineType,typeName,unread,firstReload,operation;
 
 
 #pragma mark  初始化
@@ -22,6 +22,7 @@
 		data=nil;
 		newData=nil;
 		firstReload=YES;
+		operation=Reload;
 		switch (timelineType) {
 			case Home:
 				self.typeName=@"home";
@@ -146,6 +147,11 @@
 			break;
 		case Mentions:
 			[weiboConnector getMentionsWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadOlderTimeline:)];
+			break;
+		case Comments:
+			[weiboConnector getCommentsWithParameters:params
 									 completionTarget:self
 									 completionAction:@selector(didLoadOlderTimeline:)];
 			break;

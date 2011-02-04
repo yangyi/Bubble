@@ -10,6 +10,7 @@
 #import "NSWindowAdditions.h"
 
 @implementation ComposeController
+@synthesize data,currentAction;
 - (id)init {
 	self = [super initWithWindowNibName:@"Compose"];
 	weiboAccount=[AccountController instance];
@@ -17,6 +18,10 @@
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self selector:@selector(didPost:) 
 			   name:DidPostStatusNotification
+			 object:nil];
+	
+	[nc addObserver:self selector:@selector(handleReply:) 
+			   name:ReplyNotification
 			 object:nil];
 	
 	return self;
@@ -35,6 +40,13 @@
 	NSString * string=[textView string];
 	int remaining=140-[[string precomposedStringWithCanonicalMapping] length];
 	[charactersRemaining setStringValue:[NSString stringWithFormat:@"%d",remaining]];
+}
+
+-(void)handleReply:(NSNotification*)notification{
+	self.currentAction=ReplyAction;
+	self.data =[notification object];
+	[[self window] setTitle:@"评论"];
+	[self popUp];
 }
 
 -(IBAction)post:(id)sender{
@@ -59,7 +71,14 @@
 		}
 	}
 	if (!upload) {
-		[weiboAccount postWithStatus:[textView string]];
+		if (currentAction==PostAction) {
+			[weiboAccount postWithStatus:[textView string]];
+		}
+		if (currentAction==ReplyAction) {
+			[self.data setObject:[textView string] forKey:@"comment"];
+			[weiboAccount replyWithData:self.data];
+		}
+		
 	}
 	[postProgressIndicator setHidden:NO];
 	[postProgressIndicator startAnimation:self];
@@ -92,7 +111,7 @@
 	return YES;
 }
 - (NSArray *)supportedImageTypes {
-	return [NSArray arrayWithObjects:@"jpg", @"jpeg", @"png", @"gif", @"tif", nil];
+	return [NSArray arrayWithObjects:@"jpg", @"jpeg", @"png", @"gif", nil];
 }
 - (IBAction)addPicture:(id)sender {
 	NSOpenPanel *panel = [NSOpenPanel openPanel];

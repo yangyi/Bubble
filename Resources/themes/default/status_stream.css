@@ -1,0 +1,251 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font: 12px/16px "Lucida Grande", Sans-Serif;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+
+.stream .stream-item:first-child, .stream .hovered-stream-item:first-child, .related-tweets .stream-item:first-child:hover {
+border-top: 1px solid transparent !important;
+margin-top: -1px;
+
+}
+.stream-items{
+-webkit-border-radius: 5px;
+}
+.stream-item, .unselectable-stream-item {
+border-bottom: 1px solid #EBEBEB;
+clear: both;
+display: block;
+min-height: 60px;
+outline: none;
+position: relative;
+}
+
+.status {
+padding: 10px 10px;
+position: relative;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
+/*-webkit-box-shadow: inset 0 0 5px #888;*/
+cursor: pointer;
+}
+
+
+.status-dogear {
+height: 25px;
+right: 0px;
+position: absolute;
+top: 0px;
+width: 24px;
+}
+
+.status-dogear-fav {
+background:transparent url(badge-favorite.png)
+}
+
+
+.avatar {
+float: left;
+overflow: hidden;
+width: 50px;
+height: 50px;
+border-style: none;
+-webkit-border-radius: 4px;
+}
+
+
+.status-content {
+font-size: 14px;
+margin-left: 58px;
+min-height: 48px;
+}
+
+.status-row {
+display: block;
+line-height: 15px;
+position: relative;
+}
+
+.screen-name {
+font-weight: bold;
+font-size:14;
+}
+
+a {
+color: #2D76B9;
+text-decoration: none;
+}
+.full-name {
+color: #999;
+font-size: 12px;
+}
+
+.status-text {
+line-height: 19px;
+padding: 0px;
+word-wrap: break-word;
+}
+
+.status-timestamp {
+color: #999 !important;
+font-size: 11px;
+}
+
+.status-actions {
+font-size: 11px;
+visibility: hidden;
+}
+
+.status:hover{
+background:#e6efff;
+}
+.status:hover .status-actions {
+font-size: 11px;
+visibility: visible;
+}
+
+
+
+
+
+.status-actions a span i {
+display: inline-block;
+background: transparent url(sprite-icons.png) no-repeat;
+height: 15px;
+margin: 0px 2px -3px 0;
+outline: none;
+text-indent: -99999px;
+width: 15px;
+}
+
+.status-actions a span b {
+font-weight: normal;
+}
+
+/*操作图标*/
+.status-actions .unfavorite-action span i, .status-actions .unfavorite-action:hover span i {
+background-position: -64px 0px;
+}
+.status-actions .retweet-action span i {
+background-position: -176px 0px;
+}
+.status-actions .reply-action span i {
+background-position: 0px 0px;
+margin-left: 3px;
+margin-right: 0px;
+}
+.status-actions .favorite-action span i {
+background-position: -32px 0px;
+}
+
+.status-actions .reply-action:hover span i {
+background-position: -16px 0px;
+}
+.status-actions .retweet-action:hover span i {
+background-position: -192px 0px;
+}
+.status-actions .favorite-action:hover span i {
+background-position: -48px 0px;
+}
+
+
+.attachments img{
+-webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px;
+background: white;
+border: 1px solid #BBB;
+-webkit-border-radius:2px;
+margin: 4px  10px  10px 10px;
+overflow: hidden;
+padding: 2px;
+position: relative;
+float:left;
+}
+
+
+.clear {
+	clear: both;
+}
+
+div.bubble blockquote {
+	margin:10px 0px 10px 0px;
+	padding: 0px;
+	border: 1px solid #c9c2c1;
+	background: #FAFAFA;
+	-webkit-border-radius: 4px;
+}
+
+div.bubble blockquote p {
+	margin: 10px;
+	padding: 0px;
+}
+
+.spinner{
+	text-align: center;
+	margin: 16px;
+	font-size: 16px; 
+	font-weight: bold;
+	color: #BBB;
+}
+
+.status_spinner_image {
+	margin: -5px 0px -5px 0px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+}
+
+
+.comments-header{
+height:15px;
+background: url(gapdot.png) center no-repeat;
+}
+.status-detail{
+background:#e6efff;
+}
+
+.stream-end{
+height:25px;
+background: url(end-of-stream.png) center no-repeat;
+}
+
+.message {
+padding: 10px 10px;
+cursor: pointer;
+}
+
+.status-detail .status-actions {
+font-size: 11px;
+visibility: visible;
+}
+
+.status_bar {
+	position: fixed;
+	left: -7px;
+	bottom: -7px;
+	font-size: 13px; 
+	line-height: auto;
+	color: #333;
+	padding: 4px 10px 9px 16px;
+	border: 1px solid #666;
+	opacity: 0.6;
+	background-color: #fff;
+	-webkit-border-radius: 6px; 
+	-webkit-box-shadow: 0px 2px 8px #666;
+	z-index:1;
+	visibility:hidden;
+}
+
+.verified-icon-small {
+background-image: url(sprite-icons.png);
+background-position: -272px -80px;
+background-repeat: no-repeat;
+display: inline-block;
+height: 15px;
+width: 15px;
+margin-bottom:-3px;
+}

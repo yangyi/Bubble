@@ -1,0 +1,25 @@
+<head>
+<link rel="stylesheet" href="./message_page.css" type="text/css"/>
+<link rel="stylesheet" href="./status_stream.css" type="text/css"/>
+
+</head>
+<body>
+<div>
+<ul class="stream-tabs">
+        <li class="stream-tab active">
+          <a class="tab-text" title="Inbox" href="/">Inbox</a>
+        </li>
+        <li class="stream-tab">
+          <a class="tab-text" title="Sent" href="/#!/mentions">Sent</a>
+        </li>
+</ul>
+</div>
+<div class="message-header"></div>
+<div class="stream-items" id="messages">
+{{messages_html}}
+</div>
+
+<div id="spinner" class='spinner'>
+	{{spinner}}{{load_more}}
+</div>
+</body>

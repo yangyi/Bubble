@@ -1,0 +1,22 @@
+{% for user in users %}
+  <div class="stream-item" data-item-id="61671913" data-item-type="user">
+  <div class="stream-item-content user-content-medium clearfix" data-screen-name="{{user.name}}">
+  <img src="" class="user-content-image user-profile-link" />
+  
+  <div class="user-content-rest">
+    <span class="user-name">
+      <a class="user-profile-link" href="" title="{{user.name}}"><strong>{{user.name}}</strong></a>
+      <span class="full-name">{{user.name}}</span>
+	</span>
+    <div class="user-description">{{user.description}}</div>
+    <div class="user-meta"> </div>
+  </div>
+  
+  <div class="stream-user-buttons">
+  <!-- don't render follow button if it's you -->
+		<div class="button follow-button"  original-title=""><span class="plus"></span> Follow</div>
+  </div>
+  
+</div>
+</div>
+{% /for %}

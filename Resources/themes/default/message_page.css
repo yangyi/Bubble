@@ -1,0 +1,63 @@
+.stream-tabs {
+border-bottom: 1px solid #EEE;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
+clear: both;
+display: block;
+height: 30px;
+list-style-type: none;
+margin: 0px;
+padding: 8px 10px 0px 10px ;
+background: #E6E6E6;
+position:fixed;
+z-index:1;
+width:100%;
+}
+
+.message-header{
+height:40px;
+}
+
+.stream-tabs .stream-tab {
+border-top-left-radius: 4px 4px;
+border-top-right-radius: 4px 4px;
+cursor: pointer;
+float: left;
+margin: 0px;
+padding: 0px;
+position: relative;
+}
+li {
+display: list-item;
+}
+.stream-tabs {
+list-style-type: none;
+}
+
+ul {
+list-style: disc;
+}
+
+.stream-tabs .stream-tab.active .tab-text, .stream-tabs .stream-tab.active .tab-text:hover {
+background: white;
+border-color: #EEE #EEE white;
+color: #333;
+font-weight: bold;
+outline: none;
+}
+.stream-tabs .tab-text {
+-webkit-border-radius: inherit;
+border: 1px solid transparent;
+border-radius: inherit;
+cursor: pointer;
+display: block;
+line-height: 24px;
+outline: none;
+overflow: hidden;
+padding: 3px 10px 2px;
+text-decoration: none;
+text-shadow: white 0px 1px 0px;
+}
+
+.stream-tab:hover{
+background:#e6efff;
+}

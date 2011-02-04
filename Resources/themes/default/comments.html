@@ -1,0 +1,44 @@
+{% for comment in comments %}
+<div class="stream-item" id="{{comment.id}}">
+<div class="stream-item-content status">
+  
+  <div class="avatar">
+      <a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">
+		<img height="50" width="50" src="{{comment.user.profile_image_url}}" class="user-profile-link"/>
+	  </a>
+  </div>
+  
+  
+  <div class="status-content">
+  
+    <div class="status-row">
+      <span class="user-name">
+        <a class="screen-name user-profile-link" >{{ comment.user.screen_name }}</a>
+      </span>
+    </div>
+    
+    <div class="status-row">
+      <div class="status-text">
+	  {{ comment.text|weibo_content_format }}
+	  
+	  </div>
+    </div>
+    
+    <div class="status-row">
+      <a href="" class="status-timestamp">
+      	<span>{{ comment.created_at|weibo_date_format }}</span>
+      </a>
+      
+      <span class="status-actions">
+            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            <a href="weibo://reply?cid={{comment.id}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+      </span>
+    </div>
+    
+  </div>
+  
+</div>
+</div>
+
+
+{% /for %}

@@ -31,6 +31,8 @@
 		A31D711F129EBB5400385EEC /* AccountPrefsPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A31D711D129EBB5400385EEC /* AccountPrefsPanel.h */; };
 		A31D7137129EBF8900385EEC /* MenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = A31D7135129EBF8900385EEC /* MenuController.h */; };
 		A31D7138129EBF8900385EEC /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D7136129EBF8900385EEC /* MenuController.m */; };
+		A326B04A12F6BB66007F0CE1 /* PathController.h in Headers */ = {isa = PBXBuildFile; fileRef = A326B04812F6BB66007F0CE1 /* PathController.h */; };
+		A326B04B12F6BB66007F0CE1 /* PathController.m in Sources */ = {isa = PBXBuildFile; fileRef = A326B04912F6BB66007F0CE1 /* PathController.m */; };
 		A33380481298E1E00033FCCF /* ImagePanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A33380461298E1E00033FCCF /* ImagePanelController.h */; };
 		A33380491298E1E00033FCCF /* ImagePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33380471298E1E00033FCCF /* ImagePanelController.m */; };
 		A333804C1298E2780033FCCF /* ImagePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A333804B1298E2780033FCCF /* ImagePanel.xib */; };
@@ -171,7 +173,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3005EFB124A2B75001CE9AC /* comments_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments_down.png; sourceTree = "<group>"; };
 		A3005EFC124A2B75001CE9AC /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
 		A3005EFD124A2B75001CE9AC /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose.png; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 		A3005F0D124A2B75001CE9AC /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A3005F21124A2D0F001CE9AC /* mentions_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions_down.png; sourceTree = "<group>"; };
 		A3005F22124A2D0F001CE9AC /* mentions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mentions.png; sourceTree = "<group>"; };
+		A3074B0212F8357D005CE745 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A316D5B212786E3600A3D987 /* NSWindowAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSWindowAdditions.h; sourceTree = "<group>"; };
 		A316D5B312786E3600A3D987 /* NSWindowAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSWindowAdditions.m; sourceTree = "<group>"; };
 		A31D7111129EB90E00385EEC /* GeneralPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GeneralPrefsView.xib; path = ../../Resources/UI/GeneralPrefsView.xib; sourceTree = "<group>"; };
@@ -198,6 +200,8 @@
 		A31D7130129EBDAA00385EEC /* AccountPrefsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AccountPrefsView.xib; path = ../../Resources/UI/AccountPrefsView.xib; sourceTree = "<group>"; };
 		A31D7135129EBF8900385EEC /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		A31D7136129EBF8900385EEC /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		A326B04812F6BB66007F0CE1 /* PathController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathController.h; sourceTree = "<group>"; };
+		A326B04912F6BB66007F0CE1 /* PathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathController.m; sourceTree = "<group>"; };
 		A33380461298E1E00033FCCF /* ImagePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePanelController.h; sourceTree = "<group>"; };
 		A33380471298E1E00033FCCF /* ImagePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePanelController.m; sourceTree = "<group>"; };
 		A333804B1298E2780033FCCF /* ImagePanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePanel.xib; sourceTree = "<group>"; };
@@ -368,7 +372,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Bubble.app */,
+				A3074B0212F8357D005CE745 /* Bubble.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -407,11 +411,11 @@
 		A354BFEF1249CC810055FB8F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A354BFF01249CC810055FB8F /* Additions */,
 				A3E8F9E612E5C66E00A19E26 /* View */,
 				A35FAB34129EA4E400225E3B /* Preferences */,
 				A3D89AD712745A6E00B78216 /* MGTemplateEngine */,
 				A354C0821249D1840055FB8F /* App */,
-				A354BFF01249CC810055FB8F /* Additions */,
 				A354BFF71249CC810055FB8F /* Controllers */,
 				A354C0001249CC810055FB8F /* JSON */,
 				A354C00C1249CC810055FB8F /* Models */,
@@ -457,6 +461,8 @@
 				A33380471298E1E00033FCCF /* ImagePanelController.m */,
 				A31D7135129EBF8900385EEC /* MenuController.h */,
 				A31D7136129EBF8900385EEC /* MenuController.m */,
+				A326B04812F6BB66007F0CE1 /* PathController.h */,
+				A326B04912F6BB66007F0CE1 /* PathController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				A349695E12D9F04900D7D1C9 /* PathItem.h in Headers */,
 				A3E8F9ED12E5C7F600A19E26 /* KScroller.h in Headers */,
 				A3E8FA5E12E5D79A00A19E26 /* MyScroller.h in Headers */,
+				A326B04A12F6BB66007F0CE1 /* PathController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,7 +720,7 @@
 			name = Bubble;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Bubble;
-			productReference = 8D1107320486CEB800E47090 /* Bubble.app */;
+			productReference = A3074B0212F8357D005CE745 /* Bubble.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -848,6 +855,7 @@
 				A349695F12D9F04900D7D1C9 /* PathItem.m in Sources */,
 				A3E8F9EE12E5C7F600A19E26 /* KScroller.m in Sources */,
 				A3E8FA5F12E5D79A00A19E26 /* MyScroller.m in Sources */,
+				A326B04B12F6BB66007F0CE1 /* PathController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

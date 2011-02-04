@@ -39,3 +39,13 @@ typedef enum {
 #define DidGetUserNotification @"DidGetUserNotification"
 #define DidSelectAccountNotification @"DidSelectAccountNotification"
 #define DisplayImageNotification @"DisplayImageNotification"
+#define GetFriendsNotification @"GetFriendsNotification"
+#define DidGetFriendsNotification @"DidGetFriendsNotification"
+#define GetStatusCommentsNotification @"GetStatusCommentsNotification"
+#define DidGetStatusCommentsNotification @"DidGetStatusCommentsNotification"
+#define ShowStatusCommentsNotification @"ShowStatusCommentsNotification"
+
+#define DidGetDirectMessageNotification @"DidGetDirectMessageNotification"
+
+#define ReplyNotification @"ReplyNotification"
+

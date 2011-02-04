@@ -49,6 +49,12 @@ static AccountController *instance;
 		[nc addObserver:self selector:@selector(getUser:)
 				   name:GetUserNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(getFriends:)
+				   name:GetFriendsNotification 
+				 object:nil];
+		[nc addObserver:self selector:@selector(getStatusComments:)
+				   name:GetStatusCommentsNotification 
+				 object:nil];
 		[NSTimer scheduledTimerWithTimeInterval:60
 										 target:self 
 									   selector:@selector(checkUnread) 
@@ -228,6 +234,17 @@ static AccountController *instance;
 														object:nil];
 }
 
+-(void)replyWithData:(id)data{
+	[weiboConnector replyWithParamters:data
+						completionTarget:self
+						completionAction:@selector(didReplyWithData:)];
+}
+
+-(void)didReplyWithData:(NSDictionary*)result{
+	NSLog(@"%@",result);
+	
+}
+
 -(void)getUser:(NSNotification*)notification{
 	NSDictionary *data=[notification object];
 	NSString *fetchWith=[data valueForKey:@"fetch_with"];
@@ -241,6 +258,47 @@ static AccountController *instance;
 
 -(void)didGetUser:(NSDictionary*)result{
 	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetUserNotification
+														object:result];
+}
+
+-(void)getFriends:(NSNotification*)notification{
+	NSString *screenName=[notification object];
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[params setObject:screenName forKey:@"screen_name"];
+	[weiboConnector getFriendsWithParamters:params
+						completionTarget:self
+						completionAction:@selector(didGetFriends:)];
+}
+
+-(void)didGetFriends:(NSArray*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetFriendsNotification
+														object:result];
+}
+
+
+-(void)getStatusComments:(NSNotification*)notification{
+	NSString *statusId=[notification object];
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[params setObject:statusId forKey:@"id"];
+	[weiboConnector getStatusCommentsWithParamters:params
+						   completionTarget:self
+						   completionAction:@selector(didGetStatusComments:)];
+}
+
+-(void)didGetStatusComments:(NSArray*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetStatusCommentsNotification
+														object:result];
+}
+
+-(void)getDirectMessage{
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[weiboConnector getDirectMessageWithParamters:params
+								  completionTarget:self
+								  completionAction:@selector(didGetDirectMessage:)];
+}
+
+-(void)didGetDirectMessage:(NSArray*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetDirectMessageNotification
 														object:result];
 }
 @end

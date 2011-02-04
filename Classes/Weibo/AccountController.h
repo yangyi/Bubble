@@ -44,6 +44,8 @@
 -(void)postWithStatus:(NSString*)status;
 -(void)postWithStatus:(NSString*)status image:(NSData*)data imageName:(NSString*)imageName;
 -(void)didPostWithStatus:(id)result;
+-(void)getDirectMessage;
+-(void)replyWithData:(id)data;
 
 @property(nonatomic,retain) WeiboAccount *currentAccount;
 @property(nonatomic,retain) WeiboTimeline *homeTimeline;

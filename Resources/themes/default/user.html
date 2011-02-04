@@ -1,82 +1,58 @@
-<html>
 <head>
-
-<link rel="stylesheet" type="text/css" href="user.css"/> 
+<link rel="stylesheet" href="./user.css" type="text/css"/>
 </head>
+
 <body>
 
-<div class="menu_content">
-
-<div class="list_section ">
-
-<div class="path_heading open is_collapsible">
-<div class="path_text">Home</div><div class="sep"><img src="sep.png"/></div><div class="path_text">User</div>
-<div class="action_20 collapsed"><div class="bg"></div></div>
-</div>
-
-<div class="nav_info_panel has_stats">
-
-<div class="profile_pic_wrapper size60"><img class="profile_pic" src="{{user.profile_image_url}}" title="kejin lu"></div>
-<div class="info">
-{% if user.verified %}
-<img src="v.png"/>
-{% /if %}
-{{user.screen_name}}
-{% if user.url notequalsstring "http://1" %}
-<div class="item"><div class="icon"><img src="blog.png"/></div>
-<a href="{{user.url}}" target="_blank">{{user.url}}</a>
-</div>
-{% /if %}
-<div class="item">
-<div class="icon"><img src="star.png"/></div>
-{{user.description}}
-</div>
-
-</div>
-
-<div class="seperator"></div>
-
-
-<div class="stats">
-
-<div class="stat">
-<div class="value">{{user.statuses_count}}</div>
-<div class="type">Updates</div>
-</div>
-
-<div class="stat">
-<div class="value">{{user.followers_count}}</div>
-<div class="type">Followers</div>
-</div>
-<div class="stat">
-<div class="value">{{user.friends_count}}</div>
-<div class="type">Following</div>
-</div>
-
-
-<div class="stat">
-<div class="value">{{user.favourites_count}}</div>
-<div class="type">Favorites</div>
-</div>
-
-
-</div>
-
-</div>
-
-
-<div class="list_section ">
-
-<div class="drop_border"></div>
-<div class="list_heading open is_collapsible">
-<div class="title dark2 t-13 tw-b">Updates</div>
-<div class="action_20 collapsed"><div class="bg"></div></div>
-</div>
-
-<div class="list_items_wrapper"><div class="list_items"></div></div>
-
-</div>
-
-</div></div>
-</body>
-</html>
+<div class="component"><div class="profile-pane">
+  <div class="profile-basics clearfix">
+    <div class="profile-text">
+        <a href="user online link">
+          <img src="{{user.profile_image_url}}" width="128" class="thumb"/>
+        </a>
+        <div class="full-name">
+           <h2>{{user.screen_name}}</h2>
+        </div>
+        <div class="screen-name-and-location">
+          <a href="" class="screen-name pill"><strong>@{{user.screen_name}}</strong> <span>view full profile →</span></a>
+        </div>
+      	<div class="location">{{user.location}}</div>
+    </div>
+    
+    <div class="user-info">
+      <span class="bio">{{user.description}}</span> 
+      {% if user.url notequalsstring "http://1" %}
+		<a href="{{user.url}}" target="_blank">{{user.url}}</a>
+	  {% /if %}
+    </div>
+    <ul class="user-stats clearfix">
+            <li><a class="user-stats-count" href="/#!/xanchen">{{user.statuses_count}}<span class="user-stats-stat">Tweets</span></a></li>
+    <li><a class="user-stats-count" href="weibo://friends?screen_name={{user.screen_name}}">{{user.friends_count}}<span class="user-stats-stat">Following</span></a></li>
+    <li><a class="user-stats-count" href="/#!/xanchen/followers">{{user.followers_count}}<span class="user-stats-stat">Followers</span></a></li>
+    <li><a class="user-stats-count" href="/#!/xanchen/lists/memberships">{{user.favourites_count}}<span class="user-stats-stat">Favorites</span></a></li>
+  </ul>
+  </div>
+</div><div class="component">
+<div class="profile-actions profile-actions-7653792 clearfix">
+      <div class="buttons">
+          <div class="button direct-message-action">Message</div>                 
+          <div class="button profile-actions-button" data-user-id="7653792">
+            <span class="gear"></span> <span class="down-arrow"></span>
+          </div>
+      </div>
+      <div class="follow-state">
+                            <a href="#" class="button profile-unfollow-link" data-user-id="7653792">
+            <span class="you-follow"></span>
+            <em class="wrapper">
+              <b>Following</b>
+              <b class="unfollow">Unfollow</b>
+            </em>
+          </a>
+	  </div>
+      <span class="icon device-notifications " data-user-id="7653792" original-title=""></span>
+      <span class="icon retweet-setting including" data-user-id="7653792" original-title=""></span>
+  </div>
+  
+  </div><hr class="component-spacer"></div>
+  
+  </body>

@@ -9,7 +9,7 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,imageView;
+@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,userlistTemplatePath,statusDetailTemplatePath,commentsTemplatePath,messagePageTemplatePath,messageTemplatePath,imageView;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -45,6 +45,9 @@
 		[nc addObserver:self selector:@selector(didGetUser:)
 				   name:DidGetUserNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didGetFriends:)
+				   name:DidGetFriendsNotification 
+				 object:nil];
 		[nc addObserver:self selector:@selector(didSelectAccount:) 
 				   name:DidSelectAccountNotification 
 				 object:nil];
@@ -52,6 +55,16 @@
 				   name:SaveScrollPositionNotification 
 				 object:nil];
 		
+		[nc addObserver:self selector:@selector(showStatusComments:) 
+				   name:ShowStatusCommentsNotification 
+				 object:nil];
+		[nc addObserver:self selector:@selector(didGetStatusComments:) 
+				   name:DidGetStatusCommentsNotification 
+				 object:nil];
+		
+		[nc addObserver:self selector:@selector(didGetDirectMessage:) 
+				   name:DidGetDirectMessageNotification 
+				 object:nil];
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
 		[webView setPolicyDelegate:self];
@@ -59,17 +72,33 @@
 		templateEngine=[[TemplateEngine alloc] init];
 		
 		
-		self.statusesPageTemplatePath = [[NSBundle mainBundle] pathForResource:@"statuses_page" 
+		self.statusesPageTemplatePath = [[NSBundle mainBundle] pathForResource:@"status_stream" 
 																   ofType:@"html" 
 															  inDirectory:@"themes/default"];
-		self.statusesTemplatePath = [[NSBundle mainBundle] pathForResource:@"statuses" 
+		self.statusesTemplatePath = [[NSBundle mainBundle] pathForResource:@"status_item" 
 															   ofType:@"html" 
 														  inDirectory:@"themes/default"];
 		self.userTemplatePath=[[NSBundle mainBundle] pathForResource:@"user" 
 															  ofType:@"html" 
 														 inDirectory:@"themes/default"];
-		
+		self.userlistTemplatePath=[[NSBundle mainBundle] pathForResource:@"userlist" 
+																  ofType:@"html" 
+															 inDirectory:@"themes/default"];
+		self.statusDetailTemplatePath=[[NSBundle mainBundle] pathForResource:@"statuses_detail" 
+																  ofType:@"html" 
+															 inDirectory:@"themes/default"];
 
+		self.commentsTemplatePath=[[NSBundle mainBundle] pathForResource:@"comments" 
+																	  ofType:@"html" 
+																 inDirectory:@"themes/default"];
+		
+		self.messagePageTemplatePath=[[NSBundle mainBundle] pathForResource:@"message_page" 
+																  ofType:@"html" 
+															 inDirectory:@"themes/default"];
+		
+		self.messageTemplatePath=[[NSBundle mainBundle] pathForResource:@"messages" 
+																  ofType:@"html" 
+															 inDirectory:@"themes/default"];
 		weiboAccount=[AccountController instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
 		self.baseURL = [NSURL fileURLWithPath:basePath];
@@ -93,9 +122,12 @@
 -(void)webviewContentBoundsDidChange:(NSNotification *)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	if ([[scrollView contentView] bounds].origin.y==0) {
-		//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
-		currentTimeline.unread=NO;
-		[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
+		if (currentTimeline.operation==None) {
+			//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
+			currentTimeline.unread=NO;
+			[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
+		}
+
 	}
 }
 //当页面点击加载更多的时候接受到这个通知，进行加载历史信息
@@ -123,6 +155,7 @@
 }
 
 -(void)didReloadTimeline:(NSNotification *)notification{
+	currentTimeline.operation=Reload;
 	[self reloadTimeline];
 }
 
@@ -211,6 +244,7 @@
 
 -(void)selectMentions{
 	currentTimeline.firstReload=YES;
+	currentTimeline.operation=Switch;
 	[self saveScrollPosition];
     currentTimeline = weiboAccount.mentions;
 	[self reloadTimeline];
@@ -225,6 +259,7 @@
 }
 -(void)selectHome{
 	currentTimeline.firstReload=YES;
+	currentTimeline.operation=Switch;
 	[self saveScrollPosition];
 	currentTimeline = weiboAccount.homeTimeline;
 	[self reloadTimeline];
@@ -237,7 +272,9 @@
 	[self loadTimelineWithPage];
 }
 
-
+-(void)selectDirectMessage{
+	[weiboAccount getDirectMessage];
+}
 #pragma mark WebView JS 
 - (NSString*) setDocumentElement:(NSString*)element visibility:(BOOL)visibility {
 	NSString *value = visibility ? @"visible" : @"none";
@@ -313,12 +350,21 @@
     if([webFrame isEqual:[webView mainFrame]])
     {
 		[self resumeScrollPosition];
-		NSRect oriRect=[webView frame];
-		NSRect initFrame=NSMakeRect(oriRect.origin.x+oriRect.size.width, oriRect.origin.y, oriRect.size.width, oriRect.size.height);
-		[webView setFrame:initFrame];
-		[webView setHidden:NO];
-		[[webView animator] setFrame:oriRect];
-		
+		//NSRect oriRect=[webView frame];
+		//NSRect initFrame=NSMakeRect(oriRect.origin.x+oriRect.size.width, oriRect.origin.y, oriRect.size.width, oriRect.size.height);
+		//if (currentTimeline.operation==Switch) {
+		//	[webView setFrame:initFrame];
+		//	[webView setHidden:NO];
+		//	[NSAnimationContext beginGrouping];
+		//	[[NSAnimationContext currentContext] setDuration:0.18f]; // However long you want the slide to take
+			
+		//	[[webView animator] setFrame:oriRect];
+			
+		//	[NSAnimationContext endGrouping];
+		//}else {
+			[webView setHidden:NO];
+		//}
+		currentTimeline.operation=None;
     }
 	 
 }
@@ -396,8 +442,52 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 								baseURL:baseURL];
 }
 
+
+-(void)didGetFriends:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[notification object] forKey:@"users"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data] 
+								baseURL:baseURL];
+}
+
+
+-(void)didGetStatusComments:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[notification object] forKey:@"comments"];
+	NSString *commentsString=[templateEngine renderTemplateFileAtPath:commentsTemplatePath withContext:data];
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *commentsElement=(DOMHTMLElement *)[dom getElementById:@"comments"];
+	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+
+	[commentsElement setInnerHTML:commentsString];
+	[spinnerElement setInnerHTML:@""];
+}
+
 -(void)didSelectAccount:(NSNotification*)notification{
 	//切换用户，所有的timeline都进行初始化
 	[self loadRecentTimeline];
+}
+
+
+-(void)showStatusComments:(NSNotification*)notification{
+	NSString *statusId=[notification object];
+	DOMHTMLElement* element=(DOMHTMLElement*)[[[webView mainFrame] DOMDocument] getElementById:statusId];
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[element innerHTML]   forKey:@"status_html"];
+	[data setObject:spinner forKey:@"spinner"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
+								baseURL:baseURL];
+	
+	[[NSNotificationCenter defaultCenter]postNotificationName:GetStatusCommentsNotification object:statusId];
+
+}
+
+-(void)didGetDirectMessage:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[notification object] forKey:@"messages"];
+	NSString *messagesString=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
+	[data setObject:messagesString forKey:@"messages_html"];
+	NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
+	[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
 }
 @end

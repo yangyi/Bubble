@@ -22,7 +22,11 @@
 	NSString *statusesPageTemplatePath;
 	NSString *statusesTemplatePath;
 	NSString *userTemplatePath;
-	
+	NSString *userlistTemplatePath;
+	NSString *statusDetailTemplatePath;
+	NSString *commentsTemplatePath;	
+	NSString *messagePageTemplatePath;
+	NSString *messageTemplatePath;
 	NSString* loadingHTML;
 	
 	AccountController *weiboAccount;
@@ -66,5 +70,10 @@
 @property(nonatomic,retain) NSString *statusesPageTemplatePath;
 @property(nonatomic,retain) NSString *statusesTemplatePath;
 @property(nonatomic,retain) NSString *userTemplatePath;
+@property(nonatomic,retain) NSString *userlistTemplatePath;
+@property(nonatomic,retain) NSString *statusDetailTemplatePath;
+@property(nonatomic,retain) NSString *commentsTemplatePath;	
+@property(nonatomic,retain) NSString *messagePageTemplatePath;
+@property(nonatomic,retain) NSString *messageTemplatePath;
 @property(nonatomic,assign) NSImageView *imageView;
 @end

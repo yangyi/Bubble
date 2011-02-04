@@ -1,0 +1,129 @@
+.stream-title h2 {
+color: #666;
+font-size: 15px;
+font-weight: 300;
+margin-bottom: 0px;
+padding: 14px 20px 5px;
+}
+.clearfix::after {
+clear: both;
+content: '. ';
+display: block;
+height: 0px;
+line-height: 0;
+visibility: hidden;
+}
+
+.stream-item, .unselectable-stream-item {
+border-bottom: 1px solid #EBEBEB;
+clear: both;
+display: block;
+min-height: 60px;
+outline: none;
+position: relative;
+}
+
+.stream {
+background-color: white;
+margin-top: 1px;
+min-height: 600px;
+padding-top: 1px;
+position: relative;
+zoom: 1;
+}
+
+.stream .stream-item:first-child, .stream .hovered-stream-item:first-child, .related-tweets .stream-item:first-child:hover {
+border-top: 1px solid transparent !important;
+margin-top: -1px;
+}
+
+.user-content-medium {
+display: block;
+font-size: 14px;
+line-height: 17px;
+min-height: 34px;
+padding: 10px 20px;
+}
+
+.user-content-medium .user-content-image {
+display: block;
+float: left;
+height: 48px;
+margin-top: 2px;
+overflow: hidden;
+width: 48px;
+}
+
+.user-profile-link {
+cursor: pointer;
+}
+
+.user-content-medium .user-content-rest {
+float: left;
+margin-left: 10px;
+max-width: 305px;
+}
+
+.user-content-medium .user-content-rest .user-description {
+color: #666;
+font: italic normal normal 13px/18px Georgia, Palatino, serif;
+padding: 1px 0px;
+word-wrap: break-word;
+}
+
+.user-content-medium .user-content-rest .user-meta {
+color: #999;
+font-size: 11px;
+line-height: 14px;
+word-wrap: break-word;
+}
+
+.stream-user-buttons {
+float: right;
+}
+
+.stream-user-buttons .button {
+margin-left: 2px;
+}
+
+
+.button {
+background: #DDD url(http://a2.twimg.com/a/1295903943/phoenix/img/buttons/bg-btn.gif) repeat-x 0px 0px;
+border-color: #BBB #BBB #999;
+border-bottom-left-radius: 4px 4px;
+border-bottom-right-radius: 4px 4px;
+border-style: solid;
+border-width: 1px;
+border-top-left-radius: 4px 4px;
+border-top-right-radius: 4px 4px;
+color: #333 !important;
+cursor: pointer;
+display: inline-block;
+font: normal normal normal 12px/15px 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+margin: 0px;
+overflow: hidden;
+padding: 5px 9px;
+text-shadow: #F0F0F0 0px 1px;
+}
+
+.button .plus {
+background-position: -64px -16px;
+height: 14px;
+margin-bottom: 0px;
+margin-right: 1px;
+margin-top: 0px;
+width: 14px;
+}
+
+
+.button span {
+background-image: url(http://a2.twimg.com/a/1295903943/phoenix/img/sprite-icons.png);
+background-repeat: no-repeat;
+display: inline-block;
+height: 13px;
+margin-bottom: 2px;
+outline: medium none;
+overflow: hidden;
+vertical-align: bottom;
+width: 13px;
+}
