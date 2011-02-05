@@ -13,7 +13,7 @@
 typedef enum {
 	PostAction=0,
 	ReplyAction,
-	CommentAction
+	RepostAction
 }ComposeAction;
 
 @interface ComposeController : NSWindowController {

@@ -16,6 +16,9 @@
 		loadMore=@"<a href='weibo://load_older_home_timeline' target='_blank'>Load More</a>";
 		//data received notification
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(showLoadingPage:) 
+				   name:ShowLoadingPageNotification
+				 object:nil];
 		[nc addObserver:self selector:@selector(didStartHTTPConnection:) 
 				   name:HTTPConnectionStartNotification
 				 object:nil];
@@ -55,8 +58,8 @@
 				   name:SaveScrollPositionNotification 
 				 object:nil];
 		
-		[nc addObserver:self selector:@selector(showStatusComments:) 
-				   name:ShowStatusCommentsNotification 
+		[nc addObserver:self selector:@selector(didShowStatus:) 
+				   name:DidShowStatusNotification 
 				 object:nil];
 		[nc addObserver:self selector:@selector(didGetStatusComments:) 
 				   name:DidGetStatusCommentsNotification 
@@ -469,16 +472,16 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 
--(void)showStatusComments:(NSNotification*)notification{
-	NSString *statusId=[notification object];
-	DOMHTMLElement* element=(DOMHTMLElement*)[[[webView mainFrame] DOMDocument] getElementById:statusId];
+-(void)didShowStatus:(NSNotification*)notification{
+	NSDictionary *status=[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	[data setObject:[element innerHTML]   forKey:@"status_html"];
+	[data setObject:status   forKey:@"status"];
 	[data setObject:spinner forKey:@"spinner"];
 	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
 								baseURL:baseURL];
 	
-	[[NSNotificationCenter defaultCenter]postNotificationName:GetStatusCommentsNotification object:statusId];
+	[[NSNotificationCenter defaultCenter] postNotificationName:GetStatusCommentsNotification 
+														object:[NSString stringWithFormat:@"%@",[status objectForKey:@"id"]]];
 
 }
 
@@ -489,5 +492,10 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:messagesString forKey:@"messages_html"];
 	NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
 	[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
+}
+
+-(void)showLoadingPage:(NSNotification*)notification{
+	NSString *loading=@"<html><head><link href='style.css' rel='styleSheet' type='text/css' /></head><body><div class='spinner'><img class='status_spinner_image' src='spinner.gif'> Loading...</div></div></body></html>";
+	[[webView mainFrame] loadHTMLString:loading baseURL:baseURL];
 }
 @end

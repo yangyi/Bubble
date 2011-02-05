@@ -90,4 +90,8 @@
 -(NSString *) replyWithParamters:(NSMutableDictionary*)params
 				completionTarget:(id)target
 				completionAction:(SEL)action;
+
+-(NSString *) showStatusWithParamters:(NSMutableDictionary*)params 
+					 completionTarget:(id)target
+					 completionAction:(SEL)action;
 @end

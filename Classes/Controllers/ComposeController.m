@@ -24,6 +24,10 @@
 			   name:ReplyNotification
 			 object:nil];
 	
+	[nc addObserver:self selector:@selector(handleRePost:) 
+			   name:RepostNotification
+			 object:nil];
+	
 	return self;
 }
 
@@ -45,7 +49,24 @@
 -(void)handleReply:(NSNotification*)notification{
 	self.currentAction=ReplyAction;
 	self.data =[notification object];
-	[[self window] setTitle:@"评论"];
+	[[self window] setTitle:[NSString stringWithFormat:@"Reply@%@:%@",[data objectForKey:@"user"],[data objectForKey:@"content"]]];
+	[self popUp];
+}
+
+-(void)handleRePost:(NSNotification*)notification{
+	self.currentAction=RepostAction;
+	self.data = [notification object];
+	NSString *content=[data objectForKey:@"content"];
+	NSString *user=[data objectForKey:@"user"];
+	NSString *rtContent=[data objectForKey:@"rt_content"];
+	NSString *rtUser =[data objectForKey:@"rt_user"];
+	if (rtContent) {
+		[[self window] setTitle:[NSString stringWithFormat:@"Repost @%@:%@",rtUser,rtContent]];
+		[textView setString:[NSString stringWithFormat:@"//@%@:%@",user,content]];
+		[textView setSelectedRange:NSMakeRange(0, 0)];
+	}else {
+		[[self window] setTitle:[NSString stringWithFormat:@"Repost @%@:%@",user,content]];
+	}
 	[self popUp];
 }
 
@@ -77,6 +98,10 @@
 		if (currentAction==ReplyAction) {
 			[self.data setObject:[textView string] forKey:@"comment"];
 			[weiboAccount replyWithData:self.data];
+		}
+		if (currentAction==RepostAction) {
+			[self.data setObject:[textView string] forKey:@"status"];
+			[weiboAccount repostWithData:self.data];
 		}
 		
 	}

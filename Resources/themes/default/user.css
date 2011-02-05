@@ -1,4 +1,3 @@
-
 body {
 font: normal normal normal 13px/1.5 'Helvetica Neue', Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif;
 }
@@ -302,4 +301,12 @@ display: none;
 
 #front-container, #page-container {
 text-align: left;
+}
+
+.verified-icon {
+background-image: url(verified.png);
+height: 23px;
+width: 23px;
+display: inline-block;
+vertical-align: top;
 }

@@ -55,6 +55,10 @@ static AccountController *instance;
 		[nc addObserver:self selector:@selector(getStatusComments:)
 				   name:GetStatusCommentsNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(showStatus:)
+				   name:ShowStatusNotification 
+				 object:nil];
+		
 		[NSTimer scheduledTimerWithTimeInterval:60
 										 target:self 
 									   selector:@selector(checkUnread) 
@@ -245,6 +249,20 @@ static AccountController *instance;
 	
 }
 
+-(void)repostWithData:(id)data{
+	[weiboConnector repostWithParamters:data
+					  completionTarget:self
+					  completionAction:@selector(didRepostWithData:)];
+}
+
+-(void)didRepostWithData:(NSDictionary*)result{
+	NSLog(@"%@",result);
+	
+}
+
+
+
+
 -(void)getUser:(NSNotification*)notification{
 	NSDictionary *data=[notification object];
 	NSString *fetchWith=[data valueForKey:@"fetch_with"];
@@ -272,6 +290,19 @@ static AccountController *instance;
 
 -(void)didGetFriends:(NSArray*)result{
 	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetFriendsNotification
+														object:result];
+}
+
+-(void)showStatus:(NSNotification*)notification{
+	NSString *statusId=[notification object];
+	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
+	[params setObject:statusId forKey:@"id"];
+	[weiboConnector showStatusWithParamters:params
+								  completionTarget:self
+								  completionAction:@selector(didShowStatus:)];
+}
+-(void)didShowStatus:(NSDictionary*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidShowStatusNotification
 														object:result];
 }
 

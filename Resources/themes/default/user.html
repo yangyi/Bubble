@@ -11,7 +11,10 @@
           <img src="{{user.profile_image_url}}" width="128" class="thumb"/>
         </a>
         <div class="full-name">
-           <h2>{{user.screen_name}}</h2>
+           <h2>{{user.screen_name}}</h2> 
+		   {% if user.verified %}
+		   <span class="verified-icon"></span>
+		   {% /if %}
         </div>
         <div class="screen-name-and-location">
           <a href="" class="screen-name pill"><strong>@{{user.screen_name}}</strong> <span>view full profile →</span></a>

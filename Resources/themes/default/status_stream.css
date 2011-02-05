@@ -2,65 +2,37 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #000;
-	font: 12px/16px "Lucida Grande", Sans-Serif;
+	font: 14px/16px "Lucida Grande", Sans-Serif;
+}
+
+a {
+color: #2D76B9;
+text-decoration: none;
 }
 
 a:hover {
 text-decoration: underline;
 }
 
-
-.stream .stream-item:first-child, .stream .hovered-stream-item:first-child, .related-tweets .stream-item:first-child:hover {
-border-top: 1px solid transparent !important;
-margin-top: -1px;
-
-}
-.stream-items{
--webkit-border-radius: 5px;
-}
-.stream-item, .unselectable-stream-item {
+.stream-item{
 border-bottom: 1px solid #EBEBEB;
-clear: both;
-display: block;
-min-height: 60px;
-outline: none;
-position: relative;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
 }
-
 .status {
 padding: 10px 10px;
 position: relative;
--webkit-box-shadow: 0 0 5px #EBEBEB;
-/*-webkit-box-shadow: inset 0 0 5px #888;*/
 cursor: pointer;
 }
 
-
-.status-dogear {
-height: 25px;
-right: 0px;
-position: absolute;
-top: 0px;
-width: 24px;
+.status:hover{
+background:#e6efff;
 }
-
-.status-dogear-fav {
-background:transparent url(badge-favorite.png)
+.status:hover .status-actions {
+font-size: 11px;
+visibility: visible;
 }
-
-
-.avatar {
-float: left;
-overflow: hidden;
-width: 50px;
-height: 50px;
-border-style: none;
--webkit-border-radius: 4px;
-}
-
 
 .status-content {
-font-size: 14px;
 margin-left: 58px;
 min-height: 48px;
 }
@@ -76,10 +48,7 @@ font-weight: bold;
 font-size:14;
 }
 
-a {
-color: #2D76B9;
-text-decoration: none;
-}
+
 .full-name {
 color: #999;
 font-size: 12px;
@@ -96,22 +65,11 @@ color: #999 !important;
 font-size: 11px;
 }
 
+/*操作相关*/
 .status-actions {
 font-size: 11px;
 visibility: hidden;
 }
-
-.status:hover{
-background:#e6efff;
-}
-.status:hover .status-actions {
-font-size: 11px;
-visibility: visible;
-}
-
-
-
-
 
 .status-actions a span i {
 display: inline-block;
@@ -153,7 +111,7 @@ background-position: -192px 0px;
 background-position: -48px 0px;
 }
 
-
+/*附件图片*/
 .attachments img{
 -webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px;
 background: white;
@@ -171,6 +129,7 @@ float:left;
 	clear: both;
 }
 
+/*引用的状态块*/
 div.bubble blockquote {
 	margin:10px 0px 10px 0px;
 	padding: 0px;
@@ -184,6 +143,32 @@ div.bubble blockquote p {
 	padding: 0px;
 }
 
+
+
+
+/*边角标志*/
+.status-dogear {
+height: 25px;
+right: 0px;
+position: absolute;
+top: 0px;
+width: 24px;
+}
+.status-dogear-fav {
+background:transparent url(badge-favorite.png)
+}
+
+/*头像*/
+.avatar {
+float: left;
+overflow: hidden;
+width: 50px;
+height: 50px;
+border-style: none;
+-webkit-border-radius: 4px;
+}
+
+/*等待图标*/
 .spinner{
 	text-align: center;
 	margin: 16px;
@@ -199,13 +184,21 @@ div.bubble blockquote p {
 	opacity: 0.5;
 }
 
-
-.comments-header{
-height:15px;
-background: url(gapdot.png) center no-repeat;
-}
+/*单条状态页面*/
 .status-detail{
 background:#e6efff;
+}
+.status-detail .status-content{
+font-size:18px;
+}
+.status-detail .status-actions {
+font-size: 11px;
+visibility: visible;
+}
+
+.gap{
+height:15px;
+background: url(gapdot.png) center no-repeat;
 }
 
 .stream-end{
@@ -213,15 +206,8 @@ height:25px;
 background: url(end-of-stream.png) center no-repeat;
 }
 
-.message {
-padding: 10px 10px;
-cursor: pointer;
-}
 
-.status-detail .status-actions {
-font-size: 11px;
-visibility: visible;
-}
+
 
 .status_bar {
 	position: fixed;
@@ -248,4 +234,76 @@ display: inline-block;
 height: 15px;
 width: 15px;
 margin-bottom:-3px;
+}
+
+
+
+/**********私信相关***************/
+.message {
+padding: 10px 10px;
+cursor: pointer;
+}
+
+.stream-tabs {
+border-bottom: 1px solid #EEE;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
+clear: both;
+display: block;
+height: 30px;
+list-style-type: none;
+margin: 0px;
+padding: 8px 10px 0px 10px ;
+background: #E6E6E6;
+position:fixed;
+z-index:1;
+width:100%;
+}
+
+.message-header{
+height:40px;
+}
+
+.stream-tabs .stream-tab {
+border-top-left-radius: 4px 4px;
+border-top-right-radius: 4px 4px;
+cursor: pointer;
+float: left;
+margin: 0px;
+padding: 0px;
+position: relative;
+}
+li {
+display: list-item;
+}
+.stream-tabs {
+list-style-type: none;
+}
+
+ul {
+list-style: disc;
+}
+
+.stream-tabs .stream-tab.active .tab-text, .stream-tabs .stream-tab.active .tab-text:hover {
+background: white;
+border-color: #EEE #EEE white;
+color: #333;
+font-weight: bold;
+outline: none;
+}
+.stream-tabs .tab-text {
+-webkit-border-radius: inherit;
+border: 1px solid transparent;
+border-radius: inherit;
+cursor: pointer;
+display: block;
+line-height: 24px;
+outline: none;
+overflow: hidden;
+padding: 3px 10px 2px;
+text-decoration: none;
+text-shadow: white 0px 1px 0px;
+}
+
+.stream-tab:hover{
+background:#e6efff;
 }

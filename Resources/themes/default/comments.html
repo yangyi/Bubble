@@ -31,7 +31,7 @@
       
       <span class="status-actions">
             <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
-            <a href="weibo://reply?cid={{comment.id}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+            <a href="weibo://reply?id={{comment.status.id}}&cid={{comment.id}}&user={{comment.user.screen_name}}&content={{comment.text|weibo_content_truncate}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
       </span>
     </div>
     

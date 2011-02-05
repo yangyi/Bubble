@@ -128,7 +128,7 @@
 	NSString *sid=[params objectForKey:@"id"];
 	NSString *cid=[params objectForKey:@"cid"];
 	if (cid) {
-		[postBody appendData:[[NSString stringWithFormat:@"comment=%@&cid=%@&source=%@",comment,cid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+		[postBody appendData:[[NSString stringWithFormat:@"comment=%@&id=%@&cid=%@&source=%@",comment,sid,cid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
 	}else {
 		[postBody appendData:[[NSString stringWithFormat:@"comment=%@&id=%@&source=%@",comment,sid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
 	}
@@ -141,6 +141,24 @@
 					   completionAction:(SEL)action];	
 
 }
+
+-(NSString *) repostWithParamters:(NSMutableDictionary*)params
+				 completionTarget:(id)target
+				 completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/repost.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	NSString *status=[params objectForKey:@"status"];
+	NSString *sid=[params objectForKey:@"id"];
+	[postBody appendData:[[NSString stringWithFormat:@"status=%@&id=%@&source=%@",status,sid,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
+}
+	
 -(NSString *) updateWithStatus:(NSString*)status				  
 			  completionTarget:(id)target
 			  completionAction:(SEL)action{
@@ -226,6 +244,19 @@
 					   completionAction:(SEL)action];
 	
 }
+-(NSString *) showStatusWithParamters:(NSMutableDictionary*)params 
+							completionTarget:(id)target
+							completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/show/:id.json"];
+	
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
+}
+
 
 -(NSString *) getDirectMessageWithParamters:(NSMutableDictionary*)params 
 						   completionTarget:(id)target

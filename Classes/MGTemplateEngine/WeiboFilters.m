@@ -8,9 +8,11 @@
 
 #import "WeiboFilters.h"
 #import "NSDateAdditions.h"
+
 #define WEIBO_DATE_FORMAT		@"weibo_date_format"
 #define WEIBO_CONTENT_FORMAT    @"weibo_content_format"
 #define WEIBO_LINK_TARGET_BLANK @"weibo_link_target_blank"
+#define WEIBO_CONTENT_TRUNCATE @"weibo_content_truncate"
 
 #define AT_STRING @"(@)([\\x{4e00}-\\x{9fa5}A-Za-z0-9_\\-]+)"
 #define AT_REPLACE_STRING @"<a href='weibo://user?fetch_with=screen_name&value=$2' target='_blank'>$1$2</a> "
@@ -20,10 +22,11 @@
 #define LINK_STRING @"(http://sinaurl.cn/[a-zA-Z0-9]+)"
 #define LINK_REPLACE_STRING @"<a href=\"$1\" target=\"_blank\">$1</a>"
 
+const int TRUNCATE_LENGTH=20;
 @implementation WeiboFilters
 - (NSArray *)filters{
 	return [NSArray arrayWithObjects:
-			WEIBO_DATE_FORMAT, WEIBO_CONTENT_FORMAT,WEIBO_LINK_TARGET_BLANK,
+			WEIBO_DATE_FORMAT, WEIBO_CONTENT_FORMAT,WEIBO_LINK_TARGET_BLANK,WEIBO_CONTENT_TRUNCATE,
 			nil];
 }
 - (NSObject *)filterInvoked:(NSString *)filter withArguments:(NSArray *)args onValue:(NSObject *)value{
@@ -55,6 +58,13 @@
 		NSMutableString *link=[NSMutableString stringWithFormat:@"%@",value];
 		[link replaceOccurrencesOfRegex:@"<a" withString:@"<a target=\"_blank\" "];
 		return link;
+	}
+	
+	if ([filter isEqualToString:WEIBO_CONTENT_TRUNCATE]) {
+		NSString *content=[NSString stringWithFormat:@"%@",value];
+		int stringLength=content.length;
+		int length=stringLength<TRUNCATE_LENGTH?stringLength:TRUNCATE_LENGTH;
+		return [NSString stringWithFormat:@"%@...",[content substringToIndex:length]];
 	}
 	
 	return value;

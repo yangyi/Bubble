@@ -90,8 +90,12 @@
       
       <span class="status-actions">
             <a href="#" class="favorite-action"  title="Favorite"><span><i></i><b>Favorite</b></span></a>
-            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
-            <a href="weibo://reply?id={{status.id}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+		    {% if status.retweeted_status %}
+            <a href="weibo://repost?id={{status.retweeted_status.id}}&rt_content={{status.retweeted_status.text|weibo_content_truncate}}&rt_user={{status.retweeted_status.user.screen_name}}&content={{status.text}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            {% else %}
+			<a href="weibo://repost?id={{status.id}}&content={{status.text|weibo_content_truncate}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+			{% /if %}
+			<a href="weibo://reply?id={{status.id}}&user={{status.user.screen_name}}&content={{status.text|weibo_content_truncate}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
       </span>
     </div>
     
@@ -99,5 +103,8 @@
   
 </div>
 </div>
+{% if status.gap %}
+<div class="gap"></div>
+{% /if %}
 
 {% /for %}
