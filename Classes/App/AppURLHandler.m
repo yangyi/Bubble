@@ -7,7 +7,7 @@
 //
 
 #import "AppURLHandler.h"
-
+#import "AccountController.h"
 
 @implementation AppURLHandler
 -(void)handleURL:(NSString*)urlString{	
@@ -22,6 +22,8 @@
 	
 	NSString *schema = [url scheme];
 	NSString *host = [url host];
+	NSString *add=[[url queryArgumentForKey:@"add"]
+				   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	if ([schema isEqualToString:@"weibo"]) {		
 		if ([host isEqualToString:@"load_older_home_timeline"]) {
 			[[NSNotificationCenter defaultCenter] postNotificationName:StartLoadOlderTimelineNotification object:nil];
@@ -32,6 +34,10 @@
 			[[NSNotificationCenter defaultCenter] postNotificationName:DidClickTimelineNotification object:statusId];
 		}
 		if ([host isEqualToString:@"user"]) {
+			if (!add) {
+				[[PathController instance] add:urlString];
+			}
+			
 			[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
 			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
@@ -46,6 +52,10 @@
 			[[NSNotificationCenter defaultCenter]postNotificationName:DisplayImageNotification object:imageUrl];
 		}
 		if ([host isEqualToString:@"friends"]) {
+			if (!add) {
+				[[PathController instance] add:urlString];
+			}
+			
 			[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
 			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
@@ -53,6 +63,9 @@
 			[[NSNotificationCenter defaultCenter]postNotificationName:GetFriendsNotification object:screenName];
 		}
 		if ([host isEqualToString:@"status_comments"]) {
+			if (!add) {
+				[[PathController instance] add:urlString];
+			}
 			[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
 			NSString *statusId=[[url queryArgumentForKey:@"sid"] 
@@ -108,6 +121,11 @@
 			}
 			[[NSNotificationCenter defaultCenter]postNotificationName:RepostNotification object:data];
 
+		}
+		if ([host isEqualToString:@"create_favorites"]) {
+			NSString *sid=[[url queryArgumentForKey:@"id"] 
+						   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[[AccountController instance] createFavorites:sid];
 		}
 	}
 	

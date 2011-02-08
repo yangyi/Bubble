@@ -89,7 +89,7 @@
       </a>
       
       <span class="status-actions">
-            <a href="#" class="favorite-action"  title="Favorite"><span><i></i><b>Favorite</b></span></a>
+            <a href="weibo://create_favorites?id={{status.id}}" class="favorite-action"  title="Favorite"><span><i></i><b>Favorite</b></span></a>
 		    {% if status.retweeted_status %}
             <a href="weibo://repost?id={{status.retweeted_status.id}}&rt_content={{status.retweeted_status.text|weibo_content_truncate}}&rt_user={{status.retweeted_status.user.screen_name}}&content={{status.text}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
             {% else %}

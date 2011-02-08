@@ -17,6 +17,8 @@ typedef enum {
 //Status Finished Notification,Tell webview and mainWindow to update
 #define ReloadTimelineNotification @"ReloadTimelineNotification"
 #define ShowLoadingPageNotification @"ShowLoadingPageNotification"
+#define AccountVerifiedNotification @"AccountVerifiedNotification"
+
 //HTTP Connection Notification
 #define HTTPConnectionErrorNotification @"HTTPConnectionErrorNotification"
 #define HTTPConnectionStartNotification @"HTTPConnectionStartNotification"
@@ -50,4 +52,6 @@ typedef enum {
 
 #define ReplyNotification @"ReplyNotification"
 #define RepostNotification @"RepostNotification"
+
+#define PathChangedNotification @"PathChangedNotification"
 

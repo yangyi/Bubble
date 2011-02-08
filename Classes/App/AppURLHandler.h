@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "AIURLAdditions.h"
 #import "WeiboGlobal.h"
+#import "PathController.h"
 @interface AppURLHandler : NSObject {
 
 }

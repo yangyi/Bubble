@@ -64,7 +64,7 @@ const int TRUNCATE_LENGTH=20;
 		NSString *content=[NSString stringWithFormat:@"%@",value];
 		int stringLength=content.length;
 		int length=stringLength<TRUNCATE_LENGTH?stringLength:TRUNCATE_LENGTH;
-		return [NSString stringWithFormat:@"%@...",[content substringToIndex:length]];
+		return [[NSString stringWithFormat:@"%@...",[content substringToIndex:length]] urlEncoded];
 	}
 	
 	return value;

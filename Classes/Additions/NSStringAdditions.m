@@ -22,5 +22,15 @@
     return [uuidStr autorelease];
 }
 
+-(NSString *) urlEncoded
+{
+	CFStringRef urlString = CFURLCreateStringByAddingPercentEscapes(
+																	NULL,
+																	(CFStringRef)self,
+																	NULL,
+																	(CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
+																	kCFStringEncodingUTF8 );
+    return [(NSString *)urlString autorelease];
+}
 
 @end

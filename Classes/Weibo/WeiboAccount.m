@@ -10,5 +10,5 @@
 
 
 @implementation WeiboAccount
-@synthesize username,password;
+@synthesize username,password,screenName;
 @end

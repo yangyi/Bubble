@@ -68,7 +68,17 @@
 									 completionTarget:self
 									 completionAction:@selector(didLoadRecentTimeline:)];
 			break;
-
+		case DirectMessages:
+			[params setObject:@"5" forKey:@"count"];
+			[weiboConnector getDirectMessagesWithParameters:params
+										   completionTarget:self
+										   completionAction:@selector(didLoadRecentTimeline:)];
+			break;
+		case Favorites:
+			[weiboConnector getFavoritesWithParameters:params
+									  completionTarget:self
+									  completionAction:@selector(didLoadRecentTimeline:)];
+			break;
 		default:
 			break;
 	}
@@ -105,6 +115,21 @@
 			[weiboConnector getMentionsWithParameters:params
 									 completionTarget:self
 									 completionAction:@selector(didLoadNewerTimeline:)];
+			break;
+		case Comments:
+			[weiboConnector getCommentsWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadNewerTimeline:)];
+			break;
+		case DirectMessages:
+			[weiboConnector getDirectMessagesWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadNewerTimeline:)];
+			break;
+		case Favorites:
+			[weiboConnector getFavoritesWithParameters:params
+										   completionTarget:self
+										   completionAction:@selector(didLoadNewerTimeline:)];
 			break;
 		default:
 			break;
@@ -152,6 +177,11 @@
 			break;
 		case Comments:
 			[weiboConnector getCommentsWithParameters:params
+									 completionTarget:self
+									 completionAction:@selector(didLoadOlderTimeline:)];
+			break;
+		case DirectMessages:
+			[weiboConnector getDirectMessagesWithParameters:params
 									 completionTarget:self
 									 completionAction:@selector(didLoadOlderTimeline:)];
 			break;

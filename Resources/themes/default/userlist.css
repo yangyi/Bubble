@@ -1,3 +1,9 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font: 14px/16px "Lucida Grande", Sans-Serif;
+}
 .stream-title h2 {
 color: #666;
 font-size: 15px;
@@ -13,30 +19,19 @@ height: 0px;
 line-height: 0;
 visibility: hidden;
 }
-
-.stream-item, .unselectable-stream-item {
+.stream-item{
 border-bottom: 1px solid #EBEBEB;
-clear: both;
-display: block;
-min-height: 60px;
-outline: none;
-position: relative;
+-webkit-box-shadow: 0 0 2px #EBEBEB;
 }
-
 .stream {
-background-color: white;
-margin-top: 1px;
 min-height: 600px;
 padding-top: 1px;
 position: relative;
 zoom: 1;
 }
-
-.stream .stream-item:first-child, .stream .hovered-stream-item:first-child, .related-tweets .stream-item:first-child:hover {
-border-top: 1px solid transparent !important;
-margin-top: -1px;
+.stream-item:hover{
+background:#e6efff;
 }
-
 .user-content-medium {
 display: block;
 font-size: 14px;
@@ -61,7 +56,6 @@ cursor: pointer;
 .user-content-medium .user-content-rest {
 float: left;
 margin-left: 10px;
-max-width: 305px;
 }
 
 .user-content-medium .user-content-rest .user-description {
@@ -104,6 +98,14 @@ margin: 0px;
 overflow: hidden;
 padding: 5px 9px;
 text-shadow: #F0F0F0 0px 1px;
+}
+.avatar {
+float: left;
+overflow: hidden;
+width: 50px;
+height: 50px;
+border-style: none;
+-webkit-border-radius: 4px;
 }
 
 .button .plus {

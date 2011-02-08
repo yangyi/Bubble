@@ -109,7 +109,7 @@
 		//下面不起作用的原因是，需要在webview的delegate中的webViewDidFinishLoad方法中写这个才有作用，因为执行到这里的时候webview还没加载好
 		//[self setDocumentElement:@"html" innerHTML:spinner];
 		//loadRecentHometimeline
-		currentTimeline=weiboAccount.homeTimeline;
+		[PathController instance].currentTimeline=weiboAccount.homeTimeline;
 		
 		//scroll 事件
 		NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
@@ -125,9 +125,9 @@
 -(void)webviewContentBoundsDidChange:(NSNotification *)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	if ([[scrollView contentView] bounds].origin.y==0) {
-		if (currentTimeline.operation==None) {
+		if ([PathController instance].currentTimeline.operation==None) {
 			//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
-			currentTimeline.unread=NO;
+			[PathController instance].currentTimeline.unread=NO;
 			[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
 		}
 
@@ -140,25 +140,25 @@
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
 	DOMHTMLElement *spinnerEle=(DOMHTMLElement *)[dom getElementById:@"spinner"];
 	[spinnerEle setInnerHTML:spinner];
-	[currentTimeline loadOlderTimeline];
+	[[PathController instance].currentTimeline loadOlderTimeline];
 }
 
 -(void)loadRecentTimeline{
 	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
 	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
 								baseURL:baseURL];
-	[currentTimeline loadRecentTimeline];
+	[[PathController instance].currentTimeline loadRecentTimeline];
 }
 
 -(void)loadTimelineWithPage{
 	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
 	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
 								baseURL:baseURL];
-	[currentTimeline loadTimelineWithPage:@"1"];
+	[[PathController instance].currentTimeline loadTimelineWithPage:@"1"];
 }
 
 -(void)didReloadTimeline:(NSNotification *)notification{
-	currentTimeline.operation=Reload;
+	[PathController instance].currentTimeline.operation=Reload;
 	[self reloadTimeline];
 }
 
@@ -180,13 +180,13 @@
 	NSInteger relativeOffset=scrollViewBounds.origin.y-[element offsetTop];
 	NSDictionary *scrollPosition=[NSDictionary dictionaryWithObjectsAndKeys:itemId,@"itemId",
 								  [NSNumber numberWithInt:relativeOffset],@"relativeOffset",nil];
-	[[NSUserDefaults standardUserDefaults] setValue:scrollPosition forKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,currentTimeline.typeName]];
+	[[NSUserDefaults standardUserDefaults] setValue:scrollPosition forKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,[PathController instance].currentTimeline.typeName]];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)resumeScrollPosition{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
-	NSDictionary *scrollPosiotion=[[NSUserDefaults standardUserDefaults] valueForKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,currentTimeline.typeName]];
+	NSDictionary *scrollPosiotion=[[NSUserDefaults standardUserDefaults] valueForKey:[NSString stringWithFormat:@"statuses/%@/%@.scrollPosition",[[AccountController instance] currentAccount].username,[PathController instance].currentTimeline.typeName]];
 	NSString *itemId=[scrollPosiotion valueForKey:@"itemId"];
 	NSNumber *relativeOffset=[scrollPosiotion valueForKey:@"relativeOffset"];
 	DOMElement* element=[[[webView mainFrame] DOMDocument] getElementById:itemId];
@@ -197,7 +197,9 @@
 #pragma mark Select View
 //选择home，未读状态设置为NO，将hometimeline中的statusArray渲染出来，设置lastReadStatusId为最新的status的id
 -(void) reloadTimeline{
-	
+	if ([PathController instance].currentIndex>-1) {
+		return;
+	}
 	NSImage* image;
 	NSBitmapImageRep* rep;
 	[webView lockFocus];
@@ -210,10 +212,11 @@
 	[imageView setImage: image];
 	
 	[webView setHidden:YES];
-	if (currentTimeline.data==nil) {
-		switch (currentTimeline.timelineType) {
+	if ([PathController instance].currentTimeline.data==nil) {
+		switch ([PathController instance].currentTimeline.timelineType) {
 			case Home:
 			case Comments:
+			case DirectMessages:
 			case Mentions:
 				[self loadRecentTimeline];
 				break;
@@ -225,58 +228,70 @@
 		}
 		return;
 	}
-	if (!currentTimeline.firstReload) {
+	if (![PathController instance].currentTimeline.firstReload) {
 		[self saveScrollPosition];
 	}else {
-		currentTimeline.firstReload=NO;
+		[PathController instance].currentTimeline.firstReload=NO;
 	}
 
 	
 	//////////////
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-
-	[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:currentTimeline.data forKey:@"statuses"]] 
+	if ([PathController instance].currentTimeline.timelineType==DirectMessages) {
+		[data setObject:[PathController instance].currentTimeline.data forKey:@"messages"];
+		NSString *messagesString=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
+		[data setObject:messagesString forKey:@"messages_html"];
+		[data setObject:loadMore forKey:@"load_more"];
+		NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
+		[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
+		
+	}else {
+		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]] 
 				 forKey:@"statuses"];
-	[data setObject:loadMore forKey:@"load_more"];
-	
-	//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-								baseURL:baseURL];
-
+		[data setObject:loadMore forKey:@"load_more"];
+		
+		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
+		[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+									baseURL:baseURL];
+	}
 }
 
 -(void)selectMentions{
-	currentTimeline.firstReload=YES;
-	currentTimeline.operation=Switch;
+	[PathController instance].currentTimeline.firstReload=YES;
+	[PathController instance].currentTimeline.operation=Switch;
 	[self saveScrollPosition];
-    currentTimeline = weiboAccount.mentions;
+    [PathController instance].currentTimeline = weiboAccount.mentions;
 	[self reloadTimeline];
 
 }
 
 -(void)selectComments{
-	currentTimeline.firstReload=YES;
+	[PathController instance].currentTimeline.firstReload=YES;
 	[self saveScrollPosition];
-	currentTimeline=weiboAccount.comments;
+	[PathController instance].currentTimeline=weiboAccount.comments;
 	[self reloadTimeline];
 }
 -(void)selectHome{
-	currentTimeline.firstReload=YES;
-	currentTimeline.operation=Switch;
+	[PathController instance].currentTimeline.firstReload=YES;
+	[PathController instance].currentTimeline.operation=Switch;
 	[self saveScrollPosition];
-	currentTimeline = weiboAccount.homeTimeline;
+	[PathController instance].currentTimeline = weiboAccount.homeTimeline;
 	[self reloadTimeline];
 }
 
 -(void)selectFavorites{
-	currentTimeline.firstReload=YES;
+	[PathController instance].currentTimeline.firstReload=YES;
 	[self saveScrollPosition];
-	currentTimeline = weiboAccount.favorites;
+	[PathController instance].currentTimeline = weiboAccount.favorites;
 	[self loadTimelineWithPage];
 }
 
 -(void)selectDirectMessage{
-	[weiboAccount getDirectMessage];
+	[PathController instance].currentTimeline.firstReload=YES;
+	[self saveScrollPosition];
+	[PathController instance].currentTimeline = weiboAccount.directMessages;
+	[self reloadTimeline];
+	//[weiboAccount getDirectMessage];
 }
 #pragma mark WebView JS 
 - (NSString*) setDocumentElement:(NSString*)element visibility:(BOOL)visibility {
@@ -367,7 +382,7 @@
 		//}else {
 			[webView setHidden:NO];
 		//}
-		currentTimeline.operation=None;
+		[PathController instance].currentTimeline.operation=None;
     }
 	 
 }
@@ -384,13 +399,24 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 
 -(void)didLoadOlderTimeline:(NSNotification*)notification{
 	WeiboTimeline *sender=(WeiboTimeline *)[notification object];
-	if (currentTimeline==sender) {
+	if ([PathController instance].currentIndex<0&&[PathController instance].currentTimeline==sender) {
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
-		[data setObject:statuses forKey:@"statuses"];
-		NSString *olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
+
 		DOMDocument *dom=[[webView mainFrame] DOMDocument];
-		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:@"statuses"];
+		NSString *eleName;
+		NSString *olderStatuses;
+		if ([PathController instance].currentTimeline.timelineType==DirectMessages) {
+			eleName=@"messages";
+			[data setObject:statuses forKey:@"messages"];
+			olderStatuses=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
+		}else {
+			eleName=@"statuses"; 
+			[data setObject:statuses forKey:@"statuses"];
+			olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
+		}
+
+		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:eleName];
 		[oldStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatusElement innerHTML],olderStatuses]];		
 	}
 	
@@ -402,7 +428,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 
 -(void)didLoadNewerTimeline:(NSNotification*)notification{
 	WeiboTimeline *sender=(WeiboTimeline*)[notification object];
-	if (currentTimeline==sender) {
+	if ([PathController instance].currentIndex<0&&[PathController instance].currentTimeline==sender) {
 		[self saveScrollPosition];
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
@@ -420,7 +446,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 
 -(void)didLoadTimelineWithPage:(NSNotification*)notification{
 	WeiboTimeline *sender=(WeiboTimeline*)[notification object];
-	if (currentTimeline==sender) {
+	if ([PathController instance].currentIndex<0&&[PathController instance].currentTimeline==sender) {
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
 		[data setObject:statuses forKey:@"statuses"];
@@ -495,7 +521,11 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)showLoadingPage:(NSNotification*)notification{
-	NSString *loading=@"<html><head><link href='style.css' rel='styleSheet' type='text/css' /></head><body><div class='spinner'><img class='status_spinner_image' src='spinner.gif'> Loading...</div></div></body></html>";
+	NSString *loading=@"<html><head><link href='style.css' rel='styleSheet' type='text/css' /></head>"
+	                  "<body><div class='spinner'>"
+	                  "<img class='status_spinner_image' src='spinner.gif'/> "
+	                  "Loading...</div></div></body></html>";
+	
 	[[webView mainFrame] loadHTMLString:loading baseURL:baseURL];
 }
 @end

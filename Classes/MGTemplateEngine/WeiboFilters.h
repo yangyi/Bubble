@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MGTemplateFilter.h"
 #import "RegexKitLite.h"
-
+#import "NSStringAdditions.h"
 @interface WeiboFilters : NSObject<MGTemplateFilter> {
 
 }

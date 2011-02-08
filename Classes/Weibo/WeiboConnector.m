@@ -119,7 +119,7 @@
 					   completionAction:action];
 }
 
--(NSString *) replyWithParamters:(NSMutableDictionary*)params
+-(NSString *) replyWithParameters:(NSMutableDictionary*)params
 				completionTarget:(id)target
 				completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"statuses/comment.json"];
@@ -206,7 +206,7 @@
 	
 }
 
--(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getUserWithParameters:(NSMutableDictionary*)params 
 				  completionTarget:(id)target
 				  completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"users/show.json"];
@@ -220,7 +220,7 @@
 }
 
 
--(NSString *) getFriendsWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getFriendsWithParameters:(NSMutableDictionary*)params 
 				  completionTarget:(id)target
 				  completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"statuses/friends.json"];
@@ -232,7 +232,7 @@
 					   completionAction:(SEL)action];
 	
 }
--(NSString *) getStatusCommentsWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getStatusCommentsWithParameters:(NSMutableDictionary*)params 
 					 completionTarget:(id)target
 					 completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"statuses/comments.json"];
@@ -244,7 +244,7 @@
 					   completionAction:(SEL)action];
 	
 }
--(NSString *) showStatusWithParamters:(NSMutableDictionary*)params 
+-(NSString *) showStatusWithParameters:(NSMutableDictionary*)params 
 							completionTarget:(id)target
 							completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"statuses/show/:id.json"];
@@ -258,7 +258,7 @@
 }
 
 
--(NSString *) getDirectMessageWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getDirectMessagesWithParameters:(NSMutableDictionary*)params 
 						   completionTarget:(id)target
 						   completionAction:(SEL)action{
 	NSString *path=[NSString stringWithString:@"direct_messages.json"];
@@ -267,6 +267,38 @@
 								   body:nil
 					   completionTarget:(id)target
 					   completionAction:(SEL)action];
+}
+
+-(NSString *) createFavoritesWithParameters:(NSMutableDictionary*)params
+				 completionTarget:(id)target
+				 completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"favorites/create.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	[postBody appendData:[[NSString stringWithFormat:@"id=%@&source=%@",[params objectForKey:@"id"],_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
+	
+}
+
+-(NSString *) destroyFavoritesWithParameters:(NSMutableDictionary*)params
+						   completionTarget:(id)target
+						   completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"favorites/destroy.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	[postBody appendData:[[NSString stringWithFormat:@"id=%@&source=%@",[params objectForKey:@"id"],_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
+	
 }
 
 #pragma mark Request Send Method

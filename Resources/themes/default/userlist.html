@@ -1,36 +1,49 @@
 <head>
-<link rel="stylesheet" href="./userlist.css" type="text/css"/>
+<link rel="stylesheet" href="./status_stream.css" type="text/css"/>
 
 </head>
-
-<div class="stream-manager">
-  <div class="stream-title"><h2>1,876 followers</h2></div>
-  <div class="stream-container">
-	<div class="stream">
-		<div class="stream-items" id="stream-items">
+<body>
 {% for user in users %}
-  <div class="stream-item" data-item-id="61671913" data-item-type="user">
-  <div class="stream-item-content user-content-medium clearfix" data-screen-name="{{user.name}}">
-  <img src="{{user.profile_image_url}}" class="user-content-image user-profile-link" />
+<div class="stream-item">
+<div class="stream-item-content status">
   
-  <div class="user-content-rest">
-    <span class="user-name">
-      <a class="user-profile-link" href="" title="{{user.name}}"><strong>{{user.name}}</strong></a>
-      <span class="full-name">{{user.name}}</span>
-	</span>
-    <div class="user-description">{{user.description}}</div>
-    <div class="user-meta"> </div>
+  <div class="avatar">
+      <a href="weibo://user?fetch_with=user_id&value={{user.id}}">
+		<img height="50" width="50" src="{{user.profile_image_url}}" class="user-profile-link"/>
+	  </a>
   </div>
   
-  <div class="stream-user-buttons">
-  <!-- don't render follow button if it's you -->
-		<div class="button follow-button"  original-title=""><span class="plus"></span> Follow</div>
+  
+  <div class="status-content">
+  
+    <div class="status-row">
+      <span class="user-name">
+        <a class="screen-name user-profile-link" >{{ user.screen_name }}</a>
+      </span>
+	          <span class="full-name">from {{ user.location }}  </span>
+    </div>
+    
+    <div class="status-row">
+      <div class="status-text">
+	  {{user.description}}
+	  </div>
+    </div>
+    
+    <div class="status-row">
+      <a href="" class="status-timestamp">
+      	<span>{{ user.created_at|weibo_date_format }}</span>
+      </a>
+      
+      <span class="status-actions">
+            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            <a href="" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+      </span>
+    </div>
+    
   </div>
   
 </div>
 </div>
+
 {% /for %}
-		</div>
-	</div>
-   </div>
-</div>
+</body>

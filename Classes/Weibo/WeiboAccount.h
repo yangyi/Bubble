@@ -12,7 +12,9 @@
 @interface WeiboAccount : NSObject {
 	NSString *username;
 	NSString *password;
+	NSString *screenName;
 }
 @property(nonatomic,retain) NSString *username;
 @property(nonatomic,retain) NSString *password;
+@property(nonatomic,retain) NSString *screenName;
 @end

@@ -13,25 +13,28 @@
 #import "ComposeController.h"
 #import "NSWindowAdditions.h"
 #import "ImagePanelController.h"
-
+#import "UserInputController.h"
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
 	IBOutlet NSImageView *imageView;
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
+	IBOutlet NSSegmentedControl *backSegmentedControl;
 	IBOutlet NSTextField *messageText;
 	IBOutlet NSProgressIndicator * connectionProgressIndicator;
 	IBOutlet NSWindow *composeWindow;
-	IBOutlet NSPopUpButton *userButton;
+	IBOutlet NSImageView *avatarView;
+	IBOutlet NSMenu *userMenu;
 	HTMLController *htmlController;
 	ComposeController *composeController;
 	ImagePanelController *imagePanelController;
+	UserInputController *userInputController;
 	
 }
 -(id)init;
 -(IBAction)selectViewWithSegmentControl:(id)sender;
-
+-(IBAction)selectBackWithSegmentControl:(id)sender;
 -(IBAction)compose:(id)sender;
-- (IBAction)disabledMenuItem:(id)sender;
+-(IBAction)disabledMenuItem:(id)sender;
 -(void)reloadUsersMenu;
 - (NSMenuItem*)menuItemWithTitle:(NSString *)title action:(SEL)action representedObject:(id)representedObject indentationLevel:(int)indentationLevel;
 //主要是更新图标的
@@ -40,4 +43,8 @@
 -(void)didStartHTTPConnection:(NSNotification*)notification;
 -(void)didFinishedHTTPConnection:(NSNotification*)notification;
 
+
+-(IBAction)refreshTimeline:(id)sender;
+-(IBAction)openUserInput:(id)sender;
+-(IBAction)popUpUserMenu:(id)sender;
 @end

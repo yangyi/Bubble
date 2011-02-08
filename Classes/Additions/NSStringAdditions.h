@@ -12,4 +12,5 @@
 @interface NSString(Additions)
 
 	+ (NSString*) stringWithUUID;
+-(NSString *) urlEncoded;
 @end

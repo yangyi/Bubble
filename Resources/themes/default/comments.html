@@ -3,7 +3,7 @@
 <div class="stream-item-content status">
   
   <div class="avatar">
-      <a href="weibo://user?fetch_with=user_id&value={{status.user.id}}">
+      <a href="weibo://user?fetch_with=user_id&value={{comment.user.id}}">
 		<img height="50" width="50" src="{{comment.user.profile_image_url}}" class="user-profile-link"/>
 	  </a>
   </div>
@@ -30,8 +30,8 @@
       </a>
       
       <span class="status-actions">
-            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
-            <a href="weibo://reply?id={{comment.status.id}}&cid={{comment.id}}&user={{comment.user.screen_name}}&content={{comment.text|weibo_content_truncate}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
+            <a href="weibo://repost?id={{ comment.status.id }}&rt_content={{comment.status.text|weibo_content_truncate}}&rt_user={{comment.status.user.screen_name}}&content={{comment.text}}&user={{comment.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            <a href="weibo://reply?id={{ comment.status.id }}&cid={{ comment.id }}&user={{comment.user.screen_name}}&content={{comment.text|weibo_content_truncate}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
       </span>
     </div>
     
@@ -40,5 +40,8 @@
 </div>
 </div>
 
+{% if comment.gap %}
+<div class="gap"></div>
+{% /if %}
 
 {% /for %}

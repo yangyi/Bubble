@@ -12,6 +12,7 @@
 #import "AccountController.h"
 #import "WeiboGlobal.h"
 #import "TemplateEngine.h"
+#import "PathController.h"
 @interface HTMLController : NSObject {
 	NSString *theme;
 	WebView *webView;
@@ -32,7 +33,7 @@
 	AccountController *weiboAccount;
 	
 	//currentView 用来标记当前选择的View是什么
-	__weak WeiboTimeline *currentTimeline;
+	//__weak WeiboTimeline *currentTimeline;
 	
 	NSURL *baseURL;
 	NSString *spinner;

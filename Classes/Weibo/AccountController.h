@@ -22,10 +22,11 @@
 	WeiboTimeline *homeTimeline;
 	WeiboTimeline *mentions;
 	WeiboTimeline *comments;
+	WeiboTimeline *directMessages;
 	WeiboTimeline *favorites;
 	
 }
-+(id)instance;
++(AccountController*)instance;
 +(id)newInstance;
 -(id)init;
 -(void)dealloc;
@@ -47,9 +48,13 @@
 -(void)getDirectMessage;
 -(void)replyWithData:(id)data;
 
+-(void)createFavorites:(NSString *)statusId;
+-(void)destroyFavorites:(NSString *)statusId;
+
 @property(nonatomic,retain) WeiboAccount *currentAccount;
 @property(nonatomic,retain) WeiboTimeline *homeTimeline;
 @property(nonatomic,retain) WeiboTimeline *mentions;
 @property(nonatomic,retain) WeiboTimeline *comments;
 @property(nonatomic,retain) WeiboTimeline *favorites;
+@property(nonatomic,retain) WeiboTimeline *directMessages;
 @end

@@ -74,24 +74,33 @@
 					imageName:(NSString*)imageName
 			 completionTarget:(id)target 
 			 completionAction:(SEL)action;
--(NSString *) getUserWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getUserWithParameters:(NSMutableDictionary*)params 
 				  completionTarget:(id)target
 				  completionAction:(SEL)action;
--(NSString *) getFriendsWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getFriendsWithParameters:(NSMutableDictionary*)params 
 					 completionTarget:(id)target
 					 completionAction:(SEL)action;
--(NSString *) getStatusCommentsWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getStatusCommentsWithParameters:(NSMutableDictionary*)params 
 							completionTarget:(id)target
 							completionAction:(SEL)action;
--(NSString *) getDirectMessageWithParamters:(NSMutableDictionary*)params 
+-(NSString *) getDirectMessagesWithParameters:(NSMutableDictionary*)params 
 						   completionTarget:(id)target
 						   completionAction:(SEL)action;
 
--(NSString *) replyWithParamters:(NSMutableDictionary*)params
+-(NSString *) replyWithParameters:(NSMutableDictionary*)params
 				completionTarget:(id)target
 				completionAction:(SEL)action;
 
--(NSString *) showStatusWithParamters:(NSMutableDictionary*)params 
+-(NSString *) showStatusWithParameters:(NSMutableDictionary*)params 
 					 completionTarget:(id)target
 					 completionAction:(SEL)action;
+
+
+-(NSString *) destroyFavoritesWithParameters:(NSMutableDictionary*)params
+							completionTarget:(id)target
+							completionAction:(SEL)action;
+-(NSString *) createFavoritesWithParameters:(NSMutableDictionary*)params
+						   completionTarget:(id)target
+						   completionAction:(SEL)action;
+
 @end
