@@ -39,7 +39,6 @@ typedef enum {
 
 #define DidPostStatusNotification @"DidPostStatusNotification"
 #define DidGetUserNotification @"DidGetUserNotification"
-#define DidSelectAccountNotification @"DidSelectAccountNotification"
 #define DisplayImageNotification @"DisplayImageNotification"
 #define GetFriendsNotification @"GetFriendsNotification"
 #define DidGetFriendsNotification @"DidGetFriendsNotification"
@@ -55,3 +54,4 @@ typedef enum {
 
 #define PathChangedNotification @"PathChangedNotification"
 
+#define ShowTipMessageNotification @"ShowTipMessageNotification"

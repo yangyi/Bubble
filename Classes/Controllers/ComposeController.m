@@ -10,7 +10,7 @@
 #import "NSWindowAdditions.h"
 
 @implementation ComposeController
-@synthesize data,currentAction;
+@synthesize data,postType;
 - (id)init {
 	self = [super initWithWindowNibName:@"Compose"];
 	weiboAccount=[AccountController instance];
@@ -45,16 +45,21 @@
 	int remaining=140-[[string precomposedStringWithCanonicalMapping] length];
 	[charactersRemaining setStringValue:[NSString stringWithFormat:@"%d",remaining]];
 }
+-(void)composeNew{
+	self.postType=NormalPost;
+	[self popUp];
+	[[self window] setTitle:@"发微博"];
 
+}
 -(void)handleReply:(NSNotification*)notification{
-	self.currentAction=ReplyAction;
+	self.postType=ReplyPost;
 	self.data =[notification object];
 	[[self window] setTitle:[NSString stringWithFormat:@"Reply@%@:%@",[data objectForKey:@"user"],[data objectForKey:@"content"]]];
 	[self popUp];
 }
 
 -(void)handleRePost:(NSNotification*)notification{
-	self.currentAction=RepostAction;
+	self.postType=Repost;
 	self.data = [notification object];
 	NSString *content=[data objectForKey:@"content"];
 	NSString *user=[data objectForKey:@"user"];
@@ -84,7 +89,7 @@
 			if (textAttachment) {
 				NSFileWrapper *image=[textAttachment fileWrapper];
 				imageData=[image regularFileContents];
-				//[weiboAccount postWithStatus:[textView string] image:imageData imageName:[image preferredFilename]];
+				[weiboAccount postWithStatus:[textView string] image:imageData imageName:[image preferredFilename]];
 				upload=YES;
 				//break;
 			}
@@ -92,18 +97,21 @@
 		}
 	}
 	if (!upload) {
-		if (currentAction==PostAction) {
-			[weiboAccount postWithStatus:[textView string]];
+		switch (postType) {
+			case NormalPost:
+				[weiboAccount postWithStatus:[textView string]];
+				break;
+			case ReplyPost:
+				[self.data setObject:[textView string] forKey:@"comment"];
+				[weiboAccount reply:self.data];
+				break;
+			case Repost:
+				[self.data setObject:[textView string] forKey:@"status"];
+				[weiboAccount repost:self.data];
+				break;
+			default:
+				break;
 		}
-		if (currentAction==ReplyAction) {
-			[self.data setObject:[textView string] forKey:@"comment"];
-			[weiboAccount replyWithData:self.data];
-		}
-		if (currentAction==RepostAction) {
-			[self.data setObject:[textView string] forKey:@"status"];
-			[weiboAccount repostWithData:self.data];
-		}
-		
 	}
 	[postProgressIndicator setHidden:NO];
 	[postProgressIndicator startAnimation:self];
@@ -112,6 +120,7 @@
 -(void)didPost:(NSNotification*)notification{
 	[postProgressIndicator setHidden:YES];
 	[postProgressIndicator stopAnimation:self];
+
 	[self close];
 }
 
@@ -132,6 +141,8 @@
 - (BOOL)windowShouldClose:(id)sender{
 	[[self window] zoomOffToRect:fromRect];
 	[textView setString:@""];
+	self.data=nil;
+	[[self window] setTitle:@""];
 	[charactersRemaining setStringValue:[NSString stringWithFormat:@"%d",140]];
 	return YES;
 }

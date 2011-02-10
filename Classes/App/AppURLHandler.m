@@ -52,25 +52,48 @@
 			[[NSNotificationCenter defaultCenter]postNotificationName:DisplayImageNotification object:imageUrl];
 		}
 		if ([host isEqualToString:@"friends"]) {
+			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
+								  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 			if (!add) {
 				[[PathController instance] add:urlString];
+				[PathController instance].currentType=Following;
+				[PathController instance].idWithCurrentType=screenName;
 			}
 			
 			[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
-			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
-						  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-			[[NSNotificationCenter defaultCenter]postNotificationName:GetFriendsNotification object:screenName];
+
+			NSString *cursor=[[url queryArgumentForKey:@"cursor"] 
+								  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:screenName forKey:@"screen_name"];
+			[data setObject:cursor forKey:@"cursor"];
+			[[NSNotificationCenter defaultCenter]postNotificationName:GetFriendsNotification object:data];
 		}
 		if ([host isEqualToString:@"status_comments"]) {
+			NSString *statusId=[[url queryArgumentForKey:@"sid"] 
+								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 			if (!add) {
 				[[PathController instance] add:urlString];
+				[PathController instance].currentType=StatusDetail;
 			}
 			[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
-			NSString *statusId=[[url queryArgumentForKey:@"sid"] 
-								  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+
 			[[NSNotificationCenter defaultCenter]postNotificationName:ShowStatusNotification object:statusId];
+		}if ([host isEqualToString:@"get_comments"]) {
+			NSString *statusId=[[url queryArgumentForKey:@"id"] 
+								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSString *page=[[url queryArgumentForKey:@"page"] 
+							stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[PathController instance].idWithCurrentType=[NSString stringWithFormat:@"%@:%@",statusId,page];
+
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:statusId forKey:@"id"];
+			[data setObject:page forKey:@"page"];
+			[[NSNotificationCenter defaultCenter] postNotificationName:GetStatusCommentsNotification 
+																object:data];
 		}
 		if ([host isEqualToString:@"reply"]) {
 			NSString *sid=[[url queryArgumentForKey:@"id"] 

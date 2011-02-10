@@ -10,7 +10,7 @@
 
 static PathController *pathController;
 @implementation PathController
-@synthesize currentTimeline,currentIndex,pathArray;
+@synthesize currentTimeline,currentIndex,pathArray,currentType,idWithCurrentType;
 
 +(PathController *)instance{
 	if (pathController==nil) {

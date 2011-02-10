@@ -11,10 +11,10 @@
 
 
 typedef enum {
-	PostAction=0,
-	ReplyAction,
-	RepostAction
-}ComposeAction;
+	NormalPost=0,
+	ReplyPost,
+	Repost
+}PostType;
 
 @interface ComposeController : NSWindowController {
 	IBOutlet NSTextView *textView;
@@ -23,17 +23,18 @@ typedef enum {
 	__weak   AccountController *weiboAccount;
 	NSRect fromRect;
 	
-	ComposeAction currentAction;
+	PostType postType;
 	NSMutableDictionary *data;
 }
 -(IBAction)post:(id)sender;
 -(void)didPost:(NSNotification*)notification;
+-(void)composeNew;
 -(void)popUp;
 - (IBAction)addPicture:(id)sender;
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo;
 - (NSArray *)supportedImageTypes;
 
 @property(nonatomic,retain) NSMutableDictionary *data;
-@property(nonatomic) ComposeAction currentAction;
+@property(nonatomic) PostType postType;
 
 @end

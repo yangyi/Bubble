@@ -9,7 +9,7 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,userlistTemplatePath,statusDetailTemplatePath,commentsTemplatePath,messagePageTemplatePath,messageTemplatePath,imageView;
+@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,userlistTemplatePath,useritemTemplatePath,statusDetailTemplatePath,commentsTemplatePath,messagePageTemplatePath,messageTemplatePath,imageView;
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -51,15 +51,15 @@
 		[nc addObserver:self selector:@selector(didGetFriends:)
 				   name:DidGetFriendsNotification 
 				 object:nil];
-		[nc addObserver:self selector:@selector(didSelectAccount:) 
-				   name:DidSelectAccountNotification 
-				 object:nil];
 		[nc addObserver:self selector:@selector(didSaveScrollPosition:) 
 				   name:SaveScrollPositionNotification 
 				 object:nil];
 		
 		[nc addObserver:self selector:@selector(didShowStatus:) 
 				   name:DidShowStatusNotification 
+				 object:nil];
+		[nc addObserver:self selector:@selector(setWaitingForComments:)
+				   name:GetStatusCommentsNotification 
 				 object:nil];
 		[nc addObserver:self selector:@selector(didGetStatusComments:) 
 				   name:DidGetStatusCommentsNotification 
@@ -68,10 +68,14 @@
 		[nc addObserver:self selector:@selector(didGetDirectMessage:) 
 				   name:DidGetDirectMessageNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(showTip:) 
+				   name:ShowTipMessageNotification 
+				 object:nil];
+
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
 		[webView setPolicyDelegate:self];
-
+		[imageView setHidden:YES];
 		templateEngine=[[TemplateEngine alloc] init];
 		
 		
@@ -102,6 +106,9 @@
 		self.messageTemplatePath=[[NSBundle mainBundle] pathForResource:@"messages" 
 																  ofType:@"html" 
 															 inDirectory:@"themes/default"];
+		self.useritemTemplatePath=[[NSBundle mainBundle] pathForResource:@"useritem" 
+																 ofType:@"html" 
+															inDirectory:@"themes/default"];
 		weiboAccount=[AccountController instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
 		self.baseURL = [NSURL fileURLWithPath:basePath];
@@ -173,7 +180,7 @@
 	NSRect scrollViewBounds = [[scrollView contentView] bounds];
 	//currentTimeline.scrollPosition=scrollViewBounds.origin; // keep track of position to restore
 	DOMElement *element=[[[webView mainFrame] DOMDocument] elementFromPoint:4 y:0];
-	if ([[element getAttribute:@"class"] isNotEqualTo:@"status"]) {
+	if ([[element getAttribute:@"class"] isNotEqualTo:@"stream-item-content status"]) {
 		element=[[[webView mainFrame] DOMDocument] elementFromPoint:4 y:8];
 	}
 	NSString *itemId=[element getAttribute:@"id"];
@@ -209,9 +216,14 @@
 	[image addRepresentation:rep];
 	[rep release];
 	
-	[imageView setImage: image];
 	
-	[webView setHidden:YES];
+	if ([[PathController instance].pathArray count]==0) {
+		
+		[imageView setImage: image];
+		[imageView setHidden:NO];
+		[webView setHidden:YES];
+
+	}
 	if ([PathController instance].currentTimeline.data==nil) {
 		switch ([PathController instance].currentTimeline.timelineType) {
 			case Home:
@@ -245,7 +257,15 @@
 		NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
 		[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
 		
-	}else {
+	}/*else if ([PathController instance].currentTimeline.timelineType==Comments) {
+		[data setObject:[templateEngine renderTemplateFileAtPath:commentsTemplatePath withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"comments"]] 
+				 forKey:@"statuses"];
+		[data setObject:loadMore forKey:@"load_more"];
+		
+		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
+		[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+									baseURL:baseURL];
+	}*/else{
 		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]] 
 				 forKey:@"statuses"];
 		[data setObject:loadMore forKey:@"load_more"];
@@ -380,11 +400,13 @@
 			
 		//	[NSAnimationContext endGrouping];
 		//}else {
+		[imageView setHidden:YES];
+
 			[webView setHidden:NO];
 		//}
 		[PathController instance].currentTimeline.operation=None;
     }
-	 
+
 }
 
  
@@ -472,16 +494,36 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 
+
 -(void)didGetFriends:(NSNotification*)notification{
+	NSDictionary *result=(NSDictionary *)[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	[data setObject:[notification object] forKey:@"users"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data] 
+	[data setObject:[PathController instance].idWithCurrentType forKey:@"screen_name"];
+	[data setObject:[result objectForKey:@"users"] forKey:@"users"];
+	[data setObject:[result objectForKey:@"next_cursor"] forKey:@"next_cursor"];
+	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
+
+	NSString *friendsString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
+	[[webView mainFrame] loadHTMLString:friendsString 
 								baseURL:baseURL];
 }
 
-
+-(void)setWaitingForComments:(NSNotification*)notification{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *commentsElement=(DOMHTMLElement *)[dom getElementById:@"comments"];
+	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+	
+	[commentsElement setInnerHTML:@""];
+	[spinnerElement setInnerHTML:spinner];
+}
 -(void)didGetStatusComments:(NSNotification*)notification{
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	NSString *pathId=[PathController instance].idWithCurrentType;
+	NSArray *idArray=[pathId componentsSeparatedByString:@":"];
+	[data setObject:[idArray objectAtIndex:0] forKey:@"status_id"];
+	int page=[(NSString *)[idArray objectAtIndex:1] intValue];
+	[data setObject:[NSString stringWithFormat:@"%d",page+1] forKey:@"next_page"];
+	[data setObject:[NSString stringWithFormat:@"%d",page-1] forKey:@"previous_page"];
 	[data setObject:[notification object] forKey:@"comments"];
 	NSString *commentsString=[templateEngine renderTemplateFileAtPath:commentsTemplatePath withContext:data];
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
@@ -492,11 +534,6 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[spinnerElement setInnerHTML:@""];
 }
 
--(void)didSelectAccount:(NSNotification*)notification{
-	//切换用户，所有的timeline都进行初始化
-	[self loadRecentTimeline];
-}
-
 
 -(void)didShowStatus:(NSNotification*)notification{
 	NSDictionary *status=[notification object];
@@ -504,10 +541,8 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:status   forKey:@"status"];
 	[data setObject:spinner forKey:@"spinner"];
 	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
-								baseURL:baseURL];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:GetStatusCommentsNotification 
-														object:[NSString stringWithFormat:@"%@",[status objectForKey:@"id"]]];
+								baseURL:baseURL];	 
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"weibo://get_comments?id=%@&page=",[status objectForKey:@"id"],@"1"]]];
 
 }
 
@@ -521,11 +556,34 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)showLoadingPage:(NSNotification*)notification{
-	NSString *loading=@"<html><head><link href='style.css' rel='styleSheet' type='text/css' /></head>"
+	NSString *loading=@"<html><head><link href='status_stream.css' rel='styleSheet' type='text/css' /></head>"
 	                  "<body><div class='spinner'>"
 	                  "<img class='status_spinner_image' src='spinner.gif'/> "
-	                  "Loading...</div></div></body></html>";
+	                  "Loading...</div></div>"
+	                  "<div class='status_bar' id='status_bar'></div>" 
+					  "</body></html>";
 	
 	[[webView mainFrame] loadHTMLString:loading baseURL:baseURL];
 }
+
+-(void)showTip:(NSNotification*)notification{
+	[self showTipMessage:[notification object]];
+}
+
+-(void)showTipMessage:(NSString*)message{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"status_bar"];
+	[tipElement setInnerHTML:message];
+	[tipElement setAttribute:@"style" value:@"visibility:visible"];
+
+}
+-(void)hideTipMessage{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"status_bar"];
+	[tipElement setAttribute:@"style" value:@"visibility:hidden"];
+	
+}
+
+
 @end
+

@@ -37,17 +37,17 @@
 
 
 -(void)selectAccount:(NSString*)username;
--(void)resetTimeline;
+-(void)resetTimelines;
 -(NSString*)getPasswordForUser:(NSString*)username;
 -(void)setPasswordForUser:(NSString*)username withPassword:(NSString *)newPassword;
 -(void)removePasswordForUser:(NSString*)username;
 //weibo api related
 -(void)postWithStatus:(NSString*)status;
 -(void)postWithStatus:(NSString*)status image:(NSData*)data imageName:(NSString*)imageName;
--(void)didPostWithStatus:(id)result;
+-(void)didPost:(id)result;
 -(void)getDirectMessage;
--(void)replyWithData:(id)data;
-
+-(void)reply:(id)data;
+-(void)repost:(id)data;
 -(void)createFavorites:(NSString *)statusId;
 -(void)destroyFavorites:(NSString *)statusId;
 

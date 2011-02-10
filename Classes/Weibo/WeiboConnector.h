@@ -90,7 +90,9 @@
 -(NSString *) replyWithParameters:(NSMutableDictionary*)params
 				completionTarget:(id)target
 				completionAction:(SEL)action;
-
+-(NSString *) repostWithParamters:(NSMutableDictionary*)params
+				 completionTarget:(id)target
+				 completionAction:(SEL)action;
 -(NSString *) showStatusWithParameters:(NSMutableDictionary*)params 
 					 completionTarget:(id)target
 					 completionAction:(SEL)action;

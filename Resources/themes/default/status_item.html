@@ -1,6 +1,6 @@
 {% for status in statuses %}
-<div class="stream-item" id="{{status.id}}" ondblclick='window.open("weibo://status_comments?sid={{status.id}}")'>
-<div class="stream-item-content status">
+<div class="stream-item" ondblclick='window.open("weibo://status_comments?sid={{status.id}}")'>
+<div class="stream-item-content status" id="{{status.id}}" >
   {% if status.favorited %}
     <div class="status-dogear  status-dogear-fav"></div>
   {% else %}
@@ -93,7 +93,7 @@
 		    {% if status.retweeted_status %}
             <a href="weibo://repost?id={{status.retweeted_status.id}}&rt_content={{status.retweeted_status.text|weibo_content_truncate}}&rt_user={{status.retweeted_status.user.screen_name}}&content={{status.text}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
             {% else %}
-			<a href="weibo://repost?id={{status.id}}&content={{status.text|weibo_content_truncate}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+			<a href="weibo://repost?id={{status.id}}&content={{status.text|weibo_content_truncate}}&user={{status.user.screen_name}}" class="retweet-action" title="Retweet"><span><i></i><b>Repost</b></span></a>
 			{% /if %}
 			<a href="weibo://reply?id={{status.id}}&user={{status.user.screen_name}}&content={{status.text|weibo_content_truncate}}" class="reply-action" title="Reply"><span><i></i><b>Reply</b></span></a>
       </span>

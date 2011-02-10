@@ -159,15 +159,14 @@ static AccountController *instance;
 		currentAccount.username=username;
 		currentAccount.password=[self getPasswordForUser:username];
 		[[NSUserDefaults standardUserDefaults]setValue:currentAccount.username forKey:@"currentAccount"];
-		[self resetTimeline];
-		[[NSNotificationCenter defaultCenter] postNotificationName:DidSelectAccountNotification
-															object:nil];
+		[self resetTimelines];
+		[self verifyCurrentAccount];
 	}
 }
 
 
 //reset all the timeline
--(void)resetTimeline{
+-(void)resetTimelines{
 	[homeTimeline reset];
 	[mentions reset];
 	[comments reset];
@@ -235,42 +234,35 @@ static AccountController *instance;
 -(void)postWithStatus:(NSString*)status{
 	[weiboConnector updateWithStatus:status 
 					completionTarget:self 
-					completionAction:@selector(didPostWithStatus:)];
+					completionAction:@selector(didPost:)];
 }
 -(void)postWithStatus:(NSString*)status image:(NSData*)data imageName:(NSString*)imageName{
 	[weiboConnector updateWithStatus:status 
 						   image:data
 						   imageName:imageName
 					completionTarget:self 
-					completionAction:@selector(didPostWithStatus:)];
+					completionAction:@selector(didPost:)];
 }
 
--(void)didPostWithStatus:(id)result{
+-(void)didPost:(id)result{
 	[[NSNotificationCenter defaultCenter] postNotificationName:DidPostStatusNotification
 														object:nil];
 }
 
--(void)replyWithData:(id)data{
+-(void)reply:(id)data{
 	[weiboConnector replyWithParameters:data
 						completionTarget:self
-						completionAction:@selector(didReplyWithData:)];
+						completionAction:@selector(didPost:)];
 }
 
--(void)didReplyWithData:(NSDictionary*)result{
-	NSLog(@"%@",result);
-	
-}
 
--(void)repostWithData:(id)data{
+-(void)repost:(id)data{
 	[weiboConnector repostWithParamters:data
 					  completionTarget:self
-					  completionAction:@selector(didRepostWithData:)];
+					  completionAction:@selector(didPost:)];
 }
 
--(void)didRepostWithData:(NSDictionary*)result{
-	NSLog(@"%@",result);
-	
-}
+
 
 
 
@@ -292,9 +284,7 @@ static AccountController *instance;
 }
 
 -(void)getFriends:(NSNotification*)notification{
-	NSString *screenName=[notification object];
-	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
-	[params setObject:screenName forKey:@"screen_name"];
+	NSMutableDictionary* params =[[[notification object] mutableCopy] autorelease];
 	[weiboConnector getFriendsWithParameters:params
 						completionTarget:self
 						completionAction:@selector(didGetFriends:)];
@@ -309,6 +299,7 @@ static AccountController *instance;
 	NSString *statusId=[notification object];
 	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
 	[params setObject:statusId forKey:@"id"];
+	[params setObject:@"-1" forKey:@"cursor"];
 	[weiboConnector showStatusWithParameters:params
 								  completionTarget:self
 								  completionAction:@selector(didShowStatus:)];
@@ -320,10 +311,7 @@ static AccountController *instance;
 
 
 -(void)getStatusComments:(NSNotification*)notification{
-	NSString *statusId=[notification object];
-	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
-	[params setObject:statusId forKey:@"id"];
-	[weiboConnector getStatusCommentsWithParameters:params
+	[weiboConnector getStatusCommentsWithParameters:[notification object]
 						   completionTarget:self
 						   completionAction:@selector(didGetStatusComments:)];
 }

@@ -207,8 +207,7 @@
 }
 
 -(IBAction)compose:(id)sender{
-	composeController.currentAction=PostAction;
-	[composeController popUp];
+	[composeController composeNew];
 }
 
 
@@ -277,4 +276,11 @@
 	[NSMenu popUpContextMenu:userMenu withEvent:event forView:[(NSView *)sender superview]];
 	
 }
+
+-(IBAction)showMyProfile:(id)sender{
+	NSString *screenName=[AccountController instance].currentAccount.screenName;
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"weibo://user?fetch_with=screen_name&value=%@",screenName]]];
+
+}
+
 @end

@@ -47,4 +47,5 @@
 -(IBAction)refreshTimeline:(id)sender;
 -(IBAction)openUserInput:(id)sender;
 -(IBAction)popUpUserMenu:(id)sender;
+-(IBAction)showMyProfile:(id)sender;
 @end
