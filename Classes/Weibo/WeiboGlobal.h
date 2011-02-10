@@ -55,3 +55,6 @@ typedef enum {
 #define PathChangedNotification @"PathChangedNotification"
 
 #define ShowTipMessageNotification @"ShowTipMessageNotification"
+
+#define DidGetUserTimelineNotification @"DidGetUserTimelineNotification"
+#define DidGetFollowersNotification @"DidGetFollowersNotification"

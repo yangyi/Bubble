@@ -104,5 +104,10 @@
 -(NSString *) createFavoritesWithParameters:(NSMutableDictionary*)params
 						   completionTarget:(id)target
 						   completionAction:(SEL)action;
-
+-(NSString *)getUSerTimelineWithParameters:(NSMutableDictionary*)params
+						  completionTarget:(id)target
+						  completionAction:(SEL)action;
+-(NSString *)getFollowersWithParameters:(NSMutableDictionary*)params
+						  completionTarget:(id)target
+						  completionAction:(SEL)action;
 @end

@@ -29,10 +29,9 @@
 	  {% /if %}
     </div>
     <ul class="user-stats clearfix">
-            <li><a class="user-stats-count" href="/#!/xanchen">{{user.statuses_count}}<span class="user-stats-stat">Tweets</span></a></li>
+	<li><a class="user-stats-count" href="weibo://timeline?screen_name={{user.screen_name}}&page=1">{{user.statuses_count}}<span class="user-stats-stat">Tweets</span></a></li>
     <li><a class="user-stats-count" href="weibo://friends?screen_name={{user.screen_name}}&cursor=-1">{{user.friends_count}}<span class="user-stats-stat">Following</span></a></li>
-    <li><a class="user-stats-count" href="/#!/xanchen/followers">{{user.followers_count}}<span class="user-stats-stat">Followers</span></a></li>
-    <li><a class="user-stats-count" href="/#!/xanchen/lists/memberships">{{user.favourites_count}}<span class="user-stats-stat">Favorites</span></a></li>
+    <li><a class="user-stats-count" href="weibo://followers?screen_name={{user.screen_name}}&cursor=-1">{{user.followers_count}}<span class="user-stats-stat">Followers</span></a></li>
   </ul>
   </div>
 </div><div class="component">

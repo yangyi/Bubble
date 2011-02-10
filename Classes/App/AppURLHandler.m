@@ -70,6 +70,22 @@
 			[data setObject:cursor forKey:@"cursor"];
 			[[NSNotificationCenter defaultCenter]postNotificationName:GetFriendsNotification object:data];
 		}
+		if ([host isEqualToString:@"followers"]) {
+			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
+								  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			if (!add) {
+				[[PathController instance] add:urlString];
+				[PathController instance].currentType=Followers;
+				[PathController instance].idWithCurrentType=screenName;
+			}
+			
+			NSString *cursor=[[url queryArgumentForKey:@"cursor"] 
+							  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:screenName forKey:@"screen_name"];
+			[data setObject:cursor forKey:@"cursor"];
+			[[AccountController instance] getFollowers:data];
+		}
 		if ([host isEqualToString:@"status_comments"]) {
 			NSString *statusId=[[url queryArgumentForKey:@"sid"] 
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -82,7 +98,8 @@
 
 
 			[[NSNotificationCenter defaultCenter]postNotificationName:ShowStatusNotification object:statusId];
-		}if ([host isEqualToString:@"get_comments"]) {
+		}
+		if ([host isEqualToString:@"get_comments"]) {
 			NSString *statusId=[[url queryArgumentForKey:@"id"] 
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 			NSString *page=[[url queryArgumentForKey:@"page"] 
@@ -94,6 +111,22 @@
 			[data setObject:page forKey:@"page"];
 			[[NSNotificationCenter defaultCenter] postNotificationName:GetStatusCommentsNotification 
 																object:data];
+		}
+		if ([host isEqualToString:@"timeline"]) {
+			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
+								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSString *page=[[url queryArgumentForKey:@"page"]
+							stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			if (!add) {
+				[[PathController instance] add:urlString];
+				[PathController instance].currentType=UserTimeline;
+				[PathController instance].idWithCurrentType=[NSString stringWithFormat:@"%@:%@",screenName,page];
+			}
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:screenName forKey:@"screen_name"];
+			[data setObject:page forKey:@"page"];
+			[[AccountController instance] getUSerTimeline:data];
+							
 		}
 		if ([host isEqualToString:@"reply"]) {
 			NSString *sid=[[url queryArgumentForKey:@"id"] 

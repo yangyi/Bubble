@@ -50,7 +50,10 @@
 -(void)repost:(id)data;
 -(void)createFavorites:(NSString *)statusId;
 -(void)destroyFavorites:(NSString *)statusId;
-
+-(void)getUSerTimeline:(NSDictionary*)param;
+-(void)didGetUserTimeline:(NSArray*)result;
+-(void)getFollowers:(NSDictionary*)param;
+-(void)didGetFollowers:(NSArray*)result;
 @property(nonatomic,retain) WeiboAccount *currentAccount;
 @property(nonatomic,retain) WeiboTimeline *homeTimeline;
 @property(nonatomic,retain) WeiboTimeline *mentions;

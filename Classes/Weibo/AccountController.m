@@ -110,6 +110,32 @@ static AccountController *instance;
 		[comments loadNewerTimeline];
 	}
 }
+
+
+-(void)getUSerTimeline:(NSMutableDictionary*)param{
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification
+														object: nil];
+	[weiboConnector getUSerTimelineWithParameters:param
+							 completionTarget:self
+							 completionAction:@selector(didGetUserTimeline:)];
+}
+-(void)didGetUserTimeline:(NSArray*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetUserTimelineNotification
+														object:result];
+}
+
+-(void)getFollowers:(NSDictionary*)param{
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification
+														object: nil];
+	[weiboConnector getFollowersWithParameters:param
+								 completionTarget:self
+								 completionAction:@selector(didGetFollowers:)];
+}
+-(void)didGetFollowers:(NSArray*)result{
+	[[NSNotificationCenter defaultCenter] postNotificationName:DidGetFollowersNotification
+														object:result];
+}
+
 #pragma mark Account
 -(WeiboAccount*)currentAccount{
 	if (!currentAccount) {

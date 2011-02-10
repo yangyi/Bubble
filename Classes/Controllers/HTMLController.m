@@ -51,6 +51,10 @@
 		[nc addObserver:self selector:@selector(didGetFriends:)
 				   name:DidGetFriendsNotification 
 				 object:nil];
+		
+		[nc addObserver:self selector:@selector(didGetFollowers:)
+				   name:DidGetFollowersNotification 
+				 object:nil];
 		[nc addObserver:self selector:@selector(didSaveScrollPosition:) 
 				   name:SaveScrollPositionNotification 
 				 object:nil];
@@ -72,6 +76,10 @@
 				   name:ShowTipMessageNotification 
 				 object:nil];
 
+		[nc addObserver:self selector:@selector(didGetUserTimeline:) 
+				   name:DidGetUserTimelineNotification 
+				 object:nil];
+		
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
 		[webView setPolicyDelegate:self];
@@ -499,6 +507,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	NSDictionary *result=(NSDictionary *)[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	[data setObject:[PathController instance].idWithCurrentType forKey:@"screen_name"];
+	[data setObject:@"friends" forKey:@"host"];
 	[data setObject:[result objectForKey:@"users"] forKey:@"users"];
 	[data setObject:[result objectForKey:@"next_cursor"] forKey:@"next_cursor"];
 	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
@@ -508,6 +517,19 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 								baseURL:baseURL];
 }
 
+-(void)didGetFollowers:(NSNotification*)notification{
+	NSDictionary *result=(NSDictionary *)[notification object];
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[PathController instance].idWithCurrentType forKey:@"screen_name"];
+	[data setObject:[result objectForKey:@"users"] forKey:@"users"];
+	[data setObject:@"followers" forKey:@"host"];
+	[data setObject:[result objectForKey:@"next_cursor"] forKey:@"next_cursor"];
+	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
+	
+	NSString *followersString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
+	[[webView mainFrame] loadHTMLString:followersString 
+								baseURL:baseURL];
+}
 -(void)setWaitingForComments:(NSNotification*)notification{
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
 	DOMHTMLElement *commentsElement=(DOMHTMLElement *)[dom getElementById:@"comments"];
@@ -553,6 +575,15 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:messagesString forKey:@"messages_html"];
 	NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
 	[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
+}
+
+-(void)didGetUserTimeline:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[notification object] forKey:@"statuses"]] 
+			 forKey:@"statuses"];
+	[data setObject:loadMore forKey:@"load_more"];
+	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+								baseURL:baseURL];
 }
 
 -(void)showLoadingPage:(NSNotification*)notification{

@@ -98,6 +98,26 @@
 					   completionAction:action];	
 }
 
+-(NSString *)getUSerTimelineWithParameters:(NSMutableDictionary*)params
+						  completionTarget:(id)target
+						  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/user_timeline.json"];
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil completionTarget:target
+					   completionAction:action];
+}
+
+-(NSString *)getFollowersWithParameters:(NSMutableDictionary*)params
+					   completionTarget:(id)target
+					   completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/followers.json"];
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil completionTarget:target
+					   completionAction:action];
+	
+}
 -(NSString *) getCommentsWithParameters:(NSMutableDictionary*)params
 					   completionTarget:(id)target
 					   completionAction:(SEL)action{
