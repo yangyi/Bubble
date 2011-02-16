@@ -12,7 +12,8 @@
 #define WEIBO_DATE_FORMAT		@"weibo_date_format"
 #define WEIBO_CONTENT_FORMAT    @"weibo_content_format"
 #define WEIBO_LINK_TARGET_BLANK @"weibo_link_target_blank"
-#define WEIBO_CONTENT_TRUNCATE @"weibo_content_truncate"
+#define WEIBO_CONTENT_TRUNCATE  @"weibo_content_truncate"
+#define WEIBO_BIG_PROFILE_IMAGE  @"weibo_big_image"
 
 #define AT_STRING @"(@)([\\x{4e00}-\\x{9fa5}A-Za-z0-9_\\-]+)"
 #define AT_REPLACE_STRING @"<a href='weibo://user?fetch_with=screen_name&value=$2' target='_blank'>$1$2</a> "
@@ -26,7 +27,7 @@ const int TRUNCATE_LENGTH=20;
 @implementation WeiboFilters
 - (NSArray *)filters{
 	return [NSArray arrayWithObjects:
-			WEIBO_DATE_FORMAT, WEIBO_CONTENT_FORMAT,WEIBO_LINK_TARGET_BLANK,WEIBO_CONTENT_TRUNCATE,
+			WEIBO_DATE_FORMAT, WEIBO_CONTENT_FORMAT,WEIBO_LINK_TARGET_BLANK,WEIBO_CONTENT_TRUNCATE,WEIBO_BIG_PROFILE_IMAGE,
 			nil];
 }
 - (NSObject *)filterInvoked:(NSString *)filter withArguments:(NSArray *)args onValue:(NSObject *)value{
@@ -67,6 +68,10 @@ const int TRUNCATE_LENGTH=20;
 		return [[NSString stringWithFormat:@"%@...",[content substringToIndex:length]] urlEncoded];
 	}
 	
+	if ([filter isEqualToString:WEIBO_BIG_PROFILE_IMAGE]) {
+		NSString *content=[NSString stringWithFormat:@"%@",value];
+		return [content stringByReplacingOccurrencesOfString:@"/50/" withString:@"/180/"];
+	}
 	return value;
 }
 

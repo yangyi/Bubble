@@ -1,0 +1,343 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font: 12px/16px "Lucida Grande", Sans-Serif;
+	line-height: 17px;
+	background-color: #fff;
+	/*text-shadow: 0px 1px 0px white;*/
+}
+
+div.bubble blockquote {
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #c9c2c1;
+	background-color: #fff;
+	-webkit-border-radius: 6px;
+}
+
+div.bubble blockquote p {
+	margin: 10px;
+	padding: 0px;
+}
+
+
+div.bubble cite {
+	position: relative;
+	padding-left:20px;
+    top:5px;
+}
+
+
+.spinner{
+	text-align: center;
+	margin: 16px;
+	font-size: 16px; 
+	font-weight: bold;
+	color: #BBB;
+}
+.status_spinner_image {
+	margin: -5px 0px -5px 0px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+}
+hr {
+	border: none;
+	background: #aaa;
+	height: 1px;
+	padding: 0px;
+	margin: 2px -8px 8px -8px;
+	-webkit-box-shadow: 0px 1px 0px #eee;
+}
+
+.gap{
+	margin:auto;
+	width:5px;
+}
+
+/* @group Status */
+
+.status {
+	/*background-color: #e3f5a4;*/
+	margin: 6px 4px 6px 4px;
+	padding: 4px 8px;
+	border: 1px solid #d6d6d6;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 60px;
+	text-shadow: 0px 1px 0px #fff;
+	background: #f4f4f4;
+	cursor: pointer;
+}
+
+#status_new > .status {
+	/*background-color: #e3f5a4;*/
+	margin: 6px 4px 6px 4px;
+	padding: 4px 8px;
+	border: 1px solid #d6d6d6;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 60px;
+	text-shadow: 0px 1px 0px #fff;
+	background: #cfeaff;
+}
+
+.status:hover {
+background:#e6efff;
+}
+
+.status hr .topSeparator{
+		background: #c0c0c0;
+		-webkit-box-shadow: 0px 1px 0px #fff;
+		clear:both;
+	}
+.footerSeparator { 
+min-height:10px;
+border-left-width: 0px;
+
+}
+
+.status .footer{
+float:right;
+}
+
+
+
+	/*.Tweet:hover {
+	border: 1px solid #666;
+	}*/
+
+.options {
+	margin-top:2px;
+	margin-left:4px;
+	float: right;
+	display: inline;
+	width: 15px;
+	height: 15px;
+	background: transparent url(gear-old.png) no-repeat;
+	opacity:0.3;
+}
+.options:hover{
+	opacity:1;
+
+}
+.gearMenu {
+	width: 15px;
+	height: 15px;
+	border: 0px;
+	opacity: 0;
+}
+
+.topSeparator {
+	margin: 2px -8px 6px -8px;
+}
+
+.bottomSeparator {
+	margin: 8px -8px 2px -8px;
+}
+
+.informations {
+	font-size: 11px;
+	/*color: #888;*/
+}
+
+.status .actions{
+display: inline;
+float:right;
+
+}
+
+.status .actions img{
+opacity:0.3;
+}
+.status .actions img:hover{
+	opacity:1;
+}
+
+/*
+.informations a:link, .informations a:hover, .informations a:visited {
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px white;
+}
+
+.informations a:hover {
+	text-decoration: none;
+	color: #555;
+}
+*/
+.functions {
+	margin-top: 6px;
+	padding: 0px;
+	font-size: 9px;
+}
+/*
+	.functions a:link, .functions a:hover, .functions a:visited {
+		font-size: 9px;
+		background: #fff;
+		border-radius: 6px;
+		padding: 1px 4px;
+		margin-right: 4px;
+		-webkit-border-radius: 6px;
+	}
+	*/
+
+/* @group Specifics */
+
+.TweetSelf {
+	margin: 6px 8px 6px 52px;
+	padding: 4px 8px;
+	border: 1px solid #c5c5c5;
+	-webkit-border-radius: 6px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 32px;
+	background: #ddd;
+	text-shadow: 0px 1px 0px #eee;
+}
+
+.TweetResponse {
+	margin: 6px 8px 6px 52px;
+	padding: 4px 8px;
+	border: 1px solid #73a5d7;
+	-webkit-border-radius: 6px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 32px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#b7d5f2), to(#b7d5f2));
+	text-shadow: 0px 1px 0px #cce4ff;
+}
+	.TweetResponse hr {
+		background: #73a5d7;
+	}
+	.TweetResponse .informations a {
+		color: #666;
+		text-shadow: 0px 1px 0px #cce4ff;
+	}
+
+.avatar {
+	width: 50px;
+	height: 50px;
+	margin-right: 8px;
+	margin-left: 1px;
+	margin-top: 1px;
+	float: left;
+}
+
+.avatar img {
+	width: 50px;
+	border-style: none;
+	-webkit-border-radius: 4px;
+	background: #f90;
+}
+
+.BBSmiley {
+	margin-bottom: -3px;
+}
+
+.clear {
+	clear: both;
+}
+
+.content {
+	overflow: hidden;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+a:link {
+color: #0b5dcc;
+text-decoration: none;
+}
+
+a:hover {
+border-bottom: 1px dotted;
+}
+
+/* @group DM */
+
+.DM {
+	margin: 6px 8px 6px 52px;
+	padding: 9px 7px;
+	border: 1px solid #73a5d7;
+	-webkit-border-radius: 6px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 32px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#b7d5f2), to(#b7d5f2));
+	text-shadow: 0px 1px 0px #eee;
+}
+
+/* @end */
+
+#notice {
+	text-align: center;
+	margin: 5px 10px;
+	padding: 5px 15px;
+}
+
+/* @group Notice */
+
+.Notice {
+	margin: 12px;
+	position: relative;
+	text-align: center;
+}
+
+.NoticeContent {
+	padding-right: 12px;
+	padding-left: 12px;
+}
+
+#shadow {
+	height: 16px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background: transparent url(shadow_.png) top center repeat-x;
+}
+
+.attachments img{
+-webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px;
+background: white;
+border: 1px solid #BBB;
+-webkit-border-radius:2px;
+margin: 4px  10px  10px 10px;
+overflow: hidden;
+padding: 2px;
+position: relative;
+float:left;
+}
+
+
+/*
+a:link, a:visited, a:hover {
+	color: #666;
+	font: 11px/16px "Lucida Grande", Sans-Serif;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px white;
+}
+
+a:hover {
+	color: #444;
+	font: 11px/16px "Lucida Grande", Sans-Serif;
+	font-weight: bold;
+	text-decoration: underline;
+}
+*/
+/* @end */
+
+.comment {
+	/*background-color: #e3f5a4;*/
+	margin: 6px 4px 6px 20px;
+	padding: 4px 8px;
+	border: 1px solid #d6d6d6;
+	-webkit-border-radius: 4px;
+	-webkit-box-shadow: 0px 2px 2px #999;
+	min-height: 60px;
+	text-shadow: 0px 1px 0px #fff;
+	background: #f4f4f4;
+	cursor: pointer;
+}

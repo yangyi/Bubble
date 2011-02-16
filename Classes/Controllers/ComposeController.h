@@ -13,7 +13,8 @@
 typedef enum {
 	NormalPost=0,
 	ReplyPost,
-	Repost
+	Repost,
+	MessagePost
 }PostType;
 
 @interface ComposeController : NSWindowController {
@@ -33,7 +34,7 @@ typedef enum {
 - (IBAction)addPicture:(id)sender;
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo;
 - (NSArray *)supportedImageTypes;
-
+-(void)handleSendMessage:(NSNotification*)notification;
 @property(nonatomic,retain) NSMutableDictionary *data;
 @property(nonatomic) PostType postType;
 

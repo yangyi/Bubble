@@ -87,6 +87,9 @@
 						   completionTarget:(id)target
 						   completionAction:(SEL)action;
 
+-(NSString *) sendMessageWithParamters:(NSMutableDictionary*)params
+					  completionTarget:(id)target
+					  completionAction:(SEL)action;
 -(NSString *) replyWithParameters:(NSMutableDictionary*)params
 				completionTarget:(id)target
 				completionAction:(SEL)action;
@@ -108,6 +111,12 @@
 						  completionTarget:(id)target
 						  completionAction:(SEL)action;
 -(NSString *)getFollowersWithParameters:(NSMutableDictionary*)params
+						  completionTarget:(id)target
+						  completionAction:(SEL)action;
+-(NSString *) getMessageSentWithParameters:(NSMutableDictionary*)params 
+						  completionTarget:(id)target
+						  completionAction:(SEL)action;
+-(NSString *) resetCountWithParameters:(NSMutableDictionary*)params 
 						  completionTarget:(id)target
 						  completionAction:(SEL)action;
 @end

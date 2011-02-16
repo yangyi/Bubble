@@ -10,7 +10,8 @@
 
 
 @interface MyImageView : NSImageView {
-
+	BOOL				hovered;
+	NSTrackingRectTag	trackingTag;
 }
 
 @end

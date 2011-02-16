@@ -16,7 +16,6 @@
 @interface HTMLController : NSObject {
 	NSString *theme;
 	WebView *webView;
-	NSImageView *imageView;
 	//web page template engine
 	TemplateEngine *templateEngine;
 	
@@ -29,12 +28,12 @@
 	NSString *commentsTemplatePath;	
 	NSString *messagePageTemplatePath;
 	NSString *messageTemplatePath;
+	NSString *messageSentTemplatePath;
 	NSString* loadingHTML;
 	
-	AccountController *weiboAccount;
+	NSString *mainPagePath;
 	
-	//currentView 用来标记当前选择的View是什么
-	//__weak WeiboTimeline *currentTimeline;
+	AccountController *weiboAccount;
 	
 	NSURL *baseURL;
 	NSString *spinner;
@@ -81,6 +80,8 @@
 @property(nonatomic,retain) NSString *commentsTemplatePath;	
 @property(nonatomic,retain) NSString *messagePageTemplatePath;
 @property(nonatomic,retain) NSString *messageTemplatePath;
-@property(nonatomic,assign) NSImageView *imageView;
+@property(nonatomic,retain) NSString *messageSentTemplatePath;
+
+@property(nonatomic,retain) NSString *mainPagePath;
 
 @end

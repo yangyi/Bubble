@@ -2,302 +2,116 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #000;
-	font: 12px/16px "Lucida Grande", Sans-Serif;
-	line-height: 17px;
-	background-color: #fff;
-	/*text-shadow: 0px 1px 0px white;*/
+	font: 14px/16px "Lucida Grande", Sans-Serif;
 }
 
-div.bubble blockquote {
-	margin: 0px;
-	padding: 0px;
-	border: 1px solid #c9c2c1;
-	background-color: #fff;
-	-webkit-border-radius: 6px;
-}
-
-div.bubble blockquote p {
-	margin: 10px;
-	padding: 0px;
-}
-
-
-div.bubble cite {
-	position: relative;
-	padding-left:20px;
-    top:5px;
-}
-
-
-.spinner{
-	text-align: center;
-	margin: 16px;
-	font-size: 16px; 
-	font-weight: bold;
-	color: #BBB;
-}
-.status_spinner_image {
-	margin: -5px 0px -5px 0px;
-	width: 32px;
-	height: 32px;
-	opacity: 0.5;
-}
-hr {
-	border: none;
-	background: #aaa;
-	height: 1px;
-	padding: 0px;
-	margin: 2px -8px 8px -8px;
-	-webkit-box-shadow: 0px 1px 0px #eee;
-}
-
-.gap{
-	margin:auto;
-	width:5px;
-}
-
-/* @group Status */
-
-.status {
-	/*background-color: #e3f5a4;*/
-	margin: 6px 4px 6px 4px;
-	padding: 4px 8px;
-	border: 1px solid #d6d6d6;
-	-webkit-border-radius: 4px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 60px;
-	text-shadow: 0px 1px 0px #fff;
-	background: #f4f4f4;
-	cursor: pointer;
-}
-
-#status_new > .status {
-	/*background-color: #e3f5a4;*/
-	margin: 6px 4px 6px 4px;
-	padding: 4px 8px;
-	border: 1px solid #d6d6d6;
-	-webkit-border-radius: 4px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 60px;
-	text-shadow: 0px 1px 0px #fff;
-	background: #cfeaff;
-}
-
-.status:hover {
-background:#e6efff;
-}
-
-.status hr .topSeparator{
-		background: #c0c0c0;
-		-webkit-box-shadow: 0px 1px 0px #fff;
-		clear:both;
-	}
-.footerSeparator { 
-min-height:10px;
-border-left-width: 0px;
-
-}
-
-.status .footer{
-float:right;
-}
-
-
-
-	/*.Tweet:hover {
-	border: 1px solid #666;
-	}*/
-
-.options {
-	margin-top:2px;
-	margin-left:4px;
-	float: right;
-	display: inline;
-	width: 15px;
-	height: 15px;
-	background: transparent url(gear-old.png) no-repeat;
-	opacity:0.3;
-}
-.options:hover{
-	opacity:1;
-
-}
-.gearMenu {
-	width: 15px;
-	height: 15px;
-	border: 0px;
-	opacity: 0;
-}
-
-.topSeparator {
-	margin: 2px -8px 6px -8px;
-}
-
-.bottomSeparator {
-	margin: 8px -8px 2px -8px;
-}
-
-.informations {
-	font-size: 11px;
-	/*color: #888;*/
-}
-
-.status .actions{
-display: inline;
-float:right;
-
-}
-
-.status .actions img{
-opacity:0.3;
-}
-.status .actions img:hover{
-	opacity:1;
-}
-
-/*
-.informations a:link, .informations a:hover, .informations a:visited {
-	color: #666;
-	font-size: 11px;
-	font-weight: bold;
-	text-shadow: 0px 1px 0px white;
-}
-
-.informations a:hover {
-	text-decoration: none;
-	color: #555;
-}
-*/
-.functions {
-	margin-top: 6px;
-	padding: 0px;
-	font-size: 9px;
-}
-/*
-	.functions a:link, .functions a:hover, .functions a:visited {
-		font-size: 9px;
-		background: #fff;
-		border-radius: 6px;
-		padding: 1px 4px;
-		margin-right: 4px;
-		-webkit-border-radius: 6px;
-	}
-	*/
-
-/* @group Specifics */
-
-.TweetSelf {
-	margin: 6px 8px 6px 52px;
-	padding: 4px 8px;
-	border: 1px solid #c5c5c5;
-	-webkit-border-radius: 6px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 32px;
-	background: #ddd;
-	text-shadow: 0px 1px 0px #eee;
-}
-
-.TweetResponse {
-	margin: 6px 8px 6px 52px;
-	padding: 4px 8px;
-	border: 1px solid #73a5d7;
-	-webkit-border-radius: 6px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 32px;
-	background: -webkit-gradient(linear, left top, left bottom, from(#b7d5f2), to(#b7d5f2));
-	text-shadow: 0px 1px 0px #cce4ff;
-}
-	.TweetResponse hr {
-		background: #73a5d7;
-	}
-	.TweetResponse .informations a {
-		color: #666;
-		text-shadow: 0px 1px 0px #cce4ff;
-	}
-
-.avatar {
-	width: 50px;
-	height: 50px;
-	margin-right: 8px;
-	margin-left: 1px;
-	margin-top: 1px;
-	float: left;
-}
-
-.avatar img {
-	width: 50px;
-	border-style: none;
-	-webkit-border-radius: 4px;
-	background: #f90;
-}
-
-.BBSmiley {
-	margin-bottom: -3px;
-}
-
-.clear {
-	clear: both;
-}
-
-.content {
-	overflow: hidden;
-}
-
-.bold {
-	font-weight: bold;
-}
-
-a:link {
-color: #0b5dcc;
+a {
+color: #2D76B9;
 text-decoration: none;
 }
 
 a:hover {
-border-bottom: 1px dotted;
+text-decoration: underline;
 }
 
-/* @group DM */
-
-.DM {
-	margin: 6px 8px 6px 52px;
-	padding: 9px 7px;
-	border: 1px solid #73a5d7;
-	-webkit-border-radius: 6px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 32px;
-	background: -webkit-gradient(linear, left top, left bottom, from(#b7d5f2), to(#b7d5f2));
-	text-shadow: 0px 1px 0px #eee;
+.stream-item{
+border-bottom: 1px solid #EBEBEB;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
+}
+.status {
+padding: 10px 10px;
+position: relative;
+cursor: pointer;
 }
 
-/* @end */
-
-#notice {
-	text-align: center;
-	margin: 5px 10px;
-	padding: 5px 15px;
+.status:hover{
+background:#e6efff;
+}
+.status:hover .status-actions {
+font-size: 11px;
+visibility: visible;
 }
 
-/* @group Notice */
-
-.Notice {
-	margin: 12px;
-	position: relative;
-	text-align: center;
+.status-content {
+margin-left: 58px;
+min-height: 48px;
 }
 
-.NoticeContent {
-	padding-right: 12px;
-	padding-left: 12px;
+.status-row {
+display: block;
+line-height: 15px;
+position: relative;
 }
 
-#shadow {
-	height: 16px;
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	background: transparent url(shadow_.png) top center repeat-x;
+.screen-name {
+font-weight: bold;
+font-size:14;
 }
 
+
+.full-name {
+color: #999;
+font-size: 12px;
+}
+
+.status-text {
+line-height: 19px;
+padding: 0px;
+word-wrap: break-word;
+}
+
+.status-timestamp {
+color: #999 !important;
+font-size: 11px;
+}
+
+/*操作相关*/
+.status-actions {
+font-size: 11px;
+visibility: hidden;
+}
+
+.status-actions a span i {
+display: inline-block;
+background: transparent url(sprite-icons.png) no-repeat;
+height: 15px;
+margin: 0px 2px -3px 0;
+outline: none;
+text-indent: -99999px;
+width: 15px;
+}
+
+.status-actions a span b {
+font-weight: normal;
+}
+
+/*操作图标*/
+.status-actions .unfavorite-action span i, .status-actions .unfavorite-action:hover span i {
+background-position: -64px 0px;
+}
+.status-actions .retweet-action span i {
+background-position: -176px 0px;
+}
+.status-actions .reply-action span i {
+background-position: 0px 0px;
+margin-left: 3px;
+margin-right: 0px;
+}
+.status-actions .favorite-action span i {
+background-position: -32px 0px;
+}
+
+.status-actions .reply-action:hover span i {
+background-position: -16px 0px;
+}
+.status-actions .retweet-action:hover span i {
+background-position: -192px 0px;
+}
+.status-actions .favorite-action:hover span i {
+background-position: -48px 0px;
+}
+
+/*附件图片*/
 .attachments img{
 -webkit-box-shadow: rgba(0, 0, 0, 0.0976562) 0px 1px 2px;
 background: white;
@@ -311,33 +125,223 @@ float:left;
 }
 
 
-/*
-a:link, a:visited, a:hover {
-	color: #666;
-	font: 11px/16px "Lucida Grande", Sans-Serif;
-	font-weight: bold;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px white;
+.clear {
+	clear: both;
 }
 
-a:hover {
-	color: #444;
-	font: 11px/16px "Lucida Grande", Sans-Serif;
-	font-weight: bold;
-	text-decoration: underline;
-}
-*/
-/* @end */
-
-.comment {
-	/*background-color: #e3f5a4;*/
-	margin: 6px 4px 6px 20px;
-	padding: 4px 8px;
-	border: 1px solid #d6d6d6;
+/*引用的状态块*/
+div.bubble blockquote {
+	margin:10px 0px 10px 0px;
+	padding: 0px;
+	border: 1px solid #c9c2c1;
+	background: #FAFAFA;
 	-webkit-border-radius: 4px;
-	-webkit-box-shadow: 0px 2px 2px #999;
-	min-height: 60px;
-	text-shadow: 0px 1px 0px #fff;
-	background: #f4f4f4;
-	cursor: pointer;
+}
+
+div.bubble blockquote p {
+	margin: 10px;
+	padding: 0px;
+}
+
+
+
+
+/*边角标志*/
+.status-dogear {
+height: 25px;
+right: 0px;
+position: absolute;
+top: 0px;
+width: 24px;
+}
+.status-dogear-fav {
+background:transparent url(badge-favorite.png)
+}
+
+/*头像*/
+.avatar {
+float: left;
+overflow: hidden;
+width: 50px;
+height: 50px;
+border-style: none;
+-webkit-border-radius: 4px;
+}
+
+/*等待图标*/
+.spinner{
+	text-align: center;
+	margin: 16px;
+	font-size: 16px; 
+	font-weight: bold;
+	color: #BBB;
+}
+
+.status_spinner_image {
+	margin: -5px 0px -5px 0px;
+	width: 32px;
+	height: 32px;
+	opacity: 0.5;
+}
+
+/*单条状态页面*/
+.status-detail{
+background:#e6efff;
+}
+.status-detail .status-content{
+font-size:18px;
+}
+.status-detail .status-actions {
+font-size: 11px;
+visibility: visible;
+}
+
+.gap{
+height:15px;
+background: url(gapdot.png) center no-repeat;
+}
+
+.stream-end{
+height:25px;
+background: url(end-of-stream.png) center no-repeat;
+}
+
+
+
+
+.status_bar {
+	position: fixed;
+	left: -7px;
+	bottom: -7px;
+	font-size: 13px; 
+	line-height: auto;
+	color: #333;
+	padding: 4px 10px 9px 16px;
+	border: 1px solid #666;
+	opacity: 0.6;
+	background-color: #fff;
+	-webkit-border-radius: 6px; 
+	-webkit-box-shadow: 0px 2px 8px #666;
+	z-index:1;
+	visibility:hidden;
+}
+
+.verified-icon-small {
+background-image: url(sprite-icons.png);
+background-position: -272px -80px;
+background-repeat: no-repeat;
+display: inline-block;
+height: 15px;
+width: 15px;
+margin-bottom:-3px;
+}
+
+
+
+/**********私信相关***************/
+.message {
+padding: 10px 10px;
+cursor: pointer;
+}
+
+.stream-tabs {
+border-bottom: 1px solid #EEE;
+-webkit-box-shadow: 0 0 5px #EBEBEB;
+clear: both;
+display: block;
+height: 30px;
+list-style-type: none;
+margin: 0px;
+padding: 8px 10px 0px 10px ;
+background: #E6E6E6;
+position:fixed;
+z-index:1;
+width:100%;
+}
+
+.message-header{
+height:40px;
+}
+
+.stream-tabs .stream-tab {
+border-top-left-radius: 4px 4px;
+border-top-right-radius: 4px 4px;
+cursor: pointer;
+float: left;
+margin: 0px;
+padding: 0px;
+position: relative;
+}
+li {
+display: list-item;
+}
+.stream-tabs {
+list-style-type: none;
+}
+
+ul {
+list-style: disc;
+}
+
+.stream-tabs .stream-tab.active .tab-text, .stream-tabs .stream-tab.active .tab-text:hover {
+background: white;
+border-color: #EEE #EEE white;
+color: #333;
+font-weight: bold;
+outline: none;
+}
+.stream-tabs .tab-text {
+-webkit-border-radius: inherit;
+border: 1px solid transparent;
+border-radius: inherit;
+cursor: pointer;
+display: block;
+line-height: 24px;
+outline: none;
+overflow: hidden;
+padding: 3px 10px 2px;
+text-decoration: none;
+text-shadow: white 0px 1px 0px;
+}
+
+.stream-tab:hover{
+background:#e6efff;
+}
+
+
+.page-actions {
+-webkit-box-shadow: white 0px 1px 0px;
+background: #F4F4F4;
+-webkit-border-radius:4px;
+clear: both;
+display: block;
+height: 28px;
+margin: 0px 10px 15px;
+padding: 8px 10px;
+}
+.page-actions .buttons {
+float: left;
+font-size: 0px;
+}
+
+.button {
+background: #DDD url(bg-btn.gif) repeat-x 0px 0px;
+border-color: #BBB #BBB #999;
+-webkit-border-radius:4px;
+border-style: solid;
+border-width: 1px;
+color: #333 !important;
+cursor: pointer;
+display: inline-block;
+font: normal normal normal 12px/15px 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+margin: 0px 0px 0px 20px;
+overflow: hidden;
+padding: 5px 9px;
+text-shadow: #F0F0F0 0px 1px;
+}
+
+.hidden{
+visibility:hidden;
+width:0px;
+height:0px;
 }

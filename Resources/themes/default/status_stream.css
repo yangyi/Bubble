@@ -319,10 +319,7 @@ height: 28px;
 margin: 0px 10px 15px;
 padding: 8px 10px;
 }
-.page-actions .buttons {
-float: left;
-font-size: 0px;
-}
+
 
 .button {
 background: #DDD url(bg-btn.gif) repeat-x 0px 0px;
@@ -344,4 +341,29 @@ text-shadow: #F0F0F0 0px 1px;
 visibility:hidden;
 width:0px;
 height:0px;
+}
+
+.button {
+margin: 0px 0px 0px 20px;
+padding: 3px 8px;
+text-align: center;
+vertical-align: middle;
+white-space: nowrap;
+cursor: pointer;
+outline: none;
+font: 75% arial,sans-serif;
+color: black;
+border: 1px solid #BBB;
+-webkit-border-radius: 3px;
+background:-webkit-gradient(linear,0% 40%,0% 70%,from(#F9F9F9),to(#E3E3E3));
+border-top-color: #CCC;
+border-bottom-color: #A0A0A0;
+-webkit-border-radius:3px;
+width: 100px;
+height:18px;
+}
+.button:hover{
+background: -webkit-gradient(linear,0% 40%,0% 70%,from(#E3E3E3),to(#F9F9F9));
+
+border-color: #939393!important;
 }

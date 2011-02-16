@@ -9,7 +9,9 @@
 #import "HTMLController.h"
 
 @implementation HTMLController
-@synthesize webView,baseURL,weiboAccount,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,userlistTemplatePath,useritemTemplatePath,statusDetailTemplatePath,commentsTemplatePath,messagePageTemplatePath,messageTemplatePath,imageView;
+
+@synthesize webView,baseURL,weiboAccount,mainPagePath,statusesPageTemplatePath,statusesTemplatePath,userTemplatePath,userlistTemplatePath,useritemTemplatePath,statusDetailTemplatePath,commentsTemplatePath,messagePageTemplatePath,messageTemplatePath,messageSentTemplatePath;
+
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
@@ -68,6 +70,9 @@
 		[nc addObserver:self selector:@selector(didGetStatusComments:) 
 				   name:DidGetStatusCommentsNotification 
 				 object:nil];
+		[nc addObserver:self selector:@selector(didGetMessageSent:)
+				   name:DidGetMessageSentNotification 
+				 object:nil];
 		
 		[nc addObserver:self selector:@selector(didGetDirectMessage:) 
 				   name:DidGetDirectMessageNotification 
@@ -83,7 +88,7 @@
 		self.webView=webview;
 		[webView setFrameLoadDelegate:self];
 		[webView setPolicyDelegate:self];
-		[imageView setHidden:YES];
+
 		templateEngine=[[TemplateEngine alloc] init];
 		
 		
@@ -114,9 +119,15 @@
 		self.messageTemplatePath=[[NSBundle mainBundle] pathForResource:@"messages" 
 																  ofType:@"html" 
 															 inDirectory:@"themes/default"];
+		self.messageSentTemplatePath=[[NSBundle mainBundle] pathForResource:@"message_sent" 
+																	 ofType:@"html" 
+																inDirectory:@"themes/default"];
 		self.useritemTemplatePath=[[NSBundle mainBundle] pathForResource:@"useritem" 
 																 ofType:@"html" 
 															inDirectory:@"themes/default"];
+		self.mainPagePath=[[NSBundle mainBundle] pathForResource:@"main" 
+														  ofType:@"html" 
+													 inDirectory:@"themes/default"];
 		weiboAccount=[AccountController instance];
 		NSString *basePath = [[NSString stringWithFormat:@"%@%@",[[NSBundle mainBundle] resourcePath],@"/themes/default"]retain];
 		self.baseURL = [NSURL fileURLWithPath:basePath];
@@ -215,21 +226,10 @@
 	if ([PathController instance].currentIndex>-1) {
 		return;
 	}
-	NSImage* image;
-	NSBitmapImageRep* rep;
-	[webView lockFocus];
-	rep = [[NSBitmapImageRep alloc] initWithFocusedViewRect:[webView bounds]];
-	[webView unlockFocus];
-	image = [[[NSImage alloc] initWithSize:NSZeroSize] autorelease];
-	[image addRepresentation:rep];
-	[rep release];
-	
+
 	
 	if ([[PathController instance].pathArray count]==0) {
-		
-		[imageView setImage: image];
-		[imageView setHidden:NO];
-		[webView setHidden:YES];
+		[webView setNeedsDisplay:NO];
 
 	}
 	if ([PathController instance].currentTimeline.data==nil) {
@@ -281,6 +281,7 @@
 		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
 		[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
 									baseURL:baseURL];
+
 	}
 }
 
@@ -408,9 +409,9 @@
 			
 		//	[NSAnimationContext endGrouping];
 		//}else {
-		[imageView setHidden:YES];
+		[webView setNeedsDisplay:YES];
 
-			[webView setHidden:NO];
+			//[webView setHidden:NO];
 		//}
 		[PathController instance].currentTimeline.operation=None;
     }
@@ -557,6 +558,20 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 
+-(void)didGetMessageSent:(NSNotification*)notification{
+	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+	NSString *pageString=[PathController instance].idWithCurrentType;
+	int page=[pageString intValue];
+	[data setObject:[NSString stringWithFormat:@"%d",page+1] forKey:@"next_page"];
+	[data setObject:[NSString stringWithFormat:@"%d",page-1] forKey:@"previous_page"];
+	[data setObject:[notification object] forKey:@"messages"];
+	NSString *messageSentString=[templateEngine renderTemplateFileAtPath:messageSentTemplatePath withContext:data];
+	[[webView mainFrame] loadHTMLString:messageSentString 
+								baseURL:baseURL];
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+	[spinnerElement setInnerHTML:@""];
+}
 -(void)didShowStatus:(NSNotification*)notification{
 	NSDictionary *status=[notification object];
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];

@@ -7,7 +7,7 @@
 //
 
 #import "LoginWindowController.h"
-
+#import "AccountController.h"
 
 @implementation LoginWindowController
 - (id)init {
@@ -16,7 +16,23 @@
 	return self;
 }
 
+-(void)awakeFromNib{
+	NSLog(@"");
+}
 -(void)login{
+	NSString *nameString=[name stringValue];
+	NSMutableArray *accounts=[[[[NSUserDefaults standardUserDefaults] valueForKey:@"accounts"]mutableCopy] autorelease];
+	if (accounts==nil) {
+		accounts=[NSMutableArray arrayWithCapacity:0];
+	}
+	if (![accounts containsObject:nameString]) {
+		[accounts addObject:[name stringValue]];
+		[[NSUserDefaults standardUserDefaults] setValue:accounts forKey:@"accounts"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+	
+	[[NSUserDefaults standardUserDefaults] setValue:nameString forKey:@"currentAccount"];
+	[[AccountController instance] setPasswordForUser:nameString withPassword:[pw stringValue]];
 	[appDelegate openMainWindow];
 }
 

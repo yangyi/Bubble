@@ -46,7 +46,6 @@
 	//[scrollView setVerticalScroller:[[MyScroller alloc] init]];
 	//[scrollView setHasVerticalScroller:YES];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
-	htmlController.imageView=imageView;
 	//[htmlController loadRecentTimeline];
 	[[AccountController instance] verifyCurrentAccount];
 	[self updateTimelineSegmentedControl];
@@ -54,7 +53,7 @@
 }
 
 -(void)reloadUsersMenu{
-	const int kUsersMenuPresetItems = 8;
+	const int kUsersMenuPresetItems = 6;
 	while ([userMenu numberOfItems]>kUsersMenuPresetItems) {
 		[userMenu removeItemAtIndex:kUsersMenuPresetItems];
 	}

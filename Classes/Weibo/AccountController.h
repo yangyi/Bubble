@@ -13,6 +13,14 @@
 #import "WeiboCache.h"
 #import "WeiboAccount.h"
 
+//1. 评论数，2. @me数，3. 私信数，4. 关注数
+typedef enum {
+	CommentCount=1,
+	AtCount,
+	MessageCount,
+	FollowerCount
+}StatusResetType;
+
 @interface AccountController : NSObject<WeiboConnectorDelegate> {
 	WeiboAccount *currentAccount;
 
@@ -34,7 +42,10 @@
 -(void)didVerifyCurrentAccount:(id)result;
 -(void)checkUnread;
 -(void)didCheckUnread:(NSDictionary*)result;
+-(void)resetCount:(StatusResetType)resetType;
+-(void)didResetCount:(NSDictionary*)result;
 
+-(WeiboAccount*)getCurrentAccount;
 
 -(void)selectAccount:(NSString*)username;
 -(void)resetTimelines;
@@ -54,6 +65,8 @@
 -(void)didGetUserTimeline:(NSArray*)result;
 -(void)getFollowers:(NSDictionary*)param;
 -(void)didGetFollowers:(NSArray*)result;
+
+-(void)sendMessage:(NSMutableDictionary*)param;
 @property(nonatomic,retain) WeiboAccount *currentAccount;
 @property(nonatomic,retain) WeiboTimeline *homeTimeline;
 @property(nonatomic,retain) WeiboTimeline *mentions;

@@ -14,9 +14,7 @@ padding: 0px;
 .component {
 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-img[width=128] {
-width: 128px;
-}
+
 .profile-pane .profile-basics {
 background: white;
 display: block;

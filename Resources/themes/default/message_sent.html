@@ -1,0 +1,72 @@
+<head>
+<link rel="stylesheet" href="status_stream.css" type="text/css"/>
+</head>
+<body>
+<div>
+<ul class="stream-tabs">
+        <li class="stream-tab">
+          <a class="tab-text" title="Inbox" href="/">Inbox</a>
+        </li>
+        <li class="stream-tab active">
+          <a class="tab-text" title="Sent" href="/#!/mentions">Sent</a>
+        </li>
+</ul>
+</div>
+<div class="message-header"></div>
+<div class="stream-items" id="messages">
+{% for message in messages %}
+<div class="stream-item" id="{{message.id}}">
+<div class="stream-item-content message">
+  
+  <div class="avatar">
+      <a href="weibo://user?fetch_with=user_id&value={{message.sender.id}}">
+		<img height="50" width="50" src="{{message.sender.profile_image_url}}" class="user-profile-link"/>
+	  </a>
+  </div>
+  
+  
+  <div class="status-content">
+  
+    <div class="status-row">
+      <span class="user-name">
+        <a class="screen-name user-profile-link" >{{ message.sender_screen_name }}</a>
+	    {% if message.sender.verified %}
+		<span class="verified-icon-small"></span>
+		{% /if %}
+		send to 
+		<a class="screen-name user-profile-link" >{{message.recipient_screen_name}}</a>
+      </span>
+    </div>
+    
+    <div class="status-row">
+      <div class="status-text">
+	  {{ message.text}}
+	  </div>
+    </div>
+    
+    <div class="status-row">
+      <a href="" class="status-timestamp">
+      	<span>{{ message.created_at|weibo_date_format }}</span>
+      </a>
+      
+      <span class="status-actions">
+            <a href="#" class="unfavorite-action" data-favorited="true" title="Unfavorite"><span><i></i><b>Unfavorite</b></span></a>
+            <a href="#" class="retweet-action" title="Retweet"><span><i></i><b>Retweet</b></span></a>
+            <a href="#" class="reply-action" data-screen-name="laogao" title="Reply"><span><i></i><b>Reply</b></span></a>
+      </span>
+    </div>
+    
+  </div>
+  
+</div>
+</div>
+
+
+{% /for %}
+
+</div>
+
+<div id="spinner" class='spinner'>
+	{{spinner}}{{load_more}}
+</div>
+</body>

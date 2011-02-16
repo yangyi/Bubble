@@ -35,11 +35,11 @@
 	[statusItem setAction:@selector(didStatusItemClick)];
 	urlHandler=[[AppURLHandler alloc] init];
 	growl =[[AppGrowl alloc] init];
-	if ([[AccountController instance] currentAccount]) {
+	if ([[AccountController instance] getCurrentAccount]) {
 		mainWindow=[[MainWindowController alloc]init];
 		[mainWindow showWindow:nil];
 	}else {
-		loginWindow = [[LoginWindowController alloc ]init];
+		loginWindow = [[LoginWindowController alloc]init];
 		[loginWindow showWindow:nil];
 	}
 }

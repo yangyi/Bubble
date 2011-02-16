@@ -16,7 +16,6 @@
 #import "UserInputController.h"
 @interface MainWindowController : NSWindowController {
 	IBOutlet WebView *webView;
-	IBOutlet NSImageView *imageView;
 	IBOutlet NSSegmentedControl *timelineSegmentedControl;
 	IBOutlet NSSegmentedControl *backSegmentedControl;
 	IBOutlet NSTextField *messageText;

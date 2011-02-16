@@ -112,6 +112,18 @@
 			[[NSNotificationCenter defaultCenter] postNotificationName:GetStatusCommentsNotification 
 																object:data];
 		}
+		if ([host isEqualToString:@"message_sent"]) {
+			NSString *page=[[url queryArgumentForKey:@"page"] 
+							stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			if (!add) {
+				[[PathController instance] add:urlString];
+				[PathController instance].currentType=MessageSent;
+				[PathController instance].idWithCurrentType=page;
+			}			
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:page forKey:@"page"];
+			[[AccountController instance] getMessageSent:data];
+		}
 		if ([host isEqualToString:@"timeline"]) {
 			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
 								stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -176,6 +188,15 @@
 				[data setObject:rt_user forKey:@"rt_user"];
 			}
 			[[NSNotificationCenter defaultCenter]postNotificationName:RepostNotification object:data];
+
+		}
+		if ([host isEqualToString:@"send_message"]) {
+			NSString *screenName=[[url queryArgumentForKey:@"screen_name"] 
+						   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
+			[data setObject:screenName forKey:@"screen_name"];
+			[[NSNotificationCenter defaultCenter]postNotificationName:SendMessageNotification object:data];
+
 
 		}
 		if ([host isEqualToString:@"create_favorites"]) {

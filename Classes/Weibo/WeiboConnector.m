@@ -178,6 +178,23 @@
 					   completionTarget:(id)target
 					   completionAction:(SEL)action];	
 }
+
+-(NSString *) sendMessageWithParamters:(NSMutableDictionary*)params
+					  completionTarget:(id)target
+					  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"direct_messages/new.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	NSString *screenName=[params objectForKey:@"screen_name"];
+	NSString *text=[params objectForKey:@"text"];
+	[postBody appendData:[[NSString stringWithFormat:@"screen_name=%@&text=%@&source=%@",screenName,text,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
+}
 	
 -(NSString *) updateWithStatus:(NSString*)status				  
 			  completionTarget:(id)target
@@ -263,6 +280,33 @@
 					   completionTarget:(id)target
 					   completionAction:(SEL)action];
 	
+}
+
+-(NSString *) getMessageSentWithParameters:(NSMutableDictionary*)params 
+						  completionTarget:(id)target
+						  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"direct_messages/sent.json"];
+	return [self _sendRequestWithMethod:nil baseurl:WEIBO_BASE_URL
+								   path:path queryParameters:params
+								   body:nil
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];
+	
+}
+-(NSString *) resetCountWithParameters:(NSMutableDictionary*)params 
+					  completionTarget:(id)target
+					  completionAction:(SEL)action{
+	NSString *path=[NSString stringWithString:@"statuses/reset_count.json"];
+	NSMutableData *postBody = [NSMutableData data];
+	NSString *type=[params objectForKey:@"type"];
+	[postBody appendData:[[NSString stringWithFormat:@"type=%@&source=%@",type,_appKey]dataUsingEncoding:NSUTF8StringEncoding]];
+	return [self _sendRequestWithMethod:@"POST" 
+								baseurl:WEIBO_BASE_URL
+								   path:path 
+						queryParameters:nil
+								   body:postBody
+					   completionTarget:(id)target
+					   completionAction:(SEL)action];	
 }
 -(NSString *) showStatusWithParameters:(NSMutableDictionary*)params 
 							completionTarget:(id)target

@@ -10,8 +10,9 @@
 @class AppDelegate;
 @interface LoginWindowController : NSWindowController {
 	AppDelegate* appDelegate;
+	IBOutlet NSTextField *name;
+	IBOutlet NSTextField *pw;
 
 }
--(id)init;
 -(IBAction)loginAction:sender;
 @end

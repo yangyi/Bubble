@@ -45,10 +45,9 @@
 {% /if %}
 
 {% /for %}
-
-	<div class="page-actions">
-	<div class="buttons">
+{% if comments.length %}
+<div>
 	<div class="button" onclick="javascript:window.open('weibo://get_comments?id={{status_id}}&page={{previous_page}}','_blank')">Pre</div>
 	<div class="button" onclick="javascript:window.open('weibo://get_comments?id={{status_id}}&page={{next_page}}','_blank')">Next</div>
-	</div>
-	</div>
+</div>
+{% /if %}

@@ -8,7 +8,7 @@
   <div class="profile-basics clearfix">
     <div class="profile-text">
         <a href="user online link">
-          <img src="{{user.profile_image_url}}" width="128" class="thumb"/>
+          <img src="{{user.profile_image_url|weibo_big_image}}" width="180" class="thumb"/>
         </a>
         <div class="full-name">
            <h2>{{user.screen_name}}</h2> 
@@ -37,7 +37,7 @@
 </div><div class="component">
 <div class="profile-actions clearfix">
       <div class="buttons">
-          <div class="button direct-message-action">Message</div>                 
+          <div class="button direct-message-action" onclick="javascript:window.open('weibo://send_message?screen_name={{user.screen_name}}','_blank')">Message</div>                 
           <div class="button profile-actions-button" data-user-id="7653792">
             <span class="gear"></span> <span class="down-arrow"></span>
           </div>

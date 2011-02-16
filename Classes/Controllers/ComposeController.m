@@ -27,7 +27,9 @@
 	[nc addObserver:self selector:@selector(handleRePost:) 
 			   name:RepostNotification
 			 object:nil];
-	
+	[nc addObserver:self selector:@selector(handleSendMessage:) 
+			   name:SendMessageNotification
+			 object:nil];	
 	return self;
 }
 
@@ -50,6 +52,13 @@
 	[self popUp];
 	[[self window] setTitle:@"发微博"];
 
+}
+
+-(void)handleSendMessage:(NSNotification*)notification{
+	self.postType=MessagePost;
+	self.data=[notification object];
+	[[self window] setTitle:[NSString stringWithFormat:@"Send Message To @%@",[data objectForKey:@"screen_name"]]];
+	[self popUp];
 }
 -(void)handleReply:(NSNotification*)notification{
 	self.postType=ReplyPost;
@@ -108,6 +117,10 @@
 			case Repost:
 				[self.data setObject:[textView string] forKey:@"status"];
 				[weiboAccount repost:self.data];
+				break;
+			case MessagePost:
+				[self.data setObject:[textView string] forKey:@"text"];
+				[weiboAccount sendMessage:self.data];
 				break;
 			default:
 				break;
