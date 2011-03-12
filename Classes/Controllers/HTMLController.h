@@ -53,20 +53,21 @@
 -(void)didLoadNewerTimeline:(NSNotification*)notification;
 -(void)startLoadOlderTimeline:(NSNotification*)notification;
 -(void)didLoadNewerTimeline:(NSNotification*)notification;
--(void)didClickTimeline:(NSNotification*)notification;
 -(void)didStartHTTPConnection:(NSNotification*)notification;
 
--(void)didSelectAccount:(NSNotification*)notification;
-#pragma mark WebView JS 
-- (NSString*)setDocumentElement:(NSString*)element visibility:(BOOL)visibility;
-- (NSString*) setDocumentElement:(NSString*)element innerHTML:(NSString*)html;
-- (void)scrollToTop;
+
 
 -(void)saveScrollPosition;
 -(void)resumeScrollPosition;
 
 -(void)showTipMessage:(NSString*)message;
 -(void)hideTipMessage;
+
+
+-(void)initPage;
+-(void)setInnerHTML:(NSString*)innerHTML forElement:(NSString*)elementId;
+-(void)addNewInnerHTML:(NSString *)newInnerHTML ForElement:(NSString*)elementId;
+-(void)addOldInnerHTML:(NSString *)oldInnerHTML ForElement:(NSString*)elementId;
 
 @property(nonatomic,retain) WebView *webView;
 @property(nonatomic,retain) NSURL *baseURL;

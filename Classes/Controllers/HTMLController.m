@@ -170,9 +170,11 @@
 }
 
 -(void)loadRecentTimeline{
-	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-								baseURL:baseURL];
+//	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
+//	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
+//								baseURL:baseURL];
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
+
 	[[PathController instance].currentTimeline loadRecentTimeline];
 }
 
@@ -229,7 +231,7 @@
 
 	
 	if ([[PathController instance].pathArray count]==0) {
-		[webView setNeedsDisplay:NO];
+		//[webView setNeedsDisplay:NO];
 
 	}
 	if ([PathController instance].currentTimeline.data==nil) {
@@ -265,23 +267,11 @@
 		NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
 		[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
 		
-	}/*else if ([PathController instance].currentTimeline.timelineType==Comments) {
-		[data setObject:[templateEngine renderTemplateFileAtPath:commentsTemplatePath withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"comments"]] 
-				 forKey:@"statuses"];
-		[data setObject:loadMore forKey:@"load_more"];
-		
-		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-		[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-									baseURL:baseURL];
-	}*/else{
-		[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]] 
-				 forKey:@"statuses"];
-		[data setObject:loadMore forKey:@"load_more"];
-		
-		//[[webView mainFrame] loadHTMLString:[homeTemplate render:data] baseURL:baseURL];
-		[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-									baseURL:baseURL];
-
+	}else{
+		NSString *statusString=[templateEngine renderTemplateFileAtPath:statusesTemplatePath 
+															withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]];
+		[self setInnerHTML:statusString forElement:@"content"];
+		[self setInnerHTML:loadMore forElement:@"spinner"];
 	}
 }
 
@@ -322,60 +312,7 @@
 	[self reloadTimeline];
 	//[weiboAccount getDirectMessage];
 }
-#pragma mark WebView JS 
-- (NSString*) setDocumentElement:(NSString*)element visibility:(BOOL)visibility {
-	NSString *value = visibility ? @"visible" : @"none";
-	NSString *js = [NSString stringWithFormat: @"document.getElementById(\'%@\').style.display = \'%@\';", element, value];
-	return [webView stringByEvaluatingJavaScriptFromString:js];
-}
 
-- (NSString*) setDocumentElement:(NSString*)element innerHTML:(NSString*)html {
-	// Create a javascript-safe string.
-	NSMutableData *safeData = [NSMutableData dataWithCapacity:html.length * 2];
-	int length = html.length;
-	unichar c;
-	BOOL inWhitespace = NO;
-	const unichar kDoubleQuote = 0x0022;
-	const unichar kBackslash = 0x005C;
-	const unichar kSpace = 0x0020;
-	
-	for (int index = 0; index < length; index++) {
-		c = [html characterAtIndex:index];
-		switch (c) {
-			case '\\': // Backslash
-				[safeData appendBytes:&kBackslash length:2];
-				[safeData appendBytes:&kBackslash length:2];
-				inWhitespace = NO;
-				break;
-			case '\"': // Double-quotes
-				[safeData appendBytes:&kBackslash length:2];
-				[safeData appendBytes:&kDoubleQuote length:2];
-				inWhitespace = NO;
-				break;
-			case 0: case '\t': case '\r': case '\n': // Whitespace to coalesce.
-				if (inWhitespace == NO) {
-					[safeData appendBytes:&kSpace length:2];
-					inWhitespace = YES;
-				}
-				break;
-			default:
-				[safeData appendBytes:&c length:2];
-				inWhitespace = NO;
-				break;
-		}
-	}
-	
-	NSString *jsSafe = [NSString stringWithCharacters:safeData.bytes length:safeData.length / 2];
-	
-	// Set the inner HTML to the string.
-	NSString *js = [NSString stringWithFormat: @"document.getElementById(\"%@\").innerHTML = \"%@\";", element, jsSafe];
-	return [webView stringByEvaluatingJavaScriptFromString:js];
-}
-
-- (void) scrollToTop {
-	NSString *js = [NSString stringWithFormat: @"scroll(0,0);"];
-	[webView stringByEvaluatingJavaScriptFromString:js];
-}
 
 -(void)dealloc{
 	[webView release];
@@ -397,23 +334,8 @@
     if([webFrame isEqual:[webView mainFrame]])
     {
 		[self resumeScrollPosition];
-		//NSRect oriRect=[webView frame];
-		//NSRect initFrame=NSMakeRect(oriRect.origin.x+oriRect.size.width, oriRect.origin.y, oriRect.size.width, oriRect.size.height);
-		//if (currentTimeline.operation==Switch) {
-		//	[webView setFrame:initFrame];
-		//	[webView setHidden:NO];
-		//	[NSAnimationContext beginGrouping];
-		//	[[NSAnimationContext currentContext] setDuration:0.18f]; // However long you want the slide to take
-			
-		//	[[webView animator] setFrame:oriRect];
-			
-		//	[NSAnimationContext endGrouping];
-		//}else {
 		[webView setNeedsDisplay:YES];
-
-			//[webView setHidden:NO];
-		//}
-		[PathController instance].currentTimeline.operation=None;
+		[[AccountController instance] verifyCurrentAccount];
     }
 
 }
@@ -433,8 +355,6 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	if ([PathController instance].currentIndex<0&&[PathController instance].currentTimeline==sender) {
 		NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 		NSArray *statuses=sender.newData;
-
-		DOMDocument *dom=[[webView mainFrame] DOMDocument];
 		NSString *eleName;
 		NSString *olderStatuses;
 		if ([PathController instance].currentTimeline.timelineType==DirectMessages) {
@@ -442,13 +362,12 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 			[data setObject:statuses forKey:@"messages"];
 			olderStatuses=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
 		}else {
-			eleName=@"statuses"; 
+			eleName=@"content"; 
 			[data setObject:statuses forKey:@"statuses"];
 			olderStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
 		}
 
-		DOMHTMLElement *oldStatusElement=(DOMHTMLElement *)[dom getElementById:eleName];
-		[oldStatusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",[oldStatusElement innerHTML],olderStatuses]];		
+		[self addOldInnerHTML:olderStatuses ForElement:eleName];
 	}
 	
 	
@@ -465,9 +384,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 		NSArray *statuses=sender.newData;
 		[data setObject:statuses forKey:@"statuses"];
 		NSString *newStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:data];
-		DOMDocument *dom=[[webView mainFrame] DOMDocument];
-		DOMHTMLElement *statusElement=(DOMHTMLElement *)[dom getElementById:@"statuses"];
-		[statusElement setInnerHTML:[NSString stringWithFormat:@"%@%@",newStatuses,[statusElement innerHTML]]];
+		[self addNewInnerHTML:newStatuses ForElement:@"content"];
 		[self resumeScrollPosition];
 	}
 	
@@ -489,17 +406,12 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	}
 }
 
--(void)didClickTimeline:(NSNotification*)notification{
-	//NSString *statusId=[notification object];
-	//currentTimeline.lastReadId=[NSNumber numberWithLongLong:[statusId longLongValue]];
-	[self reloadTimeline];
-}
 
 -(void)didGetUser:(NSNotification*)notification{
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	[data setObject:[notification object] forKey:@"user"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:userTemplatePath withContext:data] 
-								baseURL:baseURL];
+	NSString *userString = [templateEngine renderTemplateFileAtPath:userTemplatePath withContext:data];
+	[self setInnerHTML:userString forElement:@"content"];
 }
 
 
@@ -514,8 +426,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
 
 	NSString *friendsString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
-	[[webView mainFrame] loadHTMLString:friendsString 
-								baseURL:baseURL];
+	[self setInnerHTML:friendsString forElement:@"content"];
 }
 
 -(void)didGetFollowers:(NSNotification*)notification{
@@ -528,8 +439,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
 	
 	NSString *followersString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
-	[[webView mainFrame] loadHTMLString:followersString 
-								baseURL:baseURL];
+	[self setInnerHTML:followersString forElement:@"content"];
 }
 -(void)setWaitingForComments:(NSNotification*)notification{
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
@@ -577,8 +487,10 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
 	[data setObject:status   forKey:@"status"];
 	[data setObject:spinner forKey:@"spinner"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
-								baseURL:baseURL];	 
+	NSString *detailString=[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data];
+	[self setInnerHTML:detailString forElement:@"content"];
+//	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
+//								baseURL:baseURL];	 
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"weibo://get_comments?id=%@&page=",[status objectForKey:@"id"],@"1"]]];
 
 }
@@ -601,15 +513,10 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 								baseURL:baseURL];
 }
 
--(void)showLoadingPage:(NSNotification*)notification{
-	NSString *loading=@"<html><head><link href='status_stream.css' rel='styleSheet' type='text/css' /></head>"
-	                  "<body><div class='spinner'>"
-	                  "<img class='status_spinner_image' src='spinner.gif'/> "
-	                  "Loading...</div></div>"
-	                  "<div class='status_bar' id='status_bar'></div>" 
-					  "</body></html>";
-	
-	[[webView mainFrame] loadHTMLString:loading baseURL:baseURL];
+-(void)showLoadingPage:(NSNotification*)notification{	
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
+	[spinnerElement setInnerHTML:@"<div class='spinner'><img class='status_spinner_image' src='spinner.gif'/></div>"];
 }
 
 -(void)showTip:(NSNotification*)notification{
@@ -630,6 +537,28 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	
 }
 
+-(void)initPage{
+	NSString *mainPageString=[templateEngine renderTemplateFileAtPath:mainPagePath withContext:nil];
+	[[webView mainFrame] loadHTMLString:mainPageString baseURL:baseURL];
+}
 
+//Set InnerHTML For Element
+-(void)setInnerHTML:(NSString*)innerHTML forElement:(NSString*)elementId{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *element=(DOMHTMLElement *)[dom getElementById:elementId];
+	[element setInnerHTML:innerHTML];
+}
+
+-(void)addNewInnerHTML:(NSString *)newInnerHTML ForElement:(NSString*)elementId{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *element=(DOMHTMLElement *)[dom getElementById:elementId];
+	[element setInnerHTML:[NSString stringWithFormat:@"%@%@",newInnerHTML,[element innerHTML]]];
+}
+
+-(void)addOldInnerHTML:(NSString *)oldInnerHTML ForElement:(NSString*)elementId{
+	DOMDocument *dom=[[webView mainFrame] DOMDocument];
+	DOMHTMLElement *element=(DOMHTMLElement *)[dom getElementById:elementId];
+	[element setInnerHTML:[NSString stringWithFormat:@"%@%@",[element innerHTML],oldInnerHTML]];
+}
 @end
 

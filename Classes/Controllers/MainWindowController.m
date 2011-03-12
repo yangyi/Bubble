@@ -46,8 +46,9 @@
 	//[scrollView setVerticalScroller:[[MyScroller alloc] init]];
 	//[scrollView setHasVerticalScroller:YES];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
+	[htmlController initPage];
 	//[htmlController loadRecentTimeline];
-	[[AccountController instance] verifyCurrentAccount];
+	//[[AccountController instance] verifyCurrentAccount];
 	[self updateTimelineSegmentedControl];
 	[self reloadUsersMenu];
 }
