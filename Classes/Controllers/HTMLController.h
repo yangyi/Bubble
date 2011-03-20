@@ -60,11 +60,11 @@
 -(void)saveScrollPosition;
 -(void)resumeScrollPosition;
 
--(void)showTipMessage:(NSString*)message;
--(void)hideTipMessage;
+-(void)showMessageBar:(NSString*)message;
+-(void)hideMessageBar;
 
 
--(void)initPage;
+-(void)loadMainPage;
 -(void)setInnerHTML:(NSString*)innerHTML forElement:(NSString*)elementId;
 -(void)addNewInnerHTML:(NSString *)newInnerHTML ForElement:(NSString*)elementId;
 -(void)addOldInnerHTML:(NSString *)oldInnerHTML ForElement:(NSString*)elementId;

@@ -336,6 +336,7 @@
 		[self resumeScrollPosition];
 		[webView setNeedsDisplay:YES];
 		[[AccountController instance] verifyCurrentAccount];
+		[self showMessageBar:@"正在登陆..."];
     }
 
 }
@@ -520,24 +521,25 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 }
 
 -(void)showTip:(NSNotification*)notification{
-	[self showTipMessage:[notification object]];
+	[self showMessageBar:[notification object]];
 }
 
--(void)showTipMessage:(NSString*)message{
+-(void)showMessageBar:(NSString*)message{
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"status_bar"];
+	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"message_bar"];
 	[tipElement setInnerHTML:message];
 	[tipElement setAttribute:@"style" value:@"visibility:visible"];
 
 }
--(void)hideTipMessage{
+-(void)hideMessageBar{
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"status_bar"];
+	DOMHTMLElement *tipElement=(DOMHTMLElement *)[dom getElementById:@"message_bar"];
+	[tipElement setInnerHTML:@""];
 	[tipElement setAttribute:@"style" value:@"visibility:hidden"];
 	
 }
 
--(void)initPage{
+-(void)loadMainPage{
 	NSString *mainPageString=[templateEngine renderTemplateFileAtPath:mainPagePath withContext:nil];
 	[[webView mainFrame] loadHTMLString:mainPageString baseURL:baseURL];
 }

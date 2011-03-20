@@ -209,7 +209,7 @@ background: url(end-of-stream.png) center no-repeat;
 
 
 
-.status_bar {
+.message-bar {
 	position: fixed;
 	left: -7px;
 	bottom: -7px;

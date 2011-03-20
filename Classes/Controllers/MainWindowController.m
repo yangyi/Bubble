@@ -42,13 +42,8 @@
 
 -(void) awakeFromNib{
 	[webView setUIDelegate:self];
-    //NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	//[scrollView setVerticalScroller:[[MyScroller alloc] init]];
-	//[scrollView setHasVerticalScroller:YES];
 	htmlController = [[HTMLController alloc] initWithWebView:webView];
-	[htmlController initPage];
-	//[htmlController loadRecentTimeline];
-	//[[AccountController instance] verifyCurrentAccount];
+	[htmlController loadMainPage];
 	[self updateTimelineSegmentedControl];
 	[self reloadUsersMenu];
 }
