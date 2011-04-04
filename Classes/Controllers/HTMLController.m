@@ -150,14 +150,17 @@
 
 -(void)webviewContentBoundsDidChange:(NSNotification *)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
-	if ([[scrollView contentView] bounds].origin.y==0) {
-		if ([PathController instance].currentTimeline.operation==None) {
+	int y=[[scrollView contentView] bounds].origin.y;
+	//int height=[[scrollView contentView] bounds].size.height;
+	if (y==0) {
+		//if ([PathController instance].currentTimeline.operation==None) {
 			//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
 			[PathController instance].currentTimeline.unread=NO;
 			[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
-		}
+		//}
 
 	}
+
 }
 //当页面点击加载更多的时候接受到这个通知，进行加载历史信息
 -(void)startLoadOlderTimeline:(NSNotification*)notification{
@@ -170,18 +173,12 @@
 }
 
 -(void)loadRecentTimeline{
-//	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
-//	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-//								baseURL:baseURL];
 	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 
 	[[PathController instance].currentTimeline loadRecentTimeline];
 }
 
 -(void)loadTimelineWithPage{
-	NSDictionary *data=[NSDictionary dictionaryWithObject:spinner forKey:@"spinner"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-								baseURL:baseURL];
 	[[PathController instance].currentTimeline loadTimelineWithPage:@"1"];
 }
 
@@ -263,16 +260,16 @@
 		[data setObject:[PathController instance].currentTimeline.data forKey:@"messages"];
 		NSString *messagesString=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
 		[data setObject:messagesString forKey:@"messages_html"];
-		[data setObject:loadMore forKey:@"load_more"];
 		NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
-		[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
-		
+		[self setInnerHTML:messagePage forElement:@"content"];
+		[self setInnerHTML:loadMore forElement:@"spinner"];
 	}else{
 		NSString *statusString=[templateEngine renderTemplateFileAtPath:statusesTemplatePath 
 															withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]];
 		[self setInnerHTML:statusString forElement:@"content"];
 		[self setInnerHTML:loadMore forElement:@"spinner"];
 	}
+	[self hideMessageBar];
 }
 
 -(void)selectMentions{
@@ -336,7 +333,7 @@
 		[self resumeScrollPosition];
 		[webView setNeedsDisplay:YES];
 		[[AccountController instance] verifyCurrentAccount];
-		[self showMessageBar:@"正在登陆..."];
+		[self showMessageBar:@"Login..."];
     }
 
 }
@@ -413,6 +410,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[notification object] forKey:@"user"];
 	NSString *userString = [templateEngine renderTemplateFileAtPath:userTemplatePath withContext:data];
 	[self setInnerHTML:userString forElement:@"content"];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 
 
@@ -426,8 +424,9 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[result objectForKey:@"next_cursor"] forKey:@"next_cursor"];
 	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
 
-	NSString *friendsString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
-	[self setInnerHTML:friendsString forElement:@"content"];
+	NSString *friendsString=[templateEngine renderTemplateFileAtPath:useritemTemplatePath withContext:data];
+	[self setInnerHTML:friendsString forElement:@"user_content"];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 
 -(void)didGetFollowers:(NSNotification*)notification{
@@ -439,8 +438,9 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[result objectForKey:@"next_cursor"] forKey:@"next_cursor"];
 	[data setObject:[result objectForKey:@"previous_cursor"] forKey:@"previous_cursor"];
 	
-	NSString *followersString=[templateEngine renderTemplateFileAtPath:userlistTemplatePath withContext:data];
-	[self setInnerHTML:followersString forElement:@"content"];
+	NSString *followersString=[templateEngine renderTemplateFileAtPath:useritemTemplatePath withContext:data];
+	[self setInnerHTML:followersString forElement:@"user_content"];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 -(void)setWaitingForComments:(NSNotification*)notification{
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
@@ -477,11 +477,8 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:[NSString stringWithFormat:@"%d",page-1] forKey:@"previous_page"];
 	[data setObject:[notification object] forKey:@"messages"];
 	NSString *messageSentString=[templateEngine renderTemplateFileAtPath:messageSentTemplatePath withContext:data];
-	[[webView mainFrame] loadHTMLString:messageSentString 
-								baseURL:baseURL];
-	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
-	[spinnerElement setInnerHTML:@""];
+	[self setInnerHTML:messageSentString forElement:@"content"];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 -(void)didShowStatus:(NSNotification*)notification{
 	NSDictionary *status=[notification object];
@@ -490,8 +487,6 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	[data setObject:spinner forKey:@"spinner"];
 	NSString *detailString=[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data];
 	[self setInnerHTML:detailString forElement:@"content"];
-//	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusDetailTemplatePath withContext:data] 
-//								baseURL:baseURL];	 
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"weibo://get_comments?id=%@&page=",[status objectForKey:@"id"],@"1"]]];
 
 }
@@ -502,26 +497,32 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 	NSString *messagesString=[templateEngine renderTemplateFileAtPath:messageTemplatePath withContext:data];
 	[data setObject:messagesString forKey:@"messages_html"];
 	NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
-	[[webView mainFrame] loadHTMLString:messagePage baseURL:baseURL];
+	[self setInnerHTML:messagePage forElement:@"content"];
 }
 
 -(void)didGetUserTimeline:(NSNotification*)notification{
-	NSMutableDictionary *data=[NSMutableDictionary dictionaryWithCapacity:0];
-	[data setObject:[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[notification object] forKey:@"statuses"]] 
-			 forKey:@"statuses"];
-	[data setObject:loadMore forKey:@"load_more"];
-	[[webView mainFrame] loadHTMLString:[templateEngine renderTemplateFileAtPath:statusesPageTemplatePath withContext:data] 
-								baseURL:baseURL];
+	NSString *userStatuses=[templateEngine renderTemplateFileAtPath:statusesTemplatePath withContext:[NSDictionary dictionaryWithObject:[notification object] forKey:@"statuses"]];
+	[self setInnerHTML:userStatuses forElement:@"user_content"];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 
 -(void)showLoadingPage:(NSNotification*)notification{	
+	[self setInnerHTML:@"" forElement:@"user_content"];
 	DOMDocument *dom=[[webView mainFrame] DOMDocument];
 	DOMHTMLElement *spinnerElement=(DOMHTMLElement *)[dom getElementById:@"spinner"];
 	[spinnerElement setInnerHTML:@"<div class='spinner'><img class='status_spinner_image' src='spinner.gif'/></div>"];
+
 }
 
 -(void)showTip:(NSNotification*)notification{
-	[self showMessageBar:[notification object]];
+	NSString *tipString=[notification object];
+	if ([tipString isNotEqualTo:@""]) {
+		[self showMessageBar:[notification object]];
+	}else {
+		[self hideMessageBar];
+	}
+
+	
 }
 
 -(void)showMessageBar:(NSString*)message{

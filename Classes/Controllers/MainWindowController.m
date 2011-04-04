@@ -157,7 +157,6 @@
 		case 3:
 			[htmlController selectDirectMessage];
 			break;
-
 		case 4:
 			[htmlController selectFavorites];
 			break;

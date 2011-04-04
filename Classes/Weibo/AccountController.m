@@ -310,6 +310,7 @@ static AccountController *instance;
 	NSString *value=[data valueForKey:@"value"];
 	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
 	[params setObject:value forKey:fetchWith];
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 	[weiboConnector getUserWithParameters:params
 						completionTarget:self
 						completionAction:@selector(didGetUser:)];
@@ -322,6 +323,8 @@ static AccountController *instance;
 
 -(void)getFriends:(NSNotification*)notification{
 	NSMutableDictionary* params =[[[notification object] mutableCopy] autorelease];
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowLoadingPageNotification object:nil];
 	[weiboConnector getFriendsWithParameters:params
 						completionTarget:self
 						completionAction:@selector(didGetFriends:)];

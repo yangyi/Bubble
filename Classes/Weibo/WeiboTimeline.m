@@ -49,6 +49,9 @@
 
 #pragma mark 最近信息请求的发起和处理
 -(void) loadRecentTimeline{
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:ShowTipMessageNotification
+														object:@"Loading Recent"];
 	//when app started,execute this first
 	NSMutableDictionary* params =[[[NSMutableDictionary alloc] initWithCapacity:0] autorelease];
 	//不同类型的timeline不同的方法调用

@@ -1,10 +1,5 @@
-<head>
-<link rel="stylesheet" href="./user.css" type="text/css"/>
-</head>
-
-<body>
-
-<div class="component"><div class="profile-pane">
+<div class="component user_tab">
+<div class="profile-pane">
   <div class="profile-basics clearfix">
     <div class="profile-text">
         <a href="user online link">
@@ -34,27 +29,9 @@
     <li><a class="user-stats-count" href="weibo://followers?screen_name={{user.screen_name}}&cursor=-1">{{user.followers_count}}<span class="user-stats-stat">Followers</span></a></li>
   </ul>
   </div>
-</div><div class="component">
-<div class="profile-actions clearfix">
-      <div class="buttons">
-          <div class="button direct-message-action" onclick="javascript:window.open('weibo://send_message?screen_name={{user.screen_name}}','_blank')">Message</div>                 
-          <div class="button profile-actions-button" data-user-id="7653792">
-            <span class="gear"></span> <span class="down-arrow"></span>
-          </div>
-      </div>
-      <div class="follow-state">
-                            <a href="#" class="button profile-unfollow-link" data-user-id="7653792">
-            <span class="you-follow"></span>
-            <em class="wrapper">
-              <b>Following</b>
-              <b class="unfollow">Unfollow</b>
-            </em>
-          </a>
-	  </div>
-      <span class="icon device-notifications " ></span>
-      <span class="icon retweet-setting including" ></span>
-  </div>
+</div>
   
   </div><hr class="component-spacer"></div>
-  
-  </body>
+  <div class="user-header"></div>
+  <div id="user_content">
+  </div>

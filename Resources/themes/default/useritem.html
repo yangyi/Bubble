@@ -1,6 +1,6 @@
 {% for user in users %}
 <div class="stream-item">
-<div class="stream-item-content status">
+<div class="stream-item-content user">
   
   <div class="avatar">
       <a href="weibo://user?fetch_with=user_id&value={{user.id}}">
@@ -48,3 +48,4 @@
 	<div class="button" onclick="javascript:window.open('weibo://friends?screen_name={{screen_name}}&cursor={{next_cursor}}','_blank')">Next</div>
 	</div>
 	</div>
+	
