@@ -37,7 +37,6 @@
 	
 	NSURL *baseURL;
 	NSString *spinner;
-	NSString *loadMore;
 }
 -(id) initWithWebView:(WebView*) webView;
 -(void)dealloc;

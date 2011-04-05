@@ -15,7 +15,6 @@
 -(id) initWithWebView:(WebView*) webview{
 	if(self=[super init]){
 		spinner=@"<img class='status_spinner_image' src='spinner.gif'> Loading...</div>";
-		loadMore=@"<a href='weibo://load_older_home_timeline' target='_blank'>Load More</a>";
 		//data received notification
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc addObserver:self selector:@selector(showLoadingPage:) 
@@ -151,7 +150,7 @@
 -(void)webviewContentBoundsDidChange:(NSNotification *)notification{
 	NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	int y=[[scrollView contentView] bounds].origin.y;
-	//int height=[[scrollView contentView] bounds].size.height;
+	int height=[[scrollView contentView] bounds].size.height;
 	if (y==0) {
 		//if ([PathController instance].currentTimeline.operation==None) {
 			//这个地方是有问题的，当从另外一个tab切回来的时候，也会触发这里
@@ -159,7 +158,12 @@
 			[[NSNotificationCenter defaultCenter] postNotificationName:UpdateTimelineSegmentedControlNotification object:nil];
 		//}
 
+	}else if (y+height==[[scrollView documentView] bounds].size.height) {
+		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"weibo://load_older_timeline"]];
 	}
+	//NSLog(@"%d",[scrollView bounds].size.height);
+	//NSLog(@"%d",y);
+	//NSLog(@"%d",height);
 
 }
 //当页面点击加载更多的时候接受到这个通知，进行加载历史信息
@@ -262,12 +266,12 @@
 		[data setObject:messagesString forKey:@"messages_html"];
 		NSString *messagePage = [templateEngine renderTemplateFileAtPath:messagePageTemplatePath withContext:data];
 		[self setInnerHTML:messagePage forElement:@"content"];
-		[self setInnerHTML:loadMore forElement:@"spinner"];
+		[self setInnerHTML:@"" forElement:@"spinner"];
 	}else{
 		NSString *statusString=[templateEngine renderTemplateFileAtPath:statusesTemplatePath 
 															withContext:[NSDictionary dictionaryWithObject:[PathController instance].currentTimeline.data forKey:@"statuses"]];
 		[self setInnerHTML:statusString forElement:@"content"];
-		[self setInnerHTML:loadMore forElement:@"spinner"];
+		[self setInnerHTML:@"" forElement:@"spinner"];
 	}
 	[self hideMessageBar];
 }
@@ -367,11 +371,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener{
 
 		[self addOldInnerHTML:olderStatuses ForElement:eleName];
 	}
-	
-	
-	DOMDocument *dom=[[webView mainFrame] DOMDocument];
-	DOMHTMLElement *spinnerEle=(DOMHTMLElement *)[dom getElementById:@"spinner"];
-	[spinnerEle setInnerHTML:loadMore];
+	[self setInnerHTML:@"" forElement:@"spinner"];
 }
 
 -(void)didLoadNewerTimeline:(NSNotification*)notification{

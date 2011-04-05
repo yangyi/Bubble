@@ -25,7 +25,7 @@
 	NSString *add=[[url queryArgumentForKey:@"add"]
 				   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	if ([schema isEqualToString:@"weibo"]) {		
-		if ([host isEqualToString:@"load_older_home_timeline"]) {
+		if ([host isEqualToString:@"load_older_timeline"]) {
 			[[NSNotificationCenter defaultCenter] postNotificationName:StartLoadOlderTimelineNotification object:nil];
 		}
 		if ([host isEqualToString:@"home_timeline_status_click"]) {
